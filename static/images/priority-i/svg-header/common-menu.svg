@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <clipPath id="clip-common-menu">
+      <rect width="400" height="400"/>
+    </clipPath>
+  </defs>
+  <g id="common-menu" clip-path="url(#clip-common-menu)">
+    <g id="グループ_56854" data-name="グループ 56854" transform="translate(11 7)">
+      <circle id="楕円形_469" data-name="楕円形 469" cx="30" cy="30" r="30" transform="translate(53 56)"/>
+      <circle id="楕円形_469-2" data-name="楕円形 469" cx="30" cy="30" r="30" transform="translate(159 56)"/>
+      <circle id="楕円形_469-3" data-name="楕円形 469" cx="30" cy="30" r="30" transform="translate(265 56)"/>
+      <circle id="楕円形_469-4" data-name="楕円形 469" cx="30" cy="30" r="30" transform="translate(53 163)"/>
+      <circle id="楕円形_469-5" data-name="楕円形 469" cx="30" cy="30" r="30" transform="translate(159 163)"/>
+      <circle id="楕円形_469-6" data-name="楕円形 469" cx="30" cy="30" r="30" transform="translate(265 163)"/>
+      <circle id="楕円形_469-7" data-name="楕円形 469" cx="30" cy="30" r="30" transform="translate(53 270)"/>
+      <circle id="楕円形_469-8" data-name="楕円形 469" cx="30" cy="30" r="30" transform="translate(159 270)"/>
+      <circle id="楕円形_469-9" data-name="楕円形 469" cx="30" cy="30" r="30" transform="translate(265 270)"/>
+    </g>
+  </g>
+</svg>

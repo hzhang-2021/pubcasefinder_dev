@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Multiple Inputs Example</title>
+</head>
+<body>
+    <h1>Submission addition test</h1>
+    <form method="POST" action="/casesharing/submissions">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="user_id">User ID</label>
+        <input type="number" id="user_id" name="user_id"><br><br>
+        
+        <label for="submitter_email">Submitter email</label>
+        <input type="text" id="submitter_email" name="submitter_email"><br><br>
+        
+        <label for="submitter_first_name">Submitter first name</label>
+        <input type="text" id="submitter_first_name" name="submitter_first_name"><br><br>
+        
+        <label for="submitter_last_name">Submitter last name</label>
+        <input type="text" id="submitter_last_name" name="submitter_last_name"><br><br>
+        
+        <label for="submitter_institution">Submitter instruction</label>
+        <input type="text" id="submitter_institution" name="submitter_institution"><br><br>
+        
+        <label for="suspected_diseases">Suspected diseases</label>
+        <input type="text" id="suspected_diseases" name="suspected_diseases"><br><br>
+
+        <label for="clinical_diagnoses">Clinical Diagnoses</label>
+        <input type="text" id="clinical_diagnoses" name="clinical_diagnoses"><br><br>
+
+        <label for="final_diagnoses">Final Diagnoses</label>
+        <input type="text" id="final_diagnoses" name="final_diagnoses"><br><br>
+
+        <label for="phenotypes">Phenotypes</label>
+        <input type="text" id="phenotypes" name="phenotypes"><br><br>
+
+        <label for="gene_symbols">Gene Symbols</label>
+        <input type="text" id="gene_symbols" name="gene_symbols"><br><br>
+
+        <label for="ensembl_ids">Ensembl IDs</label>
+        <input type="text" id="ensembl_ids" name="ensembl_ids"><br><br>
+
+        <label for="entrez_ids">Entrez IDs</label>
+        <input type="text" id="entrez_ids" name="entrez_ids"><br><br>
+
+        <label for="matching_rule_medical_info">Matching Rule Medical Info</label>
+        <input type="text" id="matching_rule_medical_info" name="matching_rule_medical_info"><br><br>
+
+        <label for="matching_rule_genotype_info">Matching Rule Genotype Info</label>
+        <input type="text" id="matching_rule_genotype_info" name="matching_rule_genotype_info"><br><br>
+
+        <label for="restrict_matches_to_researchers">Restrict Matches to Researchers</label>
+        <input type="checkbox" id="restrict_matches_to_researchers" name="restrict_matches_to_researchers" value="true"><br><br>
+
+        <label for="restrict_matches_to_providers">Restrict Matches to Providers</label>
+        <input type="checkbox" id="restrict_matches_to_providers" name="restrict_matches_to_providers" value="true"><br><br>
+
+        <label for="comment">Comment</label>
+        <input type="text" id="comment" name="comment"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

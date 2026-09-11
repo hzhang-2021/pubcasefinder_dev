@@ -1,0 +1,270 @@
+{% extends "common_admin_layout.html" %}
+
+
+{% block css_block %}
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+<link rel="stylesheet" href="/static/css/common_admin/admin_user.css">
+{% endblock %}
+
+{% block page_content %}
+<div class="wrapper title">
+  <svg width="26" height="36" viewBox="0 0 26 36" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2501_5808)"><path d="M24.9155 3.24778C24.2216 2.51588 23.3108 2.10419 22.335 2.10419H20.687V1.76112C20.687 0.800508 19.9497 0 19.0172 0H7.0039C6.09314 0 5.33417 0.777637 5.33417 1.76112V2.10419H3.66445C1.66945 2.10419 0.0214127 3.84244 0.0214127 5.9695V32.1118C-0.000271995 33.141 0.368369 34.1245 1.06228 34.8564C1.75619 35.5883 2.66695 36 3.64276 36H22.2916C24.3083 36 25.9564 34.2618 25.9564 32.1347V5.9695C25.978 4.94028 25.6094 3.9568 24.9155 3.2249V3.24778ZM7.35085 2.10419H18.6703V4.20839H7.35085V2.10419ZM23.9614 32.1347C23.9614 33.0953 23.2241 33.8958 22.2916 33.8958H3.66445C3.20907 33.8958 2.79706 33.7128 2.49347 33.3698C2.18989 33.0267 2.01641 32.5921 2.01641 32.1347V5.9695C2.03809 5.00889 2.79706 4.20839 3.70782 4.20839H5.37754V4.55146C5.37754 5.51207 6.11482 6.31258 7.04727 6.31258H19.0389C19.9497 6.31258 20.7087 5.53494 20.7087 4.55146V4.20839H22.3567C22.8121 4.20839 23.2241 4.39136 23.5277 4.73443C23.8313 5.07751 24.0047 5.51207 24.0047 5.9695V32.1118L23.9614 32.1347Z" fill="#003537"/><path d="M13.3364 14.0661H20.449C20.9911 14.0661 21.4465 13.5858 21.4465 13.014C21.4465 12.4422 20.9911 11.9619 20.449 11.9619H13.3364C12.7942 11.9619 12.3389 12.4422 12.3389 13.014C12.3389 13.5858 12.7942 14.0661 13.3364 14.0661Z" fill="#003537"/><path d="M13.3364 21.0877H20.449C20.9911 21.0877 21.4465 20.6074 21.4465 20.0356C21.4465 19.4638 20.9911 18.9835 20.449 18.9835H13.3364C12.7942 18.9835 12.3389 19.4638 12.3389 20.0356C12.3389 20.6074 12.7942 21.0877 13.3364 21.0877Z" fill="#003537"/><path d="M20.4706 26.0051H13.3364C12.7942 26.0051 12.3389 26.4854 12.3389 27.0572C12.3389 27.629 12.7942 28.1093 13.3364 28.1093H20.4706C21.0128 28.1093 21.4681 27.629 21.4681 27.0572C21.4681 26.4854 21.0128 26.0051 20.4706 26.0051Z" fill="#003537"/><path d="M9.08592 10.1321L6.78734 12.5565L6.24522 11.9847C5.8549 11.573 5.22604 11.573 4.83571 11.9847C4.44539 12.3964 4.44539 13.0597 4.83571 13.4714L6.09343 14.798C6.28859 15.0038 6.52712 15.1182 6.80902 15.1182C7.09093 15.1182 7.32946 15.0038 7.52462 14.798L10.5388 11.6188C10.9291 11.2071 10.9291 10.5438 10.5388 10.1321C10.1485 9.72044 9.51962 9.72044 9.12929 10.1321H9.08592Z" fill="#003537"/><path d="M9.08592 17.7027L6.78734 20.1271L6.24522 19.5553C5.8549 19.1436 5.22604 19.1436 4.83571 19.5553C4.44539 19.967 4.44539 20.6303 4.83571 21.042L6.09343 22.3685C6.28859 22.5744 6.52712 22.6887 6.80902 22.6887C7.09093 22.6887 7.32946 22.5744 7.52462 22.3685L10.5388 19.1893C10.9291 18.7777 10.9291 18.1144 10.5388 17.7027C10.1485 17.291 9.51962 17.291 9.12929 17.7027H9.08592Z" fill="#003537"/><path d="M9.08592 24.7243L6.78734 27.1487L6.24522 26.5769C5.8549 26.1652 5.22604 26.1652 4.83571 26.5769C4.44539 26.9886 4.44539 27.6519 4.83571 28.0636L6.09343 29.3901C6.28859 29.596 6.52712 29.7103 6.80902 29.7103C7.09093 29.7103 7.32946 29.596 7.52462 29.3901L10.5388 26.211C10.9291 25.7993 10.9291 25.136 10.5388 24.7243C10.1485 24.3126 9.51962 24.3126 9.12929 24.7243H9.08592Z" fill="#003537"/></g><defs><clipPath id="clip0_2501_5808"><rect width="26" height="36" fill="white"/></clipPath></defs></svg>
+  <span>ユーザー管理</span>
+</div>
+<div class="wrapper filter">
+
+  <div class="sub letter">
+    <input id="filter_letter" type="text" autocomplete="off" autocapitalize="off" placeholder="名前 / メールアドレス"
+           data-target-class="name,email" data-isSetHighlight="1" />
+  </div>
+
+  <div class="sub dropdown filter">
+    <button id="btn_filter_status" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+      <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.12282 7.49898V14.0648C8.15532 14.3147 8.07408 14.5814 7.88723 14.7563C7.81207 14.8336 7.7228 14.8949 7.62452 14.9367C7.52625 14.9785 7.42089 15 7.3145 15C7.2081 15 7.10275 14.9785 7.00447 14.9367C6.90619 14.8949 6.81692 14.8336 6.74176 14.7563L5.10886 13.0816C5.02031 12.9927 4.95298 12.884 4.91211 12.7641C4.87124 12.6441 4.85795 12.5161 4.87327 12.39V7.49898H4.8489L0.169548 1.34982C0.037623 1.17612 -0.0219042 0.955919 0.00397369 0.737342C0.0298516 0.518764 0.139031 0.319579 0.307654 0.183308C0.462008 0.0666576 0.632609 0 0.811334 0H12.1848C12.3635 0 12.5341 0.0666576 12.6884 0.183308C12.8571 0.319579 12.9662 0.518764 12.9921 0.737342C13.018 0.955919 12.9585 1.17612 12.8265 1.34982L8.14719 7.49898H8.12282Z" fill="#37405B"></path>
+      </svg>
+      ステータス
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btn_filter_status">
+      <div class="dropdown-item-checkbox">
+        <div class="form-check">
+          <input class="form-check-input row-checkbox filter-status" type="checkbox" value="55,60" id="filter_status_opt1">
+          <label class="form-check-label" for="filter_status_opt1">承認</label>
+        </div>
+      </div>
+
+      <div class="dropdown-item-checkbox">
+        <div class="form-check">
+          <input class="form-check-input row-checkbox filter-status" type="checkbox" value="40,45,50" id="filter_status_opt2">
+          <label class="form-check-label" for="filter_status_opt2">申請</label>
+        </div>
+      </div>
+
+      <div class="dropdown-item-checkbox">
+        <div class="form-check">
+          <input class="form-check-input row-checkbox filter-status" type="checkbox" value="35" id="filter_status_opt3">
+          <label class="form-check-label" for="filter_status_opt3">無効</label>
+        </div>
+      </div>
+
+      <div class="dropdown-item-checkbox">
+        <div class="form-check">
+          <input class="form-check-input row-checkbox filter-status" type="checkbox" value="12,14" id="filter_status_opt4">
+          <label class="form-check-label" for="filter_status_opt4">停止</label>
+        </div>
+      </div>
+
+      <div class="dropdown-item-checkbox">
+        <div class="form-check">
+          <input class="form-check-input row-checkbox filter-status" type="checkbox" value="15,20" id="filter_status_opt5">
+          <label class="form-check-label" for="filter_status_opt5">拒否</label>
+        </div>
+      </div>
+
+      <div class="dropdown-item-checkbox">
+        <div class="form-check">
+          <input class="form-check-input row-checkbox filter-status" type="checkbox" value="25,30" id="filter_status_opt6">
+          <label class="form-check-label" for="filter_status_opt6">退会</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="wrapper pagination-panel-wrapper">
+
+  <div class="title d-flex justify-content-between mt-2 mb-1">
+    <div class="left"><span id="total_num">0</span>ユーザー</div>
+    <div class="right">Per page
+      <div class="dropdown vgp-size-wrapper">
+        <button id="btn-vgp-size" class="btn btn-vgp-size dropdown-toggle" type="button" data-num_per_page="30" data-toggle="dropdown" aria-expanded="false">30</button>
+        <div class="dropdown-menu" id="dropdown-menu-size">
+          <button class="dropdown-item" type="button" data-num_per_page="10">10</button>
+          <button class="dropdown-item selected" type="button" data-num_per_page="30">30</button>
+          <button class="dropdown-item" type="button" data-num_per_page="50">50</button>
+          <button class="dropdown-item" type="button" data-num_per_page="100">100</button>
+          <button class="dropdown-item" type="button" data-num_per_page="200">200</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table id="user-table" class="user-table">
+      <colgroup>
+        <col>
+        <col>
+        <col>
+		<col>
+        <col>
+        <col>
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="sel">
+            <label class="custom-checkbox">
+              <input type="checkbox" class="check-all"><span></span>
+            </label>
+          </th>
+          <th><span data-target-class="name"        class="vgp-sorter">氏名</span></th>
+          <th><span data-target-class="affiliation_en" class="vgp-sorter">所属機関・部署</span></th>
+		 <th><span data-target-class="user-type" class="vgp-sorter">タイプ</span></th>
+          <th><span data-target-class="user-status" class="vgp-sorter">ステータス</span></th>
+          <th><span data-target-class="date"        class="vgp-sorter vgp-dsc">登録日</span></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="user_table_tbody">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex  justify-content-between" id="table-pagination-wrapper">
+    <div id="table-pagination"></div>
+    <div id="table-pagination-desc"></div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block page_content2 %}
+<div class="wrapper title d-flex justify-content-between">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="36px" height="36px" viewBox="0 -960 960 960" fill="#003537">
+      <path d="M720-200 550-370q-35 28-78 44t-92 16q-130 0-221-91t-91-221q0-130 91-221t221-91q130 0 221 91t91 221q0 49-16 92t-44 78l170 170-42 42ZM380-400q95 0 162.5-67.5T610-630q0-95-67.5-162.5T380-860q-95 0-162.5 67.5T150-630q0 95 67.5 162.5T380-400Z"/>
+    </svg>
+    <span>詳細編集</span>
+  </div>
+
+  <div id="btn_back_to_list" title="Back to user list">
+<svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#003537"><path d="m456-320 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 160q-19 0-36-8.5T296-192L80-480l216-288q11-15 28-23.5t36-8.5h440q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H360ZM180-480l180 240h440v-480H360L180-480Zm400 0Z"/></svg>
+  </div>
+</div>
+
+<div class="wrapper user-detail">
+  <div class="vgp-user-input-wrapper" id="vgp-user-input-table-wrapper">
+    <table class="vgp-user-input-table panelsearch_nanbyo">
+      <tbody>
+        <tr><th>Account</th><td id="detail_google_id"></td></tr>
+        <tr><th>First name (English)</th><td id="detail_first_name_en"></td></tr>
+        <tr><th>First name (native language)</th><td id="detail_first_name_nl"></td></tr>
+        <tr><th>Last name (English)</th><td id="detail_last_name_en"></td></tr>
+        <tr><th>Last name (native language)</th><td id="detail_last_name_nl"></td></tr>
+        <tr><th>Affiliation (English)</th><td id="detail_affiliation_en"></td></tr>
+        <tr><th>Affiliation (native language)</th><td id="detail_affiliation_nl"></td></tr>
+        <tr><th>Email</th><td id="detail_email"></td></tr>
+        <tr><th>Job title (English)</th><td id="detail_job_title_en"></td></tr>
+        <tr><th>Job title (native language)</th><td id="detail_job_title_nl"></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="vgp-user-input-wrapper" id="vgp-user-input-input-wrapper" style="display: none;">
+    <form action="/common_admin_modify_user" method="post" autocomplete="off" id="vgp-user-form">
+      <input type="hidden" name="service" id="i_service" value="common_admin">
+      <fieldset class="vgp-user-input-form">
+        <div class="form-group vgp-user-input" style="margin-top: 15px;">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_google_id">Google Account</label>
+          <input type="text" name="google_id" id="i_google_id" autocomplete="off"  
+               class="form-control vgp-user-input-readonly" title="required" readonly="readonly">
+        </div>
+
+        <input type="hidden" name="user_type" id="i_user_type" value="">
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_last_name_en">*Last name (English)</label>
+          <input type="text" name="last_name_en" id="i_last_name_en" autocomplete="off" maxlength="40" class="form-control vgp-user-input-input" placeholder="Last name (English)" title="required" required>
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_last_name_nl">Last name (native language)</label>
+          <input type="text" name="last_name_nl" id="i_last_name_nl" autocomplete="off" maxlength="40" class="form-control vgp-user-input-input" placeholder="Last name (native language)">
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_first_name_en">*First name (English)</label>
+          <input type="text" name="first_name_en" id="i_first_name_en" autocomplete="off" maxlength="40" class="form-control vgp-user-input-input" placeholder="First name (English)" title="required" required>
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_first_name_nl">First name (native language)</label>
+          <input type="text" name="first_name_nl" id="i_first_name_nl" autocomplete="off" value="" maxlength="40" class="form-control vgp-user-input-input" placeholder="First name (native language)">
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_affiliation_en">*Affiliation (English)</label>
+          <input type="text" name="affiliation_en" id="i_affiliation_en" autocomplete="off" maxlength="256" class="form-control vgp-user-input-input" placeholder="Affiliation (English)" title="required" required>
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_affiliation_nl">Affiliation (native language)</label>
+          <input type="text" name="affiliation_nl" id="i_affiliation_nl" autocomplete="off" maxlength="256" class="form-control vgp-user-input-input" placeholder="Affiliation (native language)">
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_email">*Email</label>
+          <input type="text" name="email" id="i_email" autocomplete="off" maxlength="50" class="form-control vgp-user-input" placeholder="Affiliation email" required>
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_job_title_en">*Job title (English)</label>
+          <input type="text" name="job_title_en" id="i_job_title_en" autocomplete="off" maxlength="256" class="form-control vgp-user-input-input" placeholder="Job title (English)" title="required" required>
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_job_title_nl">Job title (native language)</label>
+          <input type="text" name="job_title_nl" id="i_job_title_nl" autocomplete="off" maxlength="256" class="form-control vgp-user-input-input" placeholder="Job title (native language)">
+        </div>
+      </fieldset>
+    </form>
+    <div id="user_type_wrapper">
+      <div class="left">
+        <div><b>管理者権限</b></div>
+        <div>管理者権限を付与すると、すべての機能にアクセスできます。</div>
+        <div class="paler">OFF：権限なし ／ ON：権限あり</div>
+      </div>
+      <div class="right">
+        <div id="user_type_switch_wrapper">
+          <span id="without_admin">権限なし</span>
+          <label class="user_type_switch">
+            <input type="checkbox" id="user_type_toggle" />
+            <span class="user_type_slider"></span>
+          </label>
+          <span id="with_admin">権限あり</span>
+        </div>
+      </div>
+    </div>
+    <div id="user_type_status_wrapper">
+      現在の状態：<span id="user_type_status">一般ユーザー（権限なし）</span>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between">
+    <div>
+      <button type="button" class="vgp-user-btn vgp-user-btn1 panelsearch_nanbyo" id="vgp-user-btn-edit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+          <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
+        </svg>  編集
+      </button>
+      <button type="button" class="vgp-user-btn vgp-user-btn1 panelsearch_nanbyo" id="vgp-user-btn-save" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+          <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
+        </svg> Save
+      </button>
+      <button type="button" class="vgp-user-btn vgp-user-btn2" id="vgp-user-btn-cancel" style="display: none;">Cancel</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js_block %}
+<script type="text/javascript" src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+<script type="text/javascript" src="/static/js/common_admin/admin_user.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+$(document).ready(function(){
+  _init_data();
+});
+</SCRIPT>
+{% endblock %}

@@ -1,0 +1,5 @@
+mysql -u pubcase -ppubcase0712 pubcases < OntoTermMONDO_all_descendant.sql 
+mysql -u pubcase -ppubcase0712 pubcases < OntoTermMONDO_all_upstream_trace.sql
+
+./get_all_trace-2024.pl
+

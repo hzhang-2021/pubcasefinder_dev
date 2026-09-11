@@ -1,0 +1,259 @@
+{% extends "panelsearch_base.html" %}
+{% block css_block %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+<link rel="stylesheet" href="/static/css/panelsearch/vgp-panel-detail.css">
+<link rel="stylesheet" href="/static/css/panelsearch/tippy.css" type="text/css">
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale-extreme.css" />
+{% endblock %}
+{% block title_block %}PanelSearch : PubCaseFinder{% endblock %}
+{% block main_block %}
+<div class="vgp-main">
+  <div class="vgp-wrapper vgp-wrapper-upper">
+    <div class="vgp-content d-flex flex-column">
+      <div><h1 class="color-white" id="vgp-panel-name"></h1></div>
+      <div class="vgp-controll">
+        <button id="btn_download_panel">Download
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 8.21802V10.4593H1.5V8.21802H0V10.4593C0 11.2811 0.675 11.9535 1.5 11.9535H10.5C11.325 11.9535 12 11.2811 12 10.4593V8.21802H10.5ZM9.75 5.22965L8.6925 4.17625L6.75 6.10375V0H5.25V6.10375L3.3075 4.17625L2.25 5.22965L6 8.96512L9.75 5.22965Z" fill="#276749"/></svg>
+        </button>
+        <button id="btn_copy_link" class="ml-1">Copy link
+          <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.48515 4.3687C10.6754 4.3687 11.6402 3.39073 11.6402 2.18435C11.6402 0.977966 10.6754 0 9.48515 0C8.29494 0 7.33008 0.977966 7.33008 2.18435C7.33008 3.39073 8.29494 4.3687 9.48515 4.3687Z" fill="#276749"/><path d="M9.48515 15.398C10.6754 15.398 11.6402 14.42 11.6402 13.2136C11.6402 12.0073 10.6754 11.0293 9.48515 11.0293C8.29494 11.0293 7.33008 12.0073 7.33008 13.2136C7.33008 14.42 8.29494 15.398 9.48515 15.398Z" fill="#276749"/><path d="M2.15507 9.75834C3.34529 9.75834 4.31015 8.78038 4.31015 7.574C4.31015 6.36761 3.34529 5.38965 2.15507 5.38965C0.964859 5.38965 0 6.36761 0 7.574C0 8.78038 0.964859 9.75834 2.15507 9.75834Z" fill="#276749"/><path d="M9.48473 2.18359L2.1543 7.57237L9.48473 13.2129" stroke="#276749" stroke-miterlimit="10"/></svg>
+        </button>
+        <button id="btn_add_common_panel" class="ml-1">Add to custom panel
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.5816 0 0 3.5816 0 8C0 12.4184 3.5816 16 8 16C12.4184 16 16 12.4184 16 8C16 3.5816 12.4184 0 8 0ZM12 8.8H8.8V12H7.2V8.8H4V7.2H7.2V4H8.8V7.2H12V8.8Z" fill="#276749"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="vgp-wrapper">
+    <div class="vgp-content d-flex flex-column">
+      <div class="vgp-panel-info">
+        <div class="vgp-panel-controll">
+          <span class="vgp-summary-label">Summary</span>
+          <span id="vgp-summary-switch" class="vgp-summary-controll vgp-active" data-table-id="vgp-panel-summary-table">Hide</span>
+        </div>
+        <table class="table" id="vgp-panel-summary-table"></table>
+      </div>
+      <div class="vgp-panel-detail d-flex">
+        <div class="vgp-detail-wrapper">
+          <nav class="vgp-nav">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active mr-2" id="nav-vgp-panel-genes-panel" data-toggle="tab" href="#vgp-panel-genes-panel" role="tab" aria-controls="vgp-panel-genes-panel" aria-selected="true">Panel genes</a>
+            </div>
+          </nav>          
+          <div class="tab-content" id="nav-tabContent">
+            <div id="vgp-panel-genes-panel" class="tab-pane fade show active mt-1" role="tabpanel" aria-labelledby="nav-vgp-panel-genes-panel">
+              <div class="vgp-filter-sample-panel">
+                <div class="vgp-filter-wrapper">
+                  <div class="d-flex justify-content-between flex-nowrap">
+                    <div class="vgp-panel-genes-num-wrapper">
+                      <span class="vgp-panel-genes-num">0</span> Genes
+                    </div>
+                    <div class="vgp-panel-genes-switch-wrapper">
+                      <label class="switch">
+                        <input id="native_switch" type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                      <span class="switch-label">Show genes directly associated with this disease only</span>
+                    </div>
+                  </div>
+                  <input id="vgp-panel-genes-filter" class="vgp-filter" type="text" autocomplete="off" autocapitalize="off" 
+                         data-table-id="vgp-panel-gene-table" data-sort-inner-target="vgp-panel-gene-name"
+                         placeholder="Filter 0 Entities" />
+                </div>
+                <div class="d-flex flex-row flex-nowrap align-items-end">
+                  <div class="vgp_rating_tag_title">Rating:</div>
+                  <div class="in-circle-wrapper">
+                    <span class="in-circle" id="description_mark">?</span>
+                  </div>
+                  <div class="vgp-rating-tag-list-container vgp-rating-tag-list-container-width sample">
+                    <div class="vgp-rating-tag-subcontainer">
+                      <div class="vgp-rating-tag-wrapper sample">
+                        <span class="vgp-rating-list-tag vgp-rating-definitive sample"></span>
+                      </div>
+                      <div class="vgp-rotate45">Definitive</div>
+                    </div>
+                    <div class="vgp-rating-tag-subcontainer">
+                      <div class="vgp-rating-tag-wrapper sample">
+                        <span class="vgp-rating-list-tag vgp-rating-strong sample"></span>
+                      </div>
+                      <div class="vgp-rotate45">Strong</div>
+                    </div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-moderate sample"></span></div><div class="vgp-rotate45">Moderate</div></div>
+                    <div class="vgp-rating-tag-subcontainer vgp-rating-divide"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-supportive sample"></span></div><div class="vgp-rotate45">Supportive</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-limited sample" ></span></div><div class="vgp-rotate45">Limited</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-disputed sample" ></span></div><div class="vgp-rotate45">Disputed</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-refuted sample" ></span></div><div class="vgp-rotate45">Refuted</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-animal sample" ></span></div><div class="vgp-rotate45">Animal</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-noknown sample" ></span></div><div class="vgp-rotate45">No known</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-norating sample" ></span></div><div class="vgp-rotate45">No rating</div></div>
+                    <div class="vgp-rating-tag-subcontainer-space"></div>
+                  </div>
+                </div>
+              </div>
+              <table class="vgp-panel-genes-table" id="vgp-panel-gene-table">
+                <thead>
+                  <tr>
+                    <th class="width-entity pl-3">
+                      <span data-sort-id="0" data-sort-method="vgp-sort-method-innerletter" data-sort-inner-target="vgp-panel-gene-name" class="vgp-sorter mr-2">Gene</span>
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.39623 6.45912L11 10.0629L10.0629 11L6.45912 7.39623C5.78616 7.8805 4.97484 8.1761 4.08805 8.1761C1.83019 8.1761 0 6.34591 0 4.08805C0 1.83019 1.83019 0 4.08805 0C6.34591 0 8.1761 1.83019 8.1761 4.08805C8.1761 4.97484 7.8805 5.78616 7.39623 6.45912ZM4.08805 1.25786C2.52201 1.25786 1.25786 2.52201 1.25786 4.08805C1.25786 5.65409 2.52201 6.91824 4.08805 6.91824C5.65409 6.91824 6.91824 5.65409 6.91824 4.08805C6.91824 2.52201 5.65409 1.25786 4.08805 1.25786Z" fill="#697468"/></svg>
+                    </th>
+                    <th class="with-source-panel">
+                      <span data-sort-id="0" data-sort-method="vgp-sort-method-innerletter" data-sort-inner-target="vgp-panel-name" class="vgp-sorter">Source Panel</span>
+                    </th>
+                    <th class="width-sources">
+                      <span data-sort-id="0" data-sort-method="vgp-sort-method-innernum" data-sort-inner-target="vgp-panel-review-num" class="vgp-sorter">Ratings</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="vgp-panel-gene-table-tbody"></tbody>
+              </table>
+            </div>
+<!--
+            <div id="vgp-version-comments-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-vgp-detail-sub-panel">
+              <div class="vgp-version-comments-wrapper">
+                <ul class="sessions">
+                  <li>
+                    <div class="time">18 Dec 2023, 12:45</div>
+                    <label>Ver4.4.0</label>
+                    <p>The content of this panel has been updated in accordance with changes agreed with the NHS Genomic Medicine Service. The panel was promoted to the next major version (4.0) following this.</p>
+                  </li>
+                  <li>
+                    <div class="time">10 Dec 2023, 16:15</div>
+                    <label>Ver3.0</label>
+                    <p>The content of this panel has been updated in accordance with changes agreed with the NHS Genomic Medicine Service. The panel was promoted to the next major version (4.0) following this.</p>
+                  </li>
+                  <li>
+                    <div class="time">2 Sep 2019, 9:45</div>
+                    <label>Ver2.0.5</label>
+                    <p>The content of this panel has been updated in accordance with changes agreed with the NHS Genomic Medicine Service. The panel was promoted to the next major version (4.0) following this.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="vgp-reviewers-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-vgp-reviewers-panel">
+              <table class="table vgp-panel-genes-table" id="vgp-reviewer-table">
+                <thead>
+                  <tr>
+                    <th><span data-sort-id="0" data-sort-method="vgp-sort-method-letter" data-sort-target-row="vgp-table-datarow" class="vgp-sorter" style="padding-left:15px;">Reviewers</span></th>
+                    <th><span data-sort-id="1" data-sort-method="vgp-sort-method-letter" data-sort-target-row="vgp-table-datarow" class="vgp-sorter">Affiliation</span></th>
+                    <th><span data-sort-id="2" data-sort-method="vgp-sort-method-letter" data-sort-target-row="vgp-table-datarow" class="vgp-sorter">Group</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="vgp-table-datarow">
+                    <td>Tracy Lester</td>
+                    <td>Genetics laboratory, Oxford UK</td>
+                    <td>NHS Genomic Medicine Center</td>
+                  </tr>
+                  <tr class="vgp-table-datarow">
+                    <td>Meena Balasubramanian</td>
+                    <td>Sheffield Children's NHS Foundation Trust</td>
+                    <td>NHS Genomic Medicine Center</td>
+                  </tr>
+                  <tr class="vgp-table-datarow">
+                    <td>Ian Berry</td>
+                    <td>Sheffield Children's NHS Foundation Trust</td>
+                    <td>NHS Genomic Medicine Center</td>
+                  </tr>
+                  <tr class="vgp-table-datarow">
+                    <td>Jenny Simmonds</td>
+                    <td>Leeds Teaching Hospitals Trust</td>
+                    <td>NHS Genomic Medicine Center</td>
+                  </tr>
+                  <tr class="vgp-table-datarow">
+                    <td>Vincent Willem van GoghVincent Willem</td>
+                    <td>Leeds Teaching Hospitals Trust</td>
+                    <td>NHS Genomic Medicine Center</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+-->
+          </div>
+        </div>
+        <div class="vgp-treeview-wrapper d-flex flex-column">
+          <div class="vgp-treeview-title-panel d-flex flex-row">
+            <div class="vgp-treeview-title-subpanel left">Tree</div>
+            <div class="vgp-treeview-title-subpanel right"><span>  </span></div>
+          </div>
+          <div class="vgp-treeview-treeview-panel d-flex flex-row flex-nowrap" id="nav-tabContent-treeview">
+            <div class="splitter" id="splitter"></div>
+            <div id="vgp-panel-treeview" style="overflow-x:auto;" class="d-flex flex-grow-1"><ul id="vgp-treeview" class="ztree"></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% if r_mail %}
+{% include "panelsearch_panel_input_modal.html" %}
+{% endif %}
+{% endblock %}
+{% block js_block %}
+<script type="text/javascript" src="/static/js/popperjs-core-2.11.8/core/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/tippyjs/tippy-bundle.umd.js"></script>
+<!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
+<!-- <script src="https://unpkg.com/tippy.js@6"></script> -->
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/common.js"></script>
+<script type="text/javascript" src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+
+<!-- <script type="text/javascript" src="/static/js/panelsearch/vgp_panel_detail_user.js"></script>  -->
+<!-- <script type="text/javascript" src="/static/js/panelsearch/vgp_panel_input_modal.js"></script>  -->
+
+<script type="text/javascript" src="/static/js/panelsearch/vgp_panel_detail.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+$(document).ready(function(){
+	_vgp_attach_goToTopfunc();
+	_vgp_init("{{ r_panel_id }}", "{{ r_lang }}");
+	_vgp_init_description_mark();
+
+	vgp_set_total_panel_num({{ r_root_panel_num }});
+	
+    // attach resizer for treeview
+    const splitter = document.getElementById("splitter");
+    const leftColumn = document.querySelector(".vgp-detail-wrapper");
+    const rightColumn = document.querySelector(".vgp-treeview-wrapper");
+    const container = document.querySelector(".vgp-panel-detail");
+	let isResizing_splitter = false;
+	let initialX = 0;
+	let initialRightWidth = 0;
+      splitter.addEventListener("mousedown", (e) => {
+        document.body.style.cursor = 'ew-resize';
+        isResizing_splitter = true;
+        initialX = e.clientX;
+        initialRightWidth = rightColumn.offsetWidth;
+        document.addEventListener("mousemove", resize);
+        document.addEventListener("mouseup", stopResize);
+        e.preventDefault();
+      });
+      function resize(e) {
+        if (!isResizing_splitter) return;
+
+        const containerRect = container.getBoundingClientRect();
+        const offsetX = initialX - e.clientX;
+        const newRightWidth = initialRightWidth + offsetX;
+        const newLeftWidth = containerRect.width - newRightWidth;
+
+        rightColumn.style.width = newRightWidth + "px";
+        leftColumn.style.width = newLeftWidth + "px";
+      }
+
+      function stopResize() {
+        isResizing_splitter = false;
+        document.body.style.cursor = '';
+        document.removeEventListener("mousemove", resize);
+        document.removeEventListener("mouseup", stopResize);
+      }
+
+      window.addEventListener('resize', () => {
+        leftColumn.style.width = 'calc(75% - 20px)';
+        rightColumn.style.width = '25%'; 
+      });
+});
+</SCRIPT>
+{% endblock %}

@@ -1,0 +1,1101 @@
+panel_name	nando_id	gene_symbol_list
+panels for genetic testing	NANDO:0000003	
+Neuromuscular disease	NANDO:1100001	
+Metabolic disease	NANDO:1100002	
+Skin and connective tissue disease	NANDO:1100003	
+Immune system disease	NANDO:1100004	
+Cardiovascular disease	NANDO:1100005	
+Blood disease	NANDO:1100006	
+Renal and urological disease	NANDO:1100007	
+Bone and joint disease	NANDO:1100008	
+Endocrine disease	NANDO:1100009	
+Respiratory disease	NANDO:1100010	
+Eye and visual system disease	NANDO:1100011	
+Hearing and balance disorder	NANDO:1100012	
+Gastrointestinal disease	NANDO:1100013	
+Chromosome abnormality	NANDO:1100014	
+Otorhinolaryngological disease	NANDO:1100015	
+Spinal and bulbar muscular atrophy	NANDO:1200001	AR
+Amyotrophic lateral sclerosis	NANDO:1200002	ALS2 | ANG | ANXA11 | ATXN2 | C9orf72 | CCNF | CFAP410 | CHCHD10 | CHMP2B | CYLD | DAO | DCTN1 | ERBB4 | FIG4 | FUS | GLE1 | GLT8D1 | HNRNPA1 | LRP12 | MATR3 | NEFH | NEK1 | OPTN | PFN1 | PON1 | PON2 | PON3 | PPARGC1A | PRPH | SETX | SIGMAR1 | SOD1 | SPG11 | SPTLC1 | SQSTM1 | TAF15 | TARDBP | TBK1 | TIA1 | TREM2 | TUBA4A | UBQLN2 | UNC13A | VAPB | VCP
+Spinal muscular atrophy	NANDO:1200003	AGTPBP1 | ASAH1 | ATP7A | BICD2 | BSCL2 | CHCHD10 | DCTN1 | DNAJB2 | DYNC1H1 | EMILIN1 | EXOSC3 | EXOSC8 | EXOSC9 | FBXO38 | GARS1 | HSPB1 | HSPB3 | HSPB8 | IGHMBP2 | LAS1L | MYH14 | NAIP | PLEKHG5 | REEP1 | SEPSECS | SIGMAR1 | SLC25A46 | SLC5A7 | SMN1 | SMN2 | SPTAN1 | TRPV4 | TSEN15 | TSEN2 | TSEN34 | TSEN54 | UBA1 | VAPB | VRK1 | VWA1 | WARS1
+Spinal muscular atrophy type I	NANDO:1200004	NAIP | SMN1 | SMN2
+Spinal muscular atrophy type II	NANDO:1200005	NAIP | SMN1 | SMN2
+Spinal muscular atrophy type III	NANDO:1200006	NAIP | SMN1 | SMN2
+Spinal muscular atrophy type IV	NANDO:1200007	SMN1 | SMN2
+Primary lateral sclerosis	NANDO:1200008	ALS2 | ERLIN2 | SPG7
+Progressive supranuclear palsy	NANDO:1200009	MAPT
+Parkinson's disease	NANDO:1200010	ADH1C | ATP13A2 | ATXN2 | ATXN3 | ATXN8OS | CHCHD2 | DNAJC13 | DNAJC6 | EIF4G1 | FBXO7 | GBA1 | GIGYF2 | HTRA2 | LRRK2 | MAPT | NR4A2 | PARK7 | PINK1 | PLA2G6 | PODXL | PRKN | PTPA | SNCA | SNCAIP | SYNJ1 | TBP | TRNT | UCHL1 | VPS13C | VPS35
+Corticobasal degeneration	NANDO:1200011	
+Huntington's disease	NANDO:1200012	HTT | SLC2A3
+Neuroacanthocytosis	NANDO:1200013	JPH3 | PANK2 | VPS13A | XK
+Chorea-acanthocytosis	NANDO:1200014	VPS13A
+McLeod syndrome	NANDO:1200015	XK
+Charcot-Marie-Tooth disease	NANDO:1200016	AARS1 | AIFM1 | ATP1A1 | CADM3 | COX6A1 | DCAF8 | DGAT2 | DHTKD1 | DNAJB2 | DNM2 | DYNC1H1 | EGR2 | FBLN5 | FGD4 | FIG4 | GARS1 | GBF1 | GDAP1 | GJB1 | GNB4 | HARS1 | HINT1 | HK1 | HSPB1 | HSPB8 | IGHMBP2 | INF2 | ITPR3 | JAG1 | JPH1 | KARS1 | KIF1B | KIF5A | LITAF | LMNA | LRSAM1 | MARS1 | MED25 | MFN2 | MME | MORC2 | MPV17 | MPZ | MTMR2 | NAGLU | NDRG1 | NEFH | NEFL | PDK3 | PLEKHG5 | PMP2 | PMP22 | PNKP | POLR3B | PRPS1 | PRX | RAB7A | SBF1 | SBF2 | SH3TC2 | SLC12A6 | SORD | SPG11 | SURF1 | TFG | TRIM2 | TRPV4 | VCP | YARS1
+Charcot-Marie-Tooth disease type 1	NANDO:1200017	EGR2 | LITAF | MPZ | NEFL | PMP22
+Charcot-Marie-Tooth disease type 2	NANDO:1200018	AARS1 | ATP1A1 | DCAF8 | DGAT2 | DHTKD1 | DNAJB2 | DNM2 | DYNC1H1 | GARS1 | GDAP1 | HARS1 | HSPB1 | HSPB8 | IGHMBP2 | JPH1 | KIF1B | KIF5A | LMNA | LRSAM1 | MARS1 | MED25 | MFN2 | MME | MORC2 | MPV17 | MPZ | NAGLU | NEFH | NEFL | PNKP | RAB7A | SPG11 | TFG | TRIM2 | TRPV4 | VCP
+Intermediate Charcot-Marie-Tooth disease	NANDO:1200019	COX6A1 | DNM2 | GBF1 | GDAP1 | GNB4 | INF2 | KARS1 | MPZ | NEFL | PLEKHG5 | YARS1
+Myasthenia gravis	NANDO:1200020	CTLA4 | HLA-DQA1 | TNFRSF11A
+Congenital myasthenic syndrome	NANDO:1200021	AGRN | AK9 | ALG14 | ALG2 | CHAT | CHRNA1 | CHRNB1 | CHRND | CHRNE | COL13A1 | COLQ | DOK7 | DPAGT1 | GFPT1 | LRP4 | MUSK | MYO9A | PREPL | RAPSN | SCN4A | SLC18A3 | SLC25A1 | SLC5A7 | SNAP25 | SYT2 | VAMP1
+Multiple sclerosis/Neuromyelitis optica spectrum disorders	NANDO:1200022	
+Multiple sclerosis	NANDO:1200023	HLA-DQB1 | HLA-DRB1
+Relapsing-remitting multiple sclerosis	NANDO:1200024	
+Primary progressive multiple sclerosis	NANDO:1200025	
+Secondary progressive multiple sclerosis	NANDO:1200026	
+Neuromyelitis optica spectrum disorders	NANDO:1200027	
+Baló concentric sclerosis	NANDO:1200028	
+Chronic inflammatory demyelinating polyneuropathy/Multifocal motor neuropathy	NANDO:1200029	
+Chronic inflammatory demyelinating polyneuropathy	NANDO:1200030	
+Multifocal motor neuropathy	NANDO:1200031	
+Sporadic inclusion body myositis	NANDO:1200032	GNE | MYH2
+Crow-Fukase syndrome	NANDO:1200033	
+Multiple system atrophy	NANDO:1200034	ADAR | ATP6 | COQ2 | NUP54 | NUP62 | PDE10A | PDE8B | VAC14
+Multiple system atrophy, cerebellar type	NANDO:1200035	COQ2
+Multiple system atrophy, Parkinsonian type	NANDO:1200036	COQ2
+Spinocerebellar degeneration	NANDO:1200037	ABCB7 | AFG3L2 | AHI1 | ANO10 | ATCAY | ATG5 | ATG7 | ATN1 | ATP1A3 | ATP2B3 | ATP8A2 | ATXN1 | ATXN10 | ATXN2 | ATXN3 | ATXN7 | ATXN8 | ATXN8OS | BEAN1 | CA8 | CACNA1A | CACNA1G | CAMTA1 | CC2D2A | CCDC88C | CEP120 | CEP290 | CEP41 | COA7 | COQ8A | CSPP1 | CTDP1 | CWF19L1 | CYP27A1 | DAB1 | DNMT1 | EEF2 | ELOVL4 | ELOVL5 | FAT2 | FGF14 | FLVCR1 | FMR1 | FXN | GBA2 | GDAP2 | GJB1 | GRID2 | GRM1 | IFRD1 | INPP5E | INPP5K | ITPR1 | KCNC3 | KCND3 | KIAA0586 | MKS1 | MME | MTTP | NOP56 | NPTX1 | PDYN | PEX10 | PEX6 | PIK3R5 | PITRM1 | PLD3 | PLEKHG4 | PMPCA | PNKP | PNPT1 | POLG | POU4F1 | PPP2R2B | PRDX3 | PRKCG | PUM1 | RFC1 | RNF168 | RNU12 | RPGRIP1L | RUBCN | SACS | SAMD9L | SCYL1 | SETX | SIL1 | SLC9A1 | SNX14 | SPAST | SPTBN2 | STUB1 | SYNE1 | SYT14 | TBCE | TBP | TDP1 | TDP2 | TGM6 | THG1L | TMEM138 | TMEM216 | TMEM231 | TMEM237 | TMEM240 | TMEM67 | TPP1 | TRPC3 | TTBK2 | TTPA | TUBB2B | TWNK | UBA5 | VLDLR | VPS13D | VPS41 | VWA3B | WDR73 | WDR81 | WWOX | XRCC1 | ZFHX3 | ZNF423 | ZNF592
+Sporadic spinocerebellar degeneration	NANDO:1200038	
+Cortical cerebellar atrophy	NANDO:1200039	
+Autosomal dominant hereditary spinocerebellar degeneration	NANDO:1200040	
+Spinocerebellar ataxia type 3	NANDO:1200041	ATXN3
+Spinocerebellar ataxia type 6	NANDO:1200042	CACNA1A
+Dentatorubropallidoluysian atrophy	NANDO:1200043	ATN1
+Spinocerebellar ataxia type 31	NANDO:1200044	BEAN1
+Spinocerebellar ataxia type 1	NANDO:1200045	ATXN1
+Spinocerebellar ataxia type 2	NANDO:1200046	ATXN2
+Spinocerebellar ataxia type 7	NANDO:1200047	
+Spinocerebellar ataxia type 36	NANDO:1200048	NOP56
+Autosomal recessive hereditary spinocerebellar degeneration	NANDO:1200049	
+Ataxia with isolated vitamin E deficiency	NANDO:1200050	TTPA
+Ataxia-oculomotor apraxia type 1	NANDO:1200051	APTX
+Hereditary spastic paraplegia	NANDO:1200052	ABHD16A | ALDH18A1 | AMFR | AMPD2 | AP4B1 | AP4E1 | AP4M1 | AP4S1 | AP5Z1 | ARL6IP1 | ARSI | ATL1 | ATP13A2 | ATP6 | B4GALNT1 | BSCL2 | C19orf12 | CAPN1 | CCT5 | CPT1C | CYP2U1 | CYP7B1 | DDHD1 | DDHD2 | DSTYK | ENTPD1 | ERLIN1 | ERLIN2 | FA2H | FAR1 | FARS2 | FLRT1 | GBA2 | GJC2 | GPT2 | HACE1 | HPDL | HSPD1 | IBA57 | KIDINS220 | KIF1A | KIF1C | KIF5A | KLC2 | KPNA3 | KY | L1CAM | MAG | MARS1 | MFN2 | MTRFR | NIPA1 | NT5C2 | PCYT2 | PGAP1 | PI4KA | PLP1 | PNPLA6 | RAB3GAP2 | REEP1 | REEP2 | RNF170 | RTN2 | SELENOI | SLC33A1 | SPART | SPAST | SPG11 | SPG21 | SPG7 | SPTAN1 | SPTSSA | TECPR2 | TFG | TMEM63C | UBAP1 | UCHL1 | USP8 | VCP | VPS37A | WASHC5 | WDR48 | ZFR | ZFYVE26 | ZFYVE27
+Pure hereditary spastic paraplegia	NANDO:1200053	CPT1C | DDHD1 | ERLIN1 | KPNA3 | REEP2 | RTN2 | SLC33A1 | UBAP1 | WASHC5 | ZFR
+Complex hereditary spastic paraplegia	NANDO:1200054	ABHD16A | ALDH18A1 | AMPD2 | ARL6IP1 | ARSI | ATP13A2 | ATP6 | B4GALNT1 | BSCL2 | C19orf12 | CAPN1 | CCT5 | DDHD2 | DSTYK | ENTPD1 | ERLIN2 | FA2H | FAR1 | FLRT1 | GBA2 | GJC2 | GPT2 | HACE1 | IBA57 | KIDINS220 | KIF1C | KLC2 | KY | L1CAM | MAG | MARS1 | MTRFR | NT5C2 | PCYT2 | PGAP1 | PI4KA | PNPLA6 | RAB3GAP2 | RNF170 | SELENOI | SPART | SPG11 | TECPR2 | TFG | USP8 | VCP | VPS37A | WDR48 | ZFYVE26
+Lysosomal storage disease	NANDO:1200055	ABHD5 | ACP2 | AGA | AP5Z1 | APOE | ARSA | ARSB | ARSK | ASAH1 | ATP13A2 | CLN3 | CLN5 | CLN6 | CLN8 | CTNS | CTSA | CTSD | CTSF | CTSK | CYP27A1 | DNAJC5 | FUCA1 | GAA | GALC | GALNS | GBA1 | GBA2 | GLA | GLB1 | GM2A | GNE | GNPTAB | GNPTG | GNS | GRN | GUSB | HEXA | HEXB | HGSNAT | HYAL1 | IDS | IDUA | KCTD7 | LAMP2 | LIPA | MAN2B1 | MANBA | MCOLN1 | MFSD8 | NAGA | NAGLU | NEU1 | NPC1 | NPC2 | PNPLA2 | PPT1 | PSAP | SCARB2 | SGSH | SLC17A5 | SMPD1 | SUMF1 | TPP1
+Gaucher disease	NANDO:1200056	GBA1 | SCARB2
+Gaucher disease type 1	NANDO:1200057	GBA1 | SCARB2
+Gaucher disease type 2	NANDO:1200058	GBA1
+Gaucher disease type 3	NANDO:1200059	GBA1
+Niemann-Pick disease types A and B/Acid sphingomyelinase deficiency	NANDO:1200060	
+Niemann-Pick disease type A	NANDO:1200061	SMPD1
+Niemann-Pick disease type B	NANDO:1200062	SMPD1
+Niemann-Pick disease type C	NANDO:1200063	NPC1 | NPC2
+Infantile-onset Niemann-Pick disease type C	NANDO:1200064	
+Adult-onset Niemann-Pick disease type C	NANDO:1200065	NPC1 | NPC2
+GM1 gangliosidosis	NANDO:1200066	GLB1
+Infantile GM1 gangliosidosis	NANDO:1200067	GLB1
+Juvenile GM1 gangliosidosis	NANDO:1200068	GLB1
+Adult GM1 gangliosidosis	NANDO:1200069	GLB1
+GM2 gangliosidosis	NANDO:1200070	GM2A | HEXA | HEXB
+Tay-Sachs disease	NANDO:1200071	HEXA
+Sandhoff disease	NANDO:1200072	HEXB
+GM2 gangliosidosis AB variant	NANDO:1200073	GM2A
+Krabbe disease	NANDO:1200074	GALC | PSAP
+Infantile Krabbe disease	NANDO:1200075	GALC | PSAP
+Juvenile Krabbe disease	NANDO:1200076	
+Adult Krabbe disease	NANDO:1200077	GALC
+Metachromatic leukodystrophy	NANDO:1200078	ARSA | PSAP
+Late infantile metachromatic leukodystrophy	NANDO:1200079	ARSA | PSAP
+Juvenile ｍetachromatic leukodystrophy	NANDO:1200080	ARSA | PSAP
+Adult metachromatic leukodystrophy	NANDO:1200081	ARSA | PSAP
+Saposin B deficiency	NANDO:1200082	PSAP
+Multiple sulfatase deficiency	NANDO:1200083	SUMF1
+Neonatal multiple sulfatase deficiency	NANDO:1200084	
+Late-infantile multiple sulfatase deficiency	NANDO:1200085	
+Farber disease	NANDO:1200086	ASAH1
+Type 1 Farber disease	NANDO:1200087	
+Type 2 Farber disease	NANDO:1200088	
+Type 3 Farber disease	NANDO:1200089	
+Type 4 Farber disease	NANDO:1200090	
+Type 5 Farber disease	NANDO:1200091	
+Type 6 Farber disease	NANDO:1200092	
+Type 7 Farber disease	NANDO:1200093	
+Hurler disease	NANDO:1200094	IDUA
+Scheie disease	NANDO:1200095	IDUA
+Hurler-Scheie disease	NANDO:1200096	IDUA
+Hunter syndrome	NANDO:1200097	IDS
+Hunter syndrome type A	NANDO:1200098	IDS
+Hunter syndrome type B	NANDO:1200099	IDS
+Sanfilippo disease	NANDO:1200100	GNS | HGSNAT | NAGLU | SGSH
+Sanfilippo disease type A	NANDO:1200101	SGSH
+Sanfilippo disease type B	NANDO:1200102	NAGLU
+Sanfilippo disease type C	NANDO:1200103	HGSNAT
+Sanfilippo disease type D	NANDO:1200104	GNS
+Morquio syndrome	NANDO:1200105	GALNS | GLB1
+Morquio syndrome type A	NANDO:1200106	GALNS
+Morquio syndrome type B	NANDO:1200107	GLB1
+Maroteaux-Lamy syndrome	NANDO:1200108	ARSB
+Maroteaux Lamy syndrome, rapidly progressing form	NANDO:1200109	
+Maroteaux Lamy syndrome, slowly progressing form	NANDO:1200110	
+Sly syndrome	NANDO:1200111	GUSB
+Sly syndrome, neonatal form	NANDO:1200112	
+Sly syndrome, intermediate form	NANDO:1200113	
+Sly syndrome, mild form	NANDO:1200114	
+Hyaluronidase deficiency	NANDO:1200115	HYAL1
+Sialidosis	NANDO:1200116	NEU1
+Sialidosis type 1	NANDO:1200117	NEU1
+Sialidosis type 2	NANDO:1200118	NEU1
+Galactosialidosis	NANDO:1200119	CTSA
+Galactosialidosis, early infantile form	NANDO:1200120	
+Galactosialidosis, late infantile form	NANDO:1200121	
+Galactosialidosis, juvenile/adult form	NANDO:1200122	
+Mucolipidosis II, III	NANDO:1200123	
+Mucolipidosis II	NANDO:1200124	GNPTAB
+Mucolipidosis III	NANDO:1200125	GNPTAB
+Alpha-mannosidosis	NANDO:1200126	MAN2B1
+Alpha-mannosidosis, infantile form	NANDO:1200127	MAN2B1
+Alpha-mannosidosis, adult form	NANDO:1200128	MAN2B1
+Beta-mannosidosis	NANDO:1200129	MANBA
+Fucosidosis	NANDO:1200130	FUCA1
+Fucosidosis, infantile form	NANDO:1200131	
+Fucosidosis, milder form	NANDO:1200132	
+Aspartylglucosaminuria	NANDO:1200133	AGA
+Schindler disease	NANDO:1200134	NAGA
+Schindler disease type I	NANDO:1200135	NAGA
+Schindler disease type 2	NANDO:1200136	NAGA
+Schindler disease type 3	NANDO:1200137	NAGA
+Pompe disease	NANDO:1200138	
+Classic infantile Pompe disease	NANDO:1200139	GAA
+Childhood-onset Pompe disease	NANDO:1200140	
+Adult-onset Pompe disease	NANDO:1200141	
+Acid lipase deficiency	NANDO:1200142	
+Wolman disease	NANDO:1200143	LIPA
+Cholesterol ester storage disease	NANDO:1200144	LIPA
+obsolete Danon disease	NANDO:1200145	
+Free sialic acid storage disease	NANDO:1200146	GNE | SLC17A5
+Infantile free sialic acid storage disease	NANDO:1200147	SLC17A5
+Intermediate severe Salla disease	NANDO:1200148	SLC17A5
+obsolete Salla disease	NANDO:1200149	
+Neuronal ceroid-lipofuscinosis	NANDO:1200150	ATP13A2 | CLN3 | CLN5 | CLN6 | CLN8 | CTSD | CTSF | DNAJC5 | GRN | KCTD7 | MFSD8 | PPT1 | TPP1
+Congenital neuronal ceroid lipofuscinosis	NANDO:1200151	
+Infantile neuronal ceroid lipofuscinosis	NANDO:1200152	
+Late infantile neuronal ceroid lipofuscinosis	NANDO:1200153	CLN5 | CLN6 | CLN8 | CTSD | MFSD8 | TPP1
+Juvenile neuronal ceroid lipofuscinosis	NANDO:1200154	ATP13A2 | CLN3 | CLN8 | CTSD | TPP1
+Adult neuronal ceroid lipofuscinosis	NANDO:1200155	CLN6 | CTSD | CTSF | DNAJC5 | GRN
+Atypical neuronal-ceroid lipofuscinosis	NANDO:1200156	
+Fabry disease	NANDO:1200157	GLA
+Classical Fabry disease	NANDO:1200158	
+Variant Fabry disease	NANDO:1200159	
+Heterozygous Fabry disease	NANDO:1200160	
+Cystinosis	NANDO:1200161	CTNS
+Nephropathic cystinosis	NANDO:1200162	CTNS
+Intermediate cystinosis	NANDO:1200163	CTNS
+Non-nephropathic cystinosis 	NANDO:1200164	CTNS
+Adrenoleukodystrophy	NANDO:1200165	ABCD1
+Childhood cerebral adrenoleukodystrophy	NANDO:1200166	ABCD1
+Adolescent cerebral adrenoleukodystrophy	NANDO:1200167	
+Adrenomyeloneuropathy	NANDO:1200168	ABCD1
+Adult cerebral adrenoleukodystrophy	NANDO:1200169	
+Atypical X-linked adult adrenoleukodystrophy	NANDO:1200170	
+Addison-only adrenoleukodystrophy	NANDO:1200171	
+Female adrenoleukodystrophy	NANDO:1200172	
+Mitochondrial diseases	NANDO:1200173	AARS2 | ABCB7 | ADRA2B | AFG3L2 | AGK | AIFM1 | AMPD1 | AMPD3 | ATP1A3 | ATP5F1A | ATP5F1D | ATP5F1E | ATP5MK | ATP5PO | ATP6 | ATP8 | ATPAF2 | BCS1L | BOLA3 | C1QBP | C2orf69 | CAMKMT | CARS2 | CHCHD10 | CLPP | CNTN2 | COA3 | COA5 | COA6 | COA8 | COQ2 | COQ4 | COQ5 | COQ6 | COQ7 | COQ8A | COQ9 | COX1 | COX10 | COX11 | COX14 | COX15 | COX16 | COX2 | COX20 | COX3 | COX4I1 | COX4I2 | COX5A | COX6A1 | COX6A2 | COX6B1 | COX8A | CPLX1 | CRLS1 | CTNND2 | CYC1 | CYTB | DARS2 | DGUOK | DLAT | DLD | DNA2 | DNAJC30 | DNM1L | EARS2 | ECHS1 | ELAC2 | ERAL1 | ETFA | ETFB | ETFDH | ETHE1 | FARS2 | FASTKD2 | FBXL4 | FDX2 | FDXR | FH | FLAD1 | FOXRED1 | GATB | GATC | GCSH | GFER | GFM1 | GFM2 | GGPS1 | GLRX5 | GTPBP3 | HADHA | HADHB | HARS2 | HIBCH | HSD17B10 | HSD17B4 | IARS2 | IBA57 | ISCA1 | ISCA2 | ISCU | LARS2 | LIAS | LIG3 | LIPT1 | LONP1 | LRPPRC | LYRM4 | LYRM7 | MARCHF6 | MARS2 | MECR | MFF | MGME1 | MICOS13 | MIPEP | MPC1 | MPV17 | MRM2 | MRPL12 | MRPL3 | MRPL39 | MRPL44 | MRPS14 | MRPS16 | MRPS2 | MRPS22 | MRPS23 | MRPS28 | MRPS34 | MRPS7 | MSTO1 | MTFMT | MTO1 | MTPAP | MTRFR | NARS2 | ND1 | ND2 | ND3 | ND4 | ND4L | ND5 | ND6 | NDUFA1 | NDUFA10 | NDUFA11 | NDUFA12 | NDUFA13 | NDUFA2 | NDUFA4 | NDUFA6 | NDUFA8 | NDUFA9 | NDUFAF1 | NDUFAF2 | NDUFAF3 | NDUFAF4 | NDUFAF5 | NDUFAF6 | NDUFAF8 | NDUFB10 | NDUFB11 | NDUFB3 | NDUFB7 | NDUFB8 | NDUFB9 | NDUFC2 | NDUFS1 | NDUFS2 | NDUFS3 | NDUFS4 | NDUFS6 | NDUFS7 | NDUFS8 | NDUFV1 | NDUFV2 | NFS1 | NFU1 | NSUN3 | NUBPL | OGDH | OPA1 | OPA3 | PDHA1 | PDHB | PDHX | PDP1 | PDSS1 | PDSS2 | PET100 | PET117 | PMPCB | PNPLA8 | PNPT1 | POLG | POLG2 | POLRMT | POU3F4 | PREPL | PRICKLE2 | PRORP | PTCD3 | PUS1 | QRSL1 | RAPGEF2 | RARS2 | RMND1 | RNASEH1 | RNR1 | RRM1 | RRM2B | SAMD12 | SARS2 | SCO1 | SCO2 | SDHA | SDHAF1 | SDHB | SDHD | SERAC1 | SFXN4 | SIK1 | SLC19A3 | SLC1A2 | SLC25A10 | SLC25A12 | SLC25A21 | SLC25A22 | SLC25A26 | SLC25A3 | SLC25A32 | SLC25A4 | SLC3A1 | SPG7 | STARD7 | SUCLA2 | SUCLG1 | SURF1 | TACO1 | TAFAZZIN | TAMM41 | TARS2 | TBC1D24 | TEFM | TFAM | TFB1M | TIMM22 | TIMMDC1 | TK2 | TKFC | TMEM126A | TMEM126B | TMEM70 | TNRC6A | TOP3A | TRIT1 | TRMT10C | TRMT5 | TRMU | TRNC | TRNF | TRNI | TRNK | TRNL1 | TRNN | TRNP | TRNQ | TRNS1 | TRNS2 | TRNT | TRNV | TRNW | TSFM | TTC19 | TUFM | TWNK | TXN2 | TYMP | UQCC2 | UQCC3 | UQCRB | UQCRC2 | UQCRFS1 | UQCRH | UQCRQ | VARS1 | VARS2 | YARS2 | YEATS2
+Chronic progressive external ophthalmoplegia	NANDO:1200174	DGUOK | DNA2 | POLG | POLG2 | RNASEH1 | RRM1 | RRM2B | SLC25A4 | TK2 | TOP3A | TWNK
+Leigh's encephalomyelopathy	NANDO:1200175	ATP6 | COX10 | COX15 | DLD | EARS2 | ECHS1 | ETHE1 | FBXL4 | HIBCH | LRPPRC | MTFMT | MTRFR | ND1 | ND2 | ND3 | ND4 | ND5 | ND6 | NDUFAF2 | NDUFAF5 | NDUFAF6 | NDUFS1 | NDUFS2 | NDUFS4 | NDUFV1 | PDHA1 | PDHX | SCO2 | SDHA | SERAC1 | SLC19A3 | SUCLA2 | SURF1 | TRNK | TTC19
+Mitochondrial encephalomyopathy, lactic acidosis, and strokelike episodes syndrome	NANDO:1200176	COX1 | COX2 | COX3 | CYTB | ND1 | ND4 | ND5 | ND6 | TRNC | TRNF | TRNK | TRNL1 | TRNQ | TRNS1 | TRNS2 | TRNV | TRNW
+Myoclonus epilepsy associated with ragged-red fibers	NANDO:1200177	ND5 | TRNF | TRNI | TRNK | TRNL1 | TRNP
+Leber disease	NANDO:1200178	
+Mitochondrial diseases with proven biochemical abnormality	NANDO:1200179	
+Mitochondrial complex I deficiency	NANDO:1200180	DNAJC30 | ELAC2 | FOXRED1 | MTFMT | ND1 | ND2 | ND3 | NDUFA1 | NDUFA10 | NDUFA11 | NDUFA12 | NDUFA13 | NDUFA2 | NDUFA6 | NDUFA8 | NDUFA9 | NDUFAF1 | NDUFAF2 | NDUFAF3 | NDUFAF4 | NDUFAF5 | NDUFAF6 | NDUFAF8 | NDUFB10 | NDUFB11 | NDUFB3 | NDUFB7 | NDUFB8 | NDUFB9 | NDUFC2 | NDUFS1 | NDUFS2 | NDUFS3 | NDUFS4 | NDUFS6 | NDUFS7 | NDUFS8 | NDUFV1 | NDUFV2 | NUBPL | TIMMDC1 | TMEM126B
+Mitochondrial complex II deficiency	NANDO:1200181	
+Hyperlacticacidemia with no identified etiology	NANDO:1200182	
+Moyamoya disease	NANDO:1200183	ACTA2 | ANO1 | BRCC3 | DIAPH1 | GUCY1A1 | RNF213
+Bilateral moyamoya disease	NANDO:1200184	
+Unilateral moyamoya disease	NANDO:1200185	
+Prion disease	NANDO:1200186	HLA-DQB1 | PRNP
+Sporadic Creutzfeldt-Jakob disease	NANDO:1200187	
+Genetic prion diseases	NANDO:1200188	
+Familial Creutzfeldt-Jakob disease	NANDO:1200189	HLA-DQB1 | PRNP
+Gerstmann-Straussler-Scheinker syndrome	NANDO:1200190	PRNP
+Fatal familial insomnia	NANDO:1200191	PRNP
+Environmentally acquired Creutzfeldt-Jakob disease	NANDO:1200192	
+Iatrogenic Creutzfeldt-Jakob disease	NANDO:1200193	
+Variant Creutzfeldt-Jakob disease	NANDO:1200194	
+Subacute sclerosing panencephalitis	NANDO:1200195	
+Typical subacute sclerosing panencephalitis	NANDO:1200196	
+Rapidly progressive subacute sclerosing panencephalitis	NANDO:1200197	
+Subacute progressive sclerosing panencephalitis	NANDO:1200198	
+Slowly progressive subacute sclerosing panencephalitis	NANDO:1200199	
+Chronic relapsing-remitting subacute sclerosing panencephalitis	NANDO:1200200	
+Atypical subacute sclerosing panencephalitis	NANDO:1200201	
+Subacute sclerosing panencephalitis presenting only with convulsion	NANDO:1200202	
+Subacute sclerosing panencephalitis with prolonged Jabbour's clinical stage I	NANDO:1200203	
+Subacute sclerosing panencephalitis in infants or adults	NANDO:1200204	
+Progressive multifocal leukoencephalopathy	NANDO:1200205	
+HTLV-1-associated myelopathy	NANDO:1200206	
+Idiopathic basal ganglia calcification	NANDO:1200207	JAM2 | MYORG | PDGFB | PDGFRB | SLC20A2 | XPR1
+Familial idiopathic basal ganglia calcification	NANDO:1200208	PDGFB | PDGFRB | SLC20A2
+Systemic amyloidosis	NANDO:1200209	
+AL amyloidosis; Transthyretin-related senile systemic amyloidosis	NANDO:1200210	
+Amyloid light-chain amyloidosis	NANDO:1200211	
+wild-type transthyretin amyloidosis	NANDO:1200212	
+Hereditary systemic amyloidosis (excluding ATTRv)	NANDO:1200213	
+Hereditary Transthyretin Amyloidosis	NANDO:1200214	
+Ullrich disease	NANDO:1200215	COL12A1 | COL6A1 | COL6A2 | COL6A3
+Distal myopathy	NANDO:1200216	ADSS1 | ANO5 | CAV3 | CRYAB | DYSF | FLNC | GIPC1 | HNRNPA1 | KLHL9 | LDB3 | LRP12 | MATR3 | MYH14 | MYH7 | MYOT | NEB | NOTCH2NLC | RILPL1 | SMPX | SQSTM1 | TIA1 | TTN | VCP
+Miyoshi myopathy	NANDO:1200217	ANO5 | DYSF
+Distal myopathy with rimmed vacuoles	NANDO:1200218	GNE
+Oculopharyngodistal myopathy	NANDO:1200219	GIPC1 | LRP12 | NOTCH2NLC | RILPL1
+Bethlem Myopathy	NANDO:1200220	COL12A1 | COL6A1 | COL6A2 | COL6A3
+Autophagic vacuolar myopathy	NANDO:1200221	
+Danon disease	NANDO:1200222	LAMP2
+X-linked Myopathy with excessive autophagy	NANDO:1200223	VMA21
+Schwartz-Jampel syndrome	NANDO:1200224	HSPG2 | LIFR
+Neurofibromatosis	NANDO:1200225	COQ6 | LZTR1 | MAP2K2 | NF1 | NF2 | RNF135 | SMARCB1
+Neurofibromatosis type 1	NANDO:1200226	NF1 | RNF135
+Neurofibromatosis type 2	NANDO:1200227	NF2
+Pemphigus	NANDO:1200228	ATP2C1
+Pemphigus vulgaris	NANDO:1200229	
+Pemphigus foliaceus	NANDO:1200230	
+Paraneoplastic pemphigus	NANDO:1200231	
+Pemphigus vegetans	NANDO:1200232	
+Pemphigus erythematosus	NANDO:1200233	
+Epidermolysis bullosa	NANDO:1200234	CD151 | COL17A1 | COL7A1 | DSP | DST | EXPH5 | FERMT1 | ITGA3 | ITGA6 | ITGB4 | JUP | KLHL24 | KRT14 | KRT5 | LAMA3 | LAMB3 | LAMC2 | MMP1 | PKP1 | PLEC
+Epidermolysis bullosa simplex	NANDO:1200235	CD151 | DSP | DST | EXPH5 | ITGB4 | JUP | KLHL24 | KRT14 | KRT5 | PKP1 | PLEC
+Junctional epidermolysis bullosa	NANDO:1200236	COL17A1 | ITGA3 | ITGA6 | ITGB4 | LAMA3 | LAMB3 | LAMC2 | PLEC
+Dominant dystrophic epidermolysis bullosa	NANDO:1200237	
+Recessive dystrophic epidermolysis bullosa	NANDO:1200238	COL7A1 | MMP1
+Kindler syndrome	NANDO:1200239	FERMT1
+Pustular psoriasis	NANDO:1200240	AP1S3 | IL36RN
+Acute generalized pustular psoriasis	NANDO:1200241	
+Childhood generalized pustular psoriasis	NANDO:1200242	
+Impetigo herpetiformis	NANDO:1200243	
+Acrodermatitis continua of Hallopeau	NANDO:1200244	AP1S3 | IL36RN
+Stevens-Johnson syndrome	NANDO:1200245	HLA-A | HLA-B | IKZF1
+Toxic epidermal necrolysis	NANDO:1200246	HLA-A | HLA-B | IKZF1
+Toxic epidermal necrolysis with spots	NANDO:1200247	
+Toxic epidermal necrolysis without spots	NANDO:1200248	
+Toxic epidermal necrolysis (particular form)	NANDO:1200249	
+Toxic epidermal necrolysis (abortive form)	NANDO:1200250	
+Takayasu arteritis	NANDO:1200251	HLA-B | IL12B | MLX
+Type I Takayasu arteritis	NANDO:1200252	
+Type II a Takayasu arteritis	NANDO:1200253	
+Type II b Takayasu arteritis	NANDO:1200254	
+Type III Takayasu arteritis	NANDO:1200255	
+Type IV Takayasu arteritis	NANDO:1200256	
+Type V Takayasu arteritis	NANDO:1200257	
+Giant cell arteritis	NANDO:1200258	HLA-B | HLA-DRB1 | P4HA2 | PTPN22
+Cranial giant cell arteritis	NANDO:1200259	
+Large-vessel giant cell arteritis	NANDO:1200260	
+Polyarteritis nodosa	NANDO:1200261	
+Microscopic polyangiitis	NANDO:1200262	
+Granulomatosis with polyangiitis	NANDO:1200263	CTLA4 | HLA-DPA1 | HLA-DPB1 | PRTN3 | PTPN22
+Eosinophilic granulomatosis with polyangiitis	NANDO:1200264	
+Rheumatoid vasculitis	NANDO:1200265	
+Buerger's disease	NANDO:1200266	
+Primary antiphospholipid antibody syndrome	NANDO:1200267	
+Arterial thrombosis in antiphospholipid syndrome	NANDO:1200268	
+Antiphospholipid antibody syndrome during pregnancy	NANDO:1200269	
+Catastrophic antiphospholipid syndrome	NANDO:1200270	
+Antiphospholipid antibody-related disease	NANDO:1200271	
+Systemic lupus erythematosus	NANDO:1200272	BANK1 | BLK | C1QA | C1R | C4A | C4B | CR2 | CTLA4 | DNASE1 | DNASE1L3 | ETS1 | FCGR2A | FCGR2B | FCGR3B | HLA-DRB1 | IGHG1 | IL10 | IRAK1 | IRF5 | ITGAM | JAZF1 | KIAA0319L | MECP2 | PDCD1 | PRKCD | PTPN22 | PXK | SAT1 | SPP1 | STAT4 | TLR7 | TNFAIP3 | TNFSF4 | TNIP1 | TREX1 | UBE2L3
+Dermatomyositis/Polymyositis	NANDO:1200273	
+Dermatomyositis	NANDO:1200274	
+Amyopathic dermatomyositis	NANDO:1200275	
+Polymyositis	NANDO:1200276	
+Systemic sclerosis	NANDO:1200277	CAV1 | CCN2 | CCR6 | HLA-DRB1 | IRF5 | KIAA0319L
+Mixed connective tissue disease	NANDO:1200278	
+Sjogren's syndrome	NANDO:1200279	
+Primary Sjogren's syndrome	NANDO:1200280	
+Secondary Sjogren's syndrome	NANDO:1200281	
+Adult-onset Still disease	NANDO:1200282	
+Relapsing polychondritis	NANDO:1200283	
+Behcet's disease	NANDO:1200284	C4A | CCR1 | ERAP1 | FAS | HLA-B | IFNGR1 | IL10 | IL12A | IL12A-AS1 | IL23R | KLRC4 | MEFV | STAT4 | TLR4 | UBAC2
+Idiopathic dilated cardiomyopathy	NANDO:1200285	
+Hypertrophic cardiomyopathy	NANDO:1200286	A2ML1 | ACADVL | ACTC1 | AKR1C2 | AKR1C4 | ALPK3 | BRAF | CAV3 | CBL | CBX2 | CDKN1C | CORIN | CSRP3 | DHH | DHX37 | DMPK | DMRT1 | ETFA | ETFB | ETFDH | FHOD3 | FLAD1 | FLNC | H19 | HADHA | HRAS | IGF2 | JPH2 | KCNQ1 | KCNQ1OT1 | KLHL24 | KRAS | LDB3 | LZTR1 | MAP2K1 | MAP2K2 | MAP3K1 | MAPK1 | MRAS | MYBPC3 | MYH6 | MYH7 | MYL2 | MYL3 | MYLK2 | MYO6 | MYOZ2 | MYPN | NEXN | NR0B1 | NR5A1 | NRAS | NSD1 | PLN | PPP1CB | PRKAG2 | PTPN11 | RAF1 | RASA2 | RIT1 | RRAS | RRAS2 | SHOC2 | SLC25A3 | SLC25A32 | SOS1 | SOS2 | SOX9 | SPRED1 | SPRED2 | SRY | TCAP | TNNC1 | TNNI3 | TNNT2 | TPM1 | TTN | VCL | WT1 | ZFPM2
+Hypertrophic non-obstructive cardiomyopathy	NANDO:1200287	
+Hypertrophic obstructive cardiomyopathy	NANDO:1200288	
+Mid-ventricular obstructive hypertrophic cardiomyopathy	NANDO:1200289	
+Apical hypertrophic cardiomyopathy	NANDO:1200290	
+Dilated phase of hypertrophic cardiomyopathy	NANDO:1200291	
+Restrictive cardiomyopathy	NANDO:1200292	ETV6 | FGFR1 | FIP1L1 | GAA | GBA1 | GJA5 | IDUA | KIF20A | MYPN | NPPA | PDGFRA | PDGFRB | SAA1 | SCARB2 | SCN5A | TNNI3 | TNNT2 | TTR
+Idiopathic restrictive cardiomyopathy	NANDO:1200293	
+Secondary restrictive cardiomyopathy	NANDO:1200294	ETV6 | FGFR1 | FIP1L1 | PDGFRA | PDGFRB | SAA1
+Aplastic anemia	NANDO:1200295	ADA2 | BRCA1 | BRCA2 | BRIP1 | CALR | ERCC4 | ERCC6L2 | FANCA | FANCB | FANCC | FANCD2 | FANCE | FANCF | FANCG | FANCI | FANCL | FANCM | GATA1 | HEATR3 | IFNG | JAK2 | MAD2L2 | MPL | NBN | PALB2 | PIGA | PIGT | POC1A | PRF1 | RAD51 | RAD51C | RFWD3 | RPL11 | RPL15 | RPL18 | RPL26 | RPL27 | RPL31 | RPL35 | RPL35A | RPL5 | RPL8 | RPL9 | RPS10 | RPS15A | RPS17 | RPS19 | RPS20 | RPS24 | RPS26 | RPS27 | RPS28 | RPS29 | RPS7 | SBDS | SH2B3 | SLX4 | SRP72 | TERC | TERT | TET2 | TSR2 | UBE2T | XRCC2 | XRCC4
+Idiopathic aplastic anemia	NANDO:1200296	IFNG | NBN | PRF1 | SBDS | TERC | TERT
+Secondary aplastic anemia	NANDO:1200297	
+Atypical aplastic anemia	NANDO:1200298	
+Hepatitis-associated aplastic anemia	NANDO:1200299	
+Aplastic anemia-paroxysmal nocturnal hemoglobinuria syndrome	NANDO:1200300	
+Borderline between aplastic anemia and MDS	NANDO:1200301	
+Congenital aplastic anemia	NANDO:1200302	ADA2 | BRCA1 | BRCA2 | BRIP1 | ERCC4 | ERCC6L2 | FANCA | FANCB | FANCC | FANCD2 | FANCE | FANCF | FANCG | FANCI | FANCL | FANCM | GATA1 | HEATR3 | MAD2L2 | PALB2 | POC1A | RAD51 | RAD51C | RFWD3 | RPL11 | RPL15 | RPL18 | RPL26 | RPL27 | RPL31 | RPL35 | RPL35A | RPL5 | RPL8 | RPL9 | RPS10 | RPS15A | RPS17 | RPS19 | RPS20 | RPS24 | RPS26 | RPS27 | RPS28 | RPS29 | RPS7 | SLX4 | SRP72 | TSR2 | UBE2T | XRCC2 | XRCC4
+Fanconi anemia	NANDO:1200303	
+Dyskeratosis congenita	NANDO:1200304	ACD | CTC1 | DCLRE1B | DKC1 | NHP2 | NOP10 | NPM1 | PARN | RTEL1 | TERC | TERT | TINF2 | TYMS | USB1 | WRAP53
+Autoimmune hemolytic anemia	NANDO:1200305	
+Warm antibody hemolytic anemia	NANDO:1200306	
+Cold agglutinin disease	NANDO:1200307	
+Paroxysmal cold hemoglobinuria	NANDO:1200308	
+Mixed-type autoimmune hemolytic anemia	NANDO:1200309	
+Evans syndrome	NANDO:1200310	
+Paroxysmal nocturnal hemoglobinuria	NANDO:1200311	
+Classical paroxysmal nocturnal hemoglobinuria	NANDO:1200312	
+Paroxysmal nocturnal hemoglobinuria in the setting of another specified bone marrow disorder	NANDO:1200313	
+Mixed type paroxysmal nocturnal hemoglobinuria	NANDO:1200314	
+Idiopathic thrombocytopenic purpura	NANDO:1200315	FCGR2C
+Thrombotic thrombocytopenic purpura	NANDO:1200316	ADAMTS13
+Congenital thrombotic thrombocytopenic purpura	NANDO:1200317	ADAMTS13
+Acquired idiopathic thrombotic thrombocytopenic purpura	NANDO:1200318	
+Secondary thrombotic thrombocytopenic purpura	NANDO:1200319	
+Primary immunodeficiency syndrome	NANDO:1200320	ADAR | AICDA | AP3B1 | ATP6AP1 | BCL10 | BCL11B | BLNK | BLOC1S6 | BTK | C1QA | C1QB | C1QC | C1R | C1S | C2 | C3 | C4A | C4B | C5 | C6 | C7 | C8A | C8B | C8G | C9 | CARD11 | CASP10 | CASP8 | CD19 | CD27 | CD40 | CD40LG | CD46 | CD70 | CD79A | CD79B | CD81 | CFB | CFD | CFH | CFI | CFP | CLEC7A | CR2 | CTLA4 | CYBA | CYBB | CYBC1 | DGKE | DOCK8 | ELF4 | ERBIN | EXTL3 | FAS | FASLG | FCGR3A | FCN3 | ICOS | IFIH1 | IFNAR2 | IFNGR2 | IGHG2 | IGHM | IGKC | IGLL1 | IKBKG | IKZF1 | IL10 | IL10RA | IL10RB | IL17F | IL17RA | IL17RC | IL21 | IL6R | IL6ST | IRF2BP2 | IRF7 | ITK | KNSTRN | KRAS | LRBA | LRRC8A | LSM11 | LYST | MASP2 | MBL2 | MS4A1 | MSN | MYSM1 | NCF1 | NCF2 | NCF4 | NFAT5 | NFKB1 | NFKB2 | NFKBIA | NKX2-5 | NRAS | PIK3CD | PIK3R1 | PRF1 | PRKCD | PTEN | RAB27A | RASGRP1 | RC3H1 | RHOH | RIPK1 | RMRP | RNASEH2A | RNASEH2B | RNASEH2C | RNU7-1 | RPSA | SAMHD1 | SEC61A1 | SERPING1 | SH2D1A | SH3KBP1 | SKIC2 | SKIC3 | SLC39A7 | SMARCAL1 | SP110 | SPI1 | SPINK5 | STAT1 | STAT2 | STAT3 | STAT6 | STX11 | STXBP2 | TCF3 | THBD | TNFRSF13B | TNFRSF13C | TNFSF12 | TOM1 | TRAF3IP2 | TREX1 | UNC13D | UNG | XIAP | ZNF341
+X-linked severe combined immunodeficiency	NANDO:1200321	IL2RG
+Reticular dysgenesis	NANDO:1200322	AK2
+Adenosine deaminase deficiency	NANDO:1200323	ADA
+Omenn syndrome	NANDO:1200324	ADA | CHD7 | DCLRE1C | IL2RG | IL7R | LIG4 | RAG1 | RAG2 | RMRP
+Purine nucleoside phosphorylase deficiency	NANDO:1200325	PNP
+CD8 deficiency	NANDO:1200326	CD8A
+Zap-70 deficiency	NANDO:1200327	ZAP70
+MHC class I deficiency	NANDO:1200328	B2M | TAP1 | TAP2 | TAPBP
+MHC class II deficiency	NANDO:1200329	CIITA | RFX5 | RFXANK | RFXAP
+Wiskott-Aldrich syndrome	NANDO:1200330	WAS | WIPF1
+Ataxia telangiectasia	NANDO:1200331	ATM
+Nijmegen breakage syndrome	NANDO:1200332	NBN
+Bloom syndrome	NANDO:1200333	BLM
+ICF syndrome	NANDO:1200334	CDCA7 | DNMT3B | HELLS | UHRF1 | ZBTB24
+PMS2 deficiency	NANDO:1200335	
+RIDDLE syndrome	NANDO:1200336	RNF168
+Schimke syndrome	NANDO:1200337	SMARCAL1
+Netherton syndrome	NANDO:1200338	SPINK5
+Thymus hypoplasia	NANDO:1200339	
+Hyper-IgE syndrome	NANDO:1200340	DOCK8 | ERBIN | IL6R | IL6ST | SPINK5 | STAT3 | STAT6 | ZNF341
+Hepatic veno-occlusive disease with immunodeficiency	NANDO:1200341	SP110
+obsolete Dyskeratosis congenita	NANDO:1200342	
+X-linked agammaglobulinemia	NANDO:1200343	BTK
+Common variable immunodeficiency	NANDO:1200344	CD19 | CD81 | CR2 | ICOS | IKZF1 | IL21 | IRF2BP2 | LRBA | MS4A1 | NFKB1 | NFKB2 | PRKCD | SEC61A1 | TNFRSF13B | TNFRSF13C | TNFSF12
+Hyper-IgM syndrome	NANDO:1200345	AICDA | CD40 | CD40LG | UNG
+IgG subclass deficiency	NANDO:1200346	
+Selective IgA deficiency	NANDO:1200347	TNFRSF13B
+Specific antibody deficiency with normal Ig concentrations and normal numbers of B cells	NANDO:1200348	
+Transient hypogammaglobulinemia of infancy with normal numbers of B cells	NANDO:1200349	
+Chédiak-Higashi syndrome	NANDO:1200350	LYST
+X-linked lymphoproliferative syndrome	NANDO:1200351	SH2D1A | XIAP
+Autoimmune lymphoproliferative syndrome	NANDO:1200352	CASP10 | CASP8 | CTLA4 | FAS | FASLG | KRAS | NRAS | PRKCD | RASGRP1
+Severe congenital neutropenia	NANDO:1200353	CLPB | CSF3R | CXCR2 | ELANE | G6PC3 | GFI1 | HAX1 | JAGN1 | RBSN | SEC61A1 | SRP19 | SRP54 | SRP68 | TCIRG1 | VPS45 | WAS
+Cyclic neutropenia	NANDO:1200354	ELANE
+Leukocyte adhesion deficiency	NANDO:1200355	FERMT3 | ITGB2 | SLC35C1
+Shwachman-Diamond syndrome	NANDO:1200356	DNAJC21 | EFL1 | SBDS | SRP54
+Chronic granulomatous disease	NANDO:1200357	CYBA | CYBB | CYBC1 | NCF1 | NCF2 | NCF4
+Myeloperoxidase deficiency	NANDO:1200358	MPO
+Mendelian susceptibility to mycobacterial disease	NANDO:1200359	CYBB | IFNGR1 | IFNGR2 | IL12B | IL12RB1 | IRF8 | ISG15 | RORC | STAT1
+Anhidrotic ectodermal dysplasia with immunodeficiency	NANDO:1200360	IKBKG | NFKBIA
+IRAK4 deficiency	NANDO:1200361	IRAK4
+MyD88 deficiency	NANDO:1200362	MYD88
+Chronic mucocutaneous candidiasis	NANDO:1200363	CLEC7A | IL17F | IL17RA | IL17RC | STAT1 | TOM1 | TRAF3IP2
+Inherited deficiency of complement system	NANDO:1200364	C1QA | C1QB | C1QC | C1R | C1S | C2 | C3 | C4A | C4B | C5 | C6 | C7 | C8A | C8B | C8G | C9 | CD46 | CFB | CFD | CFH | CFI | DGKE | FCN3 | MASP2 | MBL2 | SERPING1 | THBD
+Hereditary angioedema	NANDO:1200365	ANGPT1 | F12 | HS3ST6 | KNG1 | MYOF | PLG | SERPING1
+IgA nephropathy	NANDO:1200366	
+Polycystic kidney disease	NANDO:1200367	ALG5 | ALG9 | BICC1 | DNAJB11 | DZIP1L | GANAB | IFT140 | PKD1 | PKD2 | PKHD1
+Autosomal dominant polycystic kidney disease	NANDO:1200368	ALG5 | ALG9 | BICC1 | DNAJB11 | GANAB | IFT140 | PKD1 | PKD2
+Autosomal recessive polycystic kidney disease	NANDO:1200369	DZIP1L | PKD1 | PKHD1
+Ossification of ligamentum flavum	NANDO:1200370	
+Ossification of posterior longitudinal ligament	NANDO:1200371	
+Coexisting cervical and lumbar spinal stenosis	NANDO:1200372	
+Idiopathic osteonecrosis of femoral head	NANDO:1200373	COL2A1 | TRPV4
+Diencephalo-hypophysial insufficiency-inappropriate ADH syndrome	NANDO:1200374	
+Central diabetes insipidus	NANDO:1200375	AVP
+Syndrome of inappropriate secretion of antidiuretic hormone	NANDO:1200376	
+Diencephalo-hypophysial insufficiency-inappropriate thyroid stimulating hormone syndrome	NANDO:1200377	CDH23
+Diencephalo-hypophysial insufficiency-inappropriate prolactin syndrome	NANDO:1200378	AIP | CDH23 | MEN1
+Cushing disease	NANDO:1200379	AIP | ATRX | BRAF | CDH23 | NR3C1 | TP53 | USP48 | USP8
+Diencephalo-hypophysial dysfunction-syndrome of abnormal secretion of gonadotropin	NANDO:1200380	
+Central precocious puberty	NANDO:1200381	DLK1 | KISS1 | KISS1R | MKRN3
+obsolete Idiopathic hypogonadotropic hypogonadism	NANDO:1200382	
+obsolete Congenital hypogonadotropic hypogonadism	NANDO:1200383	
+obsolete Acquired hypogonadotropic hypogonadism	NANDO:1200384	
+Growth hormone secreting pituitary adenoma	NANDO:1200385	
+Diencephalo-hypophysial dysfunction-syndrome of abnormal secretion of growth hormone	NANDO:1200386	
+Hypopituitarism syndrome	NANDO:1200387	ARNT2 | BTK | ELF4 | FGFR1 | FOXA2 | GH1 | GHRHR | GLI2 | HESX1 | LHX3 | LHX4 | OTX2 | POU1F1 | PROKR2 | PROP1 | RNPC3 | ROBO1 | SOX2 | SOX3 | TBX19
+Hypogonadotropic hypogonadism	NANDO:1200388	ANOS1 | ARNT2 | AXL | BTK | CCDC141 | CHD7 | CPE | DCAF17 | DCC | DMXL2 | DUSP6 | ELF4 | FEZF1 | FGF17 | FGF8 | FGFR1 | FLRT3 | FOXA2 | FSHB | GH1 | GHRHR | GLI2 | GNRH1 | GNRHR | HERC2 | HESX1 | HS6ST1 | IL17RD | IPW | KISS1 | KISS1R | LEP | LEPR | LHB | LHX3 | LHX4 | MAGEL2 | MKRN3 | NDN | NDNF | NHLH2 | NPAP1 | NR0B1 | NSMF | OCA2 | OTX2 | PCSK1 | PNPLA6 | POU1F1 | PROK2 | PROKR2 | PROP1 | PWAR1 | PWRN1 | RAB3GAP1 | RAB3GAP2 | RBM28 | RNF216 | RNPC3 | ROBO1 | SEMA3A | SEMA3E | SIM1 | SMCHD1 | SNORD115-1 | SNORD116-1 | SNRPN | SOX10 | SOX2 | SOX3 | SPRY4 | SRA1 | TAC3 | TACR3 | TBX19 | TCF12 | WDR11
+Syndrome of abnormal secretion of adrenocorticotropic hormone	NANDO:1200389	
+Thyroid-stimulating hormone deficiency	NANDO:1200390	HESX1 | IGSF1 | LHX3 | LHX4 | POU1F1 | PROP1 | TRH | TRHR | TSHB
+Growth hormone secretion deficiency of dwarfism	NANDO:1200391	
+Adult growth hormone deficiency	NANDO:1200392	
+Syndrome of abnormal secretion of prolactin	NANDO:1200393	
+Homozygous familial hypercholesterolemia	NANDO:1200394	ABCG5 | ABCG8 | APOB | LDLR | LDLRAP1 | PCSK9
+Resistance to thyroid hormone	NANDO:1200395	FOXE1 | NKX2-1 | NKX2-5 | PAX8 | SLC26A4 | THRA | THRB | TSHR
+Congenital adrenal enzyme deficiency	NANDO:1200396	
+Congenital lipoid adrenal hyperplasia	NANDO:1200397	CYP11B1 | CYP17A1 | CYP21A2 | HSD3B2 | POR | STAR
+3-β-Hydroxysteroid dehydrogenase deficiency	NANDO:1200398	HSD3B2
+21-Hydroxylase deficiency	NANDO:1200399	CYP21A2
+11-β-Hydroxylase deficiency	NANDO:1200400	CYP11B1
+17-α-Hydroxylase deficiency	NANDO:1200401	CYP17A1
+P450 oxidoreductase deficiency	NANDO:1200402	POR
+Congenital adrenal hypoplasia	NANDO:1200403	
+NR0B1　abnormality	NANDO:1200404	NR0B1
+NR5A1 abnormality	NANDO:1200405	NR5A1
+IMAge syndrome	NANDO:1200406	CDKN1C | POLE
+obsolete ACTH unresponsiveness	NANDO:1200407	
+obsolete MC2R deficiency	NANDO:1200408	
+obsolete MRAP deficiency	NANDO:1200409	
+Allgrove syndrome	NANDO:1200410	AAAS | GMPPA | TRAPPC11
+Addison's disease	NANDO:1200411	AAAS | CYP11A1 | CYP11B1 | CYP17A1 | CYP21A2 | GMPPA | HSD3B2 | MC2R | MRAP | NNT | NR0B1 | POR | STAR | TRAPPC11 | TXNRD2
+Autoimmune Addison's disease	NANDO:1200412	
+Tuberculous Addison's disease	NANDO:1200413	
+Infectious Addison's disease	NANDO:1200414	
+Sarcoidosis	NANDO:1200415	BTNL2 | HLA-DRB1 | NOD2
+Idiopathic interstitial pneumonia	NANDO:1200416	ABCA3 | ATP11A | DPP9 | DSP | FAM13A | MUC5B | PARN | RTEL1 | SFTPA1 | SFTPA2 | SFTPC | STN1 | TERC | TERT
+Idiopathic pulmonary fibrosis	NANDO:1200417	
+Interstitial pneumonia other than IPF	NANDO:1200418	
+Non-specific interstitial pneumonia	NANDO:1200419	
+Acute interstitial pneumonia	NANDO:1200420	
+Cryptogenic organizing pneumonia	NANDO:1200421	
+Desquamative interstitial pneumonia	NANDO:1200422	
+Respiratory bronchiolitis-associated interstitial lung disease	NANDO:1200423	
+Lymphoid interstitial pneumonia	NANDO:1200424	
+Pulmonary arterial hypertension	NANDO:1200425	ACVRL1 | ATP13A3 | BMPR2 | CAPNS1 | CAV1 | EIF2AK4 | ENG | GDF2 | KCNK3 | KDR | SMAD9 | SOX17 | TBX4
+Pulmonary veno-occlusive disease / pulmonary capillary hemangiomatosis	NANDO:1200426	EIF2AK4
+Pulmonary veno-occlusive disease	NANDO:1200427	BMPR2 | EIF2AK4
+Pulmonary capillary hemangiomatosis	NANDO:1200428	
+Chronic thromboembolic pulmonary hypertension	NANDO:1200429	
+Lymphangioleiomyomatosis	NANDO:1200430	TSC1 | TSC2
+Retinitis pigmentosa	NANDO:1200431	ABCA4 | AGBL5 | AHI1 | AHR | AIPL1 | ARHGEF18 | ARL2BP | ARL3 | ARL6 | BBS1 | BBS2 | BEST1 | CA4 | CC2D2A | CDHR1 | CERKL | CFAP418 | CLCC1 | CLRN1 | CNGA1 | CNGB1 | CRB1 | CRX | DHDDS | DHX38 | EYS | FAM161A | FSCN2 | GUCA1B | HGSNAT | HK1 | HKDC1 | IDH3A | IDH3B | IFT140 | IFT172 | IFT43 | IFT88 | IMPDH1 | IMPG1 | IMPG2 | KIAA1549 | KIZ | KLHL7 | LRAT | MAK | MERTK | NEK2 | NR2E3 | NRL | OFD1 | PCARE | PDE6A | PDE6B | PDE6G | POMGNT1 | PRCD | PROM1 | PRPF3 | PRPF31 | PRPF4 | PRPF6 | PRPF8 | PRPH2 | RAX2 | RBP3 | RDH12 | REEP6 | RGR | RHO | RLBP1 | ROM1 | RP1 | RP1L1 | RP2 | RP9 | RPE65 | RPGR | SAG | SCAPER | SEMA4A | SLC7A14 | SNRNP200 | SPATA7 | TOPORS | TTC8 | TUB | TULP1 | USH2A | VWA8 | ZNF408 | ZNF513
+Sporadic retinitis pigmentosa	NANDO:1200432	
+Autosomal dominant retinitis pigmentosa	NANDO:1200433	
+Autosomal recessive retinitis pigmentosa	NANDO:1200434	
+X-linked recessive retinitis pigmentosa	NANDO:1200435	
+Digenic retinitis pigmentosa	NANDO:1200436	
+Budd-Chiari syndrome	NANDO:1200437	CALR | F5 | JAK2
+Idiopathic portal hypertension	NANDO:1200438	
+Primary biliary cholangitis	NANDO:1200439	IL12A | IL12RB1 | IRF5 | MMEL1 | POU2AF1 | SPIB | TNFSF15 | TNPO3
+Primary sclerosing cholangitis	NANDO:1200440	GPR35 | MST1 | SEMA4D | TCF4
+Autoimmune hepatitis	NANDO:1200441	
+Typical autoimmune hepatitis	NANDO:1200442	
+Atypical autoimmune hepatitis	NANDO:1200443	
+Crohn's disease	NANDO:1200444	
+small bowel Crohn disease	NANDO:1200445	
+Colonic Crohn's disease	NANDO:1200446	
+Crohn ileocolitis	NANDO:1200447	
+Atypical Crohn's disease	NANDO:1200448	
+Ulcerative colitis	NANDO:1200449	
+Pan-ulcerative colitis	NANDO:1200450	
+Left-sided colitis	NANDO:1200451	
+Ulcerative proctitis	NANDO:1200452	
+Right-sided ulcerative colitis	NANDO:1200453	
+Eosinophilic gastrointestinal disorders	NANDO:1200454	
+Neonatal food-protein induced enterocolitis	NANDO:1200455	
+Eosinophilic esophagitis	NANDO:1200456	
+Eosinophilic gastroenteritis	NANDO:1200457	
+Chronic idiopathic intestinal pseudo-obstruction	NANDO:1200458	ACTG2 | ERBB3 | FLNA
+Megacystis-microcolon-intestinal hypoperistalsis syndrome	NANDO:1200459	
+Congenital isolated hypoganglionosis	NANDO:1200460	
+Rubinstein-Taybi syndrome	NANDO:1200461	CREBBP | EP300
+CFC Syndrome	NANDO:1200462	BRAF | KRAS | MAP2K1 | MAP2K2
+Costello syndrome	NANDO:1200463	HRAS
+CHARGE syndrome	NANDO:1200464	CHD7 | SEMA3E
+Cryopyrin-associated periodic syndrome	NANDO:1200465	NLRC4 | NLRP12 | NLRP3 | PLCG2
+Familial cold autoinflammatorysyndrome	NANDO:1200466	NLRC4 | NLRP12 | NLRP3 | PLCG2
+Muckle-Wells syndrome	NANDO:1200467	NLRP3
+Chronic infantile neurological cutaneous articular syndrome	NANDO:1200468	NLRP3
+Juvenile idiopathic arthritis	NANDO:1200469	ANKRD55 | CD247 | HLA-DRB1 | IL2RA | IL2RB | IL6 | LACC1 | MIF | PTPN2 | PTPN22 | STAT4
+Systemic juvenile idiopathic arthritis	NANDO:1200470	HLA-DRB1 | IL6 | LACC1 | MIF
+Articular-type juvenile idiopathic arthritis	NANDO:1200471	ANKRD55 | CD247 | IL2RA | IL2RB | PTPN2 | PTPN22 | STAT4
+TNF receptor-associated periodic fever syndrome	NANDO:1200472	TNFRSF1A
+Atypical hemolytic uremic syndrome	NANDO:1200473	C3 | CD46 | CFB | CFH | CFI | DGKE | THBD
+Congenital atypical hemolytic uremic syndrome	NANDO:1200474	
+Acquired aHUS	NANDO:1200475	
+Blau syndrome	NANDO:1200476	NOD2
+Congenital myopathy	NANDO:1200477	ACTA1 | ACTN2 | AMPD1 | AMPD3 | BAG3 | BIN1 | CACNA1S | CASQ1 | CCDC174 | CCDC78 | CFL2 | CHCHD10 | CNTN1 | COA5 | COA6 | COL12A1 | COL6A1 | COL6A2 | COL6A3 | COX1 | COX15 | COX2 | COX3 | CRYAB | CYTB | DES | DGUOK | DNA2 | DNAJB4 | DNM2 | ELAC2 | FDX2 | FHL1 | FLNC | FOXRED1 | FXR1 | GFER | HACD1 | HADHA | HADHB | HSPB8 | ITGA7 | KBTBD13 | KLHL40 | KLHL41 | KY | LDB3 | LIG3 | LMOD3 | MAMLD1 | MAP3K20 | MEGF10 | MSTO1 | MTM1 | MTMR14 | MYBPC1 | MYF6 | MYH2 | MYH7 | MYL1 | MYL2 | MYO18B | MYOD1 | MYOT | MYPN | ND1 | ND4 | ND5 | ND6 | NDUFA1 | NDUFS1 | NDUFS2 | NDUFS4 | NDUFS7 | NDUFS8 | NDUFV1 | NEB | NUBPL | ORAI1 | PAX7 | PNPLA8 | POLG | POLG2 | PRICKLE2 | PUS1 | PYROXD1 | RNASEH1 | RRM1 | RRM2B | RYR1 | RYR3 | SCN4A | SCO1 | SCO2 | SDHA | SDHAF1 | SDHB | SDHD | SELENON | SLC25A4 | SPEG | STAC3 | STIM1 | SVIL | TAFAZZIN | TK2 | TNNC2 | TNNT1 | TOP3A | TPM2 | TPM3 | TRMU | TRNC | TRNF | TRNI | TRNK | TRNL1 | TRNP | TRNQ | TRNS1 | TRNS2 | TRNT | TRNV | TRNW | TTN | TWNK | TYMP | UNC45B | YARS2
+Nemaline myopathy	NANDO:1200478	ACTA1 | CFL2 | KBTBD13 | KLHL40 | KLHL41 | LMOD3 | MYPN | NEB | TNNT1 | TPM2 | TPM3
+Central core disease	NANDO:1200479	RYR1
+Minicore myopathy	NANDO:1200480	MYH7 | RYR1 | SELENON | TTN
+Myotubular myopathy	NANDO:1200481	
+Centronuclear myopathy	NANDO:1200482	BIN1 | CCDC78 | DNM2 | MAMLD1 | MAP3K20 | MTM1 | MTMR14 | MYF6 | RYR1 | SPEG | TTN
+Congenital fiber-type disproportion myopathy	NANDO:1200483	ACTA1 | HACD1 | ITGA7 | MAP3K20 | MYL2 | SELENON | TPM2 | TPM3
+Type 1 fiber predominance myopathy	NANDO:1200484	
+Marinesco-Sjogren syndrome	NANDO:1200485	INPP5K | SIL1
+Muscular dystrophy	NANDO:1200486	ACTA1 | ADSS1 | ANO5 | B3GALNT2 | B4GAT1 | BET1 | BVES | CAPN3 | CAV3 | CHKB | CNBP | COL12A1 | COL25A1 | COL4A1 | COL6A1 | COL6A2 | COL6A3 | CRPPA | CRYAB | DAG1 | DMD | DMPK | DNAJB6 | DNMT3B | DOK7 | DPM2 | DPM3 | DUX4 | DUX4L1 | DYSF | EMD | FHL1 | FKRP | FKTN | FLNC | FRG1 | GIPC1 | GMPPB | HMGCR | HNRNPA1 | HNRNPA2B1 | HNRNPDL | INPP5K | ITGA7 | JAG2 | KIF21A | KLHL9 | LAMA2 | LARGE1 | LDB3 | LIMS2 | LMNA | LRIF1 | LRP12 | LTBP4 | MATR3 | MYH14 | MYH7 | MYOT | NEB | NOTCH2NLC | PABPN1 | PHOX2A | PLEC | POGLUT1 | POMGNT1 | POMGNT2 | POMK | POMT1 | POMT2 | POPDC3 | RILPL1 | RXYLT1 | SELENON | SGCA | SGCB | SGCD | SGCG | SMCHD1 | SMPX | SQSTM1 | SYNE1 | SYNE2 | TCAP | TIA1 | TMEM43 | TNPO3 | TOR1AIP1 | TRAPPC11 | TRIM32 | TRIP4 | TTN | TUBA1A | TUBB2B | TUBB3 | VCP | VMA21
+Dystrophinopathies	NANDO:1200487	CAV3 | DMD
+Duchenne muscular dystrophy	NANDO:1200488	DMD | LTBP4
+Becker muscular dystrophy	NANDO:1200489	DMD
+Limb-girdle muscular dystrophy	NANDO:1200490	ANO5 | BVES | CAPN3 | CRPPA | DAG1 | DNAJB6 | DYSF | FKRP | FKTN | GMPPB | HMGCR | HNRNPDL | JAG2 | LAMA2 | LIMS2 | LMNA | MYOT | PLEC | POGLUT1 | POMGNT1 | POMGNT2 | POMK | POMT1 | POMT2 | POPDC3 | SGCA | SGCB | SGCD | SGCG | TCAP | TNPO3 | TOR1AIP1 | TRAPPC11 | TRIM32 | TTN
+Facioscapulohumeral muscular dystrophy	NANDO:1200491	DNMT3B | DUX4 | DUX4L1 | FRG1 | LRIF1 | SMCHD1
+Emery-Dreifuss muscular dystrophy	NANDO:1200492	EMD | FHL1 | LMNA | MYH7 | SYNE1 | SYNE2 | TMEM43
+Oculopharyngeal muscular dystrophy	NANDO:1200493	HNRNPA2B1 | PABPN1
+Fukuyama type congenital muscular dystrophy	NANDO:1200494	FKTN
+Myotonic dystrophy	NANDO:1200495	CNBP | DMPK
+Non-dystrophic myotonia	NANDO:1200496	
+Myotonia congenita	NANDO:1200497	CLCN1
+Thomsen disease	NANDO:1200498	
+Becker disease	NANDO:1200499	CLCN1
+Sodium channel myotonia	NANDO:1200500	SCN4A
+Paramyotonia congenita	NANDO:1200501	SCN4A
+Hereditary periodic paralysis	NANDO:1200502	ATP6 | ATP8 | CACNA1S | GABRA3 | KCNE3 | KCNJ18 | KCNJ2 | KCNJ5 | SCN4A
+Hereditary hypokalemic periodic paralysis	NANDO:1200503	CACNA1S | KCNE3 | SCN4A
+Hereditary hyperkalemic periodic paralysis	NANDO:1200504	SCN4A
+Atopic myelitis	NANDO:1200505	
+Syringomyelia	NANDO:1200506	
+Symptomatic syringomyelia	NANDO:1200507	
+Asymptomatic syringomyelia	NANDO:1200508	
+Myelomeningocele	NANDO:1200509	
+Isaacs syndrome	NANDO:1200510	
+Hereditary dystonia	NANDO:1200511	ACTB | ANO3 | AOPEP | ARX | ATM | ATP1A3 | BCAP31 | CACNA1A | CIZ1 | COL6A3 | DCAF17 | DRD2 | EIF2AK2 | EPHB4 | GCH1 | GNAL | HPCA | IMPDH2 | KCNA1 | KCNN2 | KCTD17 | KMT2B | MECR | NR4A2 | NUP54 | PDE10A | PDE2A | PNKD | PNKP | PRKRA | PRRT2 | SCN8A | SGCE | SHQ1 | SLC18A2 | SLC2A1 | SLC6A3 | SPR | TAF1 | THAP1 | TMEM151A | TOR1A | TSPOAP1 | TUBB4A | VAC14 | VPS11 | VPS16 | WARS2
+Dystonia 1	NANDO:1200512	EIF2AK2 | SHQ1 | TOR1A
+Dystonia 2	NANDO:1200513	HPCA
+Dystonia 3	NANDO:1200514	TAF1
+Dystonia 4	NANDO:1200515	TUBB4A
+Dystonia 5	NANDO:1200516	GCH1 | IMPDH2 | NR4A2 | SPR | TH | TSPOAP1
+Dystonia 6 	NANDO:1200517	THAP1
+Dystonia 7	NANDO:1200518	
+Dystonia 8	NANDO:1200519	
+Dystonia 9	NANDO:1200520	SLC2A1
+Dystonia 10	NANDO:1200521	
+Dystonia 11	NANDO:1200522	DRD2 | KCTD17 | SGCE | TOR1A
+Dystonia 12	NANDO:1200523	ATP1A3
+Rapid-onset dystonia-parkinsonism	NANDO:1200524	
+Alternating hemiplegia of childhood	NANDO:1200525	ATP1A2 | ATP1A3 | CACNA1A | NR0B1 | SLC1A3
+Cerebellar ataxia, areflexia, pes cavus, optic atropy, and sensorineural hearing loss	NANDO:1200526	ATP1A3
+Dystonia 13	NANDO:1200527	
+Dystonia 15	NANDO:1200528	
+Dystonia 16	NANDO:1200529	PRKRA
+Dystonia 17	NANDO:1200530	
+Dystonia 18	NANDO:1200531	PRRT2 | SLC2A1
+Dystonia 19	NANDO:1200532	
+Dystonia 20	NANDO:1200533	
+Neurodegeneration with brain iron accumulation type 1	NANDO:1200534	PANK2
+Classic pantothenate kinase-associated neurodegeneration	NANDO:1200535	PANK2
+Atypical pantothenate kinase-associated neurodegeneration	NANDO:1200536	PANK2
+Neurodegeneration with brain iron accumulation type 2A	NANDO:1200537	PLA2G6
+Neurodegeneration with brain iron accumulation type 2B	NANDO:1200538	
+Neurodegeneration with brain iron accumulation type 3	NANDO:1200539	
+Neurodegeneration with brain iron accumulation type 4	NANDO:1200540	C19orf12
+Fatty acid hydroxylase-associated neurodegeneration	NANDO:1200541	FA2H
+Neurodegeneration with brain iron accumulation	NANDO:1200542	
+Superficial siderosis	NANDO:1200543	
+HTRA1-Related Cerebral Small Vessel Disease	NANDO:1200544	HTRA1
+Cerebral autosomal dominant arteriopathy with subcortical infarct and leukoencephalopathy	NANDO:1200545	HTRA1 | NOTCH3
+Hereditary diffuse leukoencephalopathy with spheroid	NANDO:1200546	
+Perry disease	NANDO:1200547	DCTN1
+Frontotemporal lobar degeneration	NANDO:1200548	ANXA11 | CHMP2B | GRN | HNRNPA1 | HNRNPA2B1 | MAPT | PSEN1 | SQSTM1 | TMEM106B | TREM2 | VCP
+Behavioral variant frontotemporal dementia	NANDO:1200549	CHMP2B | GRN | MAPT | PSEN1 | SQSTM1 | TMEM106B | TREM2 | VCP
+Semantic dementia	NANDO:1200550	CHMP2B | GRN | MAPT | PSEN1 | TMEM106B | TREM2
+Bickerstaff's brainstem encephalitis	NANDO:1200551	
+Acute encephalopathy with biphasic seizures and late reduced diffusion	NANDO:1200552	ADORA2A
+Congenital insensitivity to pain with anhidrosis	NANDO:1200553	NTRK1
+Alexander disease	NANDO:1200554	GFAP
+Alexander disease type I	NANDO:1200555	GFAP
+Alexander disease type II	NANDO:1200556	GFAP
+Alexander disease type III	NANDO:1200557	
+Congenital suprabulbar paresis	NANDO:1200558	
+Moebius syndrome	NANDO:1200559	PLXND1 | REV3L
+Septo-optic dysplasia / De Morsier syndrome	NANDO:1200560	
+Septo-optic dysplasia	NANDO:1200561	ARNT2 | FGFR1 | HESX1 | OTX2 | PROKR2 | SOX2 | SOX3
+Aicardi syndrome	NANDO:1200562	
+Hemimegalencephaly	NANDO:1200563	AKT3 | MTOR | PIK3CA
+Focal cortical dysplasia	NANDO:1200564	MTOR | SLC35A2 | TSC1 | TSC2
+Focal cortical dysplasia type 1a	NANDO:1200565	SLC35A2
+Focal cortical dysplasia type 1b	NANDO:1200566	
+Focal cortical dysplasia type 1c	NANDO:1200567	
+Focal cortical dysplasia type 2a	NANDO:1200568	MTOR | TSC2
+Focal cortical dysplasia type 2b	NANDO:1200569	MTOR | TSC1 | TSC2
+Focal cortical dysplasia type 3a	NANDO:1200570	
+Focal cortical dysplasia type 3b	NANDO:1200571	
+Focal cortical dysplasia type 3c	NANDO:1200572	
+Focal cortical dysplasia type 3d	NANDO:1200573	
+Neuronal migration defects	NANDO:1200574	ACTB | ACTG1 | APC2 | ARX | CDK5 | CEP85L | DAG1 | DCX | HIC1 | KATNB1 | LAMB1 | MACF1 | NDE1 | PAFAH1B1 | PHGDH | PSAT1 | PSPH | RAB18 | RAB3GAP1 | RAB3GAP2 | RELN | TBC1D20 | TMTC3 | TUBA1A | TUBG1 | YWHAE
+Congenital hypomyelinating leukodystrophy	NANDO:1200575	AARS2 | ABCD1 | ACER3 | ADAR | AIMP1 | AIMP2 | ALDH3A2 | ARSA | ASPA | ATP11A | BCAP31 | CLCN2 | CLDN11 | CNP | COA8 | CSF1R | CYP27A1 | DARS1 | DARS2 | DEGS1 | EARS2 | EIF2B1 | EIF2B2 | EIF2B3 | EIF2B4 | EIF2B5 | EPRS1 | FBP2 | GALC | GFAP | GJC2 | HEPACAM | HIKESHI | HMBS | HSPD1 | HYCC1 | IFIH1 | ISCA2 | KARS1 | LMNB1 | LSM11 | MAL | MLC1 | MTHFS | NADK2 | NDUFA2 | NDUFV2 | NKX6-2 | PEX1 | PEX10 | PEX11B | PEX12 | PEX13 | PEX14 | PEX16 | PEX19 | PEX2 | PEX26 | PEX3 | PEX5 | PEX6 | PEX7 | PLP1 | POLR1A | POLR1C | POLR3A | POLR3B | POLR3K | PSAP | PYCR2 | RARS1 | RNASEH2A | RNASEH2B | RNASEH2C | RNASET2 | RNF220 | RNU7-1 | RPIA | SAMHD1 | SCP2 | SLC35B2 | TMEM106B | TMEM163 | TMEM63A | TREM2 | TREX1 | TUBB4A | TYROBP | UFM1 | VPS11
+Pelizaeus-Merzbacher disease	NANDO:1200576	PLP1
+Pelizaeus-Merzbacher like disease	NANDO:1200577	AIMP1 | GJC2 | HSPD1 | MAL
+Hypomyelination with atrophy of the basal ganglia and cerebellum	NANDO:1200578	TUBB4A | UFM1
+18q-syndrome	NANDO:1200579	
+Allan-Herndon-Dudley syndrome	NANDO:1200580	SLC16A2
+Mitochondrial Hsp60 chaperonopathy	NANDO:1200581	HSPD1
+Salla disease	NANDO:1200582	SLC17A5
+Diffuse cerebral hypomyelination with cerebellar atrophy and hypoplasia of the corpus callosum	NANDO:1200583	POLR3A
+Hypomyelination and congenital cataract	NANDO:1200584	HYCC1
+Ataxia, delayed dentition, and hypomyelination syndrome	NANDO:1200585	POLR3A | POLR3B
+Peripheral demyelinating neuropathy, central dysmyelinating leukodystrophy, Waardenburg syndrome, and Hirschsprung disease	NANDO:1200586	SOX10
+Dravet syndrome	NANDO:1200587	
+Mesial temporal lobe epilepsy with bilateral hippocampal sclerosis	NANDO:1200588	
+Myoclonic absence epilepsy	NANDO:1200589	SLC2A1
+Epilepsy with myoclonic atonic seizures	NANDO:1200590	AP2M1 | CHD2 | NEXMIF | SCN1A | SLC2A1 | SLC6A1 | SYNGAP1
+Lennox-Gastaut syndrome	NANDO:1200591	CACNA1A | CHD2 | CUX2 | DNM1 | GABRB3 | MAPK10 | SCN1A
+West syndrome	NANDO:1200592	ARX | CDKL5 | CNPY3 | GRIN2B | GUF1 | NTRK2 | PHACTR1 | PIGA | PLCB1 | SCN2A | SIK1 | SPTAN1 | ST3GAL3 | STXBP1 | WDR45
+Ohtahara syndrome	NANDO:1200593	AARS1 | ACTL6B | ADAM22 | ALG13 | AP3B2 | ARHGEF9 | ARV1 | ARX | ATP1A2 | ATP1A3 | ATP6V0A1 | BRAT1 | CACNA1A | CACNA1E | CACNA2D1 | CAD | CASK | CDK19 | CDKL5 | CELF2 | CHD2 | CNPY3 | CPLX1 | CUX2 | CYFIP2 | DALRD3 | DENND5A | DEPDC5 | DMXL2 | DNM1 | DOCK7 | EEF1A2 | FBXO28 | FGF12 | FGF13 | FRRS1L | FZR1 | GABBR2 | GABRA1 | GABRA2 | GABRA5 | GABRB1 | GABRB3 | GABRG2 | GAD1 | GLS | GNAO1 | GOT2 | GRIN1 | GRIN2B | GRIN2D | GRM7 | GUF1 | HCN1 | HID1 | HNRNPU | ITPA | KCNA1 | KCNA2 | KCNB1 | KCNC2 | KCNH5 | KCNQ2 | KCNT1 | KCNT2 | MAPK10 | MAST3 | MDH1 | MDH2 | NAPB | NECAP1 | NEUROD2 | NSF | NTRK2 | PACS2 | PARS2 | PCDH19 | PHACTR1 | PIGA | PIGB | PIGP | PIGQ | PLCB1 | PNKP | RHOBTB2 | RNF13 | SCN1A | SCN1B | SCN2A | SCN3A | SCN8A | SIK1 | SLC12A5 | SLC13A5 | SLC1A2 | SLC25A12 | SLC25A22 | SLC32A1 | SLC38A3 | SMC1A | SNAP25 | SNF8 | SPTAN1 | ST3GAL3 | STXBP1 | SV2A | SYNJ1 | SZT2 | TBC1D24 | TRAK1 | TRIM8 | UBA5 | UFSP2 | UGDH | UGP2 | WWOX | YWHAG
+Early myoclonic encephalopathy	NANDO:1200594	ADRA2B | CNTN2 | CPLX1 | CTNND2 | MARCHF6 | RAPGEF2 | SAMD12 | SIK1 | SLC1A2 | SLC25A22 | STARD7 | TBC1D24 | TNRC6A | YEATS2
+Epilepsy of infancy with migrating focal seizures	NANDO:1200595	KCNQ2 | KCNT1 | PIGA | PLCB1 | SCN1A | SCN2A | SLC12A5 | SLC25A22 | TBC1D24
+Hemiconvulsion-hemiplegia-epilepsy syndrome	NANDO:1200596	
+Ring chromosome 20 syndrome	NANDO:1200597	
+Rasmussen's encephalitis	NANDO:1200598	
+PCDH19-related syndrome	NANDO:1200599	PCDH19
+Acute encephalitis with refractory, repetitive partial seizures	NANDO:1200600	
+Epileptic encephalopathy with continuous spike-and-wave during sleep	NANDO:1200601	FRRS1L | GRIN2A
+Landau-Kleffner syndrome	NANDO:1200602	FRRS1L | GRIN2A
+Rett syndrome	NANDO:1200603	MECP2
+Typical Rett syndrome	NANDO:1200604	
+Atypical Rett syndrome	NANDO:1200605	CDKL5 | FOXG1 | GABBR2 | MECP2 | NTNG1 | SMC1A | STXBP1
+Sturge-Weber syndrome	NANDO:1200606	GNAQ
+Tuberous sclerosis complex	NANDO:1200607	IFNG | TSC1 | TSC2
+Xeroderma pigmentosum	NANDO:1200608	DDB2 | ERCC2 | ERCC3 | ERCC4 | ERCC5 | POLH | XPA | XPC
+Congenital ichthyosis	NANDO:1200609	ABCA12 | ALOX12B | ALOXE3 | CASP14 | CDSN | CERS3 | CHST8 | CLDN1 | CSTA | CYP4F22 | FLG | FLG2 | KLK11 | KRT1 | KRT10 | KRT2 | LIPN | MBTPS2 | NIPAL4 | PNPLA1 | SDR9C7 | SERPINB8 | SPINK5 | SREBF1 | ST14 | STS | SULT2B1 | TGM1 | TGM5
+Keratinopathic ichthyosis	NANDO:1200610	KRT1 | KRT10 | KRT2
+Autosomal dominant epidermolytic ichthyosis	NANDO:1200611	KRT1 | KRT10
+Autosomal recessive epidermolytic ichthyosis	NANDO:1200612	KRT10
+Superficial epidermolytic ichthyosis	NANDO:1200613	KRT2
+Harlequin ichthyosis	NANDO:1200614	ABCA12
+Autosomal recessive congenital ichthyosis excluding harlequin ichthyosis	NANDO:1200615	ABCA12 | ALOX12B | ALOXE3 | CASP14 | CERS3 | CSTA | CYP4F22 | KRT2 | LIPN | NIPAL4 | PNPLA1 | SDR9C7 | SERPINB8 | ST14 | SULT2B1 | TGM1
+Congenital ichthyosiform erythroderma	NANDO:1200616	ABCA12 | ALOX12B | ALOXE3 | CERS3 | NIPAL4 | PNPLA1 | SDR9C7 | SULT2B1 | TGM1
+Lamellar ichthyosis	NANDO:1200617	ABCA12 | ALOX12B | ALOXE3 | ASPRV1 | CYP4F22 | LIPN | NIPAL4 | SDR9C7 | SULT2B1 | TGM1
+Ichthyosis syndrome	NANDO:1200618	ABCA12 | ALOX12B | ALOXE3 | CASP14 | CDSN | CERS3 | CHST8 | CLDN1 | CSTA | CYP4F22 | FLG | FLG2 | KLK11 | KRT1 | KRT10 | KRT2 | LIPN | MBTPS2 | NIPAL4 | PNPLA1 | SDR9C7 | SERPINB8 | SPINK5 | SREBF1 | ST14 | STS | SULT2B1 | TGM1 | TGM5
+obsolete Netherton syndrome	NANDO:1200619	
+Sjögren-Larsson syndrome	NANDO:1200620	ALDH3A2
+Keratitis-ichthyosis-deafness syndrome	NANDO:1200621	AP1B1 | GJB2 | GJB6
+Dorfman-Chanarin syndrome	NANDO:1200622	ABHD5
+Neutral lipid storage disease with ichthyosis	NANDO:1200623	
+Multiple sulfatase deficiency	NANDO:1200624	
+Recessive X-linked ichtyosis	NANDO:1200625	FLG | STS
+Ichthyosis, brittle hair, impaired intelligence, decreased fertility and short stature	NANDO:1200626	ERCC2 | ERCC3 | GTF2H5
+Trichothiodystrophy	NANDO:1200627	AARS1 | CARS1 | ERCC2 | ERCC3 | GTF2E2 | GTF2H5 | MARS1 | MPLKIP | RNF113A | TARS1
+Ichthyosis follicularis	NANDO:1200628	
+CHILD syndrome	NANDO:1200629	
+Conradi Hünermann Happle syndrome	NANDO:1200630	EBP
+Benign familial pemphigus	NANDO:1200631	ATP2C1
+Pemphigoid (including Epidermolysis bullosa acquisita)	NANDO:1200632	
+Bullous pemphigoid	NANDO:1200633	HLA-DQB1 | HLA-DRB1
+Mucous membrane pemphigoid	NANDO:1200634	
+Epidermolysis bullosa acquisita	NANDO:1200635	
+Acquired idiopathic generalized anhidrosis	NANDO:1200636	
+Oculocutaneous albinism	NANDO:1200637	DCT | LRMDA | MC1R | OCA2 | SLC24A5 | SLC45A2 | TYR | TYRP1 | WDR45
+Hermansky-Pudlak syndrome	NANDO:1200638	AP3B1 | AP3D1 | BLOC1S3 | BLOC1S5 | BLOC1S6 | DTNBP1 | HPS1 | HPS3 | HPS4 | HPS5 | HPS6
+obsolete Chédiak-Higashi syndrome	NANDO:1200639	
+Griscelli syndrome	NANDO:1200640	MLPH | MYO5A | RAB27A
+Non-syndromic oculocutaneous albinism	NANDO:1200641	
+Pachydermoperiostosis	NANDO:1200642	HPGD | SLCO2A1
+Pseudoxanthoma elasticum	NANDO:1200643	ABCC6 | ENPP1 | XYLT1 | XYLT2
+Marfan syndrome/Loeys-Dietz Syndrome	NANDO:1200644	FBN1
+Ehlers-Danlos Syndrome	NANDO:1200645	ADAMTS2 | ADAMTSL2 | AEBP1 | B3GALT6 | B4GALT7 | C1R | C1S | CHST14 | COL12A1 | COL1A1 | COL1A2 | COL3A1 | COL5A1 | COL5A2 | DSE | FKBP14 | FLNA | PLOD1 | PRDM5 | SLC39A13 | TNXB | ZNF469
+Ehlers-Danlos syndrome, classical type	NANDO:1200646	COL1A1 | COL5A1 | COL5A2
+Ehlers-Danlos syndrome, hypermobility type	NANDO:1200647	
+Ehlers-Danlos syndrome, vascular type	NANDO:1200648	COL3A1
+Ehlers-Danlos syndrome, kyphoscoliotic type	NANDO:1200649	
+Ehlers-Danlos syndrome, arthrochalasis type	NANDO:1200650	COL1A1 | COL1A2
+Ehlers-Danlos syndrome, dermatosparaxis type	NANDO:1200651	ADAMTS2 | ADAMTSL2
+obsolete Dermatan 4-O-sulfotransferase 1 deficient Ehlers-Danlos syndrome	NANDO:1200652	
+Menkes disease	NANDO:1200653	ATP7A
+Occipital horn syndrome	NANDO:1200654	ATP7A
+Wilson disease	NANDO:1200655	ATP7B
+Hypophosphatasia	NANDO:1200656	ALPL
+VATER syndrome	NANDO:1200657	FANCB | HOXD13 | ZIC3
+Nasu-Hakola disease	NANDO:1200658	TREM2 | TYROBP
+Weaver syndrome	NANDO:1200659	EED | EZH2 | NSD1 | SUZ12
+Coffin-Lowry syndrome	NANDO:1200660	RPS6KA3
+Joubert syndrome and related disorders	NANDO:1200661	AHI1 | CC2D2A | CEP120 | CEP290 | CEP41 | CSPP1 | INPP5E | KIAA0586 | MKS1 | RPGRIP1L | TMEM138 | TMEM216 | TMEM231 | TMEM237 | TMEM67 | ZNF423
+Arima syndrome	NANDO:1200662	CC2D2A | CEP290 | TMEM138 | TMEM216 | TMEM231 | TMEM237 | ZNF423
+Mowat-Wilson syndrome	NANDO:1200663	ZEB2
+Williams syndrome	NANDO:1200664	BAZ1B | BUD23 | CLIP2 | DNAJC30 | EIF4H | ELN | FKBP6 | GTF2I | GTF2IRD1 | GTF2IRD2 | LIMK1 | METTL27 | MLXIPL | NCF1 | RFC2 | STX1A | TBL2 | TMEM270 | VPS37D
+ATR-X syndrome	NANDO:1200665	ATRX
+Crouzon's syndrome	NANDO:1200666	ERF | FGFR2
+Apert syndrome	NANDO:1200667	FGFR2
+Pfeiffer syndrome	NANDO:1200668	FGFR1 | FGFR2
+Antley-Bixler syndrome	NANDO:1200669	FGFR2 | POR
+Coffin-Siris syndrome	NANDO:1200670	ARID1A | ARID1B | ARID2 | BICRA | DPF2 | SMARCA2 | SMARCA4 | SMARCB1 | SMARCC2 | SMARCD1 | SMARCE1 | SOX11 | SOX4
+Rothmund-Thomson syndrome	NANDO:1200671	ANAPC1 | CRIPT | RECQL4
+Kabuki syndrome	NANDO:1200672	KDM6A | KMT2D
+Polysplenia syndrome	NANDO:1200673	
+Asplenia syndrome	NANDO:1200674	
+Branchio-oto-renal syndrome	NANDO:1200675	EYA1 | SIX1 | SIX5
+Werner syndrome	NANDO:1200676	WRN
+Cockayne syndrome	NANDO:1200677	ERCC1 | ERCC4 | ERCC6 | ERCC8
+Prader-Willi syndrome	NANDO:1200678	HERC2 | IPW | MAGEL2 | MKRN3 | NDN | NPAP1 | OCA2 | PWAR1 | PWRN1 | SNORD115-1 | SNORD116-1 | SNRPN
+Sotos syndrome	NANDO:1200679	APC2 | NSD1 | SETD2
+Noonan syndrome	NANDO:1200680	A2ML1 | BRAF | CBL | KRAS | LZTR1 | MAP2K1 | MAPK1 | MRAS | NRAS | PTPN11 | RAF1 | RASA2 | RIT1 | RRAS | RRAS2 | SOS1 | SOS2 | SPRED2
+Young-Simpson syndrome	NANDO:1200681	KAT6B
+1p36 deletion syndrome	NANDO:1200682	CASZ1 | GABRD | HSPG2 | KCNAB2 | LUZP1 | MMP23B | PDPN | PRDM16 | PRKCZ | RERE | SKI | SPEN | UBE4B
+4p deletion syndrome	NANDO:1200683	CPLX1 | CTBP1 | FGFRL1 | LETM1 | NELFA | NSD2 | PIGG
+5p deletion syndrome	NANDO:1200684	CTNND2 | SEMA5A
+Paternal uniparental disomy of chromosome 14	NANDO:1200685	DLK1 | MEG3 | RTL1
+Angelman syndrome	NANDO:1200686	ATP10A | OCA2 | SNRPN | UBE3A
+Smith-Magenis syndrome	NANDO:1200687	DEAF1 | FLII | IQSEC2 | RAI1
+22q11.2 deletion syndrome	NANDO:1200688	ARVCF | BCR | COMT | CRKL | DGCR2 | DGCR6 | DGCR8 | ESS2 | GP1BB | HIRA | JMJD1C | MAPK1 | RREB1 | SEC24C | TBX1 | UFD1
+Emanuel syndrome	NANDO:1200689	
+Fragile X syndrome related diseases	NANDO:1200690	
+Fragile X tremor/ataxia syndrome	NANDO:1200691	FMR1
+Fragile X syndrome	NANDO:1200692	FMR1
+Truncus arteriosus communis	NANDO:1200693	NKX2-6 | PLXND1 | TBX1
+Truncus arteriosus communis type I	NANDO:1200694	
+Truncus arteriosus communis type II	NANDO:1200695	
+Truncus arteriosus communis type III	NANDO:1200696	
+Truncus arteriosus communis type IV	NANDO:1200697	
+Corrected transposition of great arteries	NANDO:1200698	CFC1 | GDF1 | MED13L | ZIC3
+Complete transposition of the great arteries	NANDO:1200699	
+Complete transposition of the great arteries (Group1)	NANDO:1200700	
+Complete transposition of the great arteries (Group2)	NANDO:1200701	
+Complete transposition of the great arteries (Group3)	NANDO:1200702	
+Complete transposition of the great arteries (Group4)	NANDO:1200703	
+Single ventricle	NANDO:1200704	
+Hypoplastic left heart syndrome	NANDO:1200705	GJA1 | NKX2-5
+Tricuspid atresia	NANDO:1200706	
+Pulmonary atresia with intact ventricular septum	NANDO:1200707	
+Pulmonary atresia with ventricular septal defect	NANDO:1200708	
+Tetralogy of Fallot	NANDO:1200709	CITED2 | FLT4 | GATA4 | GATA5 | GATA6 | GDF1 | GJA5 | JAG1 | KDR | NKX2-5 | NKX2-6 | TBX1 | ZFPM2
+Double outlet right ventricle	NANDO:1200710	
+Ebstein's anomaly	NANDO:1200711	MYH7
+Alport's syndrome	NANDO:1200712	COL4A3 | COL4A4 | COL4A5
+Galloway-Mowat syndrome	NANDO:1200713	GON7 | LAGE3 | NUP107 | NUP133 | OSGEP | TP53RK | TPRKB | WDR4 | WDR73 | YRDC
+Rapidly progressive glomerulonephritis	NANDO:1200714	
+MPO-ANCA positive rapidly progressive glomerulonephritis	NANDO:1200715	
+PR3-ANCA positive rapidly progressive glomerulonephritis	NANDO:1200716	
+Anti-GBM rapidly progressive glomerulonephritis	NANDO:1200717	
+Goodpasture syndrome	NANDO:1200718	
+Primary nephrotic syndrome	NANDO:1200719	ACTN4 | ANKFY1 | ANLN | APOL1 | ARHGAP24 | ARHGDIA | CD2AP | COL4A3 | COQ6 | COQ8B | CRB2 | DAAM2 | EMP2 | GAPVD1 | INF2 | MAGI2 | MYO1E | NPHS1 | NPHS2 | NUP107 | NUP133 | NUP160 | NUP205 | NUP37 | NUP85 | NUP93 | PAX2 | PLCE1 | PTPRO | TBC1D8B | TRPC6 | WT1
+Minimal change nephrotic syndrome	NANDO:1200720	
+Membranous nephropathy	NANDO:1200721	
+Focal segmental glomerulosclerosis	NANDO:1200722	ACTN4 | ANLN | CRB2 | INF2 | MYO1E | PAX2 | TRPC6
+Crescentic glomerulonephritis	NANDO:1200723	
+Endocapillary proliferative glomerulonephritis	NANDO:1200724	
+Primary membranoproliferative glomerulonephritis	NANDO:1200725	CFH | CFHR1 | CFHR2 | CFHR3 | CFHR5 | DGKE
+Primary membranoproliferative glomerulonephritis type I	NANDO:1200726	CFH | DGKE
+Slight mesangial proliferative  glomerulonephritis	NANDO:1200727	
+Moderate mesangial proliferative  glomerulonephritis	NANDO:1200728	
+Chronic focal membranoproliferative glomerulonephritis type I	NANDO:1200729	
+Acute focal membranoproliferative glomerulonephritis type I	NANDO:1200730	
+Chronic diffuse moderate membranoproliferative glomerulonephritis type I	NANDO:1200731	
+Chronic diffuse non-lobular glomerulonephritis type I	NANDO:1200732	
+Chronic diffuse moderate membranoproliferative glomerulonephritis type I	NANDO:1200733	
+Acute diffuse endocapillary membranoproliferative glomerulonephritis type I	NANDO:1200734	
+Acute diffuse moderate membranoproliferative glomerulonephritis type I	NANDO:1200735	
+Acute diffuse marked membranoproliferative glomerulonephritis type I	NANDO:1200736	
+Lobular membranoproliferative glomerulonephritis type I	NANDO:1200737	
+End-stage membranoproliferative glomerulonephritis type I	NANDO:1200738	
+Primary membranoproliferative glomerulonephritis type II	NANDO:1200739	CFH | CFHR1
+Primary membranoproliferative glomerulonephritis type III	NANDO:1200740	
+Henoch-Schonlein purpura nephritis	NANDO:1200741	
+Congenital nephrogenic diabetes insipidus	NANDO:1200742	AQP2 | AVPR2
+Interstitial cystitis (Hunner type)	NANDO:1200743	
+Osler disease	NANDO:1200744	ACVRL1 | ENG | GDF2 | SMAD4
+Bronchiolitis obliterans	NANDO:1200745	
+Pulmonary alveolar proteinosis	NANDO:1200746	ABCA3 | CSF2RA | CSF2RB | HLA-DRB1 | MARS1 | SFTPB | SFTPC
+Autoimmune pulmonary alveolar proteinosis	NANDO:1200747	HLA-DRB1
+Idiopathic pulmonary alveolar proteinosis	NANDO:1200748	
+Secondary Pulmonary Alveolar Proteinosis	NANDO:1200749	
+Congenital alveolar proteinosis	NANDO:1200750	ABCA3 | CSF2RA | CSF2RB | MARS1 | SFTPB | SFTPC
+Alveolar hypoventilation syndrome	NANDO:1200751	
+Obesity hypoventilation syndrome	NANDO:1200752	
+Congenital central hypoventilation syndrome	NANDO:1200753	
+Idiopathic central hypoventilation syndrome	NANDO:1200754	
+Alpha-1-antitrypsin deficiency	NANDO:1200755	SERPINA1
+Carney complex	NANDO:1200756	MYH8 | PDE11A | PRKAR1A
+Wolfram syndrome	NANDO:1200757	CISD2 | WFS1
+Peroxisomal disorder	NANDO:1200758	ABCD1 | ABCD3 | ACOX1 | AGPS | AGXT | AMACR | BCAP31 | CAT | DNM1L | EHHADH | FAR1 | GNPAT | HSD17B4 | MFF | PEX1 | PEX10 | PEX11B | PEX12 | PEX13 | PEX14 | PEX16 | PEX19 | PEX2 | PEX26 | PEX3 | PEX5 | PEX6 | PEX7 | PHYH | SCP2 | TRIM37
+Peroxisome biogenesis disorders	NANDO:1200759	PEX1 | PEX10 | PEX11B | PEX12 | PEX13 | PEX14 | PEX16 | PEX19 | PEX2 | PEX26 | PEX3 | PEX5 | PEX6 | PEX7
+Zellweger syndrome	NANDO:1200760	PEX1 | PEX10 | PEX11B | PEX12 | PEX13 | PEX14 | PEX16 | PEX19 | PEX2 | PEX26 | PEX3 | PEX5 | PEX6 | PEX7
+Neonatal adrenoleukodystrophy	NANDO:1200761	
+Infantile Refsum disease	NANDO:1200762	
+Rhizomelic chondrodysplasia punctata type 1	NANDO:1200763	PEX7
+Peroxisomal beta-oxidation enzyme deficiency	NANDO:1200764	ACOX1 | AMACR | EHHADH | HSD17B4 | SCP2
+Peroxisomal acyl-CoA oxidase deficiency	NANDO:1200765	ACOX1
+D-bifunctional protein deficiency	NANDO:1200766	EHHADH | HSD17B4
+Sterol carrier protein 2 deficiency	NANDO:1200767	SCP2
+Alpha-methylacyl-CoA racemase deficiency	NANDO:1200768	AMACR
+Refsum disease	NANDO:1200769	PEX7 | PHYH
+Plasmalogen biosynthesis enzyme deficiency	NANDO:1200770	AGPS | FAR1 | GNPAT | PEX5 | PEX7
+Rhizomelic chondrodysplasia punctata type 2	NANDO:1200771	GNPAT
+Rhizomelic chondrodysplasia punctata type 3	NANDO:1200772	AGPS
+Primary hyperoxaluria type 1	NANDO:1200773	AGXT
+Acatalasemia	NANDO:1200774	CAT
+Hypoparathyroidism	NANDO:1200775	AIRE | CASR | GCM2 | GNA11 | GNAS | GNAS-AS1 | PTH | STX16
+Pseudohypoparathyroidism	NANDO:1200776	GNAS | GNAS-AS1 | STX16
+ACTH unresponsiveness	NANDO:1200777	
+Vitamin D-resistant rickets/Vitamin D-resistant osteomalacia	NANDO:1200778	
+Vitamin D-resistant rickets	NANDO:1200779	
+Vitamin D-resistant osteomalacia	NANDO:1200780	
+Vitamin D-dependent rickets / Osteomalacia	NANDO:1200781	CYP27B1 | CYP2R1 | CYP3A4 | VDR
+Vitamin D-dependent rickets, type 1	NANDO:1200782	CYP27B1 | CYP2R1
+Vitamin D-dependent rickets, type 2	NANDO:1200783	VDR
+Phenylketonuria	NANDO:1200784	PAH
+Phenylalanine hydroxylase deficiency	NANDO:1200785	
+Tetrahydrobiopterin deficiency	NANDO:1200786	GCH1 | PCBD1 | PTS | QDPR
+Tetrahydrobiopterin-responsive hyperphenylalaninemia	NANDO:1200787	PAH
+Tyrosinemia type 1	NANDO:1200788	FAH
+Tyrosinemia type 2	NANDO:1200789	TAT
+Tyrosinemia type 3	NANDO:1200790	HPD
+Maple syrup urine disease	NANDO:1200791	BCKDHA | BCKDHB | DBT | DLD | PPM1K
+Propionic acidemia	NANDO:1200792	PCCA | PCCB
+Methylmalonic acidemia	NANDO:1200793	ABCD4 | ACSF3 | CD320 | HCFC1 | LMBRD1 | MCEE | MMAA | MMAB | MMACHC | MMADHC | MMUT | PRDX1
+Methylmalonyl-Coenzyme A mutase deficiency	NANDO:1200794	MMUT
+Methylmalonic acidemia cblA type	NANDO:1200795	MMAA
+Methylmalonic acidemia cblB type	NANDO:1200796	MMAB
+Methylmalonic acidemia CblD type	NANDO:1200797	MMADHC
+Isovaleric acidemia	NANDO:1200798	IVD
+Glucose transporter 1 deficiency	NANDO:1200799	PRRT2 | SLC2A1
+Glutaric acidemia type 1	NANDO:1200800	GCDH
+Glutaric acidemia type 2	NANDO:1200801	ETFA | ETFB | ETFDH | FLAD1 | SLC25A32
+Urea cycle disorder	NANDO:1200802	ARG1 | ASL | ASS1 | CA5A | CPS1 | GLUD1 | MCCC1 | NAGS | OTC | SLC25A13 | SLC25A15
+Carbamoyl phosphate synthetase I deficiency	NANDO:1200803	CPS1
+Ornithine transcarbamylase deficiency	NANDO:1200804	OTC
+Classic citrullinemia	NANDO:1200805	ASS1
+Argininosuccinic aciduria	NANDO:1200806	ASL
+Argininemia	NANDO:1200807	ARG1
+NAGS deficiency	NANDO:1200808	NAGS
+Lysinuric protein intolerance	NANDO:1200809	SLC7A7
+Hereditary folate malabsorption	NANDO:1200810	SLC46A1
+Porphyria	NANDO:1200811	ALAD | ALAS2 | CLPX | CPOX | FECH | GATA1 | HFE | HMBS | PPOX | UROD | UROS
+Acute intermittent porphyria	NANDO:1200812	HMBS
+Hereditary coproporphyria	NANDO:1200813	CPOX
+Variegate porphyria	NANDO:1200814	PPOX
+Erythropoietic protoporphyria	NANDO:1200815	ALAS2 | CLPX | FECH
+Porphyria cutanea tarda	NANDO:1200816	HFE | UROD
+Congenital erythropoietic porphyria	NANDO:1200817	GATA1 | UROS
+X-linked dominant protoporphyria	NANDO:1200818	ALAS2
+Hepatoerythropoietic porphyria	NANDO:1200819	UROD
+Multiple carboxylase deficiency	NANDO:1200820	BTD | HLCS
+Holocarboxylase synthetase deficiency	NANDO:1200821	HLCS
+Biotinidase deficiency	NANDO:1200822	BTD
+Muscle glycogen storage disease	NANDO:1200823	
+Glycogen storage diseases type 0	NANDO:1200824	GYS2
+Glycogen storage diseases type II	NANDO:1200825	GAA
+Glycogen storage diseases type III	NANDO:1200826	AGL
+Glycogen storage diseases type IV	NANDO:1200827	GBE1
+Glycogen storage diseases type V	NANDO:1200828	PYGM
+Glycogen storage diseases type VII	NANDO:1200829	PFKM
+Glycogen storage diseases type IXd	NANDO:1200830	PHKA1 | PHKG1
+Phosphoglycerate kinase deficiency	NANDO:1200831	PGK1
+Glycogen storage diseases type X	NANDO:1200832	PGAM2
+Glycogen storage diseases type XI	NANDO:1200833	LDHA
+Glycogen storage diseases type XII	NANDO:1200834	ALDOA
+Glycogen storage diseases type XIII	NANDO:1200835	ENO3
+Glycogen storage diseases type XIV	NANDO:1200836	PGM1
+Glycogen storage diseases type XV	NANDO:1200837	GYG1
+Hepatic glycogen storage disease	NANDO:1200838	
+Hepatic glycogen storage disease type Ia	NANDO:1200840	
+Hepatic glycogen storage disease type Ib	NANDO:1200841	SLC37A4
+Hepatic GSD type IIIa	NANDO:1200842	
+Hepatic GSD type IIIb	NANDO:1200843	
+Hepatic GSD type IIIc	NANDO:1200844	
+Hepatic GSD type IIId	NANDO:1200845	
+Hepatic glycogen storage disease type VI	NANDO:1200846	PYGL
+Hepatic glycogen storage disease type IXa	NANDO:1200847	PHKA2
+Hepatic glycogen storage disease type IXb	NANDO:1200848	PHKB
+Hepatic glycogen storage disease type IXc	NANDO:1200849	PHKG2
+Hepatic glycogen storage disease type IV	NANDO:1200850	
+Galactose-1-phosphate uridyltransferase deficiency	NANDO:1200851	GALT
+Lecithin cholesterol acyltransferase deficiency	NANDO:1200852	LCAT
+Sitosterolemia	NANDO:1200853	ABCG5 | ABCG8
+Tangier disease	NANDO:1200854	ABCA1
+Primary hyperchylomicronemia	NANDO:1200855	
+Cerebrotendinous xanthomatosis	NANDO:1200856	CYP27A1
+Abetalipoproteinemia	NANDO:1200857	MTTP
+Lipodystrophy	NANDO:1200858	ADRA2A | AGPAT2 | AKT2 | BSCL2 | CAV1 | CAVIN1 | CIDEC | FOS | KCNJ6 | LIPE | LMNA | LMNB2 | MTX2 | PCYT1A | PIK3R1 | PLAAT3 | PLIN1 | POLR3A | PPARG | ZMPSTE24
+Generalized congenital lipodystrophy	NANDO:1200859	AGPAT2 | BSCL2 | CAV1 | CAVIN1 | FOS | PCYT1A | PPARG
+Acquired generalized lipodystrophy	NANDO:1200860	
+Familial partial lipodystrophy	NANDO:1200861	ADRA2A | AKT2 | CIDEC | LIPE | LMNA | PLAAT3 | PLIN1 | PPARG
+Acquired partial lipodystrophy	NANDO:1200862	LMNB2
+Familial Mediterranean fever	NANDO:1200863	MEFV
+Typical familial Mediterranean fever	NANDO:1200864	MEFV
+Atypical familial Mediterranean fever	NANDO:1200865	
+Hyper IgD syndrome	NANDO:1200866	
+Nakajo-Nishimura syndrome	NANDO:1200867	POMP | PSMB10 | PSMB4 | PSMB8 | PSMB9 | PSMG2
+Pyogenic arthritis, pyoderma gangrenosum, acne syndrome	NANDO:1200868	PSTPIP1
+Chronic recurrent multifocal osteomyelitis	NANDO:1200869	IL1R1 | IL1RN | LPIN2
+Ankylosing spondylitis	NANDO:1200870	
+Fibrodysplasia ossificans progressiva	NANDO:1200871	ACVR1
+Congenital scoliosis with rib anomalies	NANDO:1200872	
+Osteogenesis imperfecta	NANDO:1200873	ANO5 | ATP6V0A2 | B4GALT7 | BMP1 | CALCR | CCDC134 | COL1A1 | COL1A2 | CREB3L1 | CRTAP | DKK1 | FKBP10 | GORAB | IFIH1 | IFITM5 | KDELR2 | LRP5 | MBTPS2 | MESD | NBAS | NHERF1 | P3H1 | P4HB | PDLIM4 | PHLDB1 | PLOD2 | PLS3 | POLR3A | PPIB | PYCR1 | RIGI | SEC24D | SERPINF1 | SERPINH1 | SGMS2 | SLC34A1 | SP7 | SPARC | TENT5A | TMEM38B | WNT1 | WNT3A | XYLT2
+Thanatophoric dysplasia	NANDO:1200874	FGFR3
+Thanatophoric dysplasia type 1	NANDO:1200875	FGFR3
+Thanatophoric dysplasia type 2	NANDO:1200876	FGFR3
+Achondroplasia	NANDO:1200877	FGFR3
+Lymphangiomatosis / Gorham-Stout disease	NANDO:1200878	
+Giant lymphatic malformation (cervicofacial lesion)	NANDO:1200881	
+Giant venous malformation (cervical, oral and oropharyngeal diffuse lesion)	NANDO:1200882	
+Huge arteriovenous malformation with cervicofacial or limb lesion	NANDO:1200883	
+Klippel-Trenaunay-Weber syndrome	NANDO:1200884	AGGF1 | PIK3CA
+Congenital dyserythropoietic anemia	NANDO:1200885	CDAN1 | CDIN1 | COX4I2 | GATA1 | KIF23 | KLF1 | RACGAP1 | SEC23B
+Congenital dyserythropoietic anemia type I	NANDO:1200886	CDAN1 | CDIN1
+Congenital dyserythropoietic anemia type II	NANDO:1200887	SEC23B
+Congenital dyserythropoietic anemia type III	NANDO:1200888	KIF23 | RACGAP1
+Acquired pure red cell aplasia	NANDO:1200889	
+Diamond-Blackfan anemia	NANDO:1200890	ADA2 | GATA1 | HEATR3 | RPL11 | RPL15 | RPL18 | RPL26 | RPL27 | RPL31 | RPL35 | RPL35A | RPL5 | RPL8 | RPL9 | RPS10 | RPS15A | RPS17 | RPS19 | RPS20 | RPS24 | RPS26 | RPS27 | RPS28 | RPS29 | RPS7 | TSR2
+Fanconi anemia	NANDO:1200891	BRCA1 | BRCA2 | BRIP1 | ERCC4 | FANCA | FANCB | FANCC | FANCD2 | FANCE | FANCF | FANCG | FANCI | FANCL | FANCM | MAD2L2 | PALB2 | POC1A | RAD51 | RAD51C | RFWD3 | SLX4 | UBE2T | XRCC2 | XRCC4
+Hereditary sideroblastic anemia	NANDO:1200892	ABCB7 | ALAS2 | GLRX5 | HSCB | HSPA9 | PUS1 | SLC25A38 | STEAP3 | TRNT1 | YARS2
+Epstein syndrome	NANDO:1200893	
+Severe Epstein syndrome	NANDO:1200894	
+Moderate Epstein syndrome	NANDO:1200895	
+Autoimmune acquired coagulation factor deficiency	NANDO:1200896	
+Autoimmune hemorrhaphilia XIII/13	NANDO:1200897	
+Acquired hemophilia A	NANDO:1200898	
+Acquired von Willebrand disease	NANDO:1200899	
+Acquired factor V inhibitor	NANDO:1200900	
+Cronkhite-Canada syndrome	NANDO:1200901	
+Chronic nonspecific multiple ulcers of the small intestine	NANDO:1200902	
+Hirschsprung disease	NANDO:1200903	ABCD1 | ATP7A | ECE1 | EDN3 | EDNRB | ERBB2 | ERBB3 | GDNF | NRTN | RET | SEMA3C | SEMA3D | SMO | SREBF1
+Short-segment Hirschsprung's disease	NANDO:1200904	
+Rectosigmoid Hirschsprung's disease	NANDO:1200905	
+Long-segment Hirschsprung's disease	NANDO:1200906	
+Entire colon Hirschsprung disease	NANDO:1200907	
+Extensive aganglionosis Hirschsprung disease	NANDO:1200908	
+Cloacal exstrophy	NANDO:1200909	
+Persistent cloaca	NANDO:1200910	
+Congenital diaphragmatic hernia	NANDO:1200911	ALDH1A2 | GATA6 | LONP1 | PLS3 | ZFPM2
+Infantile giant hepatic hemangiomas	NANDO:1200912	
+Biliary atresia	NANDO:1200913	
+Type I biliary atresia	NANDO:1200914	
+Type I cystic biliary atresia	NANDO:1200915	
+Type II biliary atresia	NANDO:1200916	
+Type III biliary atresia	NANDO:1200917	
+Alagille syndrome	NANDO:1200918	JAG1 | NOTCH2
+Typical Alagille syndrome	NANDO:1200919	
+Atypical Alagille Syndrome	NANDO:1200920	
+Hereditary pancreatitis	NANDO:1200921	CASR | CFTR | CLDN2 | CPA1 | CTRC | PRSS1 | PRSS2 | SPINK1
+Cystic fibrosis	NANDO:1200922	CEACAM3 | CEACAM6 | CFTR | CLCA4 | DCTN4 | EDNRA | FCGR2A | GCLC | GSTM3 | HFE | HMOX1 | KCNN4 | MIF | SERPINA1 | SLC11A1 | SLC26A9 | SLC6A14 | SLC9A3 | STX1A | TGFB1
+IgG4-related disease	NANDO:1200923	
+IgG4-related disease	NANDO:1200924	
+Autoimmune pancreatitis	NANDO:1200925	
+Diffuse-type autoimmune pancreatitis	NANDO:1200926	
+Focal-type autoimmune pancreatitis	NANDO:1200927	
+IgG4-related sclerosing cholangitis	NANDO:1200928	
+IgG4-related dacryoadenitis and sialadenitis	NANDO:1200929	
+IgG4-related kidney disease	NANDO:1200930	
+Macular dystrophy	NANDO:1200931	ABCA4 | ABCB6 | ATIC | BEST1 | CACNA2D4 | CDH3 | CFH | CFI | CHST6 | CLDN19 | CLEC3B | CNGB3 | CTNNA1 | CYP4V2 | EFEMP1 | ELOVL4 | FZD5 | GNAT2 | GUCA1A | IMPG1 | IMPG2 | KCNV2 | LCA5 | LRAT | MAPKAPK3 | OTX2 | PAX6 | PDE6C | PROM1 | PRPH2 | RCBTB1 | RDH5 | RHO | RLBP1 | RP1L1 | RPE65 | SALL2 | SAMD7 | SPATA7
+Vitelliform macular dystrophy	NANDO:1200932	BEST1 | IMPG1 | IMPG2 | PRPH2
+Stargardt disease	NANDO:1200933	ABCA4 | CNGB3 | ELOVL4 | LCA5 | LRAT | PROM1 | PRPH2 | RPE65 | SPATA7
+Occult macular dystrophy	NANDO:1200934	RP1L1
+Cone-rod dystrophy and cone dystrophy	NANDO:1200935	
+Cone dystrophy	NANDO:1200936	CACNA2D4 | CNGB3 | GNAT2 | GUCA1A | KCNV2 | PDE6C
+Cone-rod dystrophy	NANDO:1200937	ABCA4 | ADAM9 | AIPL1 | ATF6 | CACNA1F | CACNA2D4 | CDHR1 | CFAP410 | CFAP418 | CNGA3 | CRX | DRAM2 | GUCA1A | GUCY2D | NMNAT1 | OPN1LW | OPN1MW | PITPNM3 | POC1B | PROM1 | PRPH2 | RAB28 | RAX2 | RIMS1 | RLBP1 | RPGR | RPGRIP1 | SEMA4A | TLCD3B | TTLL5 | UNC119
+X-linked juvenile retinoschisis	NANDO:1200938	RS1
+Central areolar choroidal dystrophy	NANDO:1200939	GUCA1A | GUCY2D | PRPH2
+Leber hereditary optic neuropathy	NANDO:1200940	ATP6 | COX3 | CYTB | DNAJC30 | ND1 | ND2 | ND4 | ND4L | ND5 | ND6 | NDUFS2
+Usher syndrome	NANDO:1200941	ADGRV1 | ARSG | CDH23 | CEP78 | CIB2 | CLRN1 | ESPN | HARS1 | MYO7A | PCDH15 | PDZD7 | USH1C | USH1G | USH2A | WHRN
+Usher syndrome type I	NANDO:1200942	CDH23 | CIB2 | ESPN | MYO7A | PCDH15 | USH1C | USH1G
+Usher syndrome Type II	NANDO:1200943	ADGRV1 | MYO7A | PDZD7 | USH2A | WHRN
+Usher syndrome Type III	NANDO:1200944	ARSG | CEP78 | CLRN1 | HARS1
+Juvenile bilateral sensorineural hearing loss	NANDO:1200945	
+Delayed endolymphatic hydrops	NANDO:1200946	
+Eosinophilic sinusitis	NANDO:1200947	
+Canavan disease	NANDO:1200948	ASPA
+Progressive leukoencephalopathy	NANDO:1200949	
+Megaloencephalic leukoencephalopathy with subcortical cysts	NANDO:1200950	HEPACAM | MLC1
+Vanishing white matter disease	NANDO:1200951	
+Leukoencephalopathy, progressive, with ovarian failure	NANDO:1200952	AARS2
+Progressive myoclonus epilepsy	NANDO:1200953	CERS1 | CLN8 | CSTB | EPM2A | GOSR2 | KCNC1 | KCTD7 | LMNB2 | NHLRC1 | PRDM8 | PRICKLE1 | SCARB2 | SEMA6B | SERPINI1 | SLC7A6OS
+Unverricht-Lundborg disease	NANDO:1200954	CSTB | PRICKLE1 | SCARB2
+Lafora disease	NANDO:1200955	EPM2A | NHLRC1
+Benign adult familial myoclonus epilepsy	NANDO:1200956	ADRA2B | CNTN2 | CTNND2 | MARCHF6 | SAMD12 | YEATS2
+Congenital anomalies syndrome	NANDO:1200957	
+Partial trisomy 1q	NANDO:1200958	
+9q34 deletion syndrome	NANDO:1200959	EHMT1 | KMT2C
+Cornelia de lange syndrome	NANDO:1200960	BRD4 | HDAC8 | NIPBL | RAD21 | SMC1A | SMC3
+Smith-lemli-opitz syndrome	NANDO:1200961	DHCR7
+Congenital tricuspid stenosis	NANDO:1200962	
+Congenital mitral stenosis	NANDO:1200963	
+Congenital pulmonary vein stenosis	NANDO:1200964	
+Vascular sling	NANDO:1200965	
+Nail-patella syndrome/LMX1B-associated nephropathy	NANDO:1200966	
+Nail-patella syndrome	NANDO:1200967	LMX1B
+LMX1B-associated nephropathy	NANDO:1200968	
+Carnitine cycle disorders	NANDO:1200969	CPT1A | CPT2 | SLC22A5 | SLC25A20
+Carnitine palmitoyltransferase I deficiency	NANDO:1200970	CPT1A
+Carnitine palmitoyltransferase II deficiency	NANDO:1200971	CPT2
+Carnitine-acylcarnitine translocase deficiency	NANDO:1200972	SLC25A20
+Systemic primary carnitine deficiency	NANDO:1200973	SLC22A5
+Trifunctional protein deficiency	NANDO:1200974	HADHA | HADHB
+Trifunctional protein deficiency, lethal type	NANDO:1200975	
+Trifunctional protein deficiency, intermediate type	NANDO:1200976	
+Trifunctional protein deficiency, myopathic type	NANDO:1200977	
+Citrin deficiency	NANDO:1200978	SLC25A13
+Neonatal intrahepatic cholestasis caused by citrin deficiency	NANDO:1200979	SLC25A13
+Adult-onset type II citrullinemia	NANDO:1200980	SLC25A13
+Failure to thrive and dyslipidemia caused by citrin deficiency	NANDO:1200981	
+Sepiapterin reductase deficiency	NANDO:1200982	SPR
+Inherited glycosylphosphatidylinositol deficiency	NANDO:1200983	PIGM | PIGW
+Nonketotic hyperglycinemia	NANDO:1200984	AMT | GCSH | GLDC | SLC6A9
+Neonatal nonketotic hyperglycinemia	NANDO:1200985	AMT | GCSH | GLDC
+Infantile nonketotic hyperglycinemia	NANDO:1200986	AMT | GCSH | GLDC | SLC6A9
+Beta-ketothiolase deficiency	NANDO:1200987	ACAT1
+Aromatic L-amino acid decarboxylase deficiency	NANDO:1200988	DDC
+Methylglutaconic aciduria	NANDO:1200989	AUH | CLPB | DNAJC19 | HTRA2 | MICOS13 | OPA3 | SERAC1 | TAFAZZIN | TIMM50
+3-methylglutaconic aciduria type I	NANDO:1200990	AUH
+3-methylglutaconicaciduria type II	NANDO:1200991	TAFAZZIN
+3-methylglutaconic aciduria type III	NANDO:1200992	MICOS13 | OPA3
+Hereditary autoinflammatory syndrome	NANDO:1200993	
+NLRC4 mutation	NANDO:1200994	NLRC4
+Adenosine deaminase 2 deficiency	NANDO:1200995	ADA2
+Aicardi-Goutières Syndrome	NANDO:1200996	ADAR | IFIH1 | LSM11 | RNASEH2A | RNASEH2B | RNASEH2C | RNU7-1 | SAMHD1 | TREX1
+A20 haploinsufficiency	NANDO:1200997	
+Osteopetrosis	NANDO:1200998	AMER1 | CA2 | CLCN7 | CSF1R | CTSK | FERMT3 | IKBKG | LEMD3 | LRP5 | LRRK1 | MAP2K1 | OSTM1 | PLEKHM1 | SLC29A3 | SLC4A2 | SNX10 | TCIRG1 | TNFRSF11A | TNFSF11
+Idiopathic thrombosis (due to inherited predisposition to thrombosis) (neonates, infants)	NANDO:1200999	
+Anterior segment dysgenesis	NANDO:1201000	ATOH7 | CPAMD8 | CYP1B1 | FOXC1 | FOXE3 | ITPR1 | PAX6 | PITX2 | PITX3 | PXDN
+Aniridia	NANDO:1201001	ELP4 | FOXC1 | PAX6 | TRIM44 | WT1
+Congenital tracheal stenosis/congenital subglottic stenosis	NANDO:1201002	
+Congenital tracheal stenosis	NANDO:1201003	
+Congenital subglottic stenosis	NANDO:1201004	
+Idiopathic multicentric Castleman's disease	NANDO:1201005	
+Gelatinous drop-like corneal dystrophy	NANDO:1201006	TACSTD2
+Hutchinson-Gilford syndrome	NANDO:1201007	LMNA | ZMPSTE24
+Limited form of granulomatosis with polyangiitis	NANDO:1201008	
+Systemic granulomatosis with polyangiitis	NANDO:1201009	
+Diffuse cutaneous systemic sclerosis	NANDO:1201010	CAV1 | CCN2 | CCR6 | HLA-DRB1 | IRF5
+Limited cutaneous systemic sclerosis	NANDO:1201011	CAV1 | CCN2 | CCR6 | HLA-DRB1 | IRF5 | KIAA0319L
+Monocyclic adult onset Still's disease	NANDO:1201012	
+Polycyclic adult onset Still's disease	NANDO:1201013	
+Chronic articular adult onset Still's disease	NANDO:1201014	
+Vascular Behçet's Disease	NANDO:1201015	
+Intestinal Behçet's Disease	NANDO:1201016	
+Neuro-Behçet's Disease	NANDO:1201017	
+Hepatic glycogen storage disease type I	NANDO:1201018	G6PC1 | SLC37A4
+Hepatic glycogen storage disease type III	NANDO:1201019	
+Hepatic glycogen storage disease type IX	NANDO:1201020	
+Cystic fibrosis	NANDO:1201021	
+Micro-deletion syndrome and other syndromes	NANDO:1201022	
+Monophasic chronic inflammatory demyelinating polyneuropathy	NANDO:1201024	
+Multifocal chronic inflammatory demyelinating polyneuropathy	NANDO:1201025	
+Chronic progressive chronic inflammatory demyelinating polyneuropathy	NANDO:1201026	
+Chronic progressive Neuro-Behçet's disease	NANDO:1201027	
+Acute Neuro-Behçet's disease	NANDO:1201028	
+Mesangial proliferative glomerulonephritis	NANDO:1201029	
+Chronic diffuse membranoproliferative glomerulonephritis type I	NANDO:1201030	
+Acute diffuse membranoproliferative glomerulonephritis type I	NANDO:1201031	
+Cerebral creatine deficiency syndromes	NANDO:1201032	GAMT | GATM | SLC6A8
+Arginine:glycine amidinotransferase deficiency	NANDO:1201033	GATM
+Guanidinoacetate methyltransferase deficiency	NANDO:1201034	GAMT
+Creatine transporter deficiency	NANDO:1201035	SLC6A8
+Nephronophthisis	NANDO:1201036	ADAMTS9 | ANKS6 | CEP164 | CEP83 | DCDC2 | GLIS2 | INVS | MAPKBP1 | NEK8 | NPHP1 | NPHP3 | NPHP4 | SLC41A1 | TMEM67 | TTC21B | WDR19 | XPNPEP3 | ZNF423
+Homozygous familial hypobetalipoproteinemia 1	NANDO:1201037	APOB
+Homocystinuria	NANDO:1201038	ABCD4 | CBS | HCFC1 | LMBRD1 | MMACHC | MMADHC | MTHFR | MTR | MTRR | PRDX1
+Homocystinuria type 1	NANDO:1201039	CBS
+Homocystinuria type 2	NANDO:1201040	MMACHC | PRDX1
+Homocystinuria type 3	NANDO:1201041	MTHFR
+Progressive familial intrahepatic cholestasis	NANDO:1201042	ABCB11 | ABCB4 | ATP8B1 | KIF12 | MYO5B | NR1H4 | SEMA7A | SLC51A | TJP2 | USP53 | UTP4 | VPS33B | ZFYVE19
+Progressive familial intrahepatic cholestasis type 1	NANDO:1201043	ATP8B1 | MYO5B
+Progressive familial intrahepatic cholestasis type 2	NANDO:1201044	ABCB11
+Progressive familial intrahepatic cholestasis type 3	NANDO:1201045	ABCB4
+Progressive familial intrahepatic cholestasis type 4	NANDO:1201046	TJP2
+Progressive familial intrahepatic cholestasis type 5	NANDO:1201047	NR1H4
+Acquired factor X inhibitor	NANDO:1201048	
+Senior-Loken syndrome	NANDO:1201049	CEP164 | CEP290 | INVS | IQCB1 | NPHP1 | NPHP3 | NPHP4 | SDCCAG8 | TRAF3IP1 | WDR19
+COACH syndrome	NANDO:1201050	
+Oral-facial-digital syndrome	NANDO:1201051	C2CD3 | CPLANE1 | DDX59 | FAM149B1 | IFT57 | INTU | KIAA0753 | KIF7 | NEK1 | OFD1 | PDE6D | RAB34 | SCNM1 | TCTN3 | TMEM107 | TMEM216 | TMEM231 | TOPORS
+End-plate acetylcholine receptor deficiency	NANDO:1201052	
+Slow-channel congenital myasthenic syndrome	NANDO:1201053	
+Fast-channel congenital myasthenic syndrome	NANDO:1201054	
+Sodium channel myasthenia	NANDO:1201055	
+End-plate acetylcholine esterase deficiency	NANDO:1201056	COLQ
+Congenital myasthenic syndrome with episodic apnoea	NANDO:1201057	CHAT
+RAPADILINO syndrome	NANDO:1201058	RECQL4
+Baller-Gerold syndrome	NANDO:1201059	RECQL4
+Familial amyloid polyneuropathy type 1	NANDO:1201060	
+Familial amyloid polyneuropathy type 2	NANDO:1201061	
+Familial amyloid polyneuropathy type 3	NANDO:1201062	APOA1
+Familial amyloid polyneuropathy type 4	NANDO:1201063	GSN
+Kearns-Sayre syndrome	NANDO:1201064	RRM2B
+Herlitz junctional epidermolysis bullosa	NANDO:1201065	LAMA3 | LAMB3 | LAMC2
+Non-Herlitz junctional epidermolysis bullosa	NANDO:1201066	COL17A1 | ITGB4 | LAMA3 | LAMB3 | LAMC2
+Agyria	NANDO:1201068	
+Pachygyria	NANDO:1201069	
+Subcortical band heterotopia	NANDO:1201070	DCX | EML1 | PAFAH1B1
+Polymicrogyria	NANDO:1201071	ADGRG1 | FIG4 | GRIN1 | PI4KA | PTEN | SRPX2 | TUBB2B
+Cobblestone brain malformation	NANDO:1201072	DAG1 | LAMB1
+Schizencephaly	NANDO:1201073	COL4A1 | EMX2 | SHH | SIX3
+Porencephaly	NANDO:1201074	COL4A1 | COL4A2 | COLGALT1
+Pseudohypoparathyroidism type 1A	NANDO:1201075	GNAS
+Pseudohypoparathyroidism type 1B	NANDO:1201076	GNAS | GNAS-AS1 | STX16
+Pseudohypoparathyroidism type 1C	NANDO:1201077	GNAS
+Pseudohypoparathyroidism type 2	NANDO:1201078	
+Periventricular nodular heterotopia	NANDO:1201079	ARF1 | ARFGEF2 | ERMARD | FLNA | MAP1B | NEDD4L | TMTC3
+Protein C deficiency	NANDO:1201080	PROC
+Protein S deficiency	NANDO:1201081	PROS1
+Antithrombin deficiency	NANDO:1201082	
+Miller Dieker syndrome	NANDO:1201083	HIC1 | PAFAH1B1 | YWHAE
+Muscle weakness group	NANDO:3000001	
+Growth disorder, intellectual disability, and distinctive facial features	NANDO:3000002	
+Intellectual disability/epilepsy group	NANDO:3000003	
+Cardiomyopathy group (mainly adult onset)	NANDO:3000004	
+Proteinuria group	NANDO:3000005	
+Fever, inflammation, skin rash, bone and joint syndrome group	NANDO:3000006	

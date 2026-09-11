@@ -1,0 +1,130 @@
+{% extends "panelsearch_base.html" %}
+{% block css_block %}
+<link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tippy.css" type="text/css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-panel-list.css" type="text/css">
+{% endblock %}
+{% block title_block %}PanelSearch(nanbyo) : PubCaseFinder{% endblock %}
+{% block main_block %}
+<div class="vgp-wrapper">
+    <div class="vgp-left-panel d-flex flex-column">
+      <div class="vgp-treeview-title-panel">
+        <div class="vgp-treeview-title-subpanel left">Tree</div>
+        <div class="vgp-treeview-title-subpanel right">
+          <span class="material-symbols-outlined" id="vgp-undo-btn" onclick="_vgp_undo();">undo</span>
+          <span class="material-symbols-outlined" id="vgp-redo-btn" onclick="_vgp_redo();">redo</span>
+        </div>
+      </div>
+      <div class="vgp-treeview-treeview-panel d-flex flex-row flex-nowrap">
+        <div style="overflow-x:auto;" class="d-flex flex-grow-1"><ul id="vgp-treeView" class="ztree"></ul></div>
+        <div class="splitter" id="splitter"></div>
+      </div>
+    </div>
+    <main class="vgp-list-main d-flex flex-column" role="main">
+      <div class="vgp-title d-flex justify-content-end">
+        <div class="vgp-title-sub row align-items-center">
+          <span class="vgp-title-sub-right-date">Updated {{ last_ontology['created_at'] }}</span>
+          <button id="vgp-download-all-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Download all Panels">
+            All panels <span class="material-icons">save_alt</span>
+          </button>
+        </div>
+      </div>
+      <div class="d-md-flex flex-md-row row vgp-search">
+        <div class="col row vgp-search-sub">
+          <div class="dropdown vgp-target-wrapper">
+            <button id="btn-vgp-target" class="btn btn-vgp-target dropdown-toggle" type="button" data-vgp-target="panel" data-toggle="dropdown" aria-expanded="false">
+              Panel
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button" onclick="change_target('panel');">Panel</button>
+              <button class="dropdown-item" type="button" onclick="change_target('gene');">Gene</button>
+            </div>
+          </div>
+          <div class="vgp-searchicon-wrapper">
+            <span class="material-symbols-outlined vgp-searchicon">search</span>
+          </div>
+          <div class="col vgp-filter-wrapper">
+            <input id="vgp-filter" type="text" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="Filter panels"></input>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-between vgp-title2" id="vgp-title2">
+        <div class="vgp-title-sub align-items-center">
+          <span id="vgp-searched-panels-num">100</span>panels
+          <span id="vgp-panels-total-num" style="display:none;"></span>
+        </div>
+        <div class="vgp-title-sub">
+          Per page
+          <div class="dropdown vgp-size-wrapper">
+            <button id="btn-vgp-size" class="btn btn-vgp-size dropdown-toggle" type="button" data-num_per_page=50 data-toggle="dropdown" aria-expanded="false">50</button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button" onclick="change_pagenum(50);">50</button>
+              <button class="dropdown-item" type="button" onclick="change_pagenum(100);">100</button>
+              <button class="dropdown-item" type="button" onclick="change_pagenum(200);">200</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="vgp-list-root-panel"></div>
+    </main>
+</div>
+  {% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+  {% include "footer_ja.html" %}  {% else %}
+  {% include "footer_en.html" %}
+  {% endif %}
+{% endblock %}
+{% block js_block %}
+<script type="text/javascript" src="/static/js/popperjs-core-2.11.8/core/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/tippyjs/tippy-bundle.umd.js"></script>
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.vgp.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.vgp_collapse_panel.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/vgp_panel_list.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+  $(document).ready(function(){
+
+    _vgp_attach_goToTopfunc();
+
+    _vgp_init();
+   
+    const splitter    = document.getElementById("splitter");
+    const leftColumn  = document.querySelector(".vgp-left-panel");
+    const rightColumn = document.querySelector(".vgp-list-main");
+    const container   = document.querySelector(".vgp-wrapper");
+
+    let splitter_isResizing = false;
+    let splitter_initialX = 0;
+    let splitter_initialLeftWidth = 0;
+
+    splitter.addEventListener("mousedown", (e) => {
+        splitter_isResizing = true;
+        splitter_initialX = e.clientX;
+        splitter_initialLeftWidth = leftColumn.offsetWidth;
+        document.addEventListener("mousemove", splitter_Resize);
+        document.addEventListener("mouseup", splitter_stopResize);
+        e.preventDefault();
+    });
+
+    function splitter_Resize(e) {
+        if (!splitter_isResizing) return;
+        const containerRect = container.getBoundingClientRect();
+        const offsetX = e.clientX - splitter_initialX;
+        const newLeftWidth = splitter_initialLeftWidth + offsetX;
+        const newRightWidth = containerRect.width - newLeftWidth;
+
+        leftColumn.style.width = newLeftWidth + "px";
+        rightColumn.style.width = newRightWidth + "px";
+
+		utils_call_update_all_collapse_text_box();
+    }
+
+    function splitter_stopResize() {
+        splitter_isResizing = false;
+        document.removeEventListener("mousemove", splitter_Resize);
+        document.removeEventListener("mouseup", splitter_stopResize);
+    }
+
+
+  });
+</SCRIPT>
+{% endblock %}

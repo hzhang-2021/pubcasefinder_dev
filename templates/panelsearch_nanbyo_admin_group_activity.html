@@ -1,0 +1,71 @@
+{% extends "panelsearch_nanbyo_admin_layout.html" %}
+
+{% block page_css_block %}
+<link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-common.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/admin_group_activity.css">
+
+{% endblock %}
+
+{% block page_content %}
+<div class="wrapper title">
+  <svg width="26" height="26" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.850897 8.41768L3.40104 8.42105C3.61749 8.42192 3.82545 8.50455 3.98251 8.6521C4.13957 8.79964 4.2339 9.00098 4.24626 9.21506C4.25862 9.42914 4.18808 9.63982 4.04903 9.80415C3.90997 9.96847 3.71288 10.0741 3.49794 10.0994L3.40019 10.1053L1.70009 10.1019V14.3149L3.40019 14.3158C3.60839 14.3158 3.80935 14.3915 3.96494 14.5286C4.12052 14.6657 4.21992 14.8545 4.24429 15.0594L4.25024 15.1579C4.25021 15.3642 4.17377 15.5632 4.03542 15.7174C3.89706 15.8715 3.70642 15.97 3.49964 15.9941L3.40019 16H0.850047C0.641842 16 0.440888 15.9242 0.2853 15.7872C0.129711 15.6501 0.0303104 15.4613 0.00595048 15.2564L1.71285e-07 15.1579V9.25979C-0.00013219 9.05313 0.0764516 8.85363 0.215172 8.69928C0.353893 8.54493 0.545064 8.4465 0.752292 8.42274L0.850897 8.41768ZM16.1509 12.6316C16.3676 12.6318 16.5759 12.714 16.7335 12.8613C16.891 13.0087 16.9858 13.2101 16.9985 13.4243C17.0112 13.6386 16.9409 13.8496 16.8018 14.0142C16.6627 14.1788 16.4655 14.2845 16.2504 14.3099L16.1509 14.3158H5.95033C5.73367 14.3156 5.52528 14.2334 5.36773 14.086C5.21019 13.9387 5.11538 13.7373 5.10269 13.523C5.08999 13.3088 5.16036 13.0978 5.29942 12.9332C5.43848 12.7686 5.63573 12.6628 5.85087 12.6375L5.95033 12.6316H16.1509ZM16.1509 10.1053C16.3676 10.1055 16.5759 10.1877 16.7335 10.335C16.891 10.4824 16.9858 10.6838 16.9985 10.898C17.0112 11.1123 16.9409 11.3233 16.8018 11.4879C16.6627 11.6525 16.4655 11.7582 16.2504 11.7836L16.1509 11.7895H5.95033C5.73367 11.7892 5.52528 11.707 5.36773 11.5597C5.21019 11.4124 5.11538 11.211 5.10269 10.9967C5.08999 10.7825 5.16036 10.5715 5.29942 10.4069C5.43848 10.2423 5.63573 10.1365 5.85087 10.1112L5.95033 10.1053H16.1509ZM3.40019 0C3.61685 0.000238069 3.82524 0.0824246 3.98278 0.229767C4.14033 0.37711 4.23513 0.578487 4.24783 0.792754C4.26053 1.00702 4.19016 1.218 4.0511 1.3826C3.91204 1.54719 3.71479 1.65297 3.49964 1.67832L3.40019 1.68421H1.70009V5.89053H3.40019C3.60839 5.89055 3.80935 5.96628 3.96494 6.10334C4.12052 6.2404 4.21992 6.42926 4.24429 6.63411L4.25024 6.73263C4.25021 6.93889 4.17377 7.13797 4.03542 7.2921C3.89706 7.44624 3.70642 7.54471 3.49964 7.56884L3.40019 7.57474H0.850047C0.641842 7.57471 0.440888 7.49898 0.2853 7.36192C0.129711 7.22486 0.0303104 7.036 0.00595048 6.83116L1.71285e-07 6.73263V0.842105C2.76368e-05 0.635846 0.0764672 0.436769 0.21482 0.282634C0.353173 0.128499 0.543817 0.0300271 0.750592 0.00589471L0.850047 0H3.40019ZM16.1509 4.21053C16.3676 4.21076 16.5759 4.29295 16.7335 4.44029C16.891 4.58764 16.9858 4.78901 16.9985 5.00328C17.0112 5.21755 16.9409 5.42853 16.8018 5.59312C16.6627 5.75771 16.4655 5.86349 16.2504 5.88884L16.1509 5.89474H5.95033C5.73367 5.8945 5.52528 5.81231 5.36773 5.66497C5.21019 5.51763 5.11538 5.31625 5.10269 5.10198C5.08999 4.88772 5.16036 4.67673 5.29942 4.51214C5.43848 4.34755 5.63573 4.24177 5.85087 4.21642L5.95033 4.21053H16.1509ZM16.1509 1.68421C16.3676 1.68445 16.5759 1.76663 16.7335 1.91398C16.891 2.06132 16.9858 2.2627 16.9985 2.47696C17.0112 2.69123 16.9409 2.90221 16.8018 3.06681C16.6627 3.2314 16.4655 3.33718 16.2504 3.36253L16.1509 3.36842H5.95033C5.73367 3.36818 5.52528 3.286 5.36773 3.13865C5.21019 2.99131 5.11538 2.78993 5.10269 2.57567C5.08999 2.3614 5.16036 2.15042 5.29942 1.98583C5.43848 1.82123 5.63573 1.71546 5.85087 1.69011L5.95033 1.68421H16.1509Z" fill="#45594F"/>
+  </svg>
+  <span>グループ履歴</span>
+</div>
+<div class="wrapper filter">
+  <div class="sub letter">
+    <input id="filter_letter" type="text" autocomplete="off" autocapitalize="off" placeholder="名前 / メールアドレス" data-target-class="target_user_name,target_user_email" data-issethighlight="1">
+  </div>
+</div>
+<div class="wrapper pagination-panel-wrapper">
+  <div class="title d-flex justify-content-between mt-2 mb-1">
+    <div class="left"><span id="total_num">0</span> Results</div>
+    <div class="right">Per page
+      <div class="dropdown vgp-size-wrapper">
+        <button id="btn-vgp-size" class="btn btn-vgp-size dropdown-toggle" type="button" data-num_per_page="30" data-toggle="dropdown" aria-expanded="false">30</button>
+        <div class="dropdown-menu" id="dropdown-menu-size">
+          <button class="dropdown-item" type="button" data-num_per_page="10">10</button>
+          <button class="dropdown-item selected" type="button" data-num_per_page="30">30</button>
+          <button class="dropdown-item" type="button" data-num_per_page="50">50</button>
+          <button class="dropdown-item" type="button" data-num_per_page="100">100</button>
+          <button class="dropdown-item" type="button" data-num_per_page="200">200</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table id="activity_table">
+      <thead>
+        <tr>
+          <th><span data-target-class="target_user_name" class="vgp-sorter">ユーザー</span></th>
+          <th><span data-target-class="group_title"      class="vgp-sorter">グループ名</span></th>
+          <th><span data-target-class="user_role_to"     class="vgp-sorter">役割</span></th>
+          <th><span data-target-class="created_at"       class="vgp-sorter vgp-dsc">変更履歴</span></th>
+          <th><span data-target-class="admin_user_name"  class="vgp-sorter">変更者</span></th>
+        </tr>
+      </thead>
+      <tbody id="activity_table_tbody"></tbody>
+    </table>
+  </div>
+  <div class="d-flex  justify-content-between" id="table-pagination-wrapper">
+    <div id="table-pagination"></div>
+    <div id="table-pagination-desc"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block page_js_block %}
+<script type="text/javascript" src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/admin_group_activity.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+$(document).ready(function(){
+  _init();
+});
+</SCRIPT>
+{% endblock %}

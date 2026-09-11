@@ -1,0 +1,248 @@
+
+.vgp-main {
+  width: 100%;
+  min-height: 1000px;
+}
+
+.vgp-main .vgp-wrapper {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.vgp-main .vgp-wrapper.vgp-wrapper-upper{background-color: #002F19;}
+
+.vgp-main .vgp-wrapper.vgp-wrapper-upper span.vgp-rating-tag{
+  border: 1px solid #FFF;
+  margin-right: 5px;
+}
+
+.vgp-main .vgp-wrapper .vgp-content{
+  margin: 0px auto 0px auto;
+  width: 80%;
+  min-width: 920px;
+}
+
+.vgp-gene-title-wrapper{
+  white-space: nowrap;
+}
+
+#vgp-panel-gene-name{display:inline-block;}
+#vgp-panel-gene-fullname{display:inline-block;font-weight:normal;}
+
+.vgp-controll button {
+  border-radius: 2rem;
+  border: solid 2px #85BA9A;
+  padding: 3px 15px 3px 15px;
+  background-color: #CDE7D6;
+  color: #276749;
+  font-weight: 600;
+}
+
+.vgp-panel-controll{
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+#vgp-panel-entity-summary-wrapper{
+  width:100%;
+  margin-bottom: 1rem;
+}
+
+#vgp-panel-entity-summary-wrapper table {
+  width: 100%;
+  color: #212529;
+}
+
+#vgp-panel-entity-summary-wrapper table tr td{
+  padding-left:0px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+#vgp-panel-entity-summary-wrapper table tr td.vgp-rating-tag-wrapper{width:160px;}
+#vgp-panel-entity-summary-wrapper table tr td.vgp-disease-wrapper span.divide{
+  font-size: 0.9rem;
+  color: #787878;
+  margin-left:10px;
+  margin-right: 10px;
+}
+#vgp-panel-entity-summary-wrapper table tr td.vgp-disease-wrapper a{
+  color: black;
+  text-decoration: underline;
+}
+#vgp-panel-entity-summary-wrapper table tr td.vgp-disease-wrapper a:hover{
+  color: black;
+}
+#vgp-panel-entity-summary-wrapper table tr td.vgp-disease-wrapper a svg{
+  margin-left: 10px;
+  border: 0px;
+  width: 16px;
+  height: 16px;
+  background-color: #FFF;
+  background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20License%3A%20MIT.%20Made%20by%20halfmage%3A%20https%3A%2F%2Fgithub.com%2Fhalfmage%2Fmajesticons%20--%3E%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22currentcolor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M10%204H6a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-4m-8-2%208-8m0%200v5m0-5h-5%22%2F%3E%3C%2Fsvg%3E);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#vgp-definition-table{ display: none; }
+
+#vgp-definition-table input::placeholder{color: #CCC;}
+
+
+#vgp-panel-entity-summary-wrapper .control{
+  width:100%;
+  margin-top: 10px;
+  text-align: right;
+}
+#vgp-panel-entity-summary-wrapper .control button{
+  border-radius: 5px;
+  border: solid 2px #85BA9A;
+  padding: 3px 15px 3px 15px;
+  background-color: #CDE7D6;
+  color: #276749;
+  font-weight: 600;
+  margin-left: 15px;
+}
+#vgp-panel-entity-summary-wrapper .control button:hover{background-color: #f1f1f1;}
+#vgp-panel-entity-summary-wrapper .control button.edit{display: none;}
+#vgp-panel-entity-summary-wrapper #vgp-definition-table{display: none;}
+#vgp-panel-entity-summary-wrapper.edit #vgp-definition-table{display: table;}
+#vgp-panel-entity-summary-wrapper.edit #vgp-summary-table{display: none;}
+#vgp-panel-entity-summary-wrapper.edit .control button{display: none;}
+#vgp-panel-entity-summary-wrapper.edit .control button.edit{display: inline-block;}
+
+
+.vgp-rating-tag-list-container {height: 95px;}
+
+.vgp-review-control-subwrapper{
+  position:absolute;
+  top: 10px;
+  right: 15px; 
+  white-space: nowrap;
+  text-align: right;
+}
+.vgp-review-control{
+  color: #97A995;
+  text-decoration:underline;
+  cursor:pointer;
+  border: none;
+  background: transparent;
+}
+
+.vgp-review-control .material-symbols-outlined{
+  vertical-align:middle;
+  font-size: 20px;
+  display: inline-block;
+}
+
+
+.vgp-review-select-wrapper {
+  background-color: #FFF;
+  border: 1px solid #97A995;
+  border-radius: 1rem;
+  padding-left:  5px;
+  padding-right: 5px;
+  text-align:  left;
+  white-space: nowrap;
+}
+
+.vgp-review-select-wrapper button {
+  padding: 0px 10px 0px 10px;
+  vertical-align: baseline;
+  color: #276749;
+  border:none;
+  font-size: 15px;
+}
+.vgp-review-select-wrapper button::after{
+  margin-left: 10px;
+  vertical-align: 0.165em;
+  border-top: 0.4em solid;
+  border-right: 0.4em solid transparent;
+  border-bottom: 0px;
+  border-left: 0.4em solid transparent;
+}
+.vgp-review-select-wrapper button:focus{
+  box-shadow:none;
+}
+
+#vgp-panel-gene-rating-wrapper span.vgp-rating-tag{
+  font-weight: bold;
+  padding: 5px 25px 5px 25px;
+  font-size: 20px;
+  border-radius: 20px;
+  width: 180px;
+}
+#vgp-panel-gene-rating-time-wrapper{
+    align-content: end;
+}
+
+#btn_add_review_wrapper{
+  display:inline-block;
+}
+
+
+.vgp-panel-entity-view-num-wrapper{
+  font-size:      1.3rem;
+  font-weight:    500;
+  color:          #96A995;
+  padding-bottom: 5px;
+  border-bottom:  3px solid #E1E3E1;
+}
+.vgp-panel-entity-view-num{color: #4AB223;}
+           
+
+.vgp-panel-info table {  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.vgp-panel-info table tr td{
+  padding-left:0px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+.vgp-panel-info table tr td.vgp-rating-tag-wrapper{width:160px;}
+.vgp-panel-info table tr td.vgp-disease-wrapper span.divide{
+  font-size: 0.9rem;
+  color: #787878;
+  margin-left:10px;
+  margin-right: 10px;
+}
+
+.vgp-panel-info table tr td.vgp-disease-wrapper a{
+  color: black;
+  text-decoration: underline;
+}
+.vgp-panel-info table tr td.vgp-disease-wrapper a:hover{
+  color: black;
+}
+
+.vgp-panel-info table tr td.vgp-disease-wrapper a svg{
+  margin-left: 10px;
+  border: 0px;
+  width: 16px;
+  height: 16px;
+  background-color: #FFF;
+  background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20License%3A%20MIT.%20Made%20by%20halfmage%3A%20https%3A%2F%2Fgithub.com%2Fhalfmage%2Fmajesticons%20--%3E%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22currentcolor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M10%204H6a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-4m-8-2%208-8m0%200v5m0-5h-5%22%2F%3E%3C%2Fsvg%3E);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.vgp-rating-tag-list-container .vgp-rating-tag-subcontainer .vgp-rating-tag-wrapper .vgp-rating-list-tag{cursor: pointer;}
+
+#tokenInput_inheritance_definition .typeahead-dropdown,
+#tokenInput_phenotype_definition .typeahead-dropdown{max-height:500px;}
+
+.vgp-rating-tag{padding-top: 2px;}
+
+.current-user-title-wrapper {margin-bottom: 5px; display: flex; justify-content: space-between;}
+.current-user-title-wrapper .left {color: #005D16; font-size: 1.3rem; font-weight: 600;}
+
+.current-user-title-wrapper .left svg{width: 16px; height: 16px;}

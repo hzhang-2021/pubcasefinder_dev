@@ -1,0 +1,191 @@
+{% extends "panelsearch_base.html" %}
+{% block css_block %}
+<link rel="stylesheet" href="/static/css/panelsearch/vgp-panel-gene-detail.css">
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+{% endblock %}
+{% block title_block %}PanelSearch : PubCaseFinder{% endblock %}
+{% block main_block %}
+<div class="vgp-main">
+  <div class="vgp-wrapper vgp-wrapper-upper">
+    <div class="vgp-content d-flex flex-column">
+      <div>
+        <a class="vgp-home" href="/panelsearch{% if r_lang %}?lang={{ r_lang }}{% endif %}">Panels</a>
+        <span class="color-white"> &gt; </span>
+        <a class="vgp-home" 
+           id="href_panel" 
+           data-panel_id="{{ r_panel_id  }}" 
+           href="/panel_detail?panel_id={{ r_panel_id  }}{% if r_lang %}&lang={{ r_lang }}{% endif %}">
+           {{ r_panel_title }}
+        </a>
+        <span class="color-white"> &gt; </span>
+        <span class="vgp-target"></span>
+      </div>
+      <div class="vgp-gene-title-wrapper">
+        <h1 class="color-white" id="vgp-panel-gene-name"></h1>
+        <h5 class="color-white" id="vgp-panel-gene-fullname"></h5>
+      </div>
+    </div>
+  </div>
+  <div class="vgp-wrapper">
+    <div class="vgp-content d-flex flex-column">
+      <div class="vgp-panel-info">
+        <div class="d-flex flex-row mb-2">
+          <div class="vgp-panel-controll">
+            <span class="vgp-summary-label">Summary</span>
+            <span id="vgp-summary-switch" 
+                  class="vgp-summary-controll vgp-active" 
+                  data-table-id="vgp-summary-table"
+                  data-relative-id="vgp-panel-switch"
+                  data-relative-table-id="vgp-panel-table-wrapper">Hide</span>
+          </div>
+          <div class="vgp-panel-controll">
+            <span class="vgp-summary-label">Panels</span>
+            <span id="vgp-panel-switch" 
+                  class="vgp-summary-controll" 
+                  data-num=0
+                  data-table-id="vgp-panel-table-wrapper"
+                  data-relative-id="vgp-summary-switch"
+                  data-relative-table-id="vgp-summary-table">Show(0)</span>
+          </div>
+        </div>
+        <table class="table" id="vgp-summary-table">
+          <tr><th>Mode of Inheritance:</th><td id="vgp-td-inheritance"></td></tr>
+          <tr><th>Synonym:</th><td id="vgp-td-synonym"></td></tr>
+          <tr><th>Other full name:</th><td id="vgp-td-otherfullname"></td></tr>
+          <tr><th>Summary:</th><td id="vgp-td-summary"></td></tr>
+          <tr><th>Type of gene:</th><td id="vgp-td-genetype"></td></tr>
+          <tr><th>Location:</th><td id="vgp-td-location"></td></tr>
+          <tr><th>Disease:</th><td id="vgp-td-disease"></td></tr>
+          <tr><th>Link:</th><td id="vgp-td-link"></td></tr>
+        </table>
+        <div id="vgp-panel-table-wrapper" style="display:none;">
+          <table class="table" id="vgp-panel-table"></table>
+          <div class="vgp-pagination-wrapper" id="vgp-panel-table-pagination"></div>
+        </div>
+      </div> <!-- end of panel info -->
+      <nav class="vgp-nav" style="margin-top: 30px; width:100%;">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active mr-2" id="nav-vgp-panel-gene-review-panel" data-toggle="tab" href="#vgp-panel-gene-review-panel" role="tab" aria-controls="vgp-panel-gene-review-panel" aria-selected="true">Reviews (4)</a>
+          <a class="nav-item nav-link mr-2" id="nav-vgp-history-panel" data-toggle="tab" href="#vgp-history-panel" role="tab" aria-controls="vgp-history-panel" aria-selected="false">History</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div id="vgp-panel-gene-review-panel" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-vgp-panel-gene-review-panel">
+          <div class="vgp-rating-tag-list-container mt-5">
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span class="vgp-rating-list-tag vgp-rating-definitive">0</span></div><div class="vgp-rotate45">Definitive</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span class="vgp-rating-list-tag vgp-rating-strong">0</span></div><div class="vgp-rotate45">Strong</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span class="vgp-rating-list-tag vgp-rating-moderate">0</span></div><div class="vgp-rotate45">Moderate</div></div>
+            <div class="vgp-rating-tag-subcontainer vgp-rating-divide"><div class="vgp-rating-tag-wrapper"><span class="vgp-rating-list-tag vgp-rating-supportive">0</span></div><div class="vgp-rotate45">Supportive</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span class="vgp-rating-list-tag vgp-rating-limited">0</span></div><div class="vgp-rotate45">Limited</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span class="vgp-rating-list-tag vgp-rating-disputed">0</span></div><div class="vgp-rotate45">Disputed</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span class="vgp-rating-list-tag vgp-rating-refuted">0</span></div><div class="vgp-rotate45">Refuted</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span class="vgp-rating-list-tag vgp-rating-animal">0</span></div><div class="vgp-rotate45">Animal</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span class="vgp-rating-list-tag vgp-rating-noknown">0</span></div><div class="vgp-rotate45">No known</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span class="vgp-rating-list-tag vgp-rating-norating">0</span></div><div class="vgp-rotate45">No rating</div></div>
+          </div>
+          <div class="vgp-panel-gene-view-num-wrapper">
+            <span class="vgp-panel-gene-view-num">0</span> reviews
+          </div>
+ 
+          <div class="vgp-panel-gene-view-list-wrapper">
+            <div class="vgp-review-upper-wrapper d-flex justify-content-between">
+              <div class="vgp-review-upper-left-wrapper d-flx flex-column">
+                <div><span class="vgp-rating-tag vgp-rating-supportive">Supportive</span></div>
+                <div class="vgp-review-title2">Tracy Lester (Genetics laboratory, Oxford UK)</div>
+                <div class="vgp-review-title3">Group: NHS Genomic Medicine Centre    Workplace: NHS diagnostic lab</div>
+                <div><font class="vgp-review-title-font">Mode of inheritance:</font> BIALLELIC,autosomal or pseudoautosomal</div>
+                <div><font class="vgp-review-title-font">Phenotypes:</font> Achalasia-addisonianism-alacrimia syndrome, 231550</div>
+              </div><!-- end of upper left -->
+            </div><!-- end of upper -->
+            <div class="vgp-review-list-wrapper">
+              <div class="vgp-review-container d-flex flex-row">
+                <div>
+                  <p>The association of adrenal and neurologic disease in the triple-A syndrome is similar to that in X-linked adrenoleukodystrophy. Lanes et al.(1980) suggested that a degenerative process of progressive nature may be responsible for the 3features of this syndrome of alacrima-achalasia-addisonianism. Patients develop polyneuropathy, parkinsonism, mild dementia. Several cases.
+                  </p>
+                  <span class="vgp-review-title3">Created: 25 Sep 2019, 4:08p.m    Last Modified: 2 Sep 2019, 4:06pm. Panel version:4</span>
+                </div>
+              </div>
+
+              <div class="vgp-review-container d-flex flex-row">
+                <div>
+                  <p>The association of adrenal and neurologic disease in the triple-A syndrome is similar to that in X-linked adrenoleuko
+dystrophy. Lanes et al.(1980) suggested that a degenerative process of progressive nature may be responsible for the 3features of this syn
+drome of alacrima-achalasia-addisonianism. Patients develop polyneuropathy, parkinsonism, mild dementia. Several cases.
+                  </p>
+                  <span class="vgp-review-title3">Created: 25 Sep 2019, 4:08p.m    Last Modified: 2 Sep 2019, 4:06pm. Panel version:4</spa
+n>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vgp-panel-gene-view-list-wrapper">
+            <div class="vgp-review-upper-wrapper d-flex justify-content-between">
+              <div class="vgp-review-upper-left-wrapper d-flx flex-column">
+                <div><span class="vgp-rating-tag vgp-rating-limited">Limited</span></div>
+                <div class="vgp-review-title2">Lazy Bender (Genetics laboratory, Oxford UK)</div>
+                <div class="vgp-review-title3">Group: NHS Genomic Medicine Centre    Workplace: NHS diagnostic lab</div>
+                <div><font class="vgp-review-title-font">Mode of inheritance:</font> BIALLELIC,autosomal or pseudoautosomal</div>
+                <div><font class="vgp-review-title-font">Phenotypes:</font> Achalasia-addisonianism-alacrimia syndrome, 231550</div>
+              </div>
+            </div>
+            <div class="vgp-review-list-wrapper">
+              <div class="vgp-review-container d-flex flex-row">
+                <div>
+                  <p>The association of adrenal and neurologic disease in the triple-A syndrome is similar to that in X-linked adrenoleukodystrophy. Lanes et al.(1980) suggested that a degenerative process of progressive nature may be responsible for the 3features of this syndrome of alacrima-achalasia-addisonianism. Patients develop polyneuropathy, parkinsonism, mild dementia. Several cases.
+                  </p>                  <span class="vgp-review-title3">Created: 25 Sep 2019, 4:08p.m    Last Modified: 2 Sep 2019, 4:06pm. Panel version:4</span>                </div>              </div>
+              <div class="vgp-review-container d-flex flex-row">                <div>                  <p>The association of adrenal and neurologic disease in the triple-A syndrome is similar to that in X-linked adrenoleukodystrophy. Lanes et al.(1980) suggested that a degenerative process of progressive nature may be responsible for the 3features of this syn
+drome of alacrima-achalasia-addisonianism. Patients develop polyneuropathy, parkinsonism, mild dementia. Several cases.
+                  </p>
+                  <span class="vgp-review-title3">Created: 25 Sep 2019, 4:08p.m    Last Modified: 2 Sep 2019, 4:06pm. Panel version:4</spa
+n>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="vgp-history-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-vgp-history-panel">
+          <div class="vgp-version-comments-wrapper">
+                <ul id="vgp-history-list-container" class="sessions">
+                  <li>
+                    <div class="time">18 Dec 2023, 12:45</div>
+                    <label>Set Phenotypes</label>
+                    <p>Phenotypes for gene: AAAS were changed from Achalasia-addisonianism-alacrimia syndrome, 231550 to Achalasia-addisonianism-alacrimia syndrome, OMIM:231550; Triple-A syndrome, MONDO:0009279.</p>
+                  </li>
+                  <li>
+                    <div class="time">10 Dec 2023, 16:15</div>
+                    <label>Added New Source, Status Update</label>
+                    <p>Source Expert Review Red was added to AAAS. Rating Changed from Green List(high evidence) to Red List (low evidence).</p>
+                  </li>
+                  <li>
+                    <div class="time">2 Sep 2019, 9:45</div>
+                    <label>Added New Source</label>
+                    <p>Source wessex and West Midiands GLH was added to AAAS.</p>
+                  </li>
+                </ul>
+              </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block js_block %}
+<script type="text/javascript" src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/common.js"></script>
+
+<!-- <script type="text/javascript" src="/static/js/panelsearch/vgp_panel_gene_detail_user.js"></script> -->
+<!-- <script type="text/javascript" src="/static/js/panelsearch/vgp_panel_input_modal.js"></script> -->
+<script type="text/javascript" src="/static/js/panelsearch/vgp_panel_gene_detail.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+  $(document).ready(function(){
+      _vgp_attach_goToTopfunc();
+      _vgp_init("{{ r_panel_gene_id }}", "{{ r_panel_gene_title }}", "{{ r_panel_id }}");
+      vgp_set_total_panel_num({{ r_root_panel_num }});
+  });
+</SCRIPT>
+{% endblock %}

@@ -1,0 +1,373 @@
+{% extends "panelsearch_base.html" %}
+
+{% block css_block %}
+<link rel="stylesheet" href="/static/css/font-awesome-5.15.3/css/all.min.css">
+<link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-panel-detail.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tokenTypeahead.css">
+{% if r_user_type_admin or r_user_panel_role_curator or r_user_panel_role_reviewer %}
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tokenDropdownTreeview.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/treeviewInput.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-panel-review.css">
+{% endif %}
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tippy.css" type="text/css">
+<link rel="stylesheet" href="/static/js/tippyjs-6.3.7/animations/scale.css" />
+<link rel="stylesheet" href="/static/js/tippyjs-6.3.7/animations/scale-extreme.css" />
+{% endblock %}
+
+{% block title_block %}PanelSearch(nanbyo) : PubCaseFinder{% endblock %}
+
+{% block main_block %}
+<div class="vgp-main">
+  <div class="vgp-wrapper vgp-wrapper-upper">
+    <div class="vgp-content d-flex flex-column">
+      <div id="vgp-breadcrumblist-wrapper" class="mb-3"></div>
+      <div><h1 class="color-white"><ruby id="vgp-panel-name"></ruby></h1></div>
+      <div class="d-flex flex-column vgp-version" id="vgp-panel-version-wrapper">
+      </div>
+      <div class="vgp-controll">
+		<button id="btn_show_reviewers">Show reviewers (<font id="btn_show_reviewers_num">0</font>)
+          <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18" fill="currentColor">
+            <path d="M480-360 280-560h400L480-360Z"/>
+          </svg>
+        </button>
+        <button id="btn_download_panel">Download
+          <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18" fill="currentColor">
+            <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="vgp-wrapper">
+    <div class="vgp-content d-flex flex-column">
+      <div class="vgp-panel-info">
+        <div class="vgp-panel-controll">
+          <span class="vgp-summary-label">Summary</span>
+          <span id="vgp-summary-switch" class="vgp-summary-controll vgp-active" data-table-id="vgp-panel-summary-table">Hide</span>
+        </div>
+        <table class="table" id="vgp-panel-summary-table"></table>
+      </div>
+      <div class="vgp-panel-detail d-flex">
+        <div class="vgp-detail-wrapper">
+          <nav class="vgp-nav">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active mr-2" id="nav-vgp-panel-genes-panel" data-toggle="tab" href="#vgp-panel-genes-panel" role="tab" aria-controls="vgp-panel-genes-panel" aria-selected="true">Panel genes</a>
+              <a class="nav-item nav-link mr-2" id="nav-vgp-version-comments-panel" data-toggle="tab" href="#vgp-version-comments-panel" role="tab" aria-controls="vgp-version-comments-panel" aria-selected="false">Version comments</a>
+              <a class="nav-item nav-link mr-2" id="nav-vgp-reviewers-panel" data-toggle="tab" href="#vgp-reviewers-panel" role="tab" aria-controls="vgp-reviewers-panel" aria-selected="false">Reviewers(0)</a>
+              <a class="nav-item nav-link" id="nav-vgp-compare-panel" data-toggle="tab" href="#vgp-compare-panel" role="tab" aria-controls="vgp-compare-panel" aria-selected="false">Version comparison</a>
+{% if r_user_type_admin or r_user_panel_role_curator or r_user_panel_role_reviewer %}
+              <div id="wrapper_panel_add_entity_btn"></div>
+{% endif %}
+            </div>
+          </nav>          
+          <div class="tab-content" id="nav-tabContent">
+            <div id="vgp-panel-genes-panel" class="tab-pane fade show active mt-1" role="tabpanel" aria-labelledby="nav-vgp-panel-genes-panel">
+              <div class="vgp-filter-sample-panel">
+                <div class="vgp-filter-wrapper">
+                  <div class="d-flex justify-content-between flex-nowrap">
+                    <div class="vgp-panel-genes-num-wrapper"><span class="vgp-panel-genes-num">0</span> Entities</div>
+					<!--
+                    <div class="vgp-panel-genes-switch-wrapper">
+                      <label class="switch"><input id="native_switch" type="checkbox"><span class="slider"></span></label>
+                      <span>固有のEntityのみを表示</span>
+                    </div>
+					-->
+                  </div>
+                  <input id="vgp-panel-genes-filter" class="vgp-filter" type="text" autocomplete="off" autocapitalize="off" 
+                         data-table-id="vgp-panel-gene-table" data-sort-inner-target="vgp-panel-gene-name"
+                         placeholder="Filter 0 Entities" />
+                </div>
+                <div class="d-flex flex-row flex-nowrap align-items-end vgp-rating-tag-list-container-wrapper">
+                  <div class="vgp_rating_tag_title">Rating:</div>
+                  <div class="in-circle-wrapper">
+                    <span class="in-circle" data-toggle="tooltip" data-placement="top" data-html="true" title="" data-original-title="...">?</span>
+                  </div>
+                  <div class="vgp-rating-tag-list-container vgp-rating-tag-list-container-width sample">
+                    <div class="vgp-rating-tag-subcontainer">
+                      <div class="vgp-rating-tag-wrapper sample">
+                        <span class="vgp-rating-list-tag vgp-rating-definitive sample"></span>
+                      </div>
+                      <div class="vgp-rotate45">Definitive</div>
+                    </div>
+                    <div class="vgp-rating-tag-subcontainer">
+                      <div class="vgp-rating-tag-wrapper sample">
+                        <span class="vgp-rating-list-tag vgp-rating-strong sample"></span>
+                      </div>
+                      <div class="vgp-rotate45">Strong</div>
+                    </div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-moderate sample"></span></div><div class="vgp-rotate45">Moderate</div></div>
+                    <div class="vgp-rating-tag-subcontainer vgp-rating-divide"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-supportive sample"></span></div><div class="vgp-rotate45">Supportive</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-limited sample"></span></div><div class="vgp-rotate45">Limited</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-disputed sample"></span></div><div class="vgp-rotate45">Disputed</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-refuted sample"></span></div><div class="vgp-rotate45">Refuted</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-animal sample"></span></div><div class="vgp-rotate45">Animal</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-noknown sample"></span></div><div class="vgp-rotate45">No known</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-norating sample"></span></div><div class="vgp-rotate45">No rating</div></div>
+                    <div class="vgp-rating-tag-subcontainer-space"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="vgp-panel-genes-table-wrapper">
+                <table class="table vgp-panel-genes-table" id="vgp-panel-gene-table">
+                  <thead class="vgp-panel-gene-table-thead">
+                    <tr>
+                      <th class="width-entity">
+                        <span data-sort-id="0" data-sort-method="vgp-sort-method-innerletter" data-sort-inner-target="vgp-panel-gene-name" class="vgp-sorter vgp-asc">Entity</span>
+                      </th>
+                      <th class="width-source-panel">
+                        <span data-sort-id="1" data-sort-method="vgp-sort-method-innerletter" data-sort-inner-target="vgp-panel-name-native" class="vgp-sorter">Source Panel</span>
+                      </th>
+                      <th class="width-rating">
+                        <span data-sort-id="1" data-sort-method="vgp-sort-method-rating" data-sort-inner-target="vgp-rating-tag-native" class="vgp-sorter">Curator Rating</span>
+                      </th>
+                      <th class="width-sources">
+                        <span data-sort-id="1" data-sort-method="vgp-sort-method-innernum" data-sort-inner-target="vgp-panel-review-num" class="vgp-sorter">Reviewer/Reference ratings</span>
+                      </th>
+                      <th class="width-paper">
+                        <span data-sort-id="1" data-sort-method="vgp-sort-method-innernum" data-sort-inner-target="vgp-panel-paper-num" class="vgp-sorter">Papers</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="vgp-panel-gene-table-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+            <div id="vgp-version-comments-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-vgp-detail-sub-panel">
+              <div class="vgp-version-comments-wrapper">
+                <ul class="sessions" id="ul-version-comments">
+                </ul>
+              </div>
+            </div>
+            <div id="vgp-reviewers-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-vgp-reviewers-panel">
+              <label class="mt-2 ml-3">List of reviewers who have submitted reviews for genes in this panel.</label>
+              <table class="table vgp-panel-genes-table mt-2" id="vgp-reviewer-table">
+                <thead>
+                  <tr>
+                    <th><span data-sort-id="0" data-sort-method="vgp-sort-method-letter" data-sort-target-row="vgp-table-datarow" class="vgp-sorter ml-2">Reviewers</span></th>
+                    <th><span data-sort-id="1" data-sort-method="vgp-sort-method-letter" data-sort-target-row="vgp-table-datarow" class="vgp-sorter">Affiliation</span></th>
+                    <th><span data-sort-id="2" data-sort-method="vgp-sort-method-innernum" data-sort-target-row="vgp-table-datarow" class="vgp-sorter">Reviews written</span></th>
+                  </tr>
+                </thead>
+                <tbody id="vgp-reviewer-table-tbody">
+                </tbody>
+              </table>
+              <div id="reviewer_reviews_num">Total<font id="reviewer_num">0</font>reviewers</div>
+              <div id="reviewer_reviews_intro">
+                <span class="material-symbols-outlined mr-2">info</span>
+                Click the number in 'Reviews written' to view the list of reviews written by that reviewer.
+              </div>
+            </div>
+            <div id="vgp-compare-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-vgp-compare-panel">
+              <div id="compare-wrapper">
+                <div class="tab-loading" id="compare-loader" style="display:none;">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <p class="mt-3 text-muted">Loading, Please Wait...</p>
+                </div>
+                <div id="compare-content">
+                  <div class="compare-summary" id="compare-summary">
+                    <span class="desc">Changes summary: </span>
+                    <span class="summary-tag rating-change-added">Added(0)</span>
+                    <span class="summary-tag rating-change-removed">Removed(0)</span>
+                    <span class="summary-tag rating-change-changed">Rating changed(0)</span>
+                    <span class="count">Total genes</span>
+                  </div>
+
+                  <div class="vgp-filter-sample-panel mb-2">
+                    <div class="vgp-filter-wrapper">
+                      <div class="d-flex justify-content-between flex-nowrap">
+                        <div class="vgp-panel-genes-num-wrapper"><span class="vgp-panel-genes-num-compare">0</span> Entities</div>
+                      </div>
+                      <input id="vgp-panel-genes-filter-compare" class="vgp-filter" type="text" autocomplete="off" autocapitalize="off" data-table-id="compare-table" data-sort-inner-target="vgp-panel-gene-name" placeholder="Filter 0 Entities">
+                    </div>
+                    <div class="d-flex flex-row flex-nowrap align-items-end vgp-rating-tag-list-container-wrapper">
+                      <div class="vgp_rating_tag_title">Rating:</div>
+                      <div class="in-circle-wrapper">
+                        <span class="in-circle" data-toggle="tooltip" data-placement="top" data-html="true" title="" data-original-title="...">?</span>
+                      </div>
+                      <div class="vgp-rating-tag-list-container vgp-rating-tag-list-container-width sample">
+                        <div class="vgp-rating-tag-subcontainer">
+                          <div class="vgp-rating-tag-wrapper sample">
+                            <span class="vgp-rating-list-tag vgp-rating-definitive sample"></span>
+                          </div>
+                          <div class="vgp-rotate45">Definitive</div>
+                        </div>
+                        <div class="vgp-rating-tag-subcontainer">
+                          <div class="vgp-rating-tag-wrapper sample">
+                            <span class="vgp-rating-list-tag vgp-rating-strong sample"></span>
+                          </div>
+                          <div class="vgp-rotate45">Strong</div>
+                        </div>
+                        <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-moderate sample"></span></div><div class="vgp-rotate45">Moderate</div></div>
+                        <div class="vgp-rating-tag-subcontainer vgp-rating-divide"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-supportive sample"></span></div><div class="vgp-rotate45">Supportive</div></div>
+                        <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-limited sample"></span></div><div class="vgp-rotate45">Limited</div></div>
+                        <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-disputed sample"></span></div><div class="vgp-rotate45">Disputed</div></div>
+                        <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-refuted sample"></span></div><div class="vgp-rotate45">Refuted</div></div>
+                        <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-animal sample"></span></div><div class="vgp-rotate45">Animal</div></div>
+                        <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-noknown sample"></span></div><div class="vgp-rotate45">No known</div></div>
+                        <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-norating sample"></span></div><div class="vgp-rotate45">No rating</div></div>
+                        <div class="vgp-rating-tag-subcontainer-space"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="compare-table-wrapper">
+                    <table class="compare-table" id="compare-table">
+                      <colgroup>
+                        <col class="col-entity">   <!-- 第一列: 250px -->
+                        <col class="col-rating">   <!-- 第二列: 1fr (平分剩余) -->
+                        <col class="col-rating">   <!-- 第三列: 1fr (平分剩余) -->
+                        <col class="col-status">   <!-- 第四列: 150px -->
+                      </colgroup>
+                      <thead class="compare-table-thead">
+                        <tr>
+                          <th>Entity
+                            <span data-sort-id="0" data-sort-method="vgp-sort-method-innerletter" data-sort-inner-target="vgp-panel-gene-name" class="vgp-sorter vgp-asc">Entity</span>
+                          </th>
+                          <th>
+                            <div class="dropdown version-selector" id="dropdown-version-selector-1">
+                              <button id="btn-version-selector-1" class="dropdown-toggle btn-version-selector" type="button" data-toggle="dropdown" aria-expanded="false">-</button>
+                              <div class="dropdown-menu" id="dropdown-menu-version-selector-1"></div>
+                            </div>
+                            <span data-sort-id="1" data-sort-method="vgp-sort-method-rating" data-sort-inner-target="vgp-rating-tag" class="vgp-sorter"> </span>
+                          </th>
+                          <th>
+                            <div class="dropdown version-selector" id="dropdown-version-selector-2">
+                              <button id="btn-version-selector-2" class="dropdown-toggle btn-version-selector" type="button" data-toggle="dropdown" aria-expanded="false">-</button>
+                              <div class="dropdown-menu" id="dropdown-menu-version-selector-2"></div>
+                            </div>
+                            <span data-sort-id="2" data-sort-method="vgp-sort-method-rating" data-sort-inner-target="vgp-rating-tag" class="vgp-sorter"> </span>
+                          </th>
+                          <th>
+                            <span data-sort-id="3" data-sort-method="vgp-sort-method-letter" class="vgp-sorter">Status</span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody id="compare-table-tbody">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vgp-treeview-wrapper d-flex flex-column">
+          <div class="vgp-treeview-title-panel d-flex flex-row">
+            <div class="vgp-treeview-title-subpanel left">Tree</div>
+            <div class="vgp-treeview-title-subpanel right"><span>  </span></div>
+          </div>
+          <div class="vgp-treeview-treeview-panel d-flex flex-row flex-nowrap" id="nav-tabContent-treeview">
+            <div class="splitter" id="splitter"></div>
+            <div id="vgp-panel-treeview" style="overflow-x:auto;" class="d-flex flex-grow-1"><ul id="vgp-treeview" class="ztree"></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="reviewersModal" tabindex="-1" aria-labelledby="reviewersModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="reviewersModalLabel">User Reviewes</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<table class="table vgp-panel-genes-table" id="vgp-panel-reviewers-gene-table">
+					<thead class="vgp-panel-gene-table-thead">
+						<tr>
+							<th><span data-sort-id="0" data-sort-method="vgp-sort-method-rating" data-sort-target-row="vgp-table-datarow" data-sort-inner-target="vgp-rating-tag" class="vgp-sorter">Rating (Reviewer)</span></th>
+							<th><span data-sort-id="1" data-sort-method="vgp-sort-method-letter" data-sort-target-row="vgp-table-datarow" class="vgp-sorter">Entity</span></th>
+							<th><span data-sort-id="2" data-sort-method="vgp-sort-method-letter" data-sort-target-row="vgp-table-datarow" class="vgp-sorter color-name">Reviewers</span></th>
+							<th><span data-sort-id="3" data-sort-method="vgp-sort-method-letter" data-sort-target-row="vgp-table-datarow" class="vgp-sorter">Affiliation</span></th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>	
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block js_block %}
+<script type="text/javascript" src="/static/js/popperjs-core-2.11.8/core/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/tippyjs/tippy-bundle.umd.js"></script>
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.excheck.js"></script>
+<script type="text/javascript" src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.tokenTypeahead.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.tokenDropdown.js"></script>
+{% if r_user_type_admin or r_user_panel_role_curator or r_user_panel_role_reviewer %}
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.tokenDropdownTreeview.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.treeview.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.review.js"></script>
+{% endif %}
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/vgp_panel_detail.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+
+{% if r_user_type_admin or r_user_panel_role_curator or r_user_panel_role_reviewer %}
+function _get_current_user_id(){
+	return {{ r_user_id }};
+}
+{% endif %}
+
+
+var panel_version_info      = {{ r_panel_version_info | tojson }};
+var all_panel_arr           = {{ r_all_panel_list | tojson }} 
+
+$(document).ready(function(){
+
+	_vgp_attach_goToTopfunc();
+
+	_vgp_init(	"{{ r_panel_id }}", "{{ r_nando_id }}", panel_version_info,	"{{ r_panel_name }}", all_panel_arr);
+
+      // attach resizer for treeview
+      const splitter = document.getElementById("splitter");
+      const leftColumn = document.querySelector(".vgp-detail-wrapper");
+      const rightColumn = document.querySelector(".vgp-treeview-wrapper");
+      const container = document.querySelector(".vgp-panel-detail");
+
+      let isResizing_splitter = false;
+      let initialX = 0;
+      let initialRightWidth = 0;
+
+      splitter.addEventListener("mousedown", (e) => {
+		document.body.style.cursor = 'ew-resize';
+        isResizing_splitter = true;
+        initialX = e.clientX;
+        initialRightWidth = rightColumn.offsetWidth;
+        document.addEventListener("mousemove", resize);
+        document.addEventListener("mouseup", stopResize);
+        e.preventDefault();
+      });
+
+      function resize(e) {
+        if (!isResizing_splitter) return;
+
+        const containerRect = container.getBoundingClientRect();
+        const offsetX = initialX - e.clientX;
+        const newRightWidth = initialRightWidth + offsetX;
+        const newLeftWidth = containerRect.width - newRightWidth;
+
+		rightColumn.style.width = newRightWidth + "px";
+        leftColumn.style.width = newLeftWidth + "px";
+      }
+
+      function stopResize() {
+        isResizing_splitter = false;
+		document.body.style.cursor = '';
+        document.removeEventListener("mousemove", resize);
+        document.removeEventListener("mouseup", stopResize);
+      }
+  });
+</SCRIPT>
+{% endblock %}

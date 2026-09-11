@@ -1,0 +1,370 @@
+<html lang="ja">
+
+
+  <!-- STARRT: head -->
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PubCaseFinder: Search system for rare genetic diseases</title>
+    <meta name="description" content="PubCaseFinder (PCF) is a Human Phenotype Ontology (HPO)-based clinical decision support system for rare and genetic diseases, always up-to-date."/>
+    <meta name="keywords" content="PubCaseFinder, PCF, Rare Disease, Genetic Disease, Human Phenotype Ontology, Phenotype" />
+    <meta name="author" content="Database Center for Life Science" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@fujitoyo" />
+    <meta property="og:url" content="https://pubcasefinder.dbcls.jp/"/>
+    <meta property="og:title" content="PubCaseFinder: Search system for rare genetic diseases"/>
+    <meta property="og:description" content="PubCaseFinder (PCF) is a Human Phenotype Ontology (HPO)-based clinical decision support system for rare and genetic diseases, always up-to-date."/>
+    <meta property="og:image" content="https://pubcasefinder.dbcls.jp/static/images/top/logo_color.svg"/>
+    <script type="application/ld+json">
+      {
+      "@context": "http://schema.org/",
+      "@type": "Dataset",
+      "name": "PubCaseFinder: Search system for rare genetic diseases",
+      "description": "PubCaseFinder (PCF) is a Human Phenotype Ontology (HPO)-based clinical decision support system for rare and genetic diseases, always up-to-date",
+      "url": "https://pubcasefinder.dbcls.jp/",
+      "version": "2.1.0",
+      "keywords": "PubCaseFinder,PCF,Rare Disease,Phenotype,Gene,Match,Assist",
+      "creator": "Database Center for Life Science, DBCLS",
+      "license": "http://creativecommons.org/licenses/by/2.1/jp/",
+      }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="/static/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/text2hpo.css">    
+
+    <!-- jquery-tokeninput -->
+    <link rel="stylesheet" href="/static/css/token-input-facebook.css" type="text/css" />
+
+    <!-- popup-tokeninput -->
+    <link rel="stylesheet" href="/static/css/popup-hierarchy-hpo.css">
+    <!-- <link rel="stylesheet" href="/static/css/popup-hierarchy-gene.css"> -->
+
+    <!-- favicon -->
+    <link rel="icon" href="/static/images/favicon.ico">
+
+    <!-- favicon for mobile -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png">
+
+  </head>
+  <!-- END: head -->
+
+  <!-- STARRT: body -->
+  <body>
+
+    <!-- START: navigation -->
+    <div class="fh5co-loader"></div>
+    <div id="page">
+      <nav class="fh5co-nav" role="navigation">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-2 text-left">
+              <div id="fh5co-logo"><a href="/">PubCaseFinder</a></div>
+              <!--div id="fh5co-logo"><a href="/"><image src="/static/images/logo_PubCaseFinder_blue.png" width="300"></a></div-->
+            </div>
+            <div class="col-xs-10 text-right menu-1">
+              <ul>
+                <li><a href="/guides"><span class="icon-question-circle-o"></span>Guides</a></li>
+                <li><a href="/api"><span class="icon-wrench"></span>API</a></li>
+                <li><a href="/history"><span class="icon-history"></span>History</a></li>
+                <li><a href="/termsofservice"><span class="icon-doc-text-inv"></span>Terms</a></li>
+                <li><a href="/sources"><span class="icon-database"></span>Datasets</a></li>
+                <li><a target="_blank" href="https://integbio.jp/rdf/dataset/pubcasefinder"><span class="icon-database"></span>RDF</a></li>
+                <li><a title="Comments & suggestions are welcome!" href="mailto:support@dbcls.rois.ac.jp,pubcasefinder@dbcls.rois.ac.jp" href="#"><span class="icon-mail-alt"></span>Contact</a></li>
+                <!--li><a href="/?lang=en">EN</a>/<a href="/?lang=ja">JA</a></li-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!--/div-->
+      <!-- END: navigation -->
+
+      <!-- START: navigation background -->
+      <!--header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(/static/images/img_bg_1.jpg);" data-stellar-background-ratio="0.5"-->
+      <header id="fh5co-header" class="fh5co-cover" role="banner">
+        <div class="overlay"></div>
+      </header>
+      <!-- END: navigation background -->
+  
+      <!-- START: main contents -->
+      <!-- START: text2hpo -->
+      <div id="fh5co-text2hpo">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h5 style="margin-bottom:5px;"><B>日本語の診療録から症状を自動で抽出(アノテーション)できます。</B></h5>
+              <h5 style="margin-bottom:15px;"><B>尚、ブラウザの機能を利用して処理するため,入力したテキストがインターネット上で通信されることはありません。</B></h5>
+              <div class="btn-toolbar" style="margin-bottom:15px;margin-left:2px;">
+                <div>
+                  <label class="input-group-btn" style="width:50px;">
+                    <span class="btn btn-default" style="border-radius:5px;border:1px solid;">
+                      <b>以前のアノテーションを再開</b>
+                      <input type="file" id="input_file_annotation" style="display:none" accept=".json">
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <label style="font-size:18px;"><b>患者の診療録を入力</b></label> 
+                </div>
+                <div class="panel-body" style="padding:0;border:none; background-color:white;"> 
+                  <div class="btn-toolbar" >
+                    <button type="button" class="btn btn-link" style="margin-top:5px; margin-left:15px;padding: 0em;text-decoration:underline;" id="btn_paste_sampletext">
+                      <b class="text2hpoicon-doc-text-inv">診療録の例</b>
+                    </button>
+                  </div>
+                  <div style="margin-left:15px;margin-right:15px;">
+                    <textarea id="textarea_userinput" class="form-control" placeholder="患者の症状または診療録を入力してください。" autofocus></textarea>
+                  </div>
+                </div>
+                <div class="panel-footer">
+                  <button id="btn_parse_userinput" class="btn btn-primary"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;症状を抽出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <!-- <div class="row" style="display: none" id="div_ResultsPanel"> -->
+          <div class="row" id="div_ResultsPanel">
+            <div class="col-sm-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <label style="font-size:18px;"><b>抽出結果（アノテーション結果）</b></label>
+                </div>
+                <div class="panel-body" style="padding:15px 15px 0px 15px;">
+                  <div class="row">
+                    <div class="col-sm-6" style="padding:0px 5px 0px 15px;height:500px;">
+                      <p id="p_parsed_text"></p>
+                      <div id='div_selectionPopup' style="min-width:400px;font-size:13px;">
+                        <ul class='selectionPopupActions' id="ul_popup"></ul>
+                        <textarea class="form-control" rows="1" id="tokeninput_popup" name="str_phenotypes_popup"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-sm-6" style="padding:0px 15px 0px 5px;height:500px;">
+                      <div id="div_total_match_num">合計アノテーション数</div>
+                      <nav style="padding:0px;height:100%;">
+                        <ul class="list-group" style="overflow-y:scroll;overflow-x:hidden;max-height:480px;" id="ul_matches"></ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-footer">
+                  <div class="btn-toolbar">
+                    <button id="btn_save_annotation" class="btn btn-primary"><b>アノテーションを保存</b></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row" style="display: none;" id="div_outputPanel">
+            <div class="col-sm-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <label style="font-size:18px;"><b>症状一覧</b></label>
+                </div>
+                <div class="panel-body" style="padding:15px 15px 0px 15px;">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div id="div_total_hpo_num" style="border-bottom:2px solid #ddd;color:black;font-weight:bold;">合計症状数</div>
+                      <table class="table table-hover" id="tbl_hpolist" style="margin-bottom:0px;border-bottom:2px solid #ddd;color:black;">
+                        <thead>
+                          <tr>
+                            <th>HPO ID</th>
+                            <th>症状名(日本語)</th>
+                            <th>症状名(英語)</th>
+                            <th>症状の有無</th>
+                            <th>カウント</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-footer">
+                  <div class="row" style="padding:20px;" >
+                    <div style="width:100%;height:151px;padding:0px;margin:0px;border:1px solid #ccc;border-radius:5px;">
+                      <div class="col-sm-6" style="border:none;height:150px;">
+                        <p style="color:black;margin-top:20px;margin-bottom:10px;">
+                           <b>解析</b><br>
+                           取得した症状を用いて、PubCaseFinderを実行します。
+                        </p>
+                        <button type="button" style="border-radius:5px;" class="btn btn-primary btn-sm" onclick="_do_search_disease();"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;疾患を検索&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></button>
+                      </div>
+
+                      <div class="col-sm-6" style="border:1px solid #ccc;border-top:none;border-bottom:none;border-right:none;height:150px;">
+                        <p style="color:black;margin-top:20px;margin-bottom:10px;">
+                          <b>症状保存</b><br>
+                          Phenopackets(JSON)、CSV、TSV形式で保存できます。
+                        </p>
+                        <div class="dropdown dropright">
+                          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="btn_download" style="border:1px solid black;border-radius:5px;" disabled>
+                            <b>共有・ダウンロード</b>
+                          </button>
+                          <ul class="dropdown-menu" role="menu"  style="margin:0px; position: absolute; top: 0px; left: 195px; will-change: transform;">
+                            <li class="dropdown-item" role="presentation"><a style="padding-left:10px;" onclick="_save_matches('csv');">CSV形式で出力</a></li>
+                            <li class="dropdown-item" role="presentation"><a style="padding-left:10px;" onclick="_save_matches('tsv');">TSV形式で出力</a></li>
+                            <li class="dropdown-item" role="presentation"><a style="padding-left:10px;" onclick="_save_matches('json');">PhenoPackets(JSON)形式で出力</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END: text2hpo -->
+
+      <!-- START: project FORM -->
+      <div id="fh5co-project" style="display:none;">
+        <div class="container">
+          <form name="search" action="/search_disease" method="post" class="form-group">
+            <!--div style="text-align:center;font-size:1px;"><div class="rater" id="rater"></div></div-->
+            <div align="middle">
+              <table width="70%">
+                <tr align="middle">
+                  <td>
+                    <table width="100%">
+                      <tr>
+                        <td width="100%">
+                          <textarea class="form-control" rows="2" id="tokeninput_hpo" name="str_phenotypes"></textarea>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- END: FORM -->
+        
+    <!-- START: Import JavaScript -->    
+    <!-- jQuery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="/static/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="/static/js/jquery.waypoints.min.js"></script>
+    <!-- countTo -->
+    <script src="/static/js/jquery.countTo.js"></script>
+    <!-- Magnific Popup -->
+    <!-- <script src="/static/js/jquery.magnific-popup.min.js"></script> -->
+    <script src="/static/js/jquery.magnific_popup.min.js"></script>
+    <script src="/static/js/magnific-popup-options.js"></script>
+    <!-- Stellar -->
+    <script src="/static/js/jquery.stellar.min.js"></script>
+    <!-- rater -->
+    <script src="/static/js/rater.js"></script>
+    <!-- Main -->
+    <script src="/static/js/main.js"></script>
+    <!-- START: LoadingOverlay -->
+    <script src="/static/js/loadingoverlay.min.js"></script>
+  <!-- END: LoadingOverlay -->
+    <!-- For Text2hpo -->
+    <script src="/static/js/jaconv/jaconv.min.js"></script>
+    <script src="/static/js/text2hpo.v3.js"></script>
+    <!-- END: Import JavaScript -->    
+
+
+    <!-- START: jquery-tokeninput -->
+    <script type="text/javascript" src="/static/js/jquery.tokeninput.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.tokeninput_popup.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#tokeninput_hpo").tokenInput("/tokeninput_hpo", {
+          theme: "facebook"
+        });
+
+        $("#tokeninput_popup").tokenInputPopup("/tokeninput_hpo", {
+          theme: "facebook",
+          onAdd: function(item){
+            _add_match_by_tokeninput(item.id, item.name);
+          }
+        });
+      });
+    </script>
+    <!-- END: jquery-tokeninput -->
+
+    <!-- START: popup-hierarchy-hpo -->
+    <!-- WebGL -->
+    <script src="/static/js/d3/3.5.17/d3.min.js"></script>
+    <script src="/static/js/three.js-r84/build/three.min.js"></script>
+    <script src="/static/js/three.js-r84/examples/js/Detector.js"></script>
+    <script src="/static/js/three-bits/OBJLoader.js"></script>
+    <script src="/static/js/three-bits/three-bits.js"></script>
+    <script src="/static/js/three-bits/three-bits-renderer.js"></script>
+    <script src="/static/js/three-bits/defaults.js"></script>
+<!--    <script src="/static/js/three-bits/category2obj.js"></script> -->
+    <script src="/static/js/popup-hierarchy-hpo_text2hpo.js"></script>
+    <script src="/static/js/button-ripple-effect.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#tokeninput_hpo").popupRelationHPO('/popup_hierarchy_hpo');
+      });
+    </script>
+    <!-- END: popup-hierarchy-hpo -->
+
+    <!-- START: gototop -->
+    <!--
+    <div class="gototop js-top">
+      <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+    </div>
+    -->
+    <!-- END: gototop -->
+
+  </body>
+  <!-- END: body -->
+
+
+  <!-- START: Common header and footer -->
+  <script type="text/javascript" src="/static/common-header-and-footer/script/common-footer.js" id="common-footer__script"></script>
+  <!-- END: Common header and fotter -->
+
+  <!-- START: activate tool-tip -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+//      $('[data-toggle="tooltip"]').tooltip()
+
+      $("#div_selectionPopup").css("display","none");
+      $("#div_ResultsPanel").css("display","none");
+    });
+  </script>
+  <!-- END: activate tool-tip -->
+
+  <!-- START: LoadingOverlay -->
+  <!-- <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script> -->
+  <script type="text/javascript">
+    $(function() {
+      $("form").on('submit', function(){
+        $.LoadingOverlay("show");
+      });
+    });
+  </script>
+  <!-- END: LoadingOverlay -->
+
+</html>

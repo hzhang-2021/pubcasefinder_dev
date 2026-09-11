@@ -1,0 +1,1116 @@
+{% extends "base.html" %}
+{% set guide_page = r_guide_page|default('overview') %}
+{% block content %}
+<!-- START: Guides page -->
+{% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+
+<!-- START: __redesign20260310__日本語バージョン -->
+<div class="utility_wrapper">
+	<section class="content">
+		<h1>Guides<span class="guide_subtitle">&nbsp;&nbsp;How To Use PubCaseFinder</span></h1>
+		<div class="column-wrapper tab_box">
+				<!-- column-left: サイドバーメニュー -->
+				<div class="column-left">
+					<ul class="sidenav btn_area">
+						<li class="tab_btn{% if guide_page == 'overview' %} active{% endif %}"><a href="/guides" class="accordion_list">Overview</a></li>
+						<li class="tab_btn{% if guide_page == 'diseasesearch' %} active{% endif %}"><a href="/guides/diseasesearch" class="accordion_list">DiseaseSearch</a></li>
+						<li class="tab_btn{% if guide_page == 'casesharing' %} active{% endif %}"><a href="/guides/casesharing" class="accordion_list">CaseSharing</a></li>
+						<li class="tab_btn{% if guide_page == 'panelsearch' %} active{% endif %}"><a href="/guides/panelsearch" class="accordion_list">PanelSearch</a></li>
+					</ul>
+				</div>
+				<!-- column-right: メインコンテンツ -->
+				<div class="column-right panel_area">
+					{% if guide_page == 'overview' %}
+<div class="right-wrap tab_panel active" id="guidesfirst">
+
+					<div class="guide_box">
+						<h2>Overview</h2>
+
+						<img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_PCF_horizontal.svg">
+
+						<p>PubCaseFinderは、希少・遺伝性疾患の医療および研究を支援する3つのウェブサービスの総称です：<a href="https://pubcasefinder.dbcls.jp/" target="_blank">DiseaseSearch</a>、<a href="https://pubcasefinder.dbcls.jp/casesharing" target="_blank">CaseSharing</a>、および<a href="https://pubcasefinder.dbcls.jp/panelsearch" target="_blank">PanelSearch</a>。私たちの長期的なミッションは、臨床遺伝専門医やその他の医療専門家が必要な情報に迅速かつ正確にアクセスできるようにシステムとデータベースを構築し、世界中のすべての希少・遺伝性疾患の症例を検索可能にすることです。
+						</p>
+						<h3>免責事項</h3>
+						<p>本サービスは医学的判断に使用しない情報提供を目的とした、医学教科書その他参考資料を参照するための検索を行うプログラムです。薬機法に基づく承認を受けた医療機器ではないため、検索の結果についてはそのことを考慮に入れて使用してください。本サービスが提供する疾患リストまたそれに付随する情報は、全希少・遺伝性疾患の一部の情報であることに注意してください。本サービスを用いて医師の助言なしに医学的判断を下すべきではありません。本サービスは検索システムとして誠実にデータを提供しますが、データの正確性、臨床的妥当性または有用性を検証することはありません。DBCLSは、明示的にも黙示的にも、データの使用に関して、法的責任を含む一切の責任を負うものではありません。データを商用利用する場合は、<a href="https://pubcasefinder.dbcls.jp/sources" target="_blank">ソース</a>のライセンスを参照し、商用利用の範囲を確認してください。DBCLSは、本サービスの変更、中断、または終了により被った損害に関しても、一切の責任を負うものではありません。また、DBCLSサイトの<a href="https://dbcls.rois.ac.jp/policy.html" target="_blank">サイトポリシー</a>内「免責事項」にも準ずるものとします。</p>
+
+
+						<h3>Beginner's Guide</h3>
+
+						<div class="guidesOV_BG_box">
+							<div class="guidesOV_BG_contents tab_btn">
+								<div class="guidesOV_BG_topbox">
+									<a href="/guides/diseasesearch"><img class="guidesOV_BG_icon" src="/static/images/pcf/guides/icon_DS_vertical.svg" alt="DiseaseSearch"></a>
+									<p class="guidesOV_text">希少・遺伝性疾患を検索</p>
+								</div>
+								<div class="button_gray_min02"><a href="/guides/diseasesearch" class="accordion_list">Visit</a></div>
+							</div>
+							<div class="guidesOV_BG_contents tab_btn">
+								<div class="guidesOV_BG_topbox">
+									<a href="/guides/casesharing"><img class="guidesOV_BG_icon" src="/static/images/pcf/guides/icon_CS_vertical.svg" alt="CaseSharing"></a>
+									<p class="guidesOV_text">症例情報を管理・共有</p>
+								</div>
+								<div class="button_gray_min02"><a href="/guides/casesharing" >Visit</a></div>
+							</div>
+							<div class="guidesOV_BG_contents tab_btn">
+								<div class="guidesOV_BG_topbox">
+									<a href="/guides/panelsearch"><img class="guidesOV_BG_icon" src="/static/images/pcf/guides/icon_PS_vertical.svg" alt="PanelSearch"></a>
+									<p class="guidesOV_text">遺伝子パネルを検索</p>
+								</div>
+								<div class="button_gray_min02"><a href="/guides/panelsearch" >Visit</a></div>
+							</div>
+						</div>
+
+					</div><!-- / guide_box -->
+				</div>
+					{% elif guide_page == 'diseasesearch' %}
+<div class="right-wrap tab_panel active" id="guidesDS">
+					<div class="guide_box">
+						<h2>DiseaseSearch</h2>
+						<img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_DS_horizontal.svg">
+						<p>本サービスは、患者の症状と関連性の高い希少・遺伝性疾患や疾患原因遺伝子を、ランキング表示で提示する希少・遺伝性疾患検索システムです。検索結果を効率よく絞り込むこともできます。</p>
+						<h5>シンプルで便利な検索</h5>
+						<p>兆候・症状を入力するだけで検索でき、診療録から症状を自動抽出しての検索も可能です。</p>
+						<h5>４種のランキング</h5>
+						<p>遺伝性疾患、希少疾患、遺伝子、症例の4つのランキングを提示します。</p>
+						<h5>豊富なデータと精密な解析により、高い検索精度を実現</h5>
+						<p>詳細については以下の文献をご参照ください。<br>
+							<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/humu.24341" target="_blank">Fujiwara, T., Shin, J. M., & Yamaguchi, A. (2022). Advances in the development of PubCaseFinder, including the new application programming interface and matching algorithm. Human mutation, 10.1002/humu.24341. Advance online publication.</a></p>
+
+						<div class="feature_container">
+							<div class="feature_centering_box">
+								<img src="/static/record/images/commonmenu-icon1.svg">
+								<h6 class="underbar_ds">DiseaseSearchの便利な機能を<span class="fontcolor_ds">Pickup</span></h6>
+							</div>
+							<div class="feature_item_box">
+								<h5><span class="label_pickup backgroundcolor_ds">Pickup</span>症状の上位・下位概念を手軽にたどれます</h5>
+								<p>入力した症状名をクリックすると、上位の広い分類や、下位のより細かな分類をたどることができます。より適切な症状を選ぶことで、検索結果の精度が高まります。</p>
+								<img src="/static/images/pcf/guides/ds/guides_DS_img01-1.png">
+								<h5><span class="label_pickup backgroundcolor_ds">Pickup</span>多層的なフィルタリングで精度の高い絞り込みが可能</h5>
+								<p>Basic Filter、Advanced Filter に加え、遺伝子パネルによるフィルタリングにも対応しています。症状・疾患・遺伝形式・年齢層など、多様な条件を組み合わせることで、候補疾患をより正確に絞り込むことができます。</p>
+								<img src="/static/images/pcf/guides/ds/guides_DS_img01-2.gif">
+								<h5><span class="label_pickup backgroundcolor_ds">Pickup</span>データを共有・再利用</h5>
+								<p>検索結果はダウンロードして共有でき、さまざまな場面で再利用できます。さらに、検索機能は API からも利用でき、外部システムとの連携が可能です。</p>
+								<img src="/static/images/pcf/guides/ds/guides_DS_img01-3.png">
+							</div>
+						</div>
+
+						<h5 class="guide_use_title">ご利用案内</h5>
+						<div class="guide_item_list">
+							<ul>
+								<li><a href="#guide_item_ds01"> 検索方法</a></li>
+								<li><a href="#guide_item_ds02"> 症状の上位・下位概念をたどる</a></li>
+								<li><a href="#guide_item_ds03"> 4種のランキングを切り替え</a></li>
+								<li><a href="#guide_item_ds04"> 3種のフィルタリング</a></li>
+								<li><a href="#guide_item_ds05"> 検索結果を共有・再利用</a></li>
+							</ul>
+						</div>
+
+						<div class="guide_item_box">
+							<h5 class="guide_itemtitle" id="guide_item_ds01">検索方法</h5>
+							<p><span class="label_02_ds">患者の兆候または症状を入力</span></p>
+							<p>具体的な症状名（例：「貧血」）を入力すると、それに関連する候補が一覧で表示されます。目的の症状を選んで追加し、すべて入力し終えたら検索ボタンをクリックします。<br>サンプル症状は検索BOX下のリンクから即時入力できます。</p>
+							<img class="gifanime_shadow" src="/static/images/pcf/guides/ds/guides_DS_img02-1.gif">
+							<p><span class="label_02_ds">文章から症状を自動抽出</span></p>
+							<p>診療録などの文章から自動で症状の候補を抽出します。</p>
+							<img class="gifanime_shadow" src="/static/images/pcf/guides/ds/guides_DS_img02-2.gif">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ds02">症状の上位・下位概念をたどる</h5>
+							<p>表示された症状名をクリックすると上位概念・下位概念へ移動できます。<br>症状の「新規追加」または、選択した症状の「入れ替え」をすることができます。</p>
+							<p><span class="label_02_ds">上位概念</span></p>
+							<p>選択した症状に対して、さらに上位の分類（上位概念）を表示します。<br>ここから、選択した症状をより大きな分類へ切り替えることができます。<br>症状を階層的に確認しながら選択できるため、臨床像により合致した症状表現へ調整しやすくなります。</p>
+							<p><span class="label_02_ds">下位概念</span></p>
+							<p>選択した症状に対して、さらに下位の分類（下位概念）を表示します。<br>ここから、選択した症状をより具体的な症状へ切り替えることができます。<br>症状を細分化して確認しながら選択できるため、臨床像により適した症状表現を選びやすくなります。</p>
+							<img class="gifanime_shadow" src="/static/images/pcf/guides/ds/guides_DS_img03-1.gif">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ds03">4種のランキングを切り替え</h5>
+							<p>ランキング表示は以下の4種類から選択できます。<br>
+							①遺伝性疾患 [ Genetic Disease ]<br>
+							②希少疾患 [ Rare Disease ]<br>
+							③遺伝子 [ Gene ]<br>
+							④症例 [ Case ]</p>
+							<img class="no_shadow" src="/static/images/pcf/guides/ds/guides_DS_img04-1.png">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ds04">3種のフィルタリング</h5>
+							<p><span class="label_02_ds">Basic Filter</span></p>
+							<p>難病・疑い疾患領域・遺伝形式・年齢の4ジャンルから合計42項目を選んで絞り込みができます。<br/>さらに、選択した条件に対して OR / AND / NOT を使って柔軟にフィルタリングできます。</p>
+							<img src="/static/images/pcf/guides/ds/guides_DS_img01-2.gif">
+							<p><span class="label_02_ds">Advanced Filter</span></p>
+							<p>疾患名・遺伝形式・疾患原因遺伝子・遺伝子パネルを直接入力して絞り込みます。<br/>入力途中でも疾患名を推測表示するので迅速に入力候補を選択できます。</p>
+							<img src="/static/images/pcf/guides/ds/guides_DS_img05-2.gif">
+							<p><span class="label_02_ds">Virtual Gene Panel</span></p>
+							<p>疾患カテゴリや特徴に応じて構築された仮想的な遺伝子セットを選択できます。<br/>パネルを選ぶことで、関連遺伝子に基づいたフィルタリングが可能になり、検索結果をより疾患特異的に絞り込めます。</p>
+							<img src="/static/images/pcf/guides/ds/guides_DS_img05-3.gif">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ds05">検索結果を共有・再利用</h5>
+							<p><span class="label_02_ds">共有</span></p>
+							<p>同じ結果を他のユーザーと共有するためのリンクを取得可能です。</p>
+							<img src="/static/images/pcf/guides/ds/guides_DS_img06-1.png">
+							<p><span class="label_02_ds">ダウンロード</span></p>
+							<p>検索結果は TSV 形式と JSON 形式で出力できます。<br>ダウンロード対象として、以下のいずれかを選択できます。<br/>① 現在表示中の結果<br>② 検索結果の全件<br/>③ チェックした項目</p>
+							<img src="/static/images/pcf/guides/ds/guides_DS_img06-2.png">
+
+						</div><!-- / guide_item_box -->
+					</div><!-- / guide_box -->
+				</div>
+					{% elif guide_page == 'casesharing' %}
+<div class="right-wrap tab_panel active" id="guidesCS">
+					<div class="guide_box">
+						<h2>CaseSharing</h2>
+							<img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_CS_horizontal.svg">
+						<p>本サービスは、希少・遺伝性疾患の症例情報を、ご自身のローカル PC で管理し、さらに世界各地のユーザと円滑に共有できるよう設計されています。</p>
+						<h5>登録不要、すぐに利用可能です</h5>
+						<p>ユーザ登録は不要で、すぐに利用を始められるサービスです。</p>
+						<h5>データはローカル PC で管理できます&#12288;保存した症例情報は公開されません</h5>
+						<p>CaseSharing で管理する症例情報はクラウドではなく、ご自身のローカル PC にファイルとして保存されます。インターネット上に情報を送信しない、安全な仕組みとなっています</p>
+						<h5>共有・コラボレーションを促進</h5>
+						<p>症例情報は、国際的な相互運用性を考慮して設計された Phenopackets 形式で出力できるため、国内外の研究者や医療従事者、さらには各種臨床・研究データベースとの円滑な連携が可能です。 また、英語、日本語、韓国語に対応しており、世界各地のユーザとの情報共有もスムーズになります。</p>
+						<h5>ミッション</h5>
+						<p>CaseSharing をご利用いただくことで、医療関係者のデータ管理を支援し、将来的にはより円滑な情報共有を促進することを目指しています。長期的なミッションは、希少・遺伝性疾患に関わる「地球上のすべての症例」を検索可能にすることです。</p>
+
+						<div class="feature_container">
+							<div class="feature_centering_box">
+								<img src="/static/record/images/commonmenu-icon2.svg">
+								<h6 class="underbar_cs">CaseSharingでデータ管理の環境向上</h6>
+							</div>
+							<div class="feature_item_box">
+								<h5><span class="label_pickup backgroundcolor_cs">Pickup</span>家系図を自動生成</h5>
+								<p>家族IDを元に、家系図を自動で生成します。JSON、SVG、PNGでの書き出しにも対応しています。</p>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img01_1.png">
+								<h5><span class="label_pickup backgroundcolor_cs">Pickup</span>統計情報チャートを自動生成</h5>
+								<p>データ全体の統計情報をいつでも簡単に閲覧できます。</p>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img01_2.png">
+								<h5><span class="label_pickup backgroundcolor_cs">Pickup</span>一覧画から簡単一括編集</h5>
+								<p>一覧画面からでも、一括変更など様々な編集が可能です。</p>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_2.gif">
+							</div>
+						</div>
+
+						<h5 class="guide_use_title">ご利用案内</h5>
+						<div class="guide_item_list">
+							<ul>
+								<li><a href="#guide_item_cs01"> サンプルデータで使用イメージをつかむ</a></li>
+								<li><a href="#guide_item_cs02"> 症例を追加・削除・複製する</a></li>
+								<li><a href="#guide_item_cs03"> 詳細情報を記録する</a></li>
+								<li><a href="#guide_item_cs04"> 一覧を編集する</a></li>
+								<li><a href="#guide_item_cs05"> 保存・読み込み・結合</a></li>
+								<li><a href="#guide_item_cs06"> 臨床症状を登録</a></li>
+								<li><a href="#guide_item_cs07"> 家系図を自動生成</a></li>
+								<li><a href="#guide_item_cs08"> 統計情報チャートを自動生成</a></li>
+							</ul>
+						</div>
+
+						<div class="guide_item_box">
+							<h5 class="guide_itemtitle" id="guide_item_cs01">サンプルデータで使用イメージをつかむ</h5>
+							<p><a href="/static/data/casesharing_sample_20260608.json" download="casesharing_sample_20260608.json" target="_blank">サンプルデータをこちらからダウンロード</a>できます。casesharing_sample_(日時).jsonという名称のファイルがサンプルデータです。<br/>ご自身のPCにダウンロードしたサンプルデータを、Cases画面（最初に表示される一覧画面）の[File open]から読み込んで、使用のイメージをご確認いただけます。<br/>初めての方は、まずこちらをお試しいただくとよりスムーズにご利用いただけます。</p>
+							<img class="gifanime_shadow" src="/static/images/pcf/guides/cs/guides_CS_img02.png">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_cs02">症例を追加・削除・複製する</h5>
+							<h5>追加・削除</h5>
+							<p>[Cases]画面（最初に表示される一覧画面）から、空欄の症例を追加・削除ができます。</p>
+							<img src="/static/images/pcf/guides/cs/guides_CS_img03_1.png">
+							<h5>複製</h5>
+							<p>詳細画面の[Copy]から、症例の複製ができます。</p>
+							<img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img03_2.png">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_cs03">詳細情報を記録する</h5>
+							<p>それぞれ個別に、症例基本情報、診察、表現型、遺伝型、家系、検体・検査、登録の各項目の詳細情報を個別に記録できます。</p>
+							<img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img04.png">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_cs04">一覧を編集する</h5>
+							<p>一覧では多数の編集やカスタマイズが可能です。</p>
+							<div class="guide_item_box_inner">
+								<h5>一覧のカラムから直に入力・編集可能</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_1.gif">
+								<h5>項目の列を一度に変更</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_2.gif">
+								<h5>項目の列の順番を入れ替え</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_3.gif">
+								<h5>一覧で表示する項目の表示・非表示を変更</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_4.gif">
+								<h5>新規の項目を作成</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_5.gif">
+								<h5>項目の行をソート並び替え</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_6.gif">
+								<h5>症例行の順番を入れ替え</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_7.gif">
+							</div>
+
+
+							<h5 class="guide_itemtitle" id="guide_item_cs05">保存・読み込み・結合</h5>
+							<h5>症例情報の保存・読み込み</h5>
+							<p>[File save]で情報を保存します。「patients_（日時）.json」ファイルが自身のPCにダウンロードされます。次回読み込みの際には、[File open]から「patients_（日時）.json」ファイルを読み込んでください。</p>
+							<h5>症例情報を結合</h5>
+							<p>複数の症例情報ファイルを結合することができます。ファイルを開いた状態で[File merge]をクリックし、別の症例情報ファイルを追加すると、現在開いている情報の下に新しく追加される形で結合します。</p>
+							<img src="/static/images/pcf/guides/cs/guides_CS_img06.png">
+
+							<h5 class="guide_itemtitle" id="guide_item_cs06">臨床症状を登録</h5>
+							<p>[詳細情報] > [表現型]のセクションで、臨床症状の詳細を記録できます。</p>
+							<img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img07.png">
+
+							<h5 class="guide_itemtitle" id="guide_item_cs07">家系図を自動生成</h5>
+							<p>[詳細情報] > [家系] > [家系図]のセクションで、続柄を元にした家系図が自動生成されます。</p>
+							<img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img08.png">
+
+							<h5 class="guide_itemtitle" id="guide_item_cs08">統計情報チャートを自動生成</h5>
+							<p>[Stats]から、登録した症例情報の統計を確認できます。</p>
+							<img src="/static/images/pcf/guides/cs/guides_CS_img09.png">
+
+						</div><!-- / guide_item_box -->
+					</div><!-- / guide_box -->
+				</div>
+					{% elif guide_page == 'panelsearch' %}
+<div class="right-wrap tab_panel active" id="guidesPS">
+					<div class="guide_box">
+						<h2>PanelSearch</h2>
+						<img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_PS_horizontal.svg">
+						<p>本サービスは、ヒトの約1万の希少・遺伝性疾患に関連する遺伝子パネルデータを多様な形で検索し、検索結果のデータをダウンロードすることができます。</p>
+						<h5>多様な方法で、目的の遺伝子パネルデータを検索できます</h5>
+						<p>疾患名の一部や遺伝子名、カテゴリーごとの分類など、複数の検索方法により効率的に遺伝子パネルデータを見つけられるサービスです。</p>
+						<h5>遺伝子パネルデータをダウンロードできます</h5>
+						<p>希少・遺伝性疾患に関連する個々の遺伝子パネルデータのダウンロード、9,998件の全遺伝子パネルデータのダウンロードができます。</p>
+						<h5>ゲノム配列の効率的な臨床的解釈に役立てることができます</h5>
+						<p>詳細については以下の文献をご参照ください。<br/><a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-025-02910-2" target="_blank">in, J., Fujiwara, T., Saitsu, H., & Yamaguchi, A. (2025). Ontology-based expansion of virtual gene panels to improve diagnostic efficiency for rare genetic diseases.&nbsp;<i>BMC medical informatics and decision making</i>,&nbsp;25(Suppl 1), 59.</a></p>
+						<h5>国際的な公共データベースに基づき、疾患グループの遺伝子パネルデータを構築しています</h5>
+						<p>PanelSearchは、希少・遺伝性疾患名の語彙集であるMonarch Disease Ontology（Mondo）をベースに、それぞれの疾患に対する疾患原因遺伝子を、国際的に主要な公共データベースであるMedGen、Opharnet、GenCCなどの<a href="https://pubcasefinder.dbcls.jp/sources" target="_blank">リソース</a>から自動取得しています</p>
+
+						<div class="feature_container">
+							<div class="feature_centering_box">
+								<img src="/static/record/images/commonmenu-icon3.svg">
+								<h6 class="underbar_ps">PanelSearchの便利な機能を<span class="fontcolor_ps">Pickup</span></h6>
+							</div>
+							<div class="feature_item_box">
+								<h5><span class="label_pickup backgroundcolor_ps">Pickup</span>PanelSearchの検索方法は3種類</h5>
+								<p>「遺伝子パネル名」「遺伝子名」「カテゴリーで分類された遺伝子パネルツリー構造」から検索することができます。</p>
+								<img class="no_shadow" src="/static/images/pcf/guides/ps/guides_PS_img00-1.png">
+								<h5><span class="label_pickup backgroundcolor_ps">Pickup</span>検索結果から、関連ツリーの表示</h5>
+								<p>検索結果から、ツリー中の該当パネルの位置を表示することができます。</p>
+								<img src="/static/images/pcf/guides/ps/guides_PS_img06.jpg">
+								<h5><span class="label_pickup backgroundcolor_ps">Pickup</span>9,998件の全遺伝子パネルデータのダウンロード</h5>
+								<p>全ての遺伝子パネルデータの一括ダウンロードができます。</p>
+								<img src="/static/images/pcf/guides/ps/guides_PS_img03.jpg">
+							</div>
+						</div>
+
+						<h5 class="guide_use_title">ご利用案内</h5>
+						<div class="guide_item_list">
+							<ul>
+								<li><a href="#guide_item_ps01"> 3種類の検索方法</a></li>
+								<li><a href="#guide_item_ps02"> 遺伝子リストの表示</a></li>
+								<li><a href="#guide_item_ps03"> 全遺伝子パネルデータの一括ダウンロード</a></li>
+								<li><a href="#guide_item_ps04"> 個別の遺伝子パネルデータのダウンロード</a></li>
+								<li><a href="#guide_item_ps05"> 遺伝子パネル情報のコピー</a></li>
+								<li><a href="#guide_item_ps06"> 検索結果から関連するカテゴリーツリーを表示</a></li>
+								<li><a href="#guide_item_ps07"> 表示履歴を簡単に確認</a></li>
+							</ul>
+						</div>
+
+						<div class="guide_item_box">
+							<h5 class="guide_itemtitle" id="guide_item_ps01">3種類の検索方法</h5>
+							<p><span class="label_02 backgroundcolor_ps">Panel検索</span></p>
+							<h5>遺伝子パネル名から検索</h5>
+							<p>入力したキーワードに関する遺伝子パネルを一覧表示します。</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img01-1.jpg">
+							<p><span class="label_02 backgroundcolor_ps">Gene検索</span></p>
+							<h5>遺伝子名から検索</h5>
+							<p>入力した遺伝子が含まれる遺伝子パネルを一覧表示します。遺伝子名を<strong>スペース</strong>で区切ることで、複数の遺伝子を組み合わせた検索が可能です。</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img01-2.jpg">
+							<p><span class="label_02 backgroundcolor_ps">Tree検索</span></p>
+							<h5>カテゴリーで分類された遺伝子パネルツリー構造からの検索</h5>
+							<p>カテゴリーで分類された遺伝子パネルツリー構造から、目的の遺伝子パネルを探し出すことができます。</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img01-3.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps02">遺伝子リストの表示</h5>
+							<p>遺伝子パネルの個別表示の、[Genes + Show]から、遺伝子リストを表示できます。</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img02.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps03">全遺伝子パネルデータの一括ダウンロード</h5>
+							<p>9,998件の全ての遺伝子パネルデータを一括ダウンロードできます。</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img03.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps04">個別の遺伝子パネルデータのダウンロード</h5>
+							<p>個別の遺伝子パネルデータをtxt.形式でダウンロードすることができます。</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img04.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps05">遺伝子パネル情報のコピー</h5>
+							<p>ボタンクリックで簡単に、遺伝子パネル情報をクリップボードにコピーして、ご自身のパソコン内のデータにペーストすることができます。</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img05.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps06">検索結果から関連するカテゴリーツリーを表示</h5>
+							<p>検索結果の遺伝子パネルの個別表示から、ツリーの中での、該当パネルの位置を表示することができます。</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img06.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps07">表示履歴を簡単に確認</h5>
+							<p>元に戻す、やり直すの機能を使って、表示履歴を自由に行き来できます。</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img07.jpg">
+
+						</div><!-- / guide_item_box -->
+					</div><!-- / guide_box -->
+				</div>
+					{% endif %}
+				</div><!-- column-right: メインコンテンツ -->
+		</div><!-- /column-wrapper tab_box -->
+	</section>
+</div><!-- / guide_wrapper -->
+<!-- END: __redesign20260310__日本語バージョン -->
+
+{% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+
+<!-- START: __redesign20260310__韓国語バージョン -->
+<div class="utility_wrapper">
+	<section class="content">
+		<h1>Guides<span class="guide_subtitle">&nbsp;&nbsp;How To Use PubCaseFinder</span></h1>
+		<div class="column-wrapper tab_box">
+				<!-- column-left: サイドバーメニュー -->
+				<div class="column-left">
+					<ul class="sidenav btn_area">
+						<li class="tab_btn{% if guide_page == 'overview' %} active{% endif %}"><a href="/guides" class="accordion_list">Overview</a></li>
+						<li class="tab_btn{% if guide_page == 'diseasesearch' %} active{% endif %}"><a href="/guides/diseasesearch" class="accordion_list">DiseaseSearch</a></li>
+						<li class="tab_btn{% if guide_page == 'casesharing' %} active{% endif %}"><a href="/guides/casesharing" class="accordion_list">CaseSharing</a></li>
+						<li class="tab_btn{% if guide_page == 'panelsearch' %} active{% endif %}"><a href="/guides/panelsearch" class="accordion_list">PanelSearch</a></li>
+					</ul>
+				</div>
+				<!-- column-right: メインコンテンツ -->
+				<div class="column-right panel_area">
+					{% if guide_page == 'overview' %}
+<div class="right-wrap tab_panel active" id="guidesfirst">
+
+                    <div class="guide_box">
+                        <h2>Overview</h2>
+
+                        <span><img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_PCF_horizontal.svg"></span>
+
+                        <p>PubCaseFinder는 희귀 유전 질환의 의료 및 연구를 지원하는 세 가지 웹 서비스의 총칭입니다: <a href="https://pubcasefinder.dbcls.jp/" target="_blank">DiseaseSearch</a>, <a href="https://pubcasefinder.dbcls.jp/casesharing" target="_blank">CaseSharing</a>, 및 <a href="https://pubcasefinder.dbcls.jp/panelsearch" target="_blank">PanelSearch</a>.저희의 장기적 사명은 임상 유전학자 및 기타 의료 전문가들이 필요로 하는 정보를 빠르고 정확하게 접근할 수 있도록 시스템과 데이터베이스를 구축하여 전 세계의 모든 희귀 및 유전 질환 사례를 검색 가능하게 만드는 것입니다.
+                        </p>
+                        <h3>면책조항</h3>
+                        <p>PubCaseFinder는 자격을 갖춘 의사들에게 희귀 및 유전 질환에 대한 연구를 지원하고 교육 보조 수단으로 사용하도록 고안되었습니다. PubCaseFinder는 의사의 조언 없이 의료상의 결정을 내리는데 사용해서는 안 됩니다. PubCaseFinder는 조사 툴로서 성실하게 데이터를 제공하지만, 데이터의 정확성, 임상적 타당성, 유용성을 검증하는 것은 아닙니다. 데이터를 상업적으로 사용하는 경우에는<a href="https://pubcasefinder.dbcls.jp/sources">출처</a>라이선스를 참고하여 상업적으로 사용하는 범위를 확인해야 합니다. PubCaseFinde는 데이터가 사용되는 목적에 대해 명시적 또는 묵시적으로 어떠한 보증도 하지 않으며 법적 책임도 지지 않습니다. DBCLS는 서비스의 변경, 중단 또는 종료로 인해 발생한 손해에 대해 어떠한 책임도 지지 않습니다.</p>
+
+                        <h3>Beginner's Guide</h3>
+
+                        <div class="guidesOV_BG_box">
+                            <div class="guidesOV_BG_contents tab_btn">
+                                <div class="guidesOV_BG_topbox">
+                                    <a href="/guides/diseasesearch"><img class="guidesOV_BG_icon" src="/static/images/pcf/guides/icon_DS_vertical.svg" alt="DiseaseSearch"></a>
+                                    <p class="guidesOV_text">희귀·유전성 질환 검색</p>
+                                </div>
+                                <div class="button_gray_min02"><a href="/guides/diseasesearch" class="accordion_list">Visit</a></div>
+                            </div>
+                            <div class="guidesOV_BG_contents tab_btn">
+                                <div class="guidesOV_BG_topbox">
+                                    <a href="/guides/casesharing"><img class="guidesOV_BG_icon" src="/static/images/pcf/guides/icon_CS_vertical.svg" alt="CaseSharing"></a>
+                                    <p class="guidesOV_text">증례 정보를 관리·공유</p>
+                                </div>
+                                <div class="button_gray_min02"><a href="/guides/casesharing" >Visit</a></div>
+                            </div>
+                            <div class="guidesOV_BG_contents tab_btn">
+                                <div class="guidesOV_BG_topbox">
+                                    <a href="/guides/panelsearch"><img class="guidesOV_BG_icon" src="/static/images/pcf/guides/icon_PS_vertical.svg" alt="PanelSearch"></a>
+                                    <p class="guidesOV_text">유전자 패널 검색</p>
+                                </div>
+                                <div class="button_gray_min02"><a href="/guides/panelsearch" >Visit</a></div>
+                            </div>
+                        </div>
+
+                    </div><!-- / guide_box -->
+                </div>
+					{% elif guide_page == 'diseasesearch' %}
+<div class="right-wrap tab_panel active" id="guidesDS">
+                    <div class="guide_box">
+                        <h2>DiseaseSearch</h2>
+                        <img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_DS_horizontal.svg">
+                        <p>본 서비스는 환자의 증상과 관련성이 높은 희귀·유전성 질환 및 질환 원인 유전자를 랭킹 형태로 제시하는 희귀·유전성 질환 검색 시스템입니다. 또한 검색 결과를 효율적으로 좁혀서 필터링할 수 있습니다.</p>
+                        <h5>심플하고 편리한 검색</h5>
+                        <p>징후·증상을 입력하기만 하면 검색할 수 있으며, 진료 기록에서 증상을 자동으로 추출하여 검색하는 것도 가능합니다.</p>
+                        <h5>4종의 랭킹</h5>
+                        <p>유전성 질환, 희귀 질환, 유전자, 증례의 네 가지 랭킹을 제시합니다.</p>
+                        <h5>풍부한 데이터와 정밀한 분석을 통해 높은 검색 정확도를 구현</h5>
+                        <p>자세한 내용은 아래의 문헌을 참고해 주십시오.<br>
+                            <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/humu.24341" target="_blank">Fujiwara, T., Shin, J. M., & Yamaguchi, A. (2022). Advances in the development of PubCaseFinder, including the new application programming interface and matching algorithm. Human mutation, 10.1002/humu.24341. Advance online publication.</a></p>
+
+                        <div class="feature_container">
+                            <div class="feature_centering_box">
+                                <img src="/static/record/images/commonmenu-icon1.svg">
+                                <h6 class="underbar_ds">DiseaseSearch의 편리한 기능<span class="fontcolor_ds">Pickup</span></h6>
+                            </div>
+                            <div class="feature_item_box">
+                                <h5><span class="label_pickup backgroundcolor_ds">Pickup</span>증상의 상위·하위 개념을 손쉽게 따라갈 수 있습니다</h5>
+                                <p>입력한 증상명을 클릭하면 상위의 넓은 분류나 하위의 더 세분화된 분류를 따라갈 수 있습니다. 보다 적절한 증상을 선택함으로써 검색 결과의 정확도가 향상됩니다.</p>
+                                <img src="/static/images/pcf/guides/ds/guides_DS_img01-1_en.png">
+                                <h5><span class="label_pickup backgroundcolor_ds">Pickup</span>다층적 필터링으로 높은 정밀도의 결과 좁히기가 가능</h5>
+                                <p>Basic Filter, Advanced Filter에 더해 유전자 패널을 이용한 필터링에도 대응하고 있습니다. 증상, 질환, 유전 방식, 연령층 등 다양한 조건을 조합하여 후보 질환을 보다 정확하게 좁혀갈 수 있습니다.</p>
+                                <img src="/static/images/pcf/guides/ds/guides_DS_img01-2_en.gif">
+                                <h5><span class="label_pickup backgroundcolor_ds">Pickup</span>데이터 공유 및 재사용</h5>
+                                <p>검색 결과는 다운로드하여 공유할 수 있으며, 다양한 상황에서 재사용할 수 있습니다. 또한 검색 기능은 API를 통해서도 이용할 수 있어 외부 시스템과의 연동이 가능합니다.</p>
+                                <img src="/static/images/pcf/guides/ds/guides_DS_img01-3_en.png">
+                            </div>
+                        </div>
+
+                        <h5 class="guide_use_title">이용 안내</h5>
+                        <div class="guide_item_list">
+                            <ul>
+                                <li><a href="#guide_item_ds01"> 검색 방법</a></li>
+                                <li><a href="#guide_item_ds02"> 증상의 상위·하위 개념을 따라가기</a></li>
+                                <li><a href="#guide_item_ds03"> 4종의 랭킹 전환</a></li>
+                                <li><a href="#guide_item_ds04"> 3종의 필터링</a></li>
+                                <li><a href="#guide_item_ds05"> 검색 결과 공유 및 재사용</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="guide_item_box">
+                            <h5 class="guide_itemtitle" id="guide_item_ds01">검색 방법</h5>
+                            <p><span class="label_02_ds">환자의 징후 또는 증상 입력</span></p>
+                            <p>구체적인 증상명(예: ‘빈혈’)을 입력하면, 이에 관련된 후보가 목록으로 표시됩니다. 원하는 증상을 선택하여 추가한 뒤, 모두 입력을 마치면 검색 버튼을 클릭합니다.<br/>샘플 증상은 검색 박스 하단의 링크를 통해 즉시 입력할 수 있습니다.</p>
+                            <img class="gifanime_shadow" src="/static/images/pcf/guides/ds/guides_DS_img02-1_en.gif">
+                            <p><span class="label_02_ds">문장에서 증상을 자동 추출</span></p>
+                            <p>진료 기록 등의 문장에서 증상 후보를 자동으로 추출합니다.。</p>
+                            <img class="gifanime_shadow" src="/static/images/pcf/guides/ds/guides_DS_img02-2_en.gif">
+
+
+                            <h5 class="guide_itemtitle" id="guide_item_ds02">증상의 상위·하위 개념을 따라가기</h5>
+                            <p>표시된 증상명을 클릭하면 상위 개념 또는 하위 개념으로 이동할 수 있습니다.<br/>증상을 새로 추가하거나, 선택한 증상을 다른 증상으로 교체할 수 있습니다.</p>
+                            <p><span class="label_02_ds">상위 개념 (Superclass)</span></p>
+                            <p>선택한 증상에 대해 더 상위의 분류(상위 개념)를 표시합니다.<br/>여기에서 선택한 증상을 더 큰 분류로 전환할 수 있습니다.<br/>증상을 계층적으로 확인하면서 선택할 수 있어, 임상 양상에 더 잘 부합하는 증상 표현으로 조정하기 쉬워집니다.</p>
+                            <p><span class="label_02_ds">하위 개념 (Subclass)</span></p>
+                            <p>선택한 증상에 대해 더 하위의 분류(하위 개념)를 표시합니다.<br/>여기에서 선택한 증상을 보다 구체적인 증상으로 전환할 수 있습니다.<br/>증상을 세분화하여 확인하면서 선택할 수 있어, 임상 양상에 더 적합한 증상 표현을 선택하기 쉬워집니다.</p>
+                            <img class="gifanime_shadow" src="/static/images/pcf/guides/ds/guides_DS_img03-1_en.gif">
+
+
+                            <h5 class="guide_itemtitle" id="guide_item_ds03">4종의 랭킹 전환</h5>
+                            <p>랭킹 표시는 아래의 4가지 유형 중에서 선택할 수 있습니다.<br>
+                            ① 유전성 질환 [ Genetic Disease ]<br>② 희귀 질환 [ Rare Disease ]<br>③ 유전자 [ Gene ]<br>④ 증례 [ Case ]</p>
+                            <img class="no_shadow" src="/static/images/pcf/guides/ds/guides_DS_img04-1_en.png">
+
+
+                            <h5 class="guide_itemtitle" id="guide_item_ds04">3종의 필터링</h5>
+                            <p><span class="label_02_ds">Basic Filter</span></p>
+                            <p>난치병, 의심 질환 영역, 유전 방식, 연령의 4개 장르에서 총 42개 항목을 선택하여 결과를 좁힐 수 있습니다.<br/>또한 선택한 조건에 대해 OR / AND / NOT을 사용하여 유연하게 필터링할 수 있습니다.</p>
+                            <img src="/static/images/pcf/guides/ds/guides_DS_img01-2_en.gif">
+                            <p><span class="label_02_ds">Advanced Filter</span></p>
+                            <p>질환명, 유전 방식, 질환 원인 유전자, 유전자 패널을 직접 입력하여 필터링합니다.<br/>입력 도중에도 질환명을 예측하여 표시하므로 신속하게 입력 후보를 선택할 수 있습니다.</p>
+                            <img src="/static/images/pcf/guides/ds/guides_DS_img05-2_en.gif">
+                            <p><span class="label_02_ds">Virtual Gene Panel</span></p>
+                            <p>질환 카테고리나 특징에 따라 구성된 가상 유전자 세트를 선택할 수 있습니다.<br/>패널을 선택하면 관련 유전자에 기반한 필터링이 가능해져, 검색 결과를 보다 질환 특이적으로 좁힐 수 있습니다.</p>
+                            <img src="/static/images/pcf/guides/ds/guides_DS_img05-3_en.gif">
+
+
+                            <h5 class="guide_itemtitle" id="guide_item_ds05">검색 결과 공유 및 재사용</h5>
+                            <p><span class="label_02_ds">공유</span></p>
+                            <p>같은 결과를 다른 사용자와 공유하기 위한 링크를 생성할 수 있습니다.</p>
+                            <img src="/static/images/pcf/guides/ds/guides_DS_img06-1_en.png">
+                            <p><span class="label_02_ds">다운로드</span></p>
+                            <p>검색 결과는 TSV 형식과 JSON 형식으로 출력할 수 있습니다.<br/>다운로드 대상은 아래 중 하나를 선택할 수 있습니다.<br/>① 현재 표시 중인 결과<br>② 검색 결과 전체<br/>③ 선택한 항목</p>
+                            <img src="/static/images/pcf/guides/ds/guides_DS_img06-2_en.png">
+
+                        </div><!-- / guide_item_box -->
+                    </div><!-- / guide_box -->
+                </div>
+					{% elif guide_page == 'casesharing' %}
+<div class="right-wrap tab_panel active" id="guidesCS">
+                    <div class="guide_box">
+                        <h2>CaseSharing</h2>
+                            <img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_CS_horizontal.svg">
+                        <p>본 서비스는 희귀·유전 질환의 증례 정보를 사용자의 로컬 PC에서 관리하고, 더 나아가 세계 각지의 사용자들과 원활하게 공유할 수 있도록 설계되어 있습니다.</p>
+                        <h5>회원 등록 없이 바로 이용 가능</h5>
+                        <p>사용자 등록이 필요 없으며, 즉시 서비스를 이용할 수 있습니다.</p>
+                        <h5>데이터는 로컬 PC에서 관리됩니다. 저장된 증례 정보는 공개되지 않습니다</h5>
+                        <p>CaseSharing에서 관리하는 증례 정보는 클라우드가 아니라 사용자의 로컬 PC에 파일 형태로 저장됩니다. 인터넷으로 정보가 전송되지 않는 안전한 구조입니다.</p>
+                        <h5>공유 및 협업 촉진</h5>
+                        <p>증례 정보는 국제적인 상호 운용성을 고려하여 설계된 Phenopackets 형식으로 출력할 수 있습니다. 이를 통해 국내외 연구자, 의료 종사자, 그리고 다양한 임상·연구 데이터베이스와 원활하게 연계할 수 있습니다. 또한 영어, 일본어, 한국어를 지원하여 세계 각지의 사용자들과의 정보 공유도 원활하게 이루어집니다.</p>
+                        <h5>미션</h5>
+                        <p>CaseSharing을 통해 의료 종사자의 데이터 관리를 지원하고, 장기적으로는 보다 원활한 정보 공유를 촉진하는 것을 목표로 합니다. 궁극적인 미션은 희귀·유전 질환과 관련된 “지구상의 모든 증례”를 검색 가능하게 만드는 것입니다.</p>
+
+                        <div class="feature_container">
+                            <div class="feature_centering_box">
+                                <img src="/static/record/images/commonmenu-icon2.svg">
+                                <h6 class="underbar_cs">CaseSharing으로 데이터 관리 환경을 향상</h6>
+                            </div>
+                            <div class="feature_item_box">
+                                <h5><span class="label_pickup backgroundcolor_cs">Pickup</span>가계도를 자동 생성</h5>
+                                <p>가족 ID를 기반으로 가계도를 자동으로 생성합니다. JSON, SVG, PNG 형식으로 내보내기도 지원합니다.</p>
+                                <img src="/static/images/pcf/guides/cs/guides_CS_img01_1_en.png">
+                                <h5><span class="label_pickup backgroundcolor_cs">Pickup</span>통계 정보 차트를 자동 생성</h5>
+                                <p>데이터 전체의 통계 정보를 언제든지 쉽게 확인할 수 있습니다.</p>
+                                <img src="/static/images/pcf/guides/cs/guides_CS_img01_2_en.png">
+                                <h5><span class="label_pickup backgroundcolor_cs">Pickup</span>목록 화면에서 간편 일괄 편집</h5>
+                                <p>목록 화면에서도 일괄 변경 등 다양한 편집이 가능합니다.</p>
+                                <img src="/static/images/pcf/guides/cs/guides_CS_img05_2_en.gif">
+                            </div>
+                        </div>
+
+                        <h5 class="guide_use_title">이용 안내</h5>
+                        <div class="guide_item_list">
+                            <ul>
+                                <li><a href="#guide_item_cs01"> 샘플 데이터로 사용 이미지를 파악하기</a></li>
+                                <li><a href="#guide_item_cs02"> 증례 추가, 삭제 또는 복제</a></li>
+                                <li><a href="#guide_item_cs03"> 상세 정보 기록하기</a></li>
+                                <li><a href="#guide_item_cs04"> 목록 편집하기</a></li>
+                                <li><a href="#guide_item_cs05"> 저장·불러오기·병합</a></li>
+                                <li><a href="#guide_item_cs06"> 임상 증상 등록</a></li>
+                                <li><a href="#guide_item_cs07"> 가계도 자동 생성</a></li>
+                                <li><a href="#guide_item_cs08"> 통계 정보 차트 자동 생성</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="guide_item_box">
+                            <h5 class="guide_itemtitle" id="guide_item_cs01">샘플 데이터로 사용 방법 이해하기</h5>
+                            <p><a href="/static/data/casesharing_sample_20260608.json" download="casesharing_sample_20260608.json" target="_blank">샘플 데이터는 여기에서 다운로드</a>할 수 있습니다. casesharing_sample_(날짜시간).json이라는 이름의 파일이 샘플 데이터입니다.<br/>다운로드한 샘플 데이터를 Cases 화면(처음 표시되는 목록 화면)의 [File open]에서 불러오면 사용 방법을 확인할 수 있습니다.<br/>처음 이용하시는 분들은 먼저 이 샘플 데이터를 사용해 보시면 보다 쉽게 서비스를 이용할 수 있습니다.</p>
+                            <img class="gifanime_shadow" src="/static/images/pcf/guides/cs/guides_CS_img02_en.png">
+
+
+                            <h5 class="guide_itemtitle" id="guide_item_cs02">증례 추가, 삭제 또는 복제</h5>
+                            <h5>추가·삭제</h5>
+                            <p>[Cases] 화면(처음 표시되는 목록 화면)에서 빈 증례를 추가하거나 삭제할 수 있습니다.</p>
+                            <img src="/static/images/pcf/guides/cs/guides_CS_img03_1_en.png">
+                            <h5>복제</h5>
+                            <p>상세 화면의 [Copy]를 통해 증례를 복제할 수 있습니다.</p>
+                            <img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img03_2_en.png">
+
+
+                            <h5 class="guide_itemtitle" id="guide_item_cs03">상세 정보 기록하기</h5>
+                            <p>각 증례마다 기본 정보, 진찰, 표현형, 유전형, 가계, 검체·검사, 등록 등의 각 항목에 대한 상세 정보를 개별적으로 기록할 수 있습니다.</p>
+                            <img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img04_en.png">
+
+
+                            <h5 class="guide_itemtitle" id="guide_item_cs04">목록 편집하기</h5>
+                            <p>목록 화면에서는 다양한 편집과 사용자 설정이 가능합니다.</p>
+                            <div class="guide_item_box_inner">
+                                <h5>목록의 컬럼에서 직접 입력 및 편집 가능</h5>
+                                <img src="/static/images/pcf/guides/cs/guides_CS_img05_1_en.gif">
+                                <h5>항목 열을 한 번에 변경</h5>
+                                <img src="/static/images/pcf/guides/cs/guides_CS_img05_2_en.gif">
+                                <h5>항목 열의 순서 변경</h5>
+                                <img src="/static/images/pcf/guides/cs/guides_CS_img05_3_en.gif">
+                                <h5>목록에 표시할 항목의 표시/숨김 설정</h5>
+                                <img src="/static/images/pcf/guides/cs/guides_CS_img05_4_en.gif">
+                                <h5>새로운 항목 추가</h5>
+                                <img src="/static/images/pcf/guides/cs/guides_CS_img05_5_en.gif">
+                                <h5>항목 행 정렬</h5>
+                                <img src="/static/images/pcf/guides/cs/guides_CS_img05_6_en.gif">
+                                <h5>증례 행의 순서 변경</h5>
+                                <img src="/static/images/pcf/guides/cs/guides_CS_img05_7_en.gif">
+                            </div>
+
+
+                            <h5 class="guide_itemtitle" id="guide_item_cs05">저장·불러오기·병합</h5>
+                            <h5>증례 정보 저장·불러오기</h5>
+                            <p>[File save]를 통해 정보를 저장합니다. 저장하면 “patients_(날짜시간).json” 파일이 사용자의 PC에 다운로드됩니다.<br/>다음에 다시 불러올 때는 [File open]에서 “patients_(날짜시간).json” 파일을 선택해 불러오면 됩니다.</p>
+                            <h5>증례 정보 병합</h5>
+                            <p>여러 개의 증례 정보 파일을 하나로 병합할 수 있습니다. 파일을 연 상태에서 [File merge]를 클릭한 뒤 다른 증례 정보 파일을 추가하면, 현재 열려 있는 정보 아래에 새로운 데이터가 추가되는 형태로 병합됩니다.</p>
+                            <img src="/static/images/pcf/guides/cs/guides_CS_img06_en.png">
+
+                            <h5 class="guide_itemtitle" id="guide_item_cs06">임상 증상 등록</h5>
+                            <p>[상세 정보] > [표현형] 섹션에서 임상 증상의 상세 내용을 기록할 수 있습니다.</p>
+                            <img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img07_en.png">
+
+                            <h5 class="guide_itemtitle" id="guide_item_cs07">가계도 자동 생성</h5>
+                            <p>[상세 정보] > [가계] > [가계도] 섹션에서 가족 관계 정보를 기반으로 가계도가 자동으로 생성됩니다.</p>
+                            <img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img08_en.png">
+
+                            <h5 class="guide_itemtitle" id="guide_item_cs08">통계 정보 차트 자동 생성</h5>
+                            <p>[Stats]에서 등록된 증례 정보의 통계를 확인할 수 있습니다.</p>
+                            <img src="/static/images/pcf/guides/cs/guides_CS_img09_en.png">
+
+                        </div><!-- / guide_item_box -->
+                    </div><!-- / guide_box -->
+                </div>
+					{% elif guide_page == 'panelsearch' %}
+<div class="right-wrap tab_panel active" id="guidesPS">
+	                    <div class="guide_box">
+                        <h2>PanelSearch</h2>
+	                      <span><img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_PS_horizontal.svg"></span>
+                        <p>본 서비스는 인간의 약 1만 개의 희귀·유전성 질환과 관련된 유전자 패널 데이터를 다양한 방식으로 검색하고, 검색 결과 데이터를 다운로드할 수 있습니다.</p>
+                        <h5>다양한 방법으로 원하는 유전자 패널 데이터를 검색할 수 있습니다.</h5>
+                        <p>질환명 일부나 유전자명, 카테고리별 분류 등 여러 가지 검색 방법을 통해 효율적으로 유전자 패널 데이터를 찾을 수 있는 서비스입니다.</p>
+                        <h5>유전자 패널 데이터를 다운로드할 수 있습니다.</h5>
+                        <p>희귀·유전성 질환과 관련된 개별 유전자 패널 데이터 다운로드 및 총 9,998건의 전체 유전자 패널 데이터 다운로드가 가능합니다.</p>
+                        <h5>게놈 서열의 효율적인 임상적 해석에 활용할 수 있습니다.</h5>
+                        <p>자세한 내용은 아래 문헌을 참고해 주시기 바랍니다.<br/>
+<a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-025-02910-2" target="_blank">in, J., Fujiwara, T., Saitsu, H., & Yamaguchi, A. (2025). Ontology-based expansion of virtual gene panels to improve diagnostic efficiency for rare genetic diseases. <i>BMC medical informatics and decision making</i>, 25(Suppl 1), 59.</a></p>
+                        <h5>국제 공공 데이터베이스를 기반으로 질환 그룹별 유전자 패널 데이터를 구축하고 있습니다.</h5>
+                        <p>PanelSearch는 희귀·유전성 질환 명칭 집합인 Monarch Disease Ontology(Mondo)를 기반으로 각 질환에 대한 원인 유전자를 국제적으로 주요한 공공 데이터베이스인 MedGen, Orphanet, GenCC 등의 <a href="https://pubcasefinder.dbcls.jp/sources" target="_blank">리소스</a>에서 자동으로 수집하고 있습니다.</p>
+
+                        <div class="feature_container">
+	                        <div class="feature_centering_box">
+		                        <img src="/static/record/images/commonmenu-icon3.svg">
+		                        <h6 class="underbar_ps">PanelSearch의 편리한 기능을<span class="fontcolor_ps">Pickup</span></h6>
+	                        </div>
+	                        <div class="feature_item_box">
+	                        <h5><span class="label_pickup backgroundcolor_ps">Pickup</span>PanelSearch의 검색 방법은 3종류</h5>
+                          <p>"유전자 패널명", "유전자명", "카테고리별로 분류된 유전자 패널 트리 구조"를 통해 검색할 수 있습니다.</p>
+                          <img class="no_shadow" src="/static/images/pcf/guides/ps/guides_PS_img00-1_ko.png">
+                          <h5><span class="label_pickup backgroundcolor_ps">Pickup</span>검색 결과에서 관련 트리 표시</h5>
+                          <p>검색 결과에서 트리 내 해당 패널의 위치를 표시할 수 있습니다.</p>
+                          <img src="/static/images/pcf/guides/ps/guides_PS_img06_ko.jpg">
+                          <h5><span class="label_pickup backgroundcolor_ps">Pickup</span>9,998건 전체 유전자 패널 데이터 다운로드</h5>
+                          <p>모든 유전자 패널 데이터를 일괄 다운로드할 수 있습니다.</p>
+                          <img src="/static/images/pcf/guides/ps/guides_PS_img03_ko.jpg">
+                          </div>
+                        </div>
+
+                        <h5 class="guide_use_title">이용 안내</h5>
+												<div class="guide_item_list">
+											    <ul>
+											        <li><a href="#guide_item_ps01"> 3가지 검색 방법</a></li>
+											        <li><a href="#guide_item_ps02"> 유전자 리스트 표시</a></li>
+											        <li><a href="#guide_item_ps03"> 전체 유전자 패널 데이터 일괄 다운로드</a></li>
+											        <li><a href="#guide_item_ps04"> 개별 유전자 패널 데이터 다운로드</a></li>
+											        <li><a href="#guide_item_ps05"> 유전자 패널 정보 복사</a></li>
+											        <li><a href="#guide_item_ps06"> 검색 결과에서 관련 카테고리 트리 표시</a></li>
+											        <li><a href="#guide_item_ps07"> 표시 이력 간편 확인</a></li>
+											    </ul>
+										 	  </div>
+
+                        <div class="guide_item_box">
+	                        <h5 class="guide_itemtitle" id="guide_item_ps01">3가지 검색 방법</h5>
+	                        <p><span class="label_02 backgroundcolor_ps">Panel검색</span></p>
+	                        <h5>유전자 패널명으로 검색</h5>
+											 	  <p>입력한 키워드와 관련된 유전자 패널을 목록으로 표시합니다.</p>
+	                        <img src="/static/images/pcf/guides/ps/guides_PS_img01-1_ko.jpg">
+	                        <p><span class="label_02 backgroundcolor_ps">Gene검색</span></p>
+	                        <h5>유전자명으로 검색</h5>
+											 	  <p>입력한 유전자가 포함된 유전자 패널을 목록으로 표시합니다. 유전자명을 띄어쓰기로 구분하여 여러 유전자를 조합한 검색도 가능합니다.</p>
+	                        <img src="/static/images/pcf/guides/ps/guides_PS_img01-2_ko.jpg">
+	                        <p><span class="label_02 backgroundcolor_ps">Tree검색</span></p>
+	                        <h5>카테고리별로 분류된 유전자 패널 트리 구조에서 검색</h5>
+											 	  <p>카테고리별로 분류된 유전자 패널 트리 구조를 통해 원하는 유전자 패널을 찾을 수 있습니다.</p>
+	                        <img src="/static/images/pcf/guides/ps/guides_PS_img01-3_ko.jpg">
+
+
+	                        <h5 class="guide_itemtitle" id="guide_item_ps02">유전자 리스트 표시</h5>
+											 	  <p>유전자 패널 개별 화면의 [Genes + Show] 버튼을 통해 유전자 리스트가 표시 됩니다.</p>
+	                        <img src="/static/images/pcf/guides/ps/guides_PS_img02_ko.jpg">
+
+
+	                        <h5 class="guide_itemtitle" id="guide_item_ps03">전체 유전자 패널 데이터 일괄 다운로드</h5>
+											 	  <p>9,998건의 모든 유전자 패널 데이터를 일괄 다운로드할 수 있습니다.</p>
+	                        <img src="/static/images/pcf/guides/ps/guides_PS_img03_ko.jpg">
+
+
+	                        <h5 class="guide_itemtitle" id="guide_item_ps04">개별 유전자 패널 데이터 다운로드</h5>
+											 	  <p>개별 유전자 패널 데이터를 .txt 형식으로 다운로드할 수 있습니다.</p>
+											 	  <img src="/static/images/pcf/guides/ps/guides_PS_img04_ko.jpg">
+
+
+	                        <h5 class="guide_itemtitle" id="guide_item_ps05">유전자 패널 정보 복사</h5>
+											 	  <p>버튼 클릭만으로 유전자 패널 정보를 클립보드에 복사하여 자신의 PC 데이터에 쉽게 붙여넣을 수 있습니다.</p>
+											 	  <img src="/static/images/pcf/guides/ps/guides_PS_img05_ko.jpg">
+
+
+	                        <h5 class="guide_itemtitle" id="guide_item_ps06">검색 결과에서 관련 카테고리 트리 표시</h5>
+											 	  <p>검색 결과의 유전자 패널 개별 화면에서 트리 내 해당 패널의 위치를 표시할 수 있습니다.</p>
+											 	  <img src="/static/images/pcf/guides/ps/guides_PS_img06_ko.jpg">
+
+
+	                        <h5 class="guide_itemtitle" id="guide_item_ps07">표시 이력 간편 확인</h5>
+											 	  <p>이전 상태로 되돌리기・변경 내용 다시 적용 기능을 사용하여 표시 이력을 자유롭게 이동할 수 있습니다.</p>
+											 	  <img src="/static/images/pcf/guides/ps/guides_PS_img07_ko.jpg">
+
+
+                      </div><!-- / guide_item_box -->
+					</div><!-- / guide_box -->
+				</div>
+					{% endif %}
+				</div><!-- column-right: メインコンテンツ -->
+		</div><!-- /column-wrapper tab_box -->
+	</section>
+</div><!-- / guide_wrapper -->
+<!-- END: __redesign20260310__韓国語バージョン -->
+
+{% else %}
+
+<!-- START: __redesign20260310__英語バージョン -->
+<div class="utility_wrapper">
+	<section class="content">
+		<h1>Guides<span class="guide_subtitle">&nbsp;&nbsp;How To Use PubCaseFinder</span></h1>
+		<div class="column-wrapper tab_box">
+				<!-- column-left: サイドバーメニュー -->
+				<div class="column-left">
+					<ul class="sidenav btn_area">
+						<li class="tab_btn{% if guide_page == 'overview' %} active{% endif %}"><a href="/guides" class="accordion_list">Overview</a></li>
+						<li class="tab_btn{% if guide_page == 'diseasesearch' %} active{% endif %}"><a href="/guides/diseasesearch" class="accordion_list">DiseaseSearch</a></li>
+						<li class="tab_btn{% if guide_page == 'casesharing' %} active{% endif %}"><a href="/guides/casesharing" class="accordion_list">CaseSharing</a></li>
+						<li class="tab_btn{% if guide_page == 'panelsearch' %} active{% endif %}"><a href="/guides/panelsearch" class="accordion_list">PanelSearch</a></li>
+					</ul>
+				</div>
+				<!-- column-right: メインコンテンツ -->
+				<div class="column-right panel_area">
+					{% if guide_page == 'overview' %}
+<div class="right-wrap tab_panel active" id="guidesfirst">
+
+					<div class="guide_box">
+						<h2>Overview</h2>
+
+						<span><img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_PCF_horizontal.svg"></span>
+
+						<p>PubCaseFinder is the generic name for three web services that support medical care and research of rare genetic diseases: <a href="https://pubcasefinder.dbcls.jp/" target="_blank">DiseaseSearch</a>, <a href="https://pubcasefinder.dbcls.jp/casesharing" target="_blank">CaseSharing</a>, and <a href="https://pubcasefinder.dbcls.jp/panelsearch" target="_blank">PanelSearch</a>.Our long-term mission is to make “every case worldwide” of rare and genetic diseases searchable by building systems and databases that enable clinical geneticists and other healthcare professionals to access the information they need quickly and accurately.
+						</p>
+						<h3>Disclaimer</h3>
+						<p>The PubCaseFinder is intended to be used by qualified and licensed physicians to assist in the research about rare and genetic diseases and for use as a teaching aid. The PubCaseFinder should not be used to make medical decisions without the advice of a physician. PubCaseFinder provides data in good faith as a investigative tool, but without verifying the accuracy, clinical validity or utility of the data. In case of commercial use of data, you must refer to the license of the <a href="https://pubcasefinder.dbcls.jp/sources">source</a> and confirm the scope of commercial use. PubCaseFinder makes no warranty, express or implied, nor assumes any legal liability or responsibility for any purpose for which the data are used. DBCLS shall bear no liability with respect to damages incurred by the change, discontinuation or termination of the Service.</p>
+
+						<h3>Beginner's Guide</h3>
+
+						<div class="guidesOV_BG_box">
+							<div class="guidesOV_BG_contents tab_btn">
+								<div class="guidesOV_BG_topbox">
+									<a href="/guides/diseasesearch"><img class="guidesOV_BG_icon" src="/static/images/pcf/guides/icon_DS_vertical.svg" alt="DiseaseSearch"></a>
+									<p class="guidesOV_text">Search Rare Diseases</p>
+								</div>
+								<div class="button_gray_min02"><a href="/guides/diseasesearch" class="accordion_list">Visit</a></div>
+							</div>
+							<div class="guidesOV_BG_contents tab_btn">
+								<div class="guidesOV_BG_topbox">
+									<a href="/guides/casesharing"><img class="guidesOV_BG_icon" src="/static/images/pcf/guides/icon_CS_vertical.svg" alt="CaseSharing"></a>
+									<p class="guidesOV_text">Manage Case Information</p>
+								</div>
+								<div class="button_gray_min02"><a href="/guides/casesharing" >Visit</a></div>
+							</div>
+							<div class="guidesOV_BG_contents tab_btn">
+								<div class="guidesOV_BG_topbox">
+									<a href="/guides/panelsearch"><img class="guidesOV_BG_icon" src="/static/images/pcf/guides/icon_PS_vertical.svg" alt="PanelSearch"></a>
+									<p class="guidesOV_text">Search Gene Panels</p>
+								</div>
+								<div class="button_gray_min02"><a href="/guides/panelsearch" >Visit</a></div>
+							</div>
+						</div>
+
+					</div><!-- / guide_box -->
+				</div>
+					{% elif guide_page == 'diseasesearch' %}
+<div class="right-wrap tab_panel active" id="guidesDS">
+					<div class="guide_box">
+						<h2>DiseaseSearch</h2>
+						<img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_DS_horizontal.svg">
+						<p>This service is a rare and hereditary disease search system that presents rare and genetic diseases, as well as causative genes, ranked according to their relevance to a patient’s symptoms. The search results can also be efficiently filtered and refined.</p>
+						<h5>Simple and convenient search</h5>
+						<p>You can search simply by entering signs and symptoms, and it is also possible to perform searches by automatically extracting symptoms from clinical records.</p>
+						<h5>Four types of rankings</h5>
+						<p>It provides four types of rankings: hereditary diseases, rare diseases, genes, and clinical cases.</p>
+						<h5>High search accuracy enabled by rich data and precise analysis.</h5>
+						<p>For details, please refer to the following publication(s).<br>
+							<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/humu.24341" target="_blank">Fujiwara, T., Shin, J. M., & Yamaguchi, A. (2022). Advances in the development of PubCaseFinder, including the new application programming interface and matching algorithm. Human mutation, 10.1002/humu.24341. Advance online publication.</a></p>
+
+						<div class="feature_container">
+							<div class="feature_centering_box">
+								<img src="/static/record/images/commonmenu-icon1.svg">
+								<h6 class="underbar_ds">Convenient functions of DiseaseSearch <span class="fontcolor_ds">Pickup</span></h6>
+							</div>
+							<div class="feature_item_box">
+								<h5><span class="label_pickup backgroundcolor_ds">Pickup</span>Navigate parent and child symptom concepts easily</h5>
+								<p>By clicking on an entered symptom, you can navigate to broader parent categories or more specific child categories. Selecting the most appropriate symptom helps improve the accuracy of the search results.</p>
+								<img src="/static/images/pcf/guides/ds/guides_DS_img01-1_en.png">
+								<h5><span class="label_pickup backgroundcolor_ds">Pickup</span>Accurate refinement through multi-layered filtering</h5>
+								<p>In addition to the Basic Filter and Advanced Filter, filtering by gene panels is also supported. By combining multiple criteria—such as symptoms, diseases, mode of inheritance, and age group—you can more precisely narrow down candidate diseases.</p>
+								<img src="/static/images/pcf/guides/ds/guides_DS_img01-2_en.gif">
+								<h5><span class="label_pickup backgroundcolor_ds">Pickup</span>Share and reuse data</h5>
+								<p>Search results can be downloaded and shared for reuse in various contexts. In addition, the search function is available via API, enabling integration with external systems.</p>
+								<img src="/static/images/pcf/guides/ds/guides_DS_img01-3_en.png">
+							</div>
+						</div>
+
+						<h5 class="guide_use_title">User guide</h5>
+						<div class="guide_item_list">
+							<ul>
+								<li><a href="#guide_item_ds01"> Search methods</a></li>
+								<li><a href="#guide_item_ds02"> Navigate parent and child symptom concepts</a></li>
+								<li><a href="#guide_item_ds03"> Switch between four types of rankings</a></li>
+								<li><a href="#guide_item_ds04"> Three types of filtering</a></li>
+								<li><a href="#guide_item_ds05"> Share and reuse search results</a></li>
+							</ul>
+						</div>
+
+						<div class="guide_item_box">
+							<h5 class="guide_itemtitle" id="guide_item_ds01">Search methods</h5>
+							<p><span class="label_02_ds">Enter the patient’s signs or symptoms</span></p>
+							<p>When you enter a specific symptom (e.g., “anemia”), a list of related candidates will be displayed. Select and add the appropriate symptom, and once you have finished entering all symptoms, click the search button.Sample symptoms can be entered instantly via the link below the search box.</p>
+							<img class="gifanime_shadow" src="/static/images/pcf/guides/ds/guides_DS_img02-1_en.gif">
+							<p><span class="label_02_ds">Automatically extract symptoms from text</span></p>
+							<p>It automatically extracts candidate symptoms from text such as clinical notes.</p>
+							<img class="gifanime_shadow" src="/static/images/pcf/guides/ds/guides_DS_img02-2_en.gif">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ds02">Navigate parent and child symptom concepts</h5>
+							<p>By clicking on a displayed symptom, you can navigate to its parent or child concepts.You can either add a new symptom or replace a selected symptom.</p>
+							<p><span class="label_02_ds">Parent concept (Superclass)</span></p>
+							<p>For a selected symptom, broader classifications (parent concepts) are displayed.From here, you can switch the selected symptom to a more general category.<br/>Because symptoms can be reviewed hierarchically, it becomes easier to adjust the selection to better match the clinical presentation.</p>
+							<p><span class="label_02_ds">Child concept (Subclass)</span></p>
+							<p>For a selected symptom, more specific classifications (child concepts) are displayed.<br/>From here, you can switch the selected symptom to a more detailed and specific term.<br/>Because symptoms can be reviewed at a finer level of granularity, it becomes easier to select a description that more accurately reflects the clinical presentation.</p>
+							<img class="gifanime_shadow" src="/static/images/pcf/guides/ds/guides_DS_img03-1_en.gif">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ds03">Switch between four types of rankings</h5>
+							<p>You can choose from the following four types of ranking displays:<br/>1. Hereditary diseases [Genetic Disease]<br/>2. Rare diseases [Rare Disease]<br/>3. Genes [Gene]<br/>4.Clinical cases [Case]</p>
+							<img class="no_shadow" src="/static/images/pcf/guides/ds/guides_DS_img04-1_en.png">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ds04">Three types of filtering</h5>
+							<p><span class="label_02_ds">Basic Filter</span></p>
+							<p>You can refine the results by selecting from a total of 42 items across four categories: designated intractable diseases, suspected disease areas, mode of inheritance, and age group.<br/>In addition, flexible filtering is supported using OR / AND / NOT conditions for the selected criteria.</p>
+							<img src="/static/images/pcf/guides/ds/guides_DS_img01-2_en.gif">
+							<p><span class="label_02_ds">Advanced Filter</span></p>
+							<p>You can refine the results by directly entering a disease name, mode of inheritance, causative gene, or gene panel.<br/>Even while typing, suggested disease names are displayed, allowing you to quickly select the appropriate option.</p>
+							<img src="/static/images/pcf/guides/ds/guides_DS_img05-2_en.gif">
+							<p><span class="label_02_ds">Virtual Gene Panel</span></p>
+							<p>You can select virtual gene sets constructed according to disease categories and characteristics.<br/>By choosing a panel, filtering based on relevant genes becomes possible, allowing you to narrow down the search results in a more disease-specific manner.</p>
+							<img src="/static/images/pcf/guides/ds/guides_DS_img05-3_en.gif">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ds05">Share and reuse search results</h5>
+							<p><span class="label_02_ds">Share</span></p>
+							<p>You can obtain a shareable link to allow other users to view the same results.</p>
+							<img src="/static/images/pcf/guides/ds/guides_DS_img06-1_en.png">
+							<p><span class="label_02_ds">Download</span></p>
+							<p>Search results can be exported in TSV or JSON format.<br/>You can choose one of the following download options:<br/>1.Currently displayed results<br/>2. All search results<br/>3. Selected (checked) items</p>
+							<img src="/static/images/pcf/guides/ds/guides_DS_img06-2_en.png">
+
+						</div><!-- / guide_item_box -->
+					</div><!-- / guide_box -->
+				</div>
+					{% elif guide_page == 'casesharing' %}
+<div class="right-wrap tab_panel active" id="guidesCS">
+					<div class="guide_box">
+						<h2>CaseSharing</h2>
+						<img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_CS_horizontal.svg">
+
+						<p>This service is designed to allow users to manage case information on rare and genetic diseases on their local PCs and to share it smoothly with users around the world.</p>
+
+						<h5>No registration required, start immediately</h5>
+						<p>This service does not require user registration and can be used immediately.</p>
+
+						<h5>Data is stored locally on your PC and not shared publicly</h5>
+						<p>Case information managed with CaseSharing is stored as files on your local PC rather than in the cloud. No data is transmitted over the internet, ensuring a secure environment.</p>
+
+						<h5>Promoting sharing and collaboration</h5>
+						<p>Case information can be exported in the Phenopackets format, which is designed for international interoperability.<br/>This enables seamless collaboration with researchers and healthcare professionals worldwide, as well as integration with clinical and research databases.<br/>The system supports English, Japanese, and Korean, making global information sharing easier.</p>
+
+						<h5>Mission</h5>
+						<p>By using CaseSharing, we aim to support data management for healthcare professionals and promote smoother information sharing in the future. Our long-term mission is to make “Every case on Earth” related to rare and genetic diseases searchable.</p>
+
+						<div class="feature_container">
+							<div class="feature_centering_box">
+								<img src="/static/record/images/commonmenu-icon2.svg">
+								<h6 class="underbar_cs">Improving data management with CaseSharing</h6>
+							</div>
+
+							<div class="feature_item_box">
+								<h5><span class="label_pickup backgroundcolor_cs">Pickup</span>Automatically generate pedigrees</h5>
+								<p>Pedigrees are automatically generated based on family IDs. Export is supported in JSON, SVG, and PNG formats.</p>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img01_1_en.png">
+
+								<h5><span class="label_pickup backgroundcolor_cs">Pickup</span>Generate statistical charts</h5>
+								<p>Statistical information for the entire dataset can be easily viewed at any time.</p>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img01_2_en.png">
+
+								<h5><span class="label_pickup backgroundcolor_cs">Pickup</span>Bulk editing from the list view</h5>
+								<p>Various edits, including bulk updates, can be performed directly from the list view.</p>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_2_en.gif">
+							</div>
+						</div>
+
+						<h5 class="guide_use_title">User guide</h5>
+
+						<div class="guide_item_list">
+							<ul>
+								<li><a href="#guide_item_cs01"> Get started with sample data</a></li>
+								<li><a href="#guide_item_cs02"> Add, Delete or Duplicate cases</a></li>
+								<li><a href="#guide_item_cs03"> Record detailed information</a></li>
+								<li><a href="#guide_item_cs04"> Edit the case list</a></li>
+								<li><a href="#guide_item_cs05"> Save, load, and merge data</a></li>
+								<li><a href="#guide_item_cs06"> Register clinical symptoms</a></li>
+								<li><a href="#guide_item_cs07"> Generate pedigrees</a></li>
+								<li><a href="#guide_item_cs08"> Generate statistical charts</a></li>
+							</ul>
+						</div>
+
+						<div class="guide_item_box">
+
+							<h5 class="guide_itemtitle" id="guide_item_cs01">Get started with sample data</h5>
+							<p><a href="/static/data/casesharing_sample_20260608.json" download="casesharing_sample_20260608.json" target="_blank">Sample data can be downloaded here.</a><br/>The file named casesharing_sample_(date-time).json is the sample dataset. You can download the sample data to your PC and load it from [File open] on the Cases screen.</p>
+							<img class="gifanime_shadow" src="/static/images/pcf/guides/cs/guides_CS_img02_en.png">
+
+							<h5 class="guide_itemtitle" id="guide_item_cs02">Add, Delete or Duplicate cases</h5>
+
+							<h5>Add / Delete</h5>
+							<p>You can add or delete blank cases from the [Cases] screen (the list screen displayed first).</p>
+							<img src="/static/images/pcf/guides/cs/guides_CS_img03_1_en.png">
+
+							<h5>Duplicate</h5>
+							<p>You can duplicate a case from [Copy] on the detail screen.</p>
+							<img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img03_2_en.png">
+
+							<h5 class="guide_itemtitle" id="guide_item_cs03">Record detailed information</h5>
+							<p>You can record detailed information for each item individually, including case basic information, clinical visits, phenotypes, genotypes, family information, specimens and tests, and registration details.</p>
+							<img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img04_en.png">
+
+							<h5 class="guide_itemtitle" id="guide_item_cs04">Edit the case list</h5>
+							<p>The list view allows various edits and customization.</p>
+
+							<div class="guide_item_box_inner">
+
+								<h5>Direct input and editing are possible from the list columns.</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_1_en.gif">
+
+								<h5>Change multiple columns at once</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_2_en.gif">
+
+								<h5>Reorder columns</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_3_en.gif">
+
+								<h5>Change the visibility of columns displayed in the list</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_4_en.gif">
+
+								<h5>Create a new field</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_5_en.gif">
+
+								<h5>Sort rows</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_6_en.gif">
+
+								<h5>Reorder case rows</h5>
+								<img src="/static/images/pcf/guides/cs/guides_CS_img05_7_en.gif">
+
+							</div>
+
+							<h5 class="guide_itemtitle" id="guide_item_cs05">Save, Load, and Merge data</h5>
+
+							<h5>Save and load case data</h5>
+							<p>Use [File save] to save the information.<br/>A file named patients_(date-time).json will be downloaded to your PC.<br/>When loading the data next time, open the patients_(date-time).json file from [File open].</p>
+
+							<h5>Merge case data</h5>
+							<p>You can merge multiple case data files.<br/>With a file open, click [File merge] and add another case data file. The data will be merged by being appended below the currently opened information.</p>
+
+							<img src="/static/images/pcf/guides/cs/guides_CS_img06_en.png">
+
+							<h5 class="guide_itemtitle" id="guide_item_cs06">Register clinical symptoms</h5>
+							<p>You can record detailed clinical symptoms in the [Details] > [Phenotype] section.</p>
+							<img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img07_en.png">
+
+							<h5 class="guide_itemtitle" id="guide_item_cs07">Generate pedigrees</h5>
+							<p>A pedigree is automatically generated based on family relationships in the [Details] > [Family] > [Pedigree] section.</p>
+							<img class="no_shadow" src="/static/images/pcf/guides/cs/guides_CS_img08_en.png">
+
+							<h5 class="guide_itemtitle" id="guide_item_cs08">Generate statistical charts</h5>
+							<p>You can view statistics of the registered case information from [Stats].</p>
+							<img src="/static/images/pcf/guides/cs/guides_CS_img09_en.png">
+
+						</div>
+					</div>
+				</div>
+					{% elif guide_page == 'panelsearch' %}
+<div class="right-wrap tab_panel active" id="guidesPS">
+						<div class="guide_box">
+						<h2>PanelSearch</h2>
+						  <span><img class="guide_pagetitlelogo" src="/static/images/pcf/guides/icon_PS_horizontal.svg"></span>
+						<p>This service allows users to search gene panel data related to approximately 10,000 rare and genetic disorders in humans in various ways, and to download the resulting data.</p>
+						<h5>You can search for your target gene panel data using a variety of methods.</h5>
+						<p>This service enables users to efficiently find gene panel data through multiple search methods, such as partial disease names, gene names, and category-based classification.
+
+</p>
+						<h5>You can download gene panel data.</h5>
+						<p>You can download individual gene panel data related to rare and genetic disorders, as well as all 9,998 gene panel records at once.</p>
+						<h5>This helps facilitate the efficient clinical interpretation of genomic data.</h5>
+						<p>For more details, please refer to the following publication.<br/>
+<a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-025-02910-2" target="_blank">in, J., Fujiwara, T., Saitsu, H., & Yamaguchi, A. (2025). Ontology-based expansion of virtual gene panels to improve diagnostic efficiency for rare genetic diseases. <i>BMC medical informatics and decision making</i>, 25(Suppl 1), 59.</a></p>
+						<h5>Gene panel data for disease groups are being developed based on international public databases.</h5>
+						<p>PanelSearch leverages the Monarch Disease Ontology (Mondo), a vocabulary resource for rare and genetic diseases, to automatically retrieve causative genes for each disease from <a href="https://pubcasefinder.dbcls.jp/sources" target="_blank">major international public databases</a>, including MedGen, Orphanet, and GenCC.</p>
+
+						<div class="feature_container">
+							<div class="feature_centering_box">
+								<img src="/static/record/images/commonmenu-icon3.svg">
+								<h6 class="underbar_ps">Useful features of PanelSearch <span class="fontcolor_ps">Pickup</span></h6>
+							</div>
+							<div class="feature_item_box">
+							<h5><span class="label_pickup backgroundcolor_ps">Pickup</span>PanelSearch offers three types of search methods</h5>
+						  <p>You can search by "gene panel name," "gene name," or through the "gene panel tree structure categorized by category."</p>
+						  <img class="no_shadow" src="/static/images/pcf/guides/ps/guides_PS_img00-1_en.png">
+						  <h5><span class="label_pickup backgroundcolor_ps">Pickup</span>Display related trees from search results</h5>
+						  <p>You can display the location of the corresponding panel within the tree based on the search results.</p>
+						  <img src="/static/images/pcf/guides/ps/guides_PS_img06_en.jpg">
+						  <h5><span class="label_pickup backgroundcolor_ps">Pickup</span>Download all 9,998 gene panel records</h5>
+						  <p>You can download all gene panel data at once.</p>
+						  <img src="/static/images/pcf/guides/ps/guides_PS_img03_en.jpg">
+						  </div>
+						</div>
+
+						<h5 class="guide_use_title">How to Use</h5>
+												<div class="guide_item_list">
+												<ul>
+													<li><a href="#guide_item_ps01"> Three types of search methods</a></li>
+													<li><a href="#guide_item_ps02"> Display gene lists</a></li>
+													<li><a href="#guide_item_ps03"> Bulk download of all gene panel data</a></li>
+													<li><a href="#guide_item_ps04"> Download individual gene panel data</a></li>
+													<li><a href="#guide_item_ps05"> Copy gene panel information</a></li>
+													<li><a href="#guide_item_ps06"> Display related category trees from search results</a></li>
+													<li><a href="#guide_item_ps07"> Easily view browsing history</a></li>
+												</ul>
+										 	  </div>
+
+						<div class="guide_item_box">
+							<h5 class="guide_itemtitle" id="guide_item_ps01">Three types of search methods</h5>
+							<p><span class="label_02 backgroundcolor_ps">Panel Search</span></p>
+							<h5>Search by Gene Panel Name</h5>
+											 	  <p>Displays a list of gene panels related to the entered keyword.</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img01-1_en.jpg">
+							<p><span class="label_02 backgroundcolor_ps">Gene Search</span></p>
+							<h5>Search by Gene Name</h5>
+											 	  <p>Displays a list of gene panels that include the entered gene(s). By separating gene names with spaces, you can search using a combination of multiple genes.</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img01-2_en.jpg">
+							<p><span class="label_02 backgroundcolor_ps">Tree Search</span></p>
+							<h5>Search from the gene panel tree structure categorized by category</h5>
+											 	  <p>You can find your target gene panel through the tree structure of gene panels organized by categories.</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img01-3_en.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps02">Display gene lists</h5>
+											 	  <p>You can display the gene list by clicking [Genes + Show] in the individual gene panel view.</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img02_en.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps03">Bulk download of all gene panel data</h5>
+											 	  <p>You can download all 9,998 gene panel records at once.</p>
+							<img src="/static/images/pcf/guides/ps/guides_PS_img03_en.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps04">Download individual gene panel data</h5>
+											 	  <p>You can download individual gene panel data in .txt format.</p>
+											 	  <img src="/static/images/pcf/guides/ps/guides_PS_img04_en.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps05">Copy gene panel information</h5>
+											 	  <p>With a simple button click, you can easily copy gene panel information to the clipboard and paste it into your own local files.</p>
+											 	  <img src="/static/images/pcf/guides/ps/guides_PS_img05_en.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps06">Display related category trees from search results</h5>
+											 	  <p>From the individual display of a gene panel in the search results, you can view the location of the corresponding panel within the tree structure.</p>
+											 	  <img src="/static/images/pcf/guides/ps/guides_PS_img06_en.jpg">
+
+
+							<h5 class="guide_itemtitle" id="guide_item_ps07">Easily view browsing history</h5>
+											 	  <p>You can freely navigate your viewing history using the undo and redo functions.</p>
+											 	  <img src="/static/images/pcf/guides/ps/guides_PS_img07_en.jpg">
+
+
+						</div><!-- / guide_item_box -->
+					</div><!-- / guide_box -->
+				</div>
+					{% endif %}
+				</div><!-- column-right: メインコンテンツ -->
+		</div><!-- /column-wrapper tab_box -->
+	</section>
+</div><!-- / guide_wrapper -->
+<!-- END: __redesign20260310__英語バージョン -->
+
+{% endif %}
+<!-- END: Guides page -->
+{% endblock %}

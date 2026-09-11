@@ -1,0 +1,2978 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "PubCaseFinder API",
+    "description": "The PubCaseFinder API uses a fixed URL syntax that translates a standard set of input parameters into the requested data. To maintain stable and fair access to the service, DBCLS requests that users keep their API usage within the published limits. As a general guideline, users should not exceed 10 requests per minute, 100 requests per hour, or 1,000 requests per day. Large-scale or computationally intensive jobs should be scheduled on weekends or during off-peak hours (11:00 PM to 5:00 AM JST on weekdays). DBCLS may apply access controls or rate limits to protect service availability.",
+    "contact": {
+      "url": "https://pubcasefinder.dbcls.jp/"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://pubcasefinder.dbcls.jp/api"
+    }
+  ],
+  "paths": {
+    "/get_ranked_list": {
+      "get": {
+        "tags": [
+          "Ranked List"
+        ],
+        "summary": "Any ranked genetic disease lists",
+        "description": "Any ranked lists can be obtained by indicating the [RANKED_LIST_TARGET], [RANKED_LIST_FORMAT], and [HPO_ID].",
+        "servers": [
+          {
+            "url": "https://pubcasefinder.dbcls.jp/api"
+          }
+        ],
+        "parameters": [
+          {
+            "name": "target",
+            "in": "query",
+            "description": "omim or orphanet or gene",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "omim",
+              "enum": [
+                "omim",
+                "orphanet",
+                "gene"
+              ]
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "json or tsv",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "json",
+              "enum": [
+                "json",
+                "tsv"
+              ]
+            }
+          },
+          {
+            "name": "hpo_id",
+            "in": "query",
+            "description": "HPO IDs with commas",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "HP:0002089,HP:0001998",
+              "default": "HP:0002089"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/genetic_disease_with_rank"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_omim_data_by_omim_id": {
+      "get": {
+        "tags": [
+          "OMIM"
+        ],
+        "summary": "Get OMIM data by OMIM ID",
+        "description": "Get OMIM data by OMIM ID",
+        "parameters": [
+          {
+            "name": "omim_id",
+            "in": "query",
+            "description": "OMIM ID (複数のIDを入力可能)",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "263750",
+              "default": "OMIM:181500,OMIM:214800,OMIM:263750,OMIM:219000"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "description": "(パラメータに\"download\"を入力すると全件取得可能)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "download"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "OMIM:181500": {
+                      "$ref": "#/components/schemas/omim_data_OMIM"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_hpo_data_by_omim_id": {
+      "get": {
+        "tags": [
+          "OMIM"
+        ],
+        "summary": "Get HPO data by OMIM ID",
+        "description": "Get HPO data by OMIM ID",
+        "parameters": [
+          {
+            "name": "omim_id",
+            "in": "query",
+            "description": "OMIM ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "263750",
+              "default": "607341"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/hpo_data"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_omim_id_by_mondo_id": {
+      "get": {
+        "tags": [
+          "OMIM"
+        ],
+        "summary": "FILTER: GET OMIM IDs by MONDO ID",
+        "description": "FILTER: GET OMIM IDs by MONDO ID",
+        "parameters": [
+          {
+            "name": "mondo_id",
+            "in": "query",
+            "description": "MONDO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0003847",
+              "default": "0018096"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "MONDO:0018096": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "OMIM:277600"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_omim_id_by_ncbi_gene_id": {
+      "get": {
+        "tags": [
+          "OMIM"
+        ],
+        "summary": "FILTER: GET OMIM IDs by NCBI gene ID",
+        "description": "FILTER: GET OMIM IDs by NCBI gene ID",
+        "parameters": [
+          {
+            "name": "ncbi_gene_id",
+            "in": "query",
+            "description": "NCBI gene ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "6710",
+              "default": "57514"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "GENEID:57514": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "OMIM:100300"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_omim_id_by_multi_ncbi_gene_id": {
+      "get": {
+        "tags": [
+          "OMIM"
+        ],
+        "summary": "FILTER: GET OMIM IDs by multi NCBI gene ID",
+        "description": "FILTER: GET OMIM IDs by multi NCBI gene ID",
+        "parameters": [
+          {
+            "name": "ncbi_gene_id",
+            "in": "query",
+            "description": "NCBI gene ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "6710 6521",
+              "default": "57514 6521"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "OMIM:100300"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_omim_id_by_inheritance_hpo_id": {
+      "get": {
+        "tags": [
+          "OMIM"
+        ],
+        "summary": "FILTER: Get OMIM ID by HPO ID (inheritance)",
+        "description": "FILTER: Get OMIM ID by HPO ID (inheritance)",
+        "parameters": [
+          {
+            "name": "hpo_id",
+            "in": "query",
+            "description": "HPO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0001428",
+              "default": "0001470"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "HP:0001470": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "OMIM:273250"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_all_omim_id": {
+      "get": {
+        "tags": [
+          "OMIM"
+        ],
+        "summary": "FILTER: GET All OMIM IDs",
+        "description": "FILTER: GET All OMIM IDs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "all_omim_id": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "OMIM:109270"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_omim_id_by_hpo_id": {
+      "get": {
+        "tags": [
+          "OMIM"
+        ],
+        "summary": "FILTER: Get OMIM ID by HPO ID",
+        "description": "FILTER: Get OMIM ID by HPO ID",
+        "parameters": [
+          {
+            "name": "hpo_id",
+            "in": "query",
+            "description": "HPO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0001428",
+              "default": "0009381"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "HP:0009381": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "OMIM:101600"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/get_data_record": {
+      "get": {
+        "tags": [
+          "OMIM"
+        ],
+        "summary": "Get data record",
+        "description": "Each data record in ranked lists of PubCaseFinder can be obtained by indicating the [RECORD_TARGET] and [RECORD_ID].",
+        "parameters": [
+          {
+            "name": "target",
+            "in": "query",
+            "description": "omim",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "omim",
+              "enum": [
+                "omim",
+                "orphanet",
+                "gene"
+              ]
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "OMIM ID or ORPHA ID or NCBI Gene ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": 612690,
+              "default": 612690
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "OMIM:612690": {
+                          "$ref": "#/components/schemas/genetic_disease"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "OMIM:612690": {
+                          "$ref": "#/components/schemas/orpha_data_ORPHA"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "OMIM:612690": {
+                          "$ref": "#/components/schemas/gene_data"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_orpha_data_by_orpha_id": {
+      "get": {
+        "tags": [
+          "Orphanet"
+        ],
+        "summary": "Get ORPHA data by ORPHA ID",
+        "description": "Get ORPHA data by ORPHA ID",
+        "parameters": [
+          {
+            "name": "orpha_id",
+            "in": "query",
+            "description": "ORPHA ID (複数のIDを入力可能)",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "245",
+              "default": "245, 52, 140952, 1784"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "description": "(パラメータに\"download\"を入力すると全件取得可能)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "download"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ORPHA:245": {
+                      "$ref": "#/components/schemas/orpha_data_ORPHA"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_hpo_data_by_orpha_id": {
+      "get": {
+        "tags": [
+          "Orphanet"
+        ],
+        "summary": "Get HPO data by ORPHA ID",
+        "description": "Get HPO data by ORPHA ID",
+        "parameters": [
+          {
+            "name": "orpha_id",
+            "in": "query",
+            "description": "ORPHA ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "245",
+              "default": "245"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/hpo_data_1"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_orpha_id_by_mondo_id": {
+      "get": {
+        "tags": [
+          "Orphanet"
+        ],
+        "summary": "FILTER: GET ORPHA IDs by MONDO ID",
+        "description": "FILTER: GET ORPHA IDs by MONDO ID",
+        "parameters": [
+          {
+            "name": "mondo_id",
+            "in": "query",
+            "description": "MONDO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0007943",
+              "default": "0009903"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "MONDO:0009903": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "ORPHA:246"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_orpha_id_by_ncbi_gene_id": {
+      "get": {
+        "tags": [
+          "Orphanet"
+        ],
+        "summary": "FILTER: GET ORPHA IDs by NCBI gene ID",
+        "description": "FILTER: GET ORPHA IDs by NCBI gene ID",
+        "parameters": [
+          {
+            "name": "ncbi_gene_id",
+            "in": "query",
+            "description": "NCBI gene ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "10771",
+              "default": "10771"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "GENEID:10771": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "ORPHA:178469"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_orpha_id_by_multi_ncbi_gene_id": {
+      "get": {
+        "tags": [
+          "Orphanet"
+        ],
+        "summary": "FILTER: GET ORPHA IDs by multi NCBI gene ID",
+        "description": "FILTER: GET ORPHA IDs by multi NCBI gene ID",
+        "parameters": [
+          {
+            "name": "ncbi_gene_id",
+            "in": "query",
+            "description": "NCBI gene ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "10771",
+              "default": "57514 6521"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "ORPHA:3202"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_orpha_id_by_inheritance_hpo_id": {
+      "get": {
+        "tags": [
+          "Orphanet"
+        ],
+        "summary": "FILTER: Get ORPHA ID by HPO ID (inheritance)",
+        "description": "FILTER: Get ORPHA ID by HPO ID (inheritance)",
+        "parameters": [
+          {
+            "name": "hpo_id",
+            "in": "query",
+            "description": "HPO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0001428",
+              "default": "0001428"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "HP:0001428": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "ORPHA:1331"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_all_orpha_id": {
+      "get": {
+        "tags": [
+          "Orphanet"
+        ],
+        "summary": "FILTER: GET All ORPHA IDs",
+        "description": "FILTER: GET All ORPHA IDs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "all_orpha_id": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "ORPHA:493348"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_orpha_id_by_hpo_id": {
+      "get": {
+        "tags": [
+          "Orphanet"
+        ],
+        "summary": "FILTER: Get ORPHA ID by HPO ID",
+        "description": "FILTER: Get ORPHA ID by HPO ID",
+        "parameters": [
+          {
+            "name": "hpo_id",
+            "in": "query",
+            "description": "HPO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0001428",
+              "default": "0009381"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "HP:0009381": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "ORPHA:1005"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_gene_data_by_ncbi_gene_id": {
+      "get": {
+        "tags": [
+          "Gene"
+        ],
+        "summary": "Get GENE data by NCBI GENE ID",
+        "description": "Get GENE data by NCBI GENE ID",
+        "parameters": [
+          {
+            "name": "ncbi_gene_id",
+            "in": "query",
+            "description": "NCBI GENE ID (複数のIDを入力可能)",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "1723",
+              "default": "GENEID:1723, GENEID:9723, GENEID:4038"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "description": "(パラメータに\"download\"を入力すると全件取得可能)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "download"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "GENEID:1723": {
+                      "$ref": "#/components/schemas/gene_data_GENEID"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_gene_id_by_mondo_id": {
+      "get": {
+        "tags": [
+          "Gene"
+        ],
+        "summary": "FILTER: GET GENE IDs by MONDO ID",
+        "description": "FILTER: GET GENE IDs by MONDO ID",
+        "parameters": [
+          {
+            "name": "mondo_id",
+            "in": "query",
+            "description": "MONDO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0003847",
+              "default": "0018096"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "MONDO:0018096": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "GENEID:170691"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_gene_id_by_nando_id": {
+      "get": {
+        "tags": [
+          "Gene"
+        ],
+        "summary": "FILTER: GET GENE IDs by NANDO ID",
+        "description": "FILTER: GET GENE IDs by NANDO ID",
+        "parameters": [
+          {
+            "name": "nando_id",
+            "in": "query",
+            "description": "NANDO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "1200009",
+              "default": "2100004"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "NANDO:2100004": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "GENEID:25"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_gene_id_by_inheritance_hpo_id": {
+      "get": {
+        "tags": [
+          "Gene"
+        ],
+        "summary": "FILTER: Get GENE ID by HPO ID (inheritance)",
+        "description": "FILTER: Get GENE ID by HPO ID (inheritance)",
+        "parameters": [
+          {
+            "name": "hpo_id",
+            "in": "query",
+            "description": "HPO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0001428",
+              "default": "0001470"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "HP:0001470": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "GENEID:57647"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_all_gene_id": {
+      "get": {
+        "tags": [
+          "Gene"
+        ],
+        "summary": "FILTER: GET All GENE IDs",
+        "description": "FILTER: GET All GENE IDs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "all_gene_id": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "GENEID:10"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_filter_get_gene_id_by_hpo_id": {
+      "get": {
+        "tags": [
+          "Gene"
+        ],
+        "summary": "FILTER: Get GENE ID by HPO ID",
+        "description": "FILTER: Get GENE ID by HPO ID",
+        "parameters": [
+          {
+            "name": "hpo_id",
+            "in": "query",
+            "description": "HPO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0001428",
+              "default": "0009381"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "HP:0009381": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "GENEID:10060"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_convert_genesymbol_to_ncbigeneid": {
+      "get": {
+        "tags": [
+          "Gene"
+        ],
+        "summary": "pcf_convert_genesymbol_to_ncbigeneid",
+        "description": "pcf_convert_genesymbol_to_ncbigeneid",
+        "parameters": [
+          {
+            "name": "hgnc_gene_symbol",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "POLG SLC7A7 CBS",
+              "default": "POLG SLC7A7 CBS"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "hgnc_gene_symbol": {
+                        "type": "string",
+                        "example": "POLG"
+                      },
+                      "ncbi_gene_id": {
+                        "type": "string",
+                        "example": "5428"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_hpo_data_by_hpo_id": {
+      "get": {
+        "tags": [
+          "HPO"
+        ],
+        "summary": "Get HPO data by HPO ID",
+        "description": "Get HPO data by HPO ID",
+        "parameters": [
+          {
+            "name": "hpo_id",
+            "in": "query",
+            "description": "HPO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0410219",
+              "default": "HP:0000347, 0003022, HP:0009381, 0000204, 0000625"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_hpo_tooltip_data_by_hpo_id": {
+      "get": {
+        "tags": [
+          "Tooltip"
+        ],
+        "summary": "Get HPO tooltip data by HPO ID",
+        "description": "Get HPO tooltip data by HPO ID",
+        "parameters": [
+          {
+            "name": "hpo_id",
+            "in": "query",
+            "description": "HPO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0410219",
+              "default": "0000347"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/hpo_tooltip_data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_gene_tooltip_data_by_ncbi_gene_id": {
+      "get": {
+        "tags": [
+          "Tooltip"
+        ],
+        "summary": "Get GENE tooltip data by NCBI GENE ID",
+        "description": "Get GENE tooltip data by NCBI GENE ID",
+        "parameters": [
+          {
+            "name": "ncbi_gene_id",
+            "in": "query",
+            "description": "NCBI GENE ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "1723",
+              "default": "1723"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/gene_tooltip_data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_disease_tooltip_data_by_mondo_id": {
+      "get": {
+        "tags": [
+          "Tooltip"
+        ],
+        "summary": "Get Disease tooltip data by MONDO ID",
+        "description": "Get Disease tooltip data by MONDO ID",
+        "parameters": [
+          {
+            "name": "mondo_id",
+            "in": "query",
+            "description": "MONDO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0003847",
+              "default": "0009903"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/disease_tooltip_data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_panel_get_mondo_id_match_panel_name_synonym": {
+      "get": {
+        "tags": [
+          "PanelSearch"
+        ],
+        "summary": "Get MONDO ID by PANEL NAME or SYNONYM",
+        "description": "Get MONDO ID by PANEL NAME or SYNONYM",
+        "parameters": [
+          {
+            "name": "input_text",
+            "in": "query",
+            "description": "Text",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "obsolete follicular dendritic cell",
+              "default": "cell small"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "ja",
+              "default": "en"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "input:cell,small": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "MONDO:0007243"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_panel_get_mondo_id_match_gene_symbol_synonym_ncbiid": {
+      "get": {
+        "tags": [
+          "PanelSearch"
+        ],
+        "summary": "Get MONDO ID by GENE SYMBOL or GENE SYMBOL SYNONYM or NCBI GENE ID",
+        "description": "Get MONDO ID by GENE SYMBOL or GENE SYMBOL SYNONYM or NCBI GENE ID",
+        "parameters": [
+          {
+            "name": "input_text",
+            "in": "query",
+            "description": "Text",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "SF3B4 CERS3 DHOdehase AFD1 170691",
+              "default": "dhodh"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "input:dhodh": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "MONDO:0000462"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_panel_data_by_mondo_id": {
+      "get": {
+        "tags": [
+          "PanelSearch"
+        ],
+        "summary": "Get Panel data by MONDO ID",
+        "description": "Get Panel data by MONDO ID",
+        "parameters": [
+          {
+            "name": "mondo_id",
+            "in": "query",
+            "description": "MONDO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0009903",
+              "default": "0013127"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/panel_data"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_hpo_data_by_mondo_id": {
+      "get": {
+        "tags": [
+          "PanelSearch"
+        ],
+        "summary": "Get HPO data by MONDO ID",
+        "description": "Get HPO data by MONDO ID",
+        "parameters": [
+          {
+            "name": "mondo_id",
+            "in": "query",
+            "description": "MONDO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0003847",
+              "default": "0007045"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/hpo_data_2"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_gene_by_mondo_id": {
+      "get": {
+        "tags": [
+          "PanelSearch"
+        ],
+        "summary": "FILTER: GET GENE by MONDO ID",
+        "description": "FILTER: GET GENE by MONDO ID",
+        "parameters": [
+          {
+            "name": "mondo_id",
+            "in": "query",
+            "description": "MONDO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0018096",
+              "default": "0017838"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/gene"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_download_all_panel": {
+      "get": {
+        "tags": [
+          "PanelSearch"
+        ],
+        "summary": "Get all panel",
+        "description": "Get all panel",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": ""
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_download_panel_by_mondo_id": {
+      "get": {
+        "tags": [
+          "PanelSearch"
+        ],
+        "summary": "FILTER: GET GENE IDs by MONDO ID",
+        "description": "FILTER: GET GENE IDs by MONDO ID",
+        "parameters": [
+          {
+            "name": "mondo_id",
+            "in": "query",
+            "description": "MONDO ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "0003847",
+              "default": "0018096"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": "hgnc_gene_symbol\tdisease_name\tsource_name\nADAMTS10\tWeill-Marchesani syndrome | Weill-Marchesani syndrome 1\tOMIM | Orphadata\nADAMTS17\tichthyosis-short stature-brachydactyly-microspherophakia syndrome\tOMIM | Orphadata\nCERS3\tichthyosis-short stature-brachydactyly-microspherophakia syndrome\tOrphadata\nFBN1\tWeill-Marchesani syndrome | glaucoma-ectopia-microspherophakia-stiff joints-short stature syndrome\tOMIM | Orphadata\nLTBP2\tWeill-Marchesani syndrome | Weill-Marchesani syndrome 3\tOMIM | Orphadata\n"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_all_panel": {
+      "get": {
+        "tags": [
+          "PanelSearch"
+        ],
+        "summary": "Get all panel",
+        "description": "Get all panel",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/all_panel"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_list_genetic_diseases": {
+      "get": {
+        "tags": [
+          "List"
+        ],
+        "summary": "List_Genetic_Diseases",
+        "description": "List_Genetic_Diseases",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/list_genetic_diseases"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_list_rare_diseases": {
+      "get": {
+        "tags": [
+          "List"
+        ],
+        "summary": "List_Rare_Diseases",
+        "description": "List_Rare_Diseases",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/list_rare_diseases"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_get_list_genes": {
+      "get": {
+        "tags": [
+          "List"
+        ],
+        "summary": "List_Genes",
+        "description": "List_Genes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/list_genes"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_Statistics_Genetic_Diseases": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "Statistics_Genetic_Diseases",
+        "description": "Statistics_Genetic_Diseases",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Genetic Diseases": {
+                      "type": "string",
+                      "example": "7870"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_Statistics_Rare_Diseases": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "Statistics_Rare_Diseases",
+        "description": "Statistics_Rare_Diseases",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Rare Diseases": {
+                      "type": "string",
+                      "example": "4094"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/pcf_Statistics_Genes": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "Statistics_Genes",
+        "description": "Statistics_Genes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Genes": {
+                      "type": "string",
+                      "example": "4536"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/get_dpa": {
+      "get": {
+        "tags": [
+          "Disease-Phenotype Associations"
+        ],
+        "summary": "Get Disease-Phenotype associations",
+        "description": "Disease-Phenotype associations for each disease in OMIM and Orphanet can be obtained by indicating the [DISEASE_TARGET] and [DISEASE_ID].",
+        "servers": [
+          {
+            "url": "https://pubcasefinder.dbcls.jp/api"
+          }
+        ],
+        "parameters": [
+          {
+            "name": "target",
+            "in": "query",
+            "description": "omim or orphanet",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "omim",
+              "enum": [
+                "omim",
+                "orphanet"
+              ]
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "OMIM ID or ORPHA ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": 612690,
+              "default": 612690
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/hpo_data"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/get_gpa": {
+      "get": {
+        "tags": [
+          "Gene-Phenotype associations"
+        ],
+        "summary": "Get Phenotype associations",
+        "description": "Gene-Phenotype associations for each gene can be obtained by indicating the [GENE_ID].",
+        "servers": [
+          {
+            "url": "https://pubcasefinder.dbcls.jp/api"
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "NCBI Gene ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": 1723,
+              "default": 1723
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/hpo_data_with_disease"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/get_case_report": {
+      "get": {
+        "tags": [
+          "Case Report in PubMed"
+        ],
+        "summary": "Case reports related to rare genetic diseases",
+        "description": "Case reports related to rare genetic diseases in PubMed can be obtained by indicating the [MONDO_ID].",
+        "servers": [
+          {
+            "url": "https://pubcasefinder.dbcls.jp/api"
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Mondo ID",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "MONDO:0008752",
+              "default": "MONDO:0008752"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/case_report"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "omim_data_OMIM": {
+        "type": "object",
+        "properties": {
+          "omim_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://identifiers.org/mim/181500"
+          },
+          "omim_disease_name_en": {
+            "type": "string",
+            "example": "schizophrenia (disease)"
+          },
+          "omim_disease_name_ja": {
+            "type": "string",
+            "example": "統合失調症"
+          },
+          "description": {
+            "type": "string",
+            "example": "A major psychotic disorder characterized by abnormalities in the perception or expression of reality. It affects the cognitive and psychomotor functions. Common clinical signs and symptoms include delusions, hallucinations, disorganized thinking, and retreat from reality."
+          },
+          "ur_dbms_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://syndromefinder.ncchd.go.jp/UR-DBMS/SyndromeDetail.php?recid=1393&winid=1"
+          },
+          "count_hpo_id": {
+            "type": "string",
+            "example": "6"
+          },
+          "ncbi_gene_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "GENEID:267012"
+            }
+          },
+          "hgnc_gene_symbol": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "DAOA"
+            }
+          },
+          "mondo_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "MONDO:0005090"
+            }
+          },
+          "mondo_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://monarchinitiative.org/disease/MONDO:0005090"
+            }
+          },
+          "kegg_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://www.kegg.jp/dbget-bin/www_bget?H01649"
+            }
+          },
+          "orpha_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "ORPHA:3140"
+            }
+          },
+          "orpha_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "http://www.orpha.net/ORDO/Orphanet_3140"
+            }
+          },
+          "hpo_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "HP:0100753"
+            }
+          },
+          "hpo_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "http://purl.obolibrary.org/obo/HP_0100753"
+            }
+          }
+        }
+      },
+      "hpo_common": {
+        "type": "object",
+        "properties": {
+          "hpo_category_name_en": {
+            "type": "string",
+            "example": "Abnormality of the nervous system"
+          },
+          "hpo_category_name_ja": {
+            "type": "string",
+            "example": "神経系の異常"
+          },
+          "hpo_id": {
+            "type": "string",
+            "example": "HP:0001249"
+          },
+          "hpo_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://purl.obolibrary.org/obo/HP_0001249"
+          },
+          "hpo_label_en": {
+            "type": "string",
+            "example": "Intellectual disability"
+          },
+          "hpo_label_ja": {
+            "type": "string",
+            "example": "知的障害"
+          }
+        }
+      },
+      "hpo_data": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/hpo_common"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "definition": {
+                "type": "string",
+                "example": "Subnormal intellectual functioning which originates during the developmental period. Intellectual disability, previously referred to as mental retardation, has been defined as an IQ score below 70."
+              }
+            }
+          }
+        ]
+      },
+      "hpo_data_with_disease": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/hpo_common"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "disease": {
+                "type": "string",
+                "example": "OMIM"
+              },
+              "disease_id": {
+                "type": "string",
+                "example": 263750
+              }
+            }
+          }
+        ]
+      },
+      "orpha_data_ORPHA": {
+        "type": "object",
+        "properties": {
+          "orpha_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://www.orpha.net/ORDO/Orphanet_245"
+          },
+          "orpha_disease_name_en": {
+            "type": "string",
+            "example": "Nager acrofacial dysostosis"
+          },
+          "orpha_disease_name_ja": {
+            "type": "string",
+            "example": "肢端顔異骨症1, Nager 型 (AFD1)"
+          },
+          "description": {
+            "type": "string",
+            "example": "Nager syndrome, also called Nager acrofacial dysostosis (NAFD) is a congenital malformation syndrome characterized by mandibulofacial dystosis (malar hypoplasia, micrognathia, external ear malformations) and variable preaxial limb defects."
+          },
+          "count_hpo_id": {
+            "type": "string",
+            "example": "29"
+          },
+          "ncbi_gene_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "GENEID:10262"
+            }
+          },
+          "hgnc_gene_symbol": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "SF3B4"
+            }
+          },
+          "mondo_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "MONDO:0007943"
+            }
+          },
+          "mondo_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://monarchinitiative.org/disease/MONDO:0007943"
+            }
+          },
+          "kegg_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://www.kegg.jp/dbget-bin/www_bget?H01376"
+            }
+          },
+          "gtr_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://www.ncbi.nlm.nih.gov/gtr/all/tests/?term=C0265245/"
+            }
+          },
+          "omim_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "OMIM:154400"
+            }
+          },
+          "omim_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "http://identifiers.org/mim/154400"
+            }
+          }
+        }
+      },
+      "hpo_data_1": {
+        "type": "object",
+        "properties": {
+          "hpo_category_name_en": {
+            "type": "string",
+            "example": "Abnormality of the genitourinary system"
+          },
+          "hpo_category_name_ja": {
+            "type": "string",
+            "example": "泌尿生殖器異常"
+          },
+          "hpo_id": {
+            "type": "string",
+            "example": "HP:0000122"
+          },
+          "hpo_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://purl.obolibrary.org/obo/HP_0000122"
+          },
+          "hpo_label_en": {
+            "type": "string",
+            "example": "Unilateral renal agenesis"
+          },
+          "hpo_label_ja": {
+            "type": "string",
+            "example": "片側性腎無発生"
+          },
+          "definition": {
+            "type": "string",
+            "example": "A unilateral form of agenesis of the kidney."
+          },
+          "frequency": {
+            "type": "string",
+            "example": "Occasional (29-5%)"
+          }
+        }
+      },
+      "gene_data_GENEID": {
+        "type": "object",
+        "properties": {
+          "hgnc_gene_id": {
+            "type": "string",
+            "example": "HGNC:2867"
+          },
+          "hgnc_gene_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:2867"
+          },
+          "hgnc_gene_symbol": {
+            "type": "string",
+            "example": "DHODH"
+          },
+          "full_name": {
+            "type": "string",
+            "example": "dihydroorotate dehydrogenase (quinone)"
+          },
+          "ncbi_gene_summary": {
+            "type": "string",
+            "example": "The protein encoded by this gene catalyzes the fourth enzymatic step, the ubiquinone-mediated oxidation of dihydroorotate to orotate, in de novo pyrimidine biosynthesis. This protein is a mitochondrial protein located on the outer surface of the inner mitochondrial membrane. [provided by RefSeq, Jul 2008]"
+          },
+          "synonym": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "DHOdehase"
+            }
+          },
+          "inheritance_en": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Autosomal recessive inheritance"
+            }
+          },
+          "inheritance_ja": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "常染色体劣性遺伝"
+            }
+          },
+          "mondo_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "MONDO:0009903"
+            }
+          },
+          "mondo_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "http://purl.obolibrary.org/obo/MONDO_0009903"
+            }
+          }
+        }
+      },
+      "gene_data": {
+        "type": "object",
+        "properties": {
+          "full_name": {
+            "type": "string",
+            "example": "dihydroorotate dehydrogenase (quinone)"
+          },
+          "hgnc_gene_id": {
+            "type": "string",
+            "example": "HGNC:2867"
+          },
+          "hgnc_gene_symbol": {
+            "type": "string",
+            "example": "DHODH"
+          },
+          "hgnc_gene_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:2867"
+          },
+          "inheritance_en": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Autosomal recessive inheritance"
+            }
+          },
+          "inheritance_ja": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "常染色体劣性遺伝"
+            }
+          },
+          "mondo_disease_name_en": {
+            "type": "object",
+            "properties": {
+              "MONDO:0009903": {
+                "type": "string",
+                "example": "postaxial acrofacial dysostosis"
+              }
+            }
+          },
+          "mondo_disease_name_ja": {
+            "type": "object",
+            "properties": {
+              "MONDO:0009903": {
+                "type": "string",
+                "example": "軸後性肢端顔異骨症"
+              }
+            }
+          },
+          "mondo_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "MONDO:0009903"
+            }
+          },
+          "mondo_id_to_omim_id": {
+            "type": "object",
+            "properties": {
+              "MONDO:0009903": {
+                "type": "string",
+                "example": "OMIM:263750"
+              }
+            }
+          },
+          "mondo_id_to_orpha_id": {
+            "type": "object",
+            "properties": {
+              "MONDO:0009903": {
+                "type": "string",
+                "example": "ORPHA:246"
+              }
+            }
+          },
+          "mondo_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "http://purl.obolibrary.org/obo/MONDO_0009903"
+            }
+          },
+          "ncbi_gene_summary": {
+            "type": "string",
+            "example": "The protein encoded by this gene catalyzes the fourth enzymatic step, the ubiquinone-mediated oxidation of dihydroorotate to orotate, in de novo pyrimidine biosynthesis. This protein is a mitochondrial protein located on the outer surface of the inner mitochondrial membrane. [provided by RefSeq, Jul 2008]"
+          },
+          "synonym": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "DHOdehase"
+            }
+          }
+        }
+      },
+      "hpo_tooltip_data": {
+        "type": "object",
+        "properties": {
+          "name_en": {
+            "type": "string",
+            "example": "Micrognathia"
+          },
+          "name_ja": {
+            "type": "string",
+            "example": "小顎"
+          },
+          "definition": {
+            "type": "string",
+            "example": "Developmental hypoplasia of the mandible."
+          },
+          "comment": {
+            "type": "string",
+            "example": "Mandibular hypoplasia, also known as micrognathia, is a term that describes an abnormally small lower jaw."
+          },
+          "hpo_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://identifiers.org/HP:0000347"
+          },
+          "synonym": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Decreased size of lower jaw"
+            }
+          }
+        }
+      },
+      "gene_tooltip_data": {
+        "type": "object",
+        "properties": {
+          "hgnc_gene_symbol": {
+            "type": "string",
+            "example": "DHODH"
+          },
+          "type_of_gene": {
+            "type": "string",
+            "example": "protein-coding"
+          },
+          "location": {
+            "type": "string",
+            "example": "16q22.2"
+          },
+          "full_name": {
+            "type": "string",
+            "example": "dihydroorotate dehydrogenase (quinone)"
+          },
+          "ncbi_gene_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://identifiers.org/ncbigene/1723"
+          },
+          "hgnc_gene_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:2867"
+          },
+          "ncbi_gene_summary": {
+            "type": "string",
+            "example": "The protein encoded by this gene catalyzes the fourth enzymatic step, the ubiquinone-mediated oxidation of dihydroorotate to orotate, in de novo pyrimidine biosynthesis. This protein is a mitochondrial protein located on the outer surface of the inner mitochondrial membrane. [provided by RefSeq, Jul 2008]"
+          },
+          "other_full_name": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "dihydroorotate oxidase"
+            }
+          },
+          "synonym": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "DHOdehase"
+            }
+          }
+        }
+      },
+      "disease_tooltip_data": {
+        "type": "object",
+        "properties": {
+          "name_en": {
+            "type": "string",
+            "example": "postaxial acrofacial dysostosis"
+          },
+          "name_ja": {
+            "type": "string",
+            "example": "軸後性肢端顔異骨症"
+          },
+          "definition": {
+            "type": "string",
+            "example": "Postaxial acrofacial dysostosis (POADS) is a type of acrofacial dysostosis characterised by mandibular and malar hypoplasia, small and cup-shaped ears, lower lid ectropion, and symmetrical postaxial limb deficiencies with absence of the fifth digital ray and ulnar hypoplasia."
+          },
+          "mondo_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://monarchinitiative.org/disease/MONDO:0009903"
+          },
+          "omim_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "OMIM:263750"
+            }
+          },
+          "omim_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "http://identifiers.org/mim/263750"
+            }
+          },
+          "orpha_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "ORPHA:246"
+            }
+          },
+          "orpha_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "http://www.orpha.net/ORDO/Orphanet_246"
+            }
+          },
+          "synonym": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Mandibulfacial dysostosis with postaxial limb anomalies"
+            }
+          }
+        }
+      },
+      "panel_data": {
+        "type": "object",
+        "properties": {
+          "name_en": {
+            "type": "string",
+            "example": "asphyxiating thoracic dystrophy 3"
+          },
+          "name_ja": {
+            "type": "string",
+            "example": "短肋骨胸郭異形成3 +/- 多指症)"
+          },
+          "synonym": {
+            "type": "string",
+            "example": "ATD3 | SRPS1 | SRPS2B | SRPS3 | SRTD3 | Verma-Naumoff syndrome | asphyxiating thoracic dystrophy 3 | asphyxiating thoracic dystrophy type 3 | polydactyly with neonatal chondrodystrophy, type I | polydactyly with neonatal chondrodystrophy, type III | short rib-polydactyly syndrome, type I | short rib-polydactyly syndrome, type IIB | short-rib thoracic dysplasia 3 with or without polydactyly"
+          },
+          "definition": {
+            "type": "string",
+            "example": "An asphyxiating thoracic dystrophy that has material basis in homozygous or compound heterozygous mutation in the DYNC2H1 gene on chromosome 11q22."
+          },
+          "mondo_id": {
+            "type": "string",
+            "example": "MONDO:0013127"
+          },
+          "mondo_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://monarchinitiative.org/disease/MONDO:0013127"
+          },
+          "omim_id": {
+            "type": "string",
+            "example": "613091"
+          },
+          "omim_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://identifiers.org/mim/613091"
+          },
+          "icd10_id": {
+            "type": "string",
+            "example": "ICD10:Q77.2"
+          },
+          "icd10_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://icd.who.int/browse10/2019/en#/Q77.2"
+          },
+          "count_gene_id": {
+            "type": "string",
+            "example": "1"
+          },
+          "count_hpo_id": {
+            "type": "string",
+            "example": "33"
+          }
+        }
+      },
+      "hpo_data_2": {
+        "type": "object",
+        "properties": {
+          "hpo_category_name_en": {
+            "type": "string",
+            "example": "Abnormality of the genitourinary system"
+          },
+          "hpo_category_name_ja": {
+            "type": "string",
+            "example": "泌尿生殖器異常"
+          },
+          "hpo_id": {
+            "type": "string",
+            "example": "HP:0000028"
+          },
+          "hpo_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://purl.obolibrary.org/obo/HP_0000028"
+          },
+          "hpo_label_en": {
+            "type": "string",
+            "example": "Cryptorchidism"
+          },
+          "hpo_label_ja": {
+            "type": "string",
+            "example": "停留精巣"
+          },
+          "definition": {
+            "type": "string",
+            "example": "Testis in inguinal canal. That is, absence of one or both testes from the scrotum owing to failure of the testis or testes to descend through the inguinal canal to the scrotum."
+          },
+          "frequency": {
+            "type": "string",
+            "example": "Frequent (79-30%)"
+          }
+        }
+      },
+      "gene": {
+        "type": "object",
+        "properties": {
+          "hgnc_gene_symbol": {
+            "type": "string",
+            "example": "LRP4"
+          },
+          "gene_id": {
+            "type": "string",
+            "example": "4038"
+          },
+          "disease_info": {
+            "type": "string",
+            "example": "sclerosteosis 2, OMIM:614305 | sclerosteosis, ORPHA:3152"
+          },
+          "source_name": {
+            "type": "string",
+            "example": "OMIM | Orphadata"
+          },
+          "inheritance_en": {
+            "type": "string",
+            "example": "Autosomal dominant inheritance, Autosomal recessive inheritance"
+          },
+          "inheritance_ja": {
+            "type": "string",
+            "example": "常染色体優性遺伝, 常染色体劣性遺伝"
+          }
+        }
+      },
+      "all_panel": {
+        "type": "object",
+        "properties": {
+          "mondo_id": {
+            "type": "string",
+            "example": "MONDO:0000004"
+          },
+          "panel_name": {
+            "type": "string",
+            "example": "adrenocortical insufficiency"
+          },
+          "count": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      },
+      "list_genetic_diseases": {
+        "type": "object",
+        "properties": {
+          "omim_id": {
+            "type": "string",
+            "example": "OMIM:146500"
+          },
+          "omim_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://identifiers.org/mim/146500"
+          },
+          "omim_disease_name_en": {
+            "type": "string",
+            "example": "Multiple system atrophy 1, susceptibility to"
+          },
+          "omim_disease_name_ja": {
+            "type": "string",
+            "example": "多系統萎縮症1, への感受性"
+          }
+        }
+      },
+      "list_rare_diseases": {
+        "type": "object",
+        "properties": {
+          "orpha_id": {
+            "type": "string",
+            "example": "ORPHA:2970"
+          },
+          "orpha_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://www.orpha.net/ORDO/Orphanet_2970"
+          },
+          "orpha_disease_name_en": {
+            "type": "string",
+            "example": "prune belly syndrome"
+          },
+          "orpha_disease_name_ja": {
+            "type": "string",
+            "example": "プルーンベリー症候群"
+          }
+        }
+      },
+      "list_genes": {
+        "type": "object",
+        "properties": {
+          "ncbi_gene_id": {
+            "type": "string",
+            "example": "GENEID:4920"
+          },
+          "ncbi_gene_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://identifiers.org/ncbigene/4920"
+          },
+          "hgnc_gene_symbol": {
+            "type": "string",
+            "example": "ROR2"
+          },
+          "hgnc_gene_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:10257"
+          },
+          "full_name": {
+            "type": "string",
+            "example": "receptor tyrosine kinase like orphan receptor 2"
+          }
+        }
+      },
+      "genetic_disease": {
+        "type": "object",
+        "properties": {
+          "omim_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "http://identifiers.org/mim/231680"
+          },
+          "omim_disease_name_en": {
+            "type": "string",
+            "example": "schizophrenia (disease)"
+          },
+          "omim_disease_name_ja": {
+            "type": "string",
+            "example": "統合失調症"
+          },
+          "description": {
+            "type": "string",
+            "example": "A major psychotic disorder characterized by abnormalities in the perception or expression of reality. It affects the cognitive and psychomotor functions. Common clinical signs and symptoms include delusions, hallucinations, disorganized thinking, and retreat from reality."
+          },
+          "ur_dbms_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://syndromefinder.ncchd.go.jp/UR-DBMS/SyndromeDetail.php?recid=1393&winid=1"
+          },
+          "count_hpo_id": {
+            "type": "string",
+            "example": "6"
+          },
+          "ncbi_gene_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "GENEID:267012"
+            }
+          },
+          "hgnc_gene_symbol": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "DAOA"
+            }
+          },
+          "mondo_id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "MONDO:0005090"
+            }
+          },
+          "mondo_url": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://monarchinitiative.org/disease/MONDO:0005090"
+            }
+          },
+          "gene_reviews_url": {
+            "type": "array",
+            "items": {
+              "format": "uri",
+              "example": "https://www.ncbi.nlm.nih.gov/books/NBK558236/"
+            }
+          },
+          "gtr_url": {
+            "type": "array",
+            "items": {
+              "format": "uri",
+              "example": "https://www.ncbi.nlm.nih.gov/gtr/all/tests/?term=C0268596/"
+            }
+          }
+        }
+      },
+      "genetic_disease_with_rank": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/genetic_disease"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "OMIM:231680"
+              },
+              "rank": {
+                "type": "string",
+                "example": 1
+              },
+              "score": {
+                "type": "string",
+                "example": 0.7940279980972564
+              },
+              "matched_hpo_id": {
+                "type": "string",
+                "example": "HP:0002089HP:0001943"
+              }
+            }
+          }
+        ]
+      },
+      "case_report": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": 30755773
+          },
+          "journal": {
+            "type": "string",
+            "example": "Case Rep Med"
+          },
+          "pyear": {
+            "type": "string",
+            "example": 2019
+          },
+          "title": {
+            "type": "string",
+            "example": "A Novel Mutation in the Adult-Onset Alexander's Disease GFAP Gene."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://pubmed.ncbi.nlm.nih.gov/30755773"
+          }
+        }
+      }
+    }
+  }
+}

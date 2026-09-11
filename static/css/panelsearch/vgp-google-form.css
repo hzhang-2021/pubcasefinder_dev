@@ -1,0 +1,14 @@
+#vgp-loader-whole{ display: none; }
+
+.vgp-main {
+  margin-top: 80px;
+  width: 100%;
+  height: calc(100% - 100px);
+  padding: 0;
+}
+
+#gform{
+  width: 100%;
+  min-width: 800px;
+  padding: 10px auto 10px auto;
+}

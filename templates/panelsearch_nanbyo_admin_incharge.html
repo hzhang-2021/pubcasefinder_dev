@@ -1,0 +1,104 @@
+{% extends "panelsearch_nanbyo_admin_layout.html" %}
+
+{% block page_css_block %}
+<link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-common.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/admin_activity.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/admin_incharge.css">
+
+{% endblock %}
+
+{% block page_content %}
+<div class="wrapper title">
+  <svg width="29" height="29" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10.05 19.75H22.7V16.7406H10.05V19.75ZM4.3 9.25937H7.75V6.25H4.3V9.25937ZM4.3 14.5187H7.75V11.5094H4.3V14.5187ZM4.3 19.75H7.75V16.7406H4.3V19.75ZM10.05 14.5187H22.7V11.5094H10.05V14.5187ZM10.05 9.25937H22.7V6.25H10.05V9.25937ZM4.3 22C3.6675 22 3.12623 21.7799 2.6762 21.3396C2.22617 20.8994 2.00077 20.3695 2 19.75V6.25C2 5.63125 2.2254 5.10175 2.6762 4.6615C3.127 4.22125 3.66827 4.00075 4.3 4H22.7C23.3325 4 23.8741 4.2205 24.3249 4.6615C24.7757 5.1025 25.0008 5.632 25 6.25V19.75C25 20.3687 24.775 20.8986 24.3249 21.3396C23.8749 21.7806 23.3333 22.0007 22.7 22H4.3Z" fill="#45594F"/>
+  </svg>
+  <span>担当パネル履歴</span>
+</div>
+<div class="wrapper pagination-panel-wrapper">
+  <div class="title d-flex justify-content-between mt-2 mb-1">
+    <div class="left"><span id="total_num">0</span> Results</div>
+    <div class="right">Per page
+      <div class="dropdown vgp-size-wrapper">
+        <button id="btn-vgp-size" class="btn btn-vgp-size dropdown-toggle" type="button" data-num_per_page="30" data-toggle="dropdown" aria-expanded="false">30</button>
+        <div class="dropdown-menu" id="dropdown-menu-size">
+          <button class="dropdown-item" type="button" data-num_per_page="10">10</button>
+          <button class="dropdown-item selected" type="button" data-num_per_page="30">30</button>
+          <button class="dropdown-item" type="button" data-num_per_page="50">50</button>
+          <button class="dropdown-item" type="button" data-num_per_page="100">100</button>
+          <button class="dropdown-item" type="button" data-num_per_page="200">200</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table id="activity_table" class="incharge">
+      <thead>
+        <tr>
+          <th class="user_name"><span data-target-class="user_name" class="vgp-sorter">User</span></th>
+          <th class="panel_name"><span data-target-class="panel_name" class="vgp-sorter">Panel</span></th>
+          <th class="entity_name"><span data-target-class="entity_name" class="vgp-sorter">Entity</span></th>
+          <th class="action"><span data-target-class="action" class="vgp-sorter">Action</span></th>
+          <th class="created_at"><span data-target-class="created_at" class="vgp-sorter vgp-dsc">Date</span></th>
+        </tr>
+      </thead>
+      <tbody id="activity_table_tbody"></tbody>
+    </table>
+  </div>
+  <div class="d-flex  justify-content-between" id="table-pagination-wrapper">
+    <div id="table-pagination"></div>
+    <div id="table-pagination-desc"></div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+{% block modal_content %}
+<div id="overlay"></div>
+<div id="sidebar">
+  <div class="sidebar-header">
+    <div id="sidebar_breadcrumblist_wrapper" class="d-flex flex-column"></div>
+    <div><button id="closeSidebar" class="close">&times;</button></div>
+  </div>
+  <div id="sidebar_entity_name"></div>
+  <div id="sidebar_user"></div>
+  <div id="sidebar_body">
+    <div id="text-input-loader" class="hide">
+      <div class="d-flex flex-row text-input-loader-content">
+        <span class="text-input-loader-gif"></span>
+        <span class="text-input-loader-text"></span>
+      </div>
+    </div>
+    <div class="title title-left-border">
+      <span class="ml-2">Current snapshot</span>
+      <span id="latest_created_at"></span>
+    </div>
+    <div class="content" id="latest_content_panel"></div>
+    <div class="title title-left-border" id="history_title_panel">
+      <span class="ml-2">Change history</span>
+    </div>
+  </div>
+  <div id="sidebar-ctl" class="docheck">
+   <button class="docheck">確認処理</button>
+   <button class="douncheck">未読に変更</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block page_js_block %}
+<!-- <script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.core.js"></script> -->
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.all.min.js"></script>
+<script type="text/javascript" src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/admin_activity.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/admin_incharge.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+$(document).ready(function(){
+  _init_incharge();
+});
+</SCRIPT>
+{% endblock %}

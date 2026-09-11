@@ -1,0 +1,20 @@
+CREATE TABLE `user_info_psn` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `authentication_code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `google_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name_en` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `first_name_nl` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `last_name_en` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `last_name_nl` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `affiliation` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `job_title` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `user_type` int(11) NOT NULL DEFAULT 1,
+  `status` int(11) NOT NULL DEFAULT 40,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `changed_at` timestamp NULL DEFAULT NULL,
+  `is_updated` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `google_id` (`google_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

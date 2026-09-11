@@ -1,0 +1,192 @@
+
+
+.vgp-nav{width:100%;}
+
+.vgp-nav .nav-tabs { border-bottom: 2px solid #1B2C1A; }
+
+.vgp-nav .nav-tabs .nav-link {
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #DBE5DE;
+    color: #74A78F;
+    margin-bottom: 1px;
+}
+
+.vgp-nav .nav-tabs .nav-link.active {
+    color: #276749;
+    background-color: #FFF;
+    border-right: 2px solid #276749;
+    border-top: 2px solid #276749;
+    border-left: 2px solid #276749;
+    border-bottom: 2px solid #FFF;
+    font-weight: 500;
+    margin-bottom: -2px;
+}
+
+.tab-content .tab-pane {padding: 20px 0px; width:100%:}
+
+.tab-content .tab-pane > div {width:100%;white-space: nowrap;}
+
+#log-search-wrapper input,#log-search-wrapper select{
+  padding-top: 2px; 
+  padding-bottom: 2px;
+}
+
+.filter-by-word{
+  width: 300px;
+  border: 2px solid #E1E3E1;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 2px 4px 2px 40px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath fill='%23CBCBCB' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+}
+.filter-by-word:focus{outline: none;}
+.filter-by-word::placeholder{color: #CBCBCB;}
+
+.action-button,.cancel-button {
+  padding: 2px 20px 2px 20px;
+  border-radius: 5px;
+  border: 1px solid #276749;
+  background: #276749;
+  color: #FFF;
+}
+.cancel-button{background: #BBB; border:1px solid #BBB;}
+
+
+#log-table-wrapper {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  max-height: calc( 100vh - 255px );
+  overflow-y: auto;
+  width: 100%;
+}
+
+#log-table-wrapper table {
+  width: 100% !important;
+}
+
+#log-table-wrapper table>thead>tr>th {
+    background-color: #EBEBEB;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: normal;
+    padding-top: 0.25rem;
+    padding-left: 0;
+    padding-bottom: 0.25rem;
+    white-space: nowrap !important;
+}
+
+#log-table-wrapper table thead tr th,#log-table-wrapper table tbody tr td{ padding-left: 15px; }
+
+#log-table-wrapper table tbody tr:hover{
+  background-color: rgba(0, 123, 255, 0.1);
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+#log-table-wrapper table tbody tr.selected {
+  background-color: #cce5ff;
+}
+
+.wrap-column {
+  white-space: normal !important;  /* 允许换行 */
+  word-break: break-word;           /* 遇到长单词也换行 */
+}
+#emailModal {
+  display: none;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  padding: 20px;
+  width: 600px;
+  max-height: 70%;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+#emailModal h3 { margin-top: 0; }
+#emailModal button { margin-top: 15px; }
+#modalOverlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+
+#template-wrapper{
+  margin-top: 10px;
+  width: 100%;
+  max-height: calc(100vh - 280px);
+  overflow-y: auto;
+}
+
+.setting-table{ width: 900px; margin-top: 5px;}
+.setting-table th {width: 130px;}
+.setting-table th, .setting-table td {padding-bottom: 10px;}
+.setting-table td input {width: 100%; padding: 10px;}
+.setting-table td input.btn-check{width: unset; padding: unset;}
+
+
+#template-wrapper .ctl-wrapper{
+  width: 900px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;    
+}
+#template-wrapper .ctl-wrapper #btn_template_save,
+#template-wrapper .ctl-wrapper #btn_template_cancel{display: none;}
+#template-wrapper .ctl-wrapper.onedit #btn_template_modify{display: none;}
+#template-wrapper .ctl-wrapper.onedit #btn_template_save,
+#template-wrapper .ctl-wrapper.onedit #btn_template_cancel{display: inline-block;}
+
+#smtp-setting-wrapper{
+  width: 910px;
+  padding-left: 3px;
+  padding-right: 3px;
+  max-height: calc( 100vh - 220px);
+  overflow-y: auto;
+}
+
+.encryption-switch {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.encryption-switch label {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.encryption-switch input[type="radio"] {
+  display: none;
+}
+
+.encryption-switch input[type="radio"]:checked + span {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+.smtp-setting-ctl-wrapper{
+  width: 100%;
+  display: flex;  
+  justify-content: flex-end;  
+  gap: 8px; 
+  padding-right: 4px; 
+}
+
+
+.smtp-setting-ctl-wrapper #btn_smtp-setting_save,
+.smtp-setting-ctl-wrapper #btn_smtp-setting_cancel{display: none;
+.smtp-setting-ctl-wrapper.onedit #btn_smtp-setting_modify{display: none;}
+.smtp-setting-ctl-wrapper.onedit #btn_smtp-setting_save,
+.smtp-setting-ctl-wrapper.onedit #btn_smtp-setting_cancel{display: inline-block;}
+

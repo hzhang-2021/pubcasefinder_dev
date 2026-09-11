@@ -1,0 +1,108 @@
+{% extends "common_admin_layout.html" %}
+
+{% block css_block %}
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+<link rel="stylesheet" href="/static/css/common_admin/admin_authentication.css">
+
+{% endblock %}
+
+{% block page_content %}
+<div class="wrapper title">
+  <svg width="29" height="29" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11.6875 1L1 5.2V13C1 17.2 5.15625 23.8 10.5 25C15.8438 23.8 20 17.2 20 13V5.2L10.5 1H11.6875Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M11.6875 1L1 5.2V13C1 17.2 5.15625 23.8 10.5 25C15.8438 23.8 20 17.2 20 13V5.2L10.5 1H11.6875Z" stroke="#1B2C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span>認証・セッション</span>
+</div>
+<div class="wrapper filter">
+  <div class="sub letter">
+    <input id="filter_letter" type="text" autocomplete="off" autocapitalize="off" placeholder="名前 / メールアドレス"
+           data-target-class="name,email" data-isSetHighlight="1">
+  </div>
+  <div class="date-row">
+    <div class="date-field">
+      <small>Date from</small>
+      <label for="dateFrom" class="visually-hidden">Date from</label>
+      <input id="dateFrom" name="from" type="date">
+    </div>
+    <span class="tilde">~</span>
+    <div class="date-field">
+      <small>Date to</small>
+      <label for="dateTo" class="visually-hidden">Date to</label>
+      <input id="dateTo" name="to" type="date">
+    </div>
+  </div>
+  <div class="sub dropdown filter">
+    <button id="btn_filter_results" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+      <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.12282 7.49898V14.0648C8.15532 14.3147 8.07408 14.5814 7.88723 14.7563C7.81207 14.8336 7.7228 14.8949 7.62452 14.9367C7.52625 14.9785 7.42089 15 7.3145 15C7.2081 15 7.10275 14.9785 7.00447 14.9367C6.90619 14.8949 6.81692 14.8336 6.74176 14.7563L5.10886 13.0816C5.02031 12.9927 4.95298 12.884 4.91211 12.7641C4.87124 12.6441 4.85795 12.5161 4.87327 12.39V7.49898H4.8489L0.169548 1.34982C0.037623 1.17612 -0.0219042 0.955919 0.00397369 0.737342C0.0298516 0.518764 0.139031 0.319579 0.307654 0.183308C0.462008 0.0666576 0.632609 0 0.811334 0H12.1848C12.3635 0 12.5341 0.0666576 12.6884 0.183308C12.8571 0.319579 12.9662 0.518764 12.9921 0.737342C13.018 0.955919 12.9585 1.17612 12.8265 1.34982L8.14719 7.49898H8.12282Z" fill="#37405B"></path>
+      </svg>
+      結果
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btn_filter_results">
+      <div class="dropdown-item-checkbox">
+        <div class="form-check">
+          <input class="form-check-input row-checkbox filter-results" type="checkbox" value="success" id="filter_results_opt2">
+          <label class="form-check-label" for="filter_results_opt2">成功</label>
+        </div>
+      </div>
+      <div class="dropdown-item-checkbox">
+        <div class="form-check">
+          <input class="form-check-input row-checkbox filter-results" type="checkbox" value="fail" id="filter_results_opt3">
+          <label class="form-check-label" for="filter_results_opt3">失敗</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- end of wrapper filter-->
+<div class="wrapper pagination-panel-wrapper">
+  <div class="title d-flex justify-content-between mt-2 mb-1">
+    <div class="left"><span id="total_num">0</span> Results</div>
+    <div class="right">Per page
+      <div class="dropdown vgp-size-wrapper">
+        <button id="btn-vgp-size" class="btn btn-vgp-size dropdown-toggle" type="button" data-num_per_page="30" data-toggle="dropdown" aria-expanded="false">30</button>
+        <div class="dropdown-menu" id="dropdown-menu-size">
+          <button class="dropdown-item" type="button" data-num_per_page="10">10</button>
+          <button class="dropdown-item selected" type="button" data-num_per_page="30">30</button>
+          <button class="dropdown-item" type="button" data-num_per_page="50">50</button>
+          <button class="dropdown-item" type="button" data-num_per_page="100">100</button>
+          <button class="dropdown-item" type="button" data-num_per_page="200">200</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <table id="authlog_table">
+      <thead>
+        <tr>
+          <th><span data-target-class="created_at" class="vgp-sorter vgp-dsc">Date</span></th>
+          <th><span data-target-class="user_name" class="vgp-sorter">ユーザー名</span></th>
+          <th class="item"><span data-target-class="email" class="vgp-sorter">メールアドレス</span></th>
+          <th><span data-target-class="user_agent" class="vgp-sorter">user-Agent</span></th>
+          <th><span data-target-class="action" class="vgp-sorter">動作</span></th>
+          <th><span data-target-class="result" class="vgp-sorter">結果</span></th>
+          <th><span data-target-class="reason" class="vgp-sorter">Reason</span></th>
+        </tr>
+      </thead>
+      <tbody id="authlog_table_tbody"></tbody>
+    </table>
+  </div>
+  <div class="d-flex  justify-content-between" id="table-pagination-wrapper">
+    <div id="table-pagination"></div>
+    <div id="table-pagination-desc"></div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js_block %}
+<script type="text/javascript" src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+<script type="text/javascript" src="/static/js/common_admin/admin_authentication.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+$(document).ready(function(){
+  _init();
+});
+</SCRIPT>
+{% endblock %}

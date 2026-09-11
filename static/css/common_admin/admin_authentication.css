@@ -1,0 +1,22 @@
+
+.main-content2 > .wrapper.title, .main-content > .wrapper.title {margin-bottom: 0;}
+.main-content > .wrapper.filter > .sub.letter{max-width: 600px;}
+
+#authlog_table{table-layout: unset;}
+#authlog_table th:nth-child(1),
+#authlog_table td:nth-child(1){padding-left: 15px;}
+
+#authlog_table td:nth-child(1){color: #9A9A9A;}
+#authlog_table td:nth-child(4),
+#authlog_table tr:nth-child(4){white-space: nowrap;}
+.result-tag{
+  display: flex;
+  justify-content: center;   /* 水平居中 */
+  align-items: center;        /* 垂直居中 */
+  width: 50px;
+  height: 30px;
+  border-radius: 30px;
+  color: #FFF;
+}
+.result-tag.success{background-color: #4AB223;}
+.result-tag.fail{background-color: #B22323;}

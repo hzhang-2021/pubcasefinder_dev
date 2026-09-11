@@ -1,0 +1,22 @@
+CREATE TABLE `panelsearch_nando_panel` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `OntoVersion` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `OntoID` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `OntoName` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `OntoSynonym` varchar(3000) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `OntoNameJa` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `OntoSynonymJa` varchar(3000) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `OntoDescendantNum` int(11) NOT NULL DEFAULT '0',
+  `GeneSymbolList` varchar(3000) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `GeneCount` int(11) NOT NULL DEFAULT '0',
+  `notification_number` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `type` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `X_psn_panel_nando_id` (`OntoID`),
+  KEY `X_psn_panel_name_en` (`OntoName`),
+  KEY `X_psn_panel_name_ja` (`OntoNameJa`),
+  KEY `idx_panel_ontoid` (`OntoID`),
+  KEY `idx_panel_cover` (`id`,`OntoID`,`OntoName`,`OntoNameJa`,`OntoDescendantNum`),
+  KEY `idx_panel_name_en` (`OntoName`),
+  KEY `idx_panel_name_ja` (`OntoNameJa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci

@@ -1,0 +1,28 @@
+{% extends "panelsearch_nanbyo_admin_layout.html" %}
+
+{% block page_css_block %}
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-common.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/admin_review.css">
+{% endblock %}
+
+{% block page_content %}
+<div class="wrapper title">
+  <svg width="29" height="29" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.5 12.3857L14.875 13.7455C15.1042 13.8834 15.3333 13.8787 15.5625 13.7313C15.7917 13.5839 15.875 13.3817 15.8125 13.1247L15.1875 10.553L17.3125 8.80892C17.5208 8.63156 17.5833 8.41991 17.5 8.17397C17.4167 7.92803 17.2292 7.79481 16.9375 7.77431L14.1562 7.56739L13.0625 5.14346C12.9583 4.90698 12.7708 4.78874 12.5 4.78874C12.2292 4.78874 12.0417 4.90698 11.9375 5.14346L10.8438 7.56739L8.0625 7.77431C7.77083 7.79402 7.58333 7.92724 7.5 8.17397C7.41667 8.4207 7.47917 8.63235 7.6875 8.80892L9.8125 10.553L9.1875 13.1247C9.125 13.3809 9.20833 13.5831 9.4375 13.7313C9.66667 13.8795 9.89583 13.8842 10.125 13.7455L12.5 12.3857ZM5 18.9185L2.125 21.638C1.72917 22.0124 1.27584 22.0964 0.765002 21.8899C0.254169 21.6833 -0.000831297 21.3136 2.03583e-06 20.7808V2.36481C2.03583e-06 1.71449 0.245002 1.15797 0.735002 0.695254C1.225 0.23254 1.81334 0.00078827 2.5 0H22.5C23.1875 0 23.7762 0.231752 24.2662 0.695254C24.7562 1.15876 25.0008 1.71528 25 2.36481V16.5537C25 17.204 24.7554 17.7609 24.2662 18.2244C23.7771 18.6879 23.1883 18.9193 22.5 18.9185H5ZM3.9375 16.5537H22.5V2.36481H2.5V17.8839L3.9375 16.5537Z" fill="#003537"/>
+  </svg>
+  <span>マイレビュー</span>
+</div>
+<div class="wrapper review" id="panel_entity_review_list_wrapper"></div>
+{% endblock %}
+
+
+{% block page_js_block %}
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/admin_review.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+$(document).ready(function(){
+  _init();
+});
+</SCRIPT>
+{% endblock %}

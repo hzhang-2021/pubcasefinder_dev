@@ -1,0 +1,330 @@
+<!doctype html>
+
+{% if get_locale() == "ja" or get_locale() == "ja_JP" or r_lang == 'ja' %}
+<html lang="ja">
+{% else %}
+<html lang="en">
+{% endif %}
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/static/fonts/Web/css/ibm-plex-sans-jp.min.css">
+  <link rel="stylesheet" href="/static/bootstrap-4.6.2-dist/css/bootstrap.css">
+  <link rel='stylesheet' href="/static/css/pcf/branc.css">
+  <link rel='stylesheet' href="/static/css/pcf/branc-ie7.css">
+  <link rel='stylesheet' href="/static/css/pcf/branc-ie7-codes.css">
+  <link rel='stylesheet' href="/static/css/pcf/branc-embedded.css">
+  <link rel="stylesheet" href="/static/css/pcf/footer.css">
+  <link rel="stylesheet" href="/static/css/common-nav.css">
+  <link rel="stylesheet" href="/static/css/common-nav-auth.css">
+  {% if r_service == "panelsearch_nanbyo" %}
+  <link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-common.css">
+  <link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+  <link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-panel-entity-detail.css">
+  <link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tokenTypeahead.css">
+  <link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tokenDropdownTreeview.css">
+  <link rel="stylesheet" href="/static/css/panelsearch_nanbyo/treeviewInput.css">
+  <link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-panel-review.css">
+  {% endif %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+  <meta name="msapplication-TileColor" content="#00a300">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="/static/css/google-user.css">
+  <title>
+  {% if r_service == "casesharing" %}
+  CaseSharing : PubCaseFinder
+  {% elif r_service == "panelsearch" %}
+  PanelSearch : PubCaseFinder
+  {% elif r_service == "panelsearch_nanbyo" %}
+  PanelSearch(nanbyo) : PubCaseFinder
+  {% else %}
+  PubCaseFinder
+  {% endif %}
+  </title>
+
+</head>
+
+<body>
+{% if r_service == "casesharing" %}
+  {% with service="casesharing", show_info=False, show_login=True %}
+  {% include "common_header.html" %}
+  {% endwith %}
+{% elif r_service == "panelsearch" %}
+  {% with service="panelsearch", show_info=False, show_login=True %}
+  {% include "common_header.html" %}
+  {% endwith %}
+{% elif r_service == "panelsearch_nanbyo" %}
+  <div id="vgp-loader-whole"></div>
+  {% with service="panelsearch_nanbyo", show_info=False, show_login=True %}
+  {% include "common_header.html" %}
+  {% endwith %}
+{% elif r_service == "diseasesearch" %}
+  {% with service="diseasesearch", show_info=False, show_login=True, show_tag=True %}
+  {% include "common_header.html" %}
+  {% endwith %}
+{% endif %}
+<div class="vgp-main {{ r_service }}">
+  <div class="vgp-wrapper vgp-wrapper-upper">
+    <div class="vgp-content">
+      <div>
+        {% if r_service == "casesharing" %}
+        <a class="vgp-home" href="/case">Home</a>
+        {% elif r_service == "panelsearch" %}
+        <a class="vgp-home" href="/panelsearch">Home</a>
+        {% elif r_service == "panelsearch_nanbyo" %}
+        <a class="vgp-home" href="/panelsearch_nanbyo">Home</a>
+        {% else %}
+        <a class="vgp-home" href="/">Home</a>
+        {% endif %}
+        <span class="color-white"> &gt; </span>
+        <span class="vgp-target color-white">User</span>
+      </div>
+      <h1 class="color-white">User Information</h1>
+    </div>
+  </div>
+  <div class="vgp-wrapper">
+    <div class="vgp-content">
+      <form action="/google_user_save" method="post" autocomplete="off" id="vgp-user-form">
+        <input type="hidden" name="service" id="i_service" value="{{ r_service }}" required />
+        <input type="hidden" name="uid" id="i_uid" value="{{ r_user_info.uid }}" required />
+        <div class="vgp-user-input-wrapper" id="vgp-user-input-table-wrapper">
+          <table class= "vgp-user-input-table {{ r_service  }}">
+            <tr><th>Google Account</th><td>{{ r_mail }}</td></tr>
+            <tr><th>First name (English)</th><td>{{ r_user_info.first_name_en }}</td></tr>
+            <tr><th>First name (native language)</th><td>{{ r_user_info.first_name_nl }}</td></tr>
+            <tr><th>Last name (English)</th><td>{{ r_user_info.last_name_en }}</td></tr>
+            <tr><th>Last name (native language)</th><td>{{ r_user_info.last_name_nl }}</td></tr>
+            {% if r_service == "panelsearch_nanbyo" %}
+            <tr><th>Affiliation</th><td>{{ r_user_info.affiliation }}</td></tr>
+            <tr><th>Email</th><td>{{ r_user_info.email }}</td></tr>
+            <tr><th>Job title</th><td>{{ r_user_info.job_title }}</td></tr>
+            {% else %}
+            <tr><th>Affiliation (English)</th><td>{{ r_user_info.affiliation_en }}</td></tr>
+            <tr><th>Affiliation (native language)</th><td>{{ r_user_info.affiliation_nl }}</td></tr>
+            <tr><th>Email</th><td>{{ r_user_info.email }}</td></tr>
+            <tr><th>Job title (English)</th><td>{{ r_user_info.job_title_en }}</td></tr>
+            <tr><th>Job title (native language)</th><td>{{ r_user_info.job_title_nl }}</td></tr>
+            {% endif %}
+          </table>
+        </div>
+        <div class="vgp-user-input-wrapper" id="vgp-user-input-input-wrapper" style="display: none;">
+        <fieldset class="vgp-user-input-form">
+          <div class="form-group vgp-user-input" style="margin-top: 15px;">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_google_id">*Google Account</label>
+            <input type="text" name="google_id" id="i_google_id" value="{{ r_mail }}" 
+                   class="form-control vgp-user-input-readonly" title="required" readonly="readonly" required />
+          </div>
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_last_name_en">*Last name (English)</label>
+            <input type="text" name="last_name_en" id="i_last_name_en" value="{{ r_user_info.last_name_en }}" maxlength="40"
+                   class="form-control vgp-user-input-input for-check notempty" placeholder="Last name (English)" title="required" required />
+          </div>
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_last_name_nl">
+              {% if r_service == "panelsearch_nanbyo" %}*{% endif %}Last name (native language)</label>
+            <input type="text" name="last_name_nl" id="i_last_name_nl" value="{{ r_user_info.last_name_nl }}" maxlength="40"
+                   class="form-control vgp-user-input-input {% if r_service == "panelsearch_nanbyo" %}for-check notempty{% endif %}" 
+                   placeholder="Last name (native language)" {% if r_service == "panelsearch_nanbyo" %}required{% endif %} />
+          </div>
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_first_name_en">*First name (English)</label>
+            <input type="text" name="first_name_en" id="i_first_name_en" value="{{ r_user_info.first_name_en }}" maxlength="40" 
+                   class="form-control vgp-user-input-input for-check notempty" placeholder="First name (English)" title="required" id="i_first_name_en" required />
+          </div>
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_first_name_nl">
+              {% if r_service == "panelsearch_nanbyo" %}*{% endif %}First name (native language)
+            </label>
+            <input type="text" name="first_name_nl" id="i_first_name_nl" value="{{ r_user_info.first_name_nl }}" maxlength="40" 
+                   class="form-control vgp-user-input-input {% if r_service == "panelsearch_nanbyo" %}for-check notempty{% endif %}" 
+                   placeholder="First name (native language)" {% if r_service == "panelsearch_nanbyo" %}required{% endif %} />
+          </div>
+
+
+          {% if r_service == "panelsearch_nanbyo" %}
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_affiliation">*Affiliation</label>
+            <input type="text" name="affiliation" id="i_affiliation" value="{{ r_user_info.affiliation }}" maxlength="256" 
+                   class="form-control vgp-user-input-input for-check notempty" placeholder="Affiliation" title="required" required />
+          </div>
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_affiliation_email">*Affiliation email</label>
+            <input type="text" name="email" id="i_affiliation_email" value="{{ r_user_info.email }}"  maxlength="50" 
+                   class="form-control vgp-user-input-input for-check email" placeholder="Email" required />
+          </div>
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_job_title">*Job Title</label>
+            <input type="text" name="job_title" id="i_job_title" value="{{ r_user_info.job_title }}" maxlength="256" 
+                   class="form-control vgp-user-input-input for-check notempty" placeholder="Job title" title="required" required />
+          </div>
+          {% else %}
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_affiliation_en">*Affiliation (English)</label>
+            <input type="text" name="affiliation_en" id="i_affiliation_en" value="{{ r_user_info.affiliation_en }}" maxlength="256"
+                   class="form-control vgp-user-input-input for-check notempty" placeholder="Affiliation (English)" title="required" required />
+          </div>
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_affiliation_nl">Affiliation (native language)</label>
+            <input type="text" name="affiliation_nl" id="i_affiliation_nl" value="{{ r_user_info.affiliation_nl }}" maxlength="256"
+                   class="form-control vgp-user-input-input" placeholder="Affiliation (native language)" />
+          </div>
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_affiliation_email">*Affiliation email</label>
+            <input type="text" name="email" id="i_affiliation_email" value="{{ r_user_info.email }}"  maxlength="50"
+                   class="form-control vgp-user-input-input for-check email" placeholder="Email" required />
+          </div>
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_job_title_en">*Job Title (English)</label>
+            <input type="text" name="job_title_en" id="i_job_title_en" value="{{ r_user_info.job_title_en }}" maxlength="256"
+                   class="form-control vgp-user-input-input for-check notempty" placeholder="Job title (English)" title="required" required />
+          </div>
+          <div class="form-group vgp-user-input">
+            <label class="vgp-user-input-title {{ r_service  }}" for="i_job_title_nl">Job Title (native language)</label>
+            <input type="text" name="job_title_nl" id="i_job_title_nl" value="{{ r_user_info.job_title_nl }}" maxlength="256"
+                   class="form-control vgp-user-input-input" placeholder="Job title (native language)" />
+          </div>
+          {% endif %}
+        </fieldset>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <button type="button" class="vgp-user-btn vgp-user-btn1 {{ r_service }}" id="vgp-user-btn-edit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+              </svg>  Edit
+            </button>
+            <button type="button" class="vgp-user-btn vgp-user-btn1 {{ r_service }}" id="vgp-user-btn-save" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+              </svg> Save
+            </button>
+            <button type="button" class="vgp-user-btn vgp-user-btn2" id="vgp-user-btn-cancel" style="display: none;">Cancel</button>
+          </div>
+          <div>
+            <button type="button" class="vgp-user-btn vgp-user-btn3" data-toggle="modal" data-target="#deleteModal" id="vgp-user-btn-delete">
+              <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18" fill="currentColor">
+                <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+              </svg> Delete
+            </button>
+          </div>
+        </div>
+      </form>
+
+{% if r_service == "panelsearch_nanbyo" %}
+      <nav class="vgp-nav" style="margin-top: 30px; width:100%;">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active mr-2" id="nav-vgp-panel-gene-review-panel" data-toggle="tab" href="#vgp-panel-gene-review-panel" role="tab" aria-controls="vgp-panel-gene-review-panel" aria-selected="true">Reviews (0)</a>
+          <a class="nav-item nav-link mr-2" id="nav-vgp-history-panel" data-toggle="tab" href="#vgp-history-panel" role="tab" aria-controls="vgp-history-panel" aria-selected="false">History</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div id="vgp-panel-gene-review-panel" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-vgp-panel-gene-review-panel">
+          <div class="vgp-rating-tag-list-container mt-5">
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-definitive" class="vgp-rating-list-tag vgp-rating-definitive">0</span></div><div class="vgp-rotate45">Definitive</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-strong" class="vgp-rating-list-tag vgp-rating-strong">0</span></div><div class="vgp-rotate45">Strong</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-moderate" class="vgp-rating-list-tag vgp-rating-moderate">0</span></div><div class="vgp-rotate45">Moderate</div></div>
+            <div class="vgp-rating-tag-subcontainer vgp-rating-divide"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-supportive" class="vgp-rating-list-tag vgp-rating-supportive">0</span></div><div class="vgp-rotate45">Supportive</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-limited" class="vgp-rating-list-tag vgp-rating-limited">0</span></div><div class="vgp-rotate45">Limited</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-disputed" class="vgp-rating-list-tag vgp-rating-disputed">0</span></div><div class="vgp-rotate45">Disputed</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-refuted" class="vgp-rating-list-tag vgp-rating-refuted">0</span></div><div class="vgp-rotate45">Refuted</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-animal" class="vgp-rating-list-tag vgp-rating-animal">0</span></div><div class="vgp-rotate45">Animal</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-noknown" class="vgp-rating-list-tag vgp-rating-noknown">0</span></div><div class="vgp-rotate45">No known</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-norating" class="vgp-rating-list-tag vgp-rating-norating">0</span></div><div class="vgp-rotate45">No rating</div></div>
+          </div>
+          <div class="vgp-panel-entity-view-num-wrapper mt-2  d-flex justify-content-between flex-nowrap">
+            <div><span class="vgp-panel-entity-view-num" id="panel_entity_review_num">0</span> reviews</div>
+            <div class="d-flex">
+                <span class="material-symbols-outlined" style="display: inline-block; align-content:center;">public</span>
+                <div class="dropdown vgp-review-select-wrapper">
+                  <button id="btn-panel-select-trigger" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Select Panel</button>
+                  <div class="dropdown-menu" id="dropdown_menu_panel"></div>
+                </div>
+                <span class="ml-2 mr-2"> > </span>
+                <div class="dropdown vgp-review-select-wrapper">
+                  <button id="btn-entity-select-trigger" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Select Entity</button>
+                  <div class="dropdown-menu" id="dropdown_menu_entity"></div>
+                </div>
+            </div>
+          </div>
+        </div><!-- end of vgp-panel-gene-review-panel tab -->
+        <div id="vgp-history-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-vgp-history-panel">
+          <div class="vgp-version-comments-wrapper">
+            <ul class="sessions" id="ul_history"></ul>
+          </div>
+        </div><!-- end of vgp-history-panel tab -->
+      </div><!-- end of tab content wrapper -->
+{% endif %}
+    </div> <!-- end of content -->
+  </div> <!-- end of wrap -->
+</div> <!-- end of main -->
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Please confirm by entering the google account(email) to delete:</p>
+        <form id="deleteForm">
+          <input type="hidden" id="originalEmail" value="{{ r_mail }}">
+          <div class="form-group">
+            <label for="confirmEmail">Google Account(Email)</label>
+            <input type="email" class="form-control" id="confirmEmail" required>
+          </div>
+          <div class="text-danger" id="errorMessage" style="display: none;">Google Account(Email) does not match!</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button id="submitDeleteBtn" type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form action="/google_user_delete" method="post" id="vgp-user-delete-form" style="display: none;">
+  <input type="hidden" name="uid" id="in-user-uid" value="{{ r_user_info.uid }}" />
+  <input type="hidden" name="service" id="in-user-service" value="{{ r_service }}" />
+  <input type="hidden" name="account" id="in-user-account"  value="{{ r_mail }}" />
+</form>
+
+
+{% if r_service == "panelsearch_nanbyo" %}
+
+<div onclick="topFunction()" id="btn_back_to_top" title="Go to top">
+  <img src="/static/images/panelsearch_nanbyo/TOP.png"></img>
+</div>
+{% endif %}
+
+
+</body>
+
+<!-- 
+<script type="text/javascript"
+  src="https://dbcls.rois.ac.jp/DBCLS-common-header-footer/v2/script/common-header-and-footer.js"
+  data-show-footer="false" data-show-footer-license="false" data-show-footer-links="false" style="display: block"
+  id="common-header-and-footer__script" data-width="976" data-color="mono"></script>
+-->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/static/record/variables/translation.js" async defer></script>
+<script src="/static/js/common-header.js"></script>
+{% if r_service == "casesharing" %}
+<script src="/static/js/common-header-auth-casesharing.js" async defer></script>
+{% elif r_service == "panelsearch" %}
+<script src="/static/js/common-header-auth-panelsearch.js" async defer></script>
+{% elif r_service == "diseasesearch" %}
+<script src="/static/js/common-header-auth-diseasesearch.js" async defer></script>
+{% endif %}
+<script type="text/javascript" src="/static/bootstrap-4.6.2-dist/js/bootstrap.bundle.js"></script>
+<script src="/static/js/google_user.js"></script>
+
+</html>

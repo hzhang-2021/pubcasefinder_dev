@@ -1,0 +1,36 @@
+.token-input-wrapper{
+  padding:0px;
+  border: 0px;
+  height: 45px;
+  position: relative;
+}
+
+.token-input-container{
+  align-items:baseline;
+  overflow-y: auto;
+  height:100%;
+  border: 2px solid #E1E3E1;
+  border-radius: 7px;
+}
+
+.token-input-container input{height: 28px; padding: 2px;}
+
+.token-input-container.disabled input{ display: none;}
+
+.typeahead-dropdown{
+  max-height:  calc(100vh - 350px);
+}
+
+.token-input-container.static .token,.token{
+  background-color: #DCFAE6;
+  border: 2px solid #92BEA9;
+  border-radius:30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #000;
+  height: 28px;
+}
+.token svg{
+  margin-right: 5px;
+  cursor: pointer;
+}

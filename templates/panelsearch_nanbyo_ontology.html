@@ -1,0 +1,97 @@
+{% extends "panelsearch_base.html" %}
+{% block css_block %}
+<link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tippy.css" type="text/css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-common.css" type="text/css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/ontology.css" type="text/css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/ontology_treeview.css" type="text/css">
+{% endblock %}
+{% block title_block %}PanelSearch(nanbyo) : PubCaseFinder{% endblock %}
+{% block main_block %}
+<div class="vgp-wrapper mt-4">
+  <h1 class="mb-4">🔍 オントロジー管理</h1>
+  <nav class="vgp-nav">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active mr-2" id="nav-ontology-list-panel" data-toggle="tab" href="#ontology-list-panel" role="tab" aria-controls="ontology-list-panel" aria-selected="true" >
+        Ontology In DB
+      </a>
+      <a class="nav-item nav-link mr-2" id="nav-ontology-upload-panel" data-toggle="tab" href="#ontology-upload-panel" role="tab" aria-controls="ontology-upload-panel" aria-selected="false">
+        Ontology From File
+      </a>
+    </div>
+  </nav>
+
+  <div class="tab-content pt-2 pb-2" id="nav-tabContent">
+    <div id="ontology-list-panel" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-ontology-list-panel">
+      <div class="table-wrapper">
+        <table class="table table-striped table-bordered table-hover" id="ontology-list-table">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>TTL File</th>
+              <th style="display:none;">TTL File MD5</th>
+              <th>検査用パネル</th>
+              <th>未指定疾患群</th>
+              <th>Description</th>
+              <th>Valid</th>
+              <th>Created At</th>
+            </tr>
+          </thead>
+          <tbody id="ontology-list-table-tableBody">
+            {% for o in ontology_list %}
+            <tr>
+              <td class="ontology_id">{{ o.ontology_id }}</td>
+              <td class="filename">{{ o.ontology_file }}</td>
+              <td class="md5" style="display:none;">{{ o.md5 }}</td>
+              <td>{{ o.specified_node_cnt }}</td>
+              <td>{{ o.unspecified_node_cnt }}</td>
+              <td>{{ o.description }}</td>
+              <td>{{ o.is_valid }}</td>
+              <td>{{ o.created_at }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="upload-section">
+        <button id="btn_load_selected_ttl_db">📂 Load Selected Ontology From DB</button>
+        <span class="file-status" id="fileStatus_db">📄 ファイル未選択</span>
+        <span class="stats" id="stats_db">⏳ 待機中</span>
+      </div>
+      <div id='ontology_treeview_wrapper_db'></div>
+    </div>
+    <div id="ontology-upload-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-ontology-upload-panel">
+      <div class="upload-section">
+        <label for="ttlFile">📂 TTL ファイルを選択</label>
+        <input type="file" id="ttlFile" style="display:none" accept=".ttl,.txt,.rdf,.owl">
+<!--
+        <input type="file" id="ttlFile" style="display:none" accept=".ttl,.rdf,.owl,.txt">
+        <button id="btnSelectFile">📂 TTL ファイルを選択</buttton>
+-->
+        <span class="file-status loaded" id="fileStatus">📄 ファイル未選択</span>
+        <span class="stats" id="stats">⏳ 待機中</span>
+        <button id="btn_upload_ttl" style="display:none;">📤 アップロード</button>
+      </div>
+      <div class="progress-bar" id="progressBar">
+        <div class="fill" id="progressFill"></div>
+      </div>
+      <div id='ontology_treeview_wrapper_file'></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block js_block %}
+<script type="text/javascript" src="/static/js/popperjs-core-2.11.8/core/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/tippyjs/tippy-bundle.umd.js"></script>
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="https://unpkg.com/n3/browser/n3.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/spark-md5@3.0.2/spark-md5.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.ontology_treeview.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/ontology_analysis.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/ontology.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+  $(document).ready(function(){
+    _vgp_init();
+  });
+</SCRIPT>
+{% endblock %}

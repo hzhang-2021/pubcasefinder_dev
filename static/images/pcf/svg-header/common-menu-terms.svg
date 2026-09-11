@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <clipPath id="clip-common-menu-terms">
+      <rect width="400" height="400"/>
+    </clipPath>
+  </defs>
+  <g id="common-menu-terms" clip-path="url(#clip-common-menu-terms)">
+    <g id="グループ_56857" data-name="グループ 56857">
+      <path id="長方形_8888" data-name="長方形 8888" d="M33-16H283a49.056,49.056,0,0,1,49,49V278a49.056,49.056,0,0,1-49,49H33a49.056,49.056,0,0,1-49-49V33A49.056,49.056,0,0,1,33-16ZM283,295a17.019,17.019,0,0,0,17-17V33a17.019,17.019,0,0,0-17-17H33A17.019,17.019,0,0,0,16,33V278a17.019,17.019,0,0,0,17,17Z" transform="translate(42 45)"/>
+      <path id="線_967" data-name="線 967" d="M169.156,16H0A16,16,0,0,1-16,0,16,16,0,0,1,0-16H169.156a16,16,0,0,1,16,16A16,16,0,0,1,169.156,16Z" transform="translate(113.02 138.008)"/>
+      <path id="線_968" data-name="線 968" d="M169.156,16H0A16,16,0,0,1-16,0,16,16,0,0,1,0-16H169.156a16,16,0,0,1,16,16A16,16,0,0,1,169.156,16Z" transform="translate(113.02 200)"/>
+      <path id="線_969" data-name="線 969" d="M169.156,16H0A16,16,0,0,1-16,0,16,16,0,0,1,0-16H169.156a16,16,0,0,1,16,16A16,16,0,0,1,169.156,16Z" transform="translate(113.02 261.992)"/>
+    </g>
+  </g>
+</svg>

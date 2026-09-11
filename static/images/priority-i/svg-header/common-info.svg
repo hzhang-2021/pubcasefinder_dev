@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <clipPath id="clip-common-info">
+      <rect width="400" height="400"/>
+    </clipPath>
+  </defs>
+  <g id="common-info" clip-path="url(#clip-common-info)">
+    <path id="パス_124800" data-name="パス 124800" d="M179.5,32C98.168,32,32,98.168,32,179.5S98.168,327,179.5,327,327,260.832,327,179.5,260.832,32,179.5,32m0-32A179.5,179.5,0,1,1,0,179.5,179.5,179.5,0,0,1,179.5,0Z" transform="translate(21 21)"/>
+    <path id="パス_124798" data-name="パス 124798" d="M24.5,0A24.5,24.5,0,1,1,0,24.5,24.5,24.5,0,0,1,24.5,0Z" transform="translate(176 104)"/>
+    <path id="パス_124799" data-name="パス 124799" d="M19.5,0A19.5,19.5,0,0,1,39,19.5v89a19.5,19.5,0,0,1-39,0v-89A19.5,19.5,0,0,1,19.5,0Z" transform="translate(181 175)"/>
+  </g>
+</svg>

@@ -1,0 +1,379 @@
+{% extends "panelsearch_nanbyo_admin_layout.html" %}
+
+
+{% block page_css_block %}
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/admin_user.css">
+{% endblock %}
+
+{% block page_content %}
+    <div class="wrapper title">
+      <svg width="29" height="29" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 1C18.5523 1 19 1.44772 19 2V4H21.667C22.3085 4.00008 22.8582 4.22835 23.3154 4.68555C23.7727 5.1428 24.0007 5.69226 24 6.33301V22.667C23.9999 23.3085 23.7719 23.8582 23.3154 24.3154C22.859 24.7727 22.3093 25.0007 21.667 25H5.33301C4.69148 24.9999 4.14203 24.7719 3.68555 24.3154C3.22913 23.859 3.00086 23.3093 3 22.667V6.33301C3.00008 5.69148 3.22829 5.14203 3.68555 4.68555C4.1428 4.22907 4.69226 4.00085 5.33301 4H8V2C8 1.44772 8.44772 1 9 1H18ZM5.33301 22.667H21.667V6.33301H5.33301V22.667ZM19.167 18C19.4973 18.0001 19.7739 18.1121 19.9971 18.3359C20.2203 18.5599 20.3322 18.8372 20.333 19.167C20.3337 19.4966 20.222 19.7731 19.998 19.9971C19.7741 20.2209 19.4974 20.3329 19.167 20.333H14.5C14.171 20.3346 13.8937 20.2228 13.6689 19.998C13.4445 19.7734 13.3323 19.4964 13.333 19.167C13.3338 18.8373 13.4458 18.5599 13.6689 18.3359C13.8922 18.1119 14.1694 18 14.5 18H19.167ZM10.6465 16.2334C10.9568 15.9224 11.4572 15.9224 11.7676 16.2334C12.0776 16.5444 12.0777 17.0455 11.7676 17.3564L9.37109 19.7578C9.21593 19.9133 9.02588 20 8.80176 20C8.57762 20 8.38759 19.9133 8.23242 19.7578L7.23242 18.7559C6.92234 18.4449 6.92231 17.9438 7.23242 17.6328C7.54277 17.3218 8.04317 17.3218 8.35352 17.6328L8.78418 18.0645L10.6123 16.2334H10.6465ZM10.6465 12.2334C10.9568 11.9224 11.4572 11.9224 11.7676 12.2334C12.0776 12.5444 12.0777 13.0455 11.7676 13.3564L9.37109 15.7578C9.21593 15.9133 9.02588 16 8.80176 16C8.57762 16 8.38759 15.9133 8.23242 15.7578L7.23242 14.7559C6.92234 14.4449 6.92231 13.9438 7.23242 13.6328C7.54277 13.3218 8.04317 13.3218 8.35352 13.6328L8.78418 14.0645L10.6123 12.2334H10.6465ZM19.167 13.333C19.4972 13.3331 19.774 13.4452 19.9971 13.6689C20.2203 13.8929 20.3322 14.1702 20.333 14.5C20.3338 14.8298 20.222 15.1071 19.998 15.3311C19.7742 15.5547 19.4972 15.6669 19.167 15.667H14.5C14.171 15.6685 13.8937 15.5568 13.6689 15.332C13.4442 15.1073 13.3322 14.8297 13.333 14.5C13.3338 14.1702 13.4457 13.8929 13.6689 13.6689C13.8922 13.4449 14.1694 13.333 14.5 13.333H19.167ZM10.6465 8.2334C10.9568 7.92238 11.4572 7.92238 11.7676 8.2334C12.0776 8.54439 12.0777 9.0455 11.7676 9.35645L9.37109 11.7578C9.21593 11.9133 9.02588 12 8.80176 12C8.57762 12 8.38759 11.9133 8.23242 11.7578L7.23242 10.7559C6.92234 10.4449 6.92231 9.94377 7.23242 9.63281C7.54277 9.3218 8.04317 9.3218 8.35352 9.63281L8.78418 10.0645L10.6123 8.2334H10.6465ZM19.167 8.66699C19.4974 8.66707 19.7739 8.779 19.9971 9.00293C20.2202 9.22686 20.3322 9.50337 20.333 9.83301C20.3338 10.1628 20.222 10.4401 19.998 10.6641C19.7742 10.8878 19.4973 10.9999 19.167 11H14.5C14.171 11.0016 13.8937 10.8898 13.6689 10.665C13.4443 10.4403 13.3322 10.1627 13.333 9.83301C13.3339 9.50353 13.446 9.2268 13.6689 9.00293C13.8922 8.77893 14.1694 8.66699 14.5 8.66699H19.167Z" fill="#45594F"/>
+        </svg>
+      <span>ユーザー管理</span>
+    </div>
+    <div class="wrapper filter">
+      <div class="sub letter">
+        <input id="filter_letter" type="text" autocomplete="off" autocapitalize="off" placeholder="名前 / メールアドレス"
+               data-target-class="name,email" data-isSetHighlight="1">
+      </div>
+      <div class="sub dropdown filter">
+        <button id="btn_filter_group" class="btn dropdown-toggle group" type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+          <svg width="13" height="16" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.12282 7.49898V14.0648C8.15532 14.3147 8.07408 14.5814 7.88723 14.7563C7.81207 14.8336 7.7228 14.8949 7.62452 14.9367C7.52625 14.9785 7.42089 15 7.3145 15C7.2081 15 7.10275 14.9785 7.00447 14.9367C6.90619 14.8949 6.81692 14.8336 6.74176 14.7563L5.10886 13.0816C5.02031 12.9927 4.95298 12.884 4.91211 12.7641C4.87124 12.6441 4.85795 12.5161 4.87327 12.39V7.49898H4.8489L0.169548 1.34982C0.037623 1.17612 -0.0219042 0.955919 0.00397369 0.737342C0.0298516 0.518764 0.139031 0.319579 0.307654 0.183308C0.462008 0.0666576 0.632609 0 0.811334 0H12.1848C12.3635 0 12.5341 0.0666576 12.6884 0.183308C12.8571 0.319579 12.9662 0.518764 12.9921 0.737342C13.018 0.955919 12.9585 1.17612 12.8265 1.34982L8.14719 7.49898H8.12282Z" fill="#37405B"/>
+          </svg>
+          グループ
+        </button>
+        <div class="dropdown-menu group" aria-labelledby="btn_filter_group">
+          <div class="dropdown-search"> 
+            <input id="dropdown_filter_group" type="text" autocomplete="off" class="form-control" placeholder="Filter...">
+          </div>
+          <div class="dropdown-items">
+            {% for group in r_group_list %}
+            <div class="dropdown-item-checkbox">
+              <div class="form-check">
+                  <input class="form-check-input row-checkbox filter-group" type="checkbox" value="{{ group.id }}" id="filter_group_opt_{{ group.id }}">
+                  <label class="form-check-label" for="filter_group_opt_{{ group.id }}" title="{{ group.group_title }}">{{ group.group_title }}</label>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="sub dropdown filter">
+        <button id="btn_filter_status" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+          <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.12282 7.49898V14.0648C8.15532 14.3147 8.07408 14.5814 7.88723 14.7563C7.81207 14.8336 7.7228 14.8949 7.62452 14.9367C7.52625 14.9785 7.42089 15 7.3145 15C7.2081 15 7.10275 14.9785 7.00447 14.9367C6.90619 14.8949 6.81692 14.8336 6.74176 14.7563L5.10886 13.0816C5.02031 12.9927 4.95298 12.884 4.91211 12.7641C4.87124 12.6441 4.85795 12.5161 4.87327 12.39V7.49898H4.8489L0.169548 1.34982C0.037623 1.17612 -0.0219042 0.955919 0.00397369 0.737342C0.0298516 0.518764 0.139031 0.319579 0.307654 0.183308C0.462008 0.0666576 0.632609 0 0.811334 0H12.1848C12.3635 0 12.5341 0.0666576 12.6884 0.183308C12.8571 0.319579 12.9662 0.518764 12.9921 0.737342C13.018 0.955919 12.9585 1.17612 12.8265 1.34982L8.14719 7.49898H8.12282Z" fill="#37405B"></path>
+          </svg>
+          ステータス
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btn_filter_status">
+
+          <div class="dropdown-item-checkbox">
+            <div class="form-check">
+                <input class="form-check-input row-checkbox filter-status" type="checkbox" value="55,60" id="filter_status_opt1">
+                <label class="form-check-label" for="filter_status_opt1">承認</label>
+            </div>
+          </div>
+
+          <div class="dropdown-item-checkbox">
+            <div class="form-check">
+                <input class="form-check-input row-checkbox filter-status" type="checkbox" value="40,45,50" id="filter_status_opt2">
+                <label class="form-check-label" for="filter_status_opt2">申請</label>
+            </div>
+          </div>
+
+          <div class="dropdown-item-checkbox">
+            <div class="form-check">
+                <input class="form-check-input row-checkbox filter-status" type="checkbox" value="35" id="filter_status_opt3">
+                <label class="form-check-label" for="filter_status_opt3">無効</label>
+            </div>
+          </div>
+
+          <div class="dropdown-item-checkbox">
+            <div class="form-check">
+                <input class="form-check-input row-checkbox filter-status" type="checkbox" value="12,14" id="filter_status_opt4">
+                <label class="form-check-label" for="filter_status_opt4">停止</label>
+            </div>
+          </div>
+
+          <div class="dropdown-item-checkbox">
+            <div class="form-check">
+                <input class="form-check-input row-checkbox filter-status" type="checkbox" value="15,20" id="filter_status_opt5">
+                <label class="form-check-label" for="filter_status_opt5">拒否</label>
+            </div>
+          </div>
+
+          <div class="dropdown-item-checkbox">
+            <div class="form-check">
+                <input class="form-check-input row-checkbox filter-status" type="checkbox" value="25,30" id="filter_status_opt6">
+                <label class="form-check-label" for="filter_status_opt6">退会</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="wrapper pagination-panel-wrapper">
+      <div class="title d-flex justify-content-between mt-2 mb-1">
+        <div class="left"><span id="total_num">0</span>ユーザー</div>
+        <div class="right">Per page
+          <div class="dropdown vgp-size-wrapper">
+            <button id="btn-vgp-size" class="btn btn-vgp-size dropdown-toggle" type="button" data-num_per_page="30" data-toggle="dropdown" aria-expanded="false">30</button>
+            <div class="dropdown-menu" id="dropdown-menu-size">
+              <button class="dropdown-item" type="button" data-num_per_page="10">10</button>
+              <button class="dropdown-item selected" type="button" data-num_per_page="30">30</button>
+              <button class="dropdown-item" type="button" data-num_per_page="50">50</button>
+              <button class="dropdown-item" type="button" data-num_per_page="100">100</button>
+              <button class="dropdown-item" type="button" data-num_per_page="200">200</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table id="user-table" class="user-table">
+          <colgroup>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="sel">
+                <label class="custom-checkbox">
+                  <input type="checkbox" class="check-all"><span></span>
+                </label>
+              </th>
+              <th><span data-target-class="name"        class="vgp-sorter">氏名</span></th>
+              <th><span data-target-class="affiliation" class="vgp-sorter">所属機関・部署</span></th>
+              <th><span data-target-class="group-cnt"   class="vgp-sorter">グループ名</span></th>
+              <th><span data-target-class="user-status" class="vgp-sorter">ステータス</span></th>
+              <th><span data-target-class="date"        class="vgp-sorter vgp-dsc">登録日</span></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="user_table_tbody">
+          </tbody>
+        </table>
+      </div>
+      <div class="d-flex  justify-content-between" id="table-pagination-wrapper">
+        <div id="table-pagination"></div>
+        <div id="table-pagination-desc"></div>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block page_content2 %}
+<div class="wrapper title d-flex justify-content-between">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="36px" height="36px" viewBox="0 -960 960 960" fill="#003537">
+      <path d="M720-200 550-370q-35 28-78 44t-92 16q-130 0-221-91t-91-221q0-130 91-221t221-91q130 0 221 91t91 221q0 49-16 92t-44 78l170 170-42 42ZM380-400q95 0 162.5-67.5T610-630q0-95-67.5-162.5T380-860q-95 0-162.5 67.5T150-630q0 95 67.5 162.5T380-400Z"/>
+    </svg>
+    <span>詳細編集</span>
+  </div>
+
+  <div id="btn_back_to_list" title="Back to user list">
+<svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#003537"><path d="m456-320 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 160q-19 0-36-8.5T296-192L80-480l216-288q11-15 28-23.5t36-8.5h440q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H360ZM180-480l180 240h440v-480H360L180-480Zm400 0Z"/></svg>
+  </div>
+</div>
+
+<div class="wrapper user-detail">
+  <div class="vgp-user-input-wrapper" id="vgp-user-input-table-wrapper">
+    <table class="vgp-user-input-table panelsearch_nanbyo">
+      <tbody>
+        <tr>
+          <th>Account</th>
+          <td id="detail_google_id"></td>
+        </tr>
+<!--
+        <tr>
+          <th>User type</th>
+          <td id="detail_user_type"></td>
+        </tr>
+-->
+        <tr>
+          <th>苗字</th>
+          <td id="detail_last_name_nl"></td>
+        </tr>
+        <tr>
+          <th>苗字 (English)</th>
+          <td id="detail_last_name_en"></td>
+        </tr>        
+        <tr>
+          <th>名前</th>
+          <td id="detail_first_name_nl"></td>
+        </tr>
+        <tr>
+          <th>名前 (English)</th>
+          <td id="detail_first_name_en"></td>
+        </tr>
+        <tr>
+          <th>所属機関・部署</th>
+          <td id="detail_affiliation"></td>
+        </tr>
+        <tr>
+          <th>所属機関のメールアドレス</th>
+          <td id="detail_affiliation_email"></td>
+        </tr>
+        <tr>
+          <th>職名</th>
+          <td id="detail_job_title"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="vgp-user-input-wrapper" id="vgp-user-input-input-wrapper" style="display: none;">
+    <form action="/panelsearch_nanbyo_admin_modify_user" method="post" autocomplete="off" id="vgp-user-form">
+      <input type="hidden" name="service" id="i_service" value="panelsearch_nanbyo">
+      <fieldset class="vgp-user-input-form">
+        <div class="form-group vgp-user-input" style="margin-top: 15px;">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_google_id">Google Account</label>
+          <input type="text" name="google_id" id="i_google_id" autocomplete="off"  
+               class="form-control vgp-user-input-readonly" title="required" readonly="readonly">
+        </div>
+
+        <input type="hidden" name="user_type" id="i_user_type" value="">
+<!--
+        <div class="form-group vgp-user-input">
+        <label class="vgp-user-input-title panelsearch_nanbyo" for="i_user_type">User type</label><br>
+        <select name="user_type" id="i_user_type" required>
+          <option value="1"> Reviewer </option>
+          <option value="2"> Curator </option>
+          <option value="3"> Administrator </option>
+        </select>          
+        </div>
+-->
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_last_name_nl">*苗字</label>
+          <input type="text" name="last_name_nl" id="i_last_name_nl" autocomplete="off" maxlength="40" class="form-control vgp-user-input-input" placeholder="苗字" title="required" required">
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_last_name_en">*苗字 (English)</label>
+          <input type="text" name="last_name_en" id="i_last_name_en" autocomplete="off" maxlength="40" class="form-control vgp-user-input-input" placeholder="Last name (English)" title="required" required>
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_first_name_nl">*名前</label>
+          <input type="text" name="first_name_nl" id="i_first_name_nl" autocomplete="off" value="" maxlength="40" class="form-control vgp-user-input-input" placeholder="First name (native language)" required>
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_first_name_en">*名前 (English)</label>
+          <input type="text" name="first_name_en" id="i_first_name_en" autocomplete="off" maxlength="40" class="form-control vgp-user-input-input" placeholder="First name (English)" title="required" required>
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_affiliation">*所属機関・部署</label>
+          <input type="text" name="affiliation" id="i_affiliation" autocomplete="off" maxlength="256" class="form-control vgp-user-input-input" placeholder="Affiliation" title="required" required>
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_affiliation_email">*所属機関のメールアドレス</label>
+          <input type="text" name="email" id="i_affiliation_email" autocomplete="off" maxlength="256" class="form-control vgp-user-input" placeholder="Affiliation email" required>
+        </div>
+
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title panelsearch_nanbyo" for="i_job_title">*職名</label>
+          <input type="text" name="job_title" id="i_job_title" autocomplete="off" maxlength="256" class="form-control vgp-user-input-input" placeholder="Job title" title="required" required>
+        </div>
+      </fieldset>
+    </form>
+    <div id="user_type_wrapper">
+      <div class="left">
+        <div><b>管理者権限</b></div>
+        <div>管理者権限を付与すると、すべての機能にアクセスできます。</div>
+        <div class="paler">OFF：権限なし ／ ON：権限あり</div>
+      </div>
+      <div class="right">
+        <div id="user_type_switch_wrapper">
+          <span id="without_admin">権限なし</span>
+          <label class="user_type_switch">
+            <input type="checkbox" id="user_type_toggle" />
+            <span class="user_type_slider"></span>
+          </label>
+          <span id="with_admin">権限あり</span>
+        </div>
+      </div>
+    </div>
+    <div id="user_type_status_wrapper">
+      現在の状態：<span id="user_type_status">一般ユーザー（権限なし）</span>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between">
+    <div>
+      <button type="button" class="vgp-user-btn vgp-user-btn1 panelsearch_nanbyo" id="vgp-user-btn-edit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+          <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
+        </svg>  編集
+      </button>
+      <button type="button" class="vgp-user-btn vgp-user-btn1 panelsearch_nanbyo" id="vgp-user-btn-save" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+          <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
+        </svg> Save
+      </button>
+      <button type="button" class="vgp-user-btn vgp-user-btn2" id="vgp-user-btn-cancel" style="display: none;">Cancel</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+{% block modal_content %}
+<div id="overlay"></div>
+<div id="sidebar">
+  <div class="sidebar-header">
+    <div></div>
+    <div><button id="closeSidebar" class="close">&times;</button></div>
+  </div>
+  <div class="sidebar-header">
+    <div class="d-flex flex-column">
+      <div id="sidebar_user_name"></div>
+      <span id="sidebar_email"></span>
+    </div>
+  </div>
+  <div class="sidebar-affiliation" id="sidebar_affiliation"></div>
+  <div class="sidebar-body">
+    <div class="title"><span class="vgp-sorter" id="list_group_sorter">グループ一覧</span></div>
+    <ul class="list-group list-group-flush" id="sidebar_group_ul">
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block outer_modal_content %}
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Please confirm by entering the google account(email) to delete:</p>
+        <form id="deleteForm">
+          <input type="hidden" id="originalEmail">
+          <div class="form-group">
+            <label for="confirmEmail">Google Account(Email)</label>
+            <input type="email" class="form-control" id="confirmEmail" required>
+          </div>
+          <div class="text-danger" id="errorMessage" style="display: none;">Google Account(Email) does not match!</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form action="/google_user_delete" method="post" id="vgp-user-delete-form" style="display: none;">
+  <input type="hidden" name="service" id="in-user-service" value="{{ r_service }}" />
+  <input type="hidden" name="account" id="in-user-account"  value="{{ r_mail }}" />
+</form>
+
+
+{% endblock %}
+
+{% block page_js_block %}
+<script type="text/javascript" src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/admin_user.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+$(document).ready(function(){
+  _init_data({{ r_group_list | tojson }},{{ r_user_group_hash | tojson }});
+});
+</SCRIPT>
+{% endblock %}

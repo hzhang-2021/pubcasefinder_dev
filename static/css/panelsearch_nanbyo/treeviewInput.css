@@ -1,0 +1,16 @@
+.treeview-input-container{
+  width: 100%;
+  padding: 5px 0px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.treeview-input-container > .ztree * { font-size: 14px; }
+.treeview-input-container > .ztree li a {height: 20px;}
+.treeview-input-container > .ztree li span.control_btn{color: red; font-weight:500;}
+.treeview-input-container > .ztree li a.curSelectedNode {
+    background-color: white !important;
+    border-color: white !important;
+}
+

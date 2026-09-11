@@ -1,0 +1,511 @@
+.hidden{display:none;}
+
+.vgp-main { width: 100%; margin-top: 60px;}
+
+.vgp-main .vgp-wrapper {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+}
+.switch-label{font-size:12px;}
+.description-mark-title{
+  display: block;
+  font-weight: 550;
+}
+
+.vgp-main .vgp-wrapper.vgp-wrapper-upper{background-color: #002F19;}
+
+.vgp-main .vgp-wrapper .vgp-content{
+  margin: 0px auto 0px auto;
+  width: 80%;
+  min-width: 1000px;
+}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-version{margin-bottom: 20px;}
+.vgp-main .vgp-wrapper .vgp-content .vgp-version .vgp-version-sub { margin-right: 20px;}
+.vgp-main .vgp-wrapper .vgp-content .vgp-version .vgp-version-sub .vgp-version-label{color: #85BA9A;}
+.vgp-main .vgp-wrapper .vgp-content .vgp-version .vgp-version-sub .vgp-version-date{color: #FFF; border-bottom: solid 1px #FFF;}
+.vgp-main .vgp-wrapper .vgp-content .vgp-version .vgp-version-sub svg{margin-bottom: 2px;}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-controll button {
+  border-radius: 2rem;
+  border: solid 2px #85BA9A;
+  padding: 3px 15px 3px 15px;
+  background-color: #CDE7D6;
+  color: #276749;
+  font-weight: 550;
+}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-controll button svg { margin-bottom: 2px;}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-info { width:100%;}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-info .vgp-panel-controll{
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail {width:100%;}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail .vgp-detail-wrapper{
+  margin-right:20px;
+  min-width: 940px;
+  width: calc(75% - 20px);
+}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail .vgp-detail-wrapper-custom{ width: 100%;}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail .vgp-detail-wrapper .vgp-detail-sub-panel{
+  display:none;
+  margin-top: 15px;
+}
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail .vgp-detail-wrapper .vgp-detail-sub-panel.vgp-active{display:block;}
+
+
+.vgp-filter-sample-panel{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.vgp-filter-sample-panel .vgp-filter-wrapper{
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+ 
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  min-width: 300px;
+  max-width: 500px;
+
+}
+.vgp-panel-genes-num-wrapper{font-size: 1.3rem;font-weight:500;color:#96A995; margin-bottom:5px;}
+.vgp-panel-genes-num{color: #4AB223;}
+.vgp-panel-genes-switch-wrapper{align-content: end;}
+.switch {
+  position: relative;
+  display:  inline-block;
+  width:    40px;
+  height:   20px;
+}
+
+.switch input {
+  opacity: 0;
+  width:   0;
+  height:  0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.25s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width:  12px;
+  left:   2px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.25s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #258800;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+
+
+
+.vgp-filter:focus{outline: none;}
+.vgp-filter::placeholder{color: #CBCBCB;}
+.vgp-filter {
+  border: 2px solid #E1E3E1;;
+  border-radius: 5px;
+  display: block;
+  padding: 9px 4px 9px 40px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath fill='%23CBCBCB' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center; 
+  
+}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail .vgp-treeview-wrapper{
+  width: 25%;
+  min-width:250px;
+}
+
+.vgp-treeview-wrapper .vgp-treeview-title-panel {width: 100%;}
+.vgp-treeview-wrapper .vgp-treeview-title-panel .vgp-treeview-title-subpanel{  width: 50%;
+  white-space: nowrap;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+.vgp-treeview-wrapper .vgp-treeview-title-panel .vgp-treeview-title-subpanel.left{  font-size: 20px;  font-weight: 600;
+  color: #276749;
+  text-align: center;
+  border-left: solid 2px #276749;
+  border-top: solid 2px #276749;
+  border-right: solid 2px #276749;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.vgp-treeview-wrapper .vgp-treeview-title-panel .vgp-treeview-title-subpanel.right{
+  border-bottom: 2px solid #276749;
+  text-align: right;
+}
+
+.vgp-treeview-title-panel .vgp-treeview-title-subpanel.right span {  color: #BABBBB;
+  font-weight: 600;
+  font-size: 22px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+
+#vgp-treeview{
+  padding-top: 5px;
+  padding-bottom: 10px;
+  overflow-y:auto;
+  overflow-x:auto;
+}
+
+.splitter {
+  margin-top: 3px;
+  width: 3px;
+  cursor: ew-resize;
+  background-color: #ccc;
+  height: 100%;
+}
+
+.vgp-panel-table{ width: 100%; margin-top: 10px; }
+.vgp-panel-table>thead>tr{height: 50px; color: #212529; background-color: #E8F0EB;}
+.vgp-panel-table>thead>tr>th{font-weight: normal !important;}
+.vgp-panel-table>thead>tr>th.width-panel{padding-left: 15px; width: auto; flex-grow: 1;}
+.vgp-panel-table>thead>tr>th.width-panel-gene{width: 250px;min-width:250px;padding-right:0px;}
+.vgp-panel-table>tbody>tr{border-bottom: 3px solid #E1E3E1; }
+.vgp-panel-table>tbody>tr>td{padding:10px 0px 10px 0px;}
+.vgp-panel-table>tbody>tr>td div{border: 0px;}
+.vgp-panel-table>tbody>tr>td>.row-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.vgp-panel-table>tbody>tr>td>.row-wrapper>.upper-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.vgp-panel-table>tbody>tr>td>.row-wrapper>.upper-row>.width-panel{
+  width: auto;
+  flex-grow: 1;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.vgp-panel-table>tbody>tr>td>.row-wrapper>.upper-row>.width-panel a{
+  color: #212529;
+  font-size: 25px;
+  font-weight: 450;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.vgp-panel-table>tbody>tr>td>.row-wrapper>.upper-row>.width-panel a svg{
+  margin-left: 5px;
+  display: inline-block;
+  border: 0px;
+  width:  14px;
+  height: 14px;
+  background-color: #FFF;
+  background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20License%3A%20MIT.%20Made%20by%20halfmage%3A%20https%3A%2F%2Fgithub.com%2Fhalfmage%2Fmajesticons%20--%3E%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22currentcolor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M10%204H6a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-4m-8-2%208-8m0%200v5m0-5h-5%22%2F%3E%3C%2Fsvg%3E);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.vgp-panel-table>tbody>tr>td>.row-wrapper>.upper-row>.width-panel-gene{
+  width: 250px;
+  min-width: 250px;
+  display: flex;
+  flex-direction: row;
+}
+
+.vgp-panel-table>tbody>tr>td>.row-wrapper>.upper-row>.width-panel-gene>.ctl{
+  height: 40px;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vgp-panel-table>tbody>tr>td>.row-wrapper>.upper-row>.width-panel-gene>.ctl.material-icons{ cursor: pointer;}
+.vgp-panel-table>tbody>tr>td>.row-wrapper>.upper-row>.width-panel-gene>.ctl>svg{width:18px; height:18px; cursor:pointer;}
+.vgp-panel-table>tbody>tr>td>.row-wrapper>.lower-row{width: 100%; padding-left: 40px;}
+
+
+
+.vgp-panel-genes-table{width: 100%; margin-top: 10px;}
+.vgp-panel-genes-table>thead>tr{height:40px; background-color:#DBDBDB; font-size:16px; font-weight:normal;}
+.vgp-panel-genes-table span{ user-select: none; }
+.vgp-panel-genes-table div{border: 0px;}
+.vgp-panel-genes-table>thead>tr>th,.vgp-panel-genes-table>tbody>tr>td{border: 0;}
+.vgp-panel-genes-table>thead>tr>th{font-weight: normal !important;}
+.vgp-panel-genes-table>thead>tr>th.width-source-panel{width:auto; flex-grow:1;}
+.vgp-panel-genes-table>thead>tr>th.width-entity{padding-left:15px; width:250px;min-width:250px;}
+.vgp-panel-genes-table>thead>tr>th.width-entity.long{width:350px;min-width:350px;}
+.vgp-panel-genes-table>thead>tr>th.width-sources{width:350px;min-width:350px;}
+.vgp-panel-genes-table>tbody>tr{border-bottom: 2px solid #E1E3E1;}
+.vgp-panel-table .vgp-panel-genes-table>tbody>tr:last-child{border-bottom:none;}
+.vgp-panel-genes-table.native>tbody>tr.not_native{display: none;}
+.vgp-panel-table .vgp-panel-genes-table>tbody>tr:last-child{border-bottom: none;}
+.vgp-panel-genes-table>tbody>tr>td{padding: 10px 0px 10px 0px;}
+
+
+.vgp-sorter{
+  position: relative; 
+  padding-right: 0.5rem;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; 
+}
+
+.vgp-sorter::before, .vgp-sorter::after {
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  border: 7px solid transparent;
+  right: -8px;
+  top: 11px;
+}
+
+.vgp-sorter::before {
+  border-bottom-color: #aaa;
+  margin-top: -16px;
+}
+
+.vgp-sorter::after {
+  border-top-color: #aaa;
+  margin-top: 0px;
+}
+
+.vgp-sorter.vgp-asc::before {border-bottom-color: #276749;}
+.vgp-sorter.vgp-dsc::after {border-top-color: #276749;}
+
+
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-source-panel{
+  width: auto;
+  flex-grow: 1;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-source-panel>.vgp-panel-name{
+  color: #1B2C1A;
+  font-weight: 450;
+  text-decoration: underline; 
+}
+
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-source-panel>.vgp-panel-name>svg{
+  margin-left: 5px;
+  display: inline-block;
+  border: 0px;
+  width: 14px;
+  height: 14px;
+  color: #1B2C1A;
+  background-color: #FFF;
+  background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20License%3A%20MIT.%20Made%20by%20halfmage%3A%20https%3A%2F%2Fgithub.com%2Fhalfmage%2Fmajesticons%20--%3E%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22currentcolor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M10%204H6a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-4m-8-2%208-8m0%200v5m0-5h-5%22%2F%3E%3C%2Fsvg%3E);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-entity{
+  width: 250px;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-entity.long{width:350px;min-width:350px;}
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-entity>.entity-name-wrapper{height:30px;width:100%;}
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-entity>.entity-name-wrapper>.vgp-panel-gene-name {
+  border: 0;
+  background-color:#fff;
+  padding: 0;
+}
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-entity>.entity-name-wrapper>.vgp-panel-gene-name span {
+  color: #1B2C1A;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;  
+  cursor: pointer;
+  margin-right: 5px;
+  border: none;
+  background-color: #FFF;
+  padding: 0;
+}
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-entity>.entity-name-wrapper>.vgp-panel-gene-name span svg{
+  border: 0px;
+  width: 16px;
+  height: 16px;
+  background-color: #FFF;
+  color:  #1B2C1A;
+  background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20License%3A%20MIT.%20Made%20by%20halfmage%3A%20https%3A%2F%2Fgithub.com%2Fhalfmage%2Fmajesticons%20--%3E%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22currentcolor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M10%204H6a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-4m-8-2%208-8m0%200v5m0-5h-5%22%2F%3E%3C%2Fsvg%3E);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-entity>.paper-ctl-wrapper{height:30px;width:100%;}
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-entity>.paper-ctl-wrapper>.related-paper-title{color:#949494; margin-right:5px;}
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-entity>.paper-ctl-wrapper>.related-paper-num.empty{color:#949494;}
+
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.upper-row>.width-sources{
+  width:350px;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vgp-panel-genes-table>tbody>tr>td>.row-wrapper>.lower-row{width:100%;padding-left:40px;}
+
+.vgp-review-table-wrapper{display: none; width: 100%;}
+.vgp-review-table,.vgp-paper-table{width: 100%; table-layout: fixed; margin-top: 5px;}
+.vgp-pagination-wrapper{width: 100%; magin-top: 5px;}
+.vgp-panel-genes-table .vgp-review-table thead tr,
+.vgp-panel-genes-table .vgp-paper-table  thead tr {height:32px; background-color:#EBEBEB;}
+.vgp-panel-genes-table .vgp-review-table thead tr th,
+.vgp-panel-genes-table .vgp-paper-table  thead tr th {font-weight: normal;color:#697468;}
+
+.vgp-table-tr-borderbottom{ border-bottom: 1px solid #E1E3E1; }
+
+.vgp-review-table tr td { padding-top: 0.5rem ; padding-right: 1.0rem;}
+.vgp-review-table tr td:last-child { padding-right: 0;}
+
+.vgp-review-table tr td font{cursor: pointer;}
+.vgp-review-table tr td font:hover { background-color: #B4DEB8; }
+
+.vgp-review-table tbody tr td .vgp-rating-tag{
+  font-size: 0.8rem;
+  width: 100px;
+  padding-top: 3px;
+  padding-bottom: 2px;
+  display:inline-block;
+}
+
+.vgp-review-table colgroup col:first-child{ width: 130px; }
+.vgp-review-table colgroup col:last-child{ width: 270px; }
+.vgp-review-table colgroup col:nth-child(2),.vgp-review-table colgroup col:nth-child(3){ width: 50%;}
+
+.vgp-review-table tbody tr, .vgp-paper-table tbody tr{ border-bottom: 1px solid #E1E3E1;}
+.vgp-review-table tbody tr:last-child, .vgp-paper-table tbody tr:last-child{border: 0;}
+.vgp-review-table tbody tr.vgp-subtable-datarow td a,
+.vgp-paper-table  tbody tr.vgp-subtable-datarow td a{
+  color: black;
+  text-decoration: underline;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+.vgp-review-table tbody tr.vgp-subtable-datarow td a svg,
+.vgp-paper-table  tbody tr.vgp-subtable-datarow td a svg{
+  margin-left: 5px;
+  display: inline-block;
+  border: 0px;
+  width:  14px;
+  height: 14px;
+  background-color: #FFF;
+  background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20License%3A%20MIT.%20Made%20by%20halfmage%3A%20https%3A%2F%2Fgithub.com%2Fhalfmage%2Fmajesticons%20--%3E%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22currentcolor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M10%204H6a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-4m-8-2%208-8m0%200v5m0-5h-5%22%2F%3E%3C%2Fsvg%3E);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.vgp-paper-table-wrapper{ display: none; width: 100%;} 
+.vgp-paper-table-wrapper .loading {
+  width: 100%;
+  height: 50px;
+  background: url(../../images/pcf/loader.gif) center no-repeat #fff;
+}
+
+.vgp-paper-table{ width: 100%; table-layout: fixed;}
+.vgp-paper-table td { 
+  padding-top: 10px !important; 
+  padding-bottom: 10px !important; 
+  padding-right: 15px !important;
+  align-content: flex-start;
+}
+
+.vgp-paper-table td.journal{word-break: break-all;}
+
+.vgp-paper-table td .title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.vgp-paper-table td .title .left{ width: 45px; min-width:45px; max-width:45px;}
+
+.vgp-paper-table colgroup col:nth-child(2),
+.vgp-paper-table colgroup col:nth-child(4){width: 180px;}
+.vgp-paper-table colgroup col:nth-child(3){width: 150px;}
+
+
+
+
+.vgp-reviewer-table thead tr>*:first-child,.vgp-paper-table thead tr>*:first-child{ padding-left: 15px; }
+
+.vgp-reviewer-table-tbody tr>*:first-child,
+.vgp-paper-table-tbody tr>*:first-child{ color: #276749; font-weight:500; padding-left:15px; }
+
+.vgp-paper-wrapper{
+  white-space: nowrap;
+  height: 40px;
+  font-size: 1.0rem;
+  font-weight: 500;
+  align-content: center;
+}
+
+.vgp-paper-wrapper .num{padding-left:2px; font-size: 1.1rem;}
+
+#btn_copy_link span{font-size: 15px;}
+
+#vgp-panel-name{font-size: 2.5rem; margin-bottom:5px; min-width: 50px;}
+#vgp-panel-name:focus { outline: 2px solid #007BFF; }
+#vgp-panel-name[contenteditable="true"]{padding-left:20px; padding-right: 20px; background-color: #FFF; color: black;}
+#vgp-panel-name-ctl-wrapper{ align-content: center; margin-left:15px; cursor:pointer;}

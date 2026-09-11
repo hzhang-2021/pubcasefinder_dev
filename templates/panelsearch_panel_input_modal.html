@@ -1,0 +1,212 @@
+<div id="modal-karte" class="modal-box-karte gene">
+  <div class="resize-handle"></div>
+  <div class="modal-karte-content">
+    <div class="modal-karte-content-title-wrapper d-flex justify-content-between">
+      <div class="modal-karte-content-title-wrapper-title">
+        <span class="material-symbols-outlined">add</span>ADD REVIEW
+      </div>
+      <div class="modal-karte-content-title-wrapper-ctl">
+        <span class="material-symbols-outlined" onClick="miniModal('#modal-karte');">keyboard_double_arrow_down</span>
+        <span class="material-symbols-outlined" onClick="maxModal('#modal-karte');">open_in_full</span>
+        <span class="material-symbols-outlined" onClick="closeModal('#modal-karte');">close</span>
+      </div>
+    </div>
+    <form id="modal-karte-form" action="/panel_regist_review" method="post" class="mt-2 gene">
+    <div class="modal-karte-content-detail-wrapper d-flex justify-content-between">
+      <div class="modal-karte-content-detail-subwrapper">
+        <input type="hidden" id="vgp-input-review-panel_id" name="vgp-input-review-panel_id" />
+        <div class="form-group">
+          <label for="vgp-input-review-rating">*Rating</label>
+          <div class="form-control dropdown vgp-dropdown-wrapper" tabindex="1">
+            <input type="hidden" id="vgp-input-review-rating" name="vgp-input-review-rating" />
+            <button id="btn-vgp-review-rating" type="button" class="vgp-drowdown-btn dropdown-toggle is-empty" 
+                  data-toggle="dropdown" data-placeholder="Provide rating" aria-expanded="false">Provide rating</button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-rating','vgp-input-review-rating');">Definitive</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-rating','vgp-input-review-rating');">Strong</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-rating','vgp-input-review-rating');">Moderate</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-rating','vgp-input-review-rating');">Supportive</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-rating','vgp-input-review-rating');">Limited</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-rating','vgp-input-review-rating');">Disputed</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-rating','vgp-input-review-rating');">Refuted</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-rating','vgp-input-review-rating');">Animal</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-rating','vgp-input-review-rating');">No known</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-rating','vgp-input-review-rating');">No rating</button>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="vgp-input-review-entity_type_id">*Entity Type</label>
+          <div class="form-control dropdown vgp-dropdown-wrapper" tabindex="1">
+            <input type="hidden" id="vgp-input-review-entity_type_id" name="vgp-input-review-entity_type_id" value="1" />
+            <button id="btn-vgp-review-entity-type" type="button" class="vgp-drowdown-btn dropdown-toggle"
+                  data-toggle="dropdown" data-placeholder="Provide Entity Type" aria-expanded="false">Gene</button>
+            <div class="dropdown-menu"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="vgp-input-review-entity_name">*Entity Name</label>
+            <input type="text" class="form-control" id="vgp-input-review-entity_name" name="vgp-input-review-entity_name" placeholder="Entity name" />
+        </div>
+        <div class="form-group">
+          <label for="vgp-input-review-phenotype">Phenotype</label>
+          <input type="text" class="form-control" id="vgp-input-review-phenotype" name="vgp-input-review-phenotype" placeholder="Phenotype" />
+        </div>
+        <div class="form-group">
+          <label for="vgp-input-review-publication">Publications</label>
+          <input type="text" class="form-control" id="vgp-input-review-publication" name="vgp-input-review-publication" placeholder="Publications" />
+        </div>
+        <div class="form-group">
+          <label for="vgp-input-review-inheritance">Mode of inheritance</label>
+          <div class="form-control dropdown vgp-dropdown-wrapper" tabindex="2">
+            <input type="hidden" id="vgp-input-review-inheritance" name="vgp-input-review-inheritance" />
+            <button id="btn-vgp-review-inheritance" type="button" class="vgp-drowdown-btn dropdown-toggle is-empty"
+                    data-toggle="dropdown" data-placeholder="Provide a mode of inheritance" aria-expanded="false">Provide a mode of inheritance</button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-inheritance','vgp-input-review-inheritance');">Autosomal Dominant</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-inheritance','vgp-input-review-inheritance');">Autosomal Recessive</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-inheritance','vgp-input-review-inheritance');">First Degree Relative</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-inheritance','vgp-input-review-inheritance');">Mitochondrial</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-inheritance','vgp-input-review-inheritance');">Second Degree Relative</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-inheritance','vgp-input-review-inheritance');">Third Degree Relative</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-inheritance','vgp-input-review-inheritance');">X-Linked Dominant</button>
+              <button class="dropdown-item" type="button" onclick="modal_dropdown_change_value(this,'btn-vgp-review-inheritance','vgp-input-review-inheritance');">X-Linked Recessive</button>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="vgp-input-review-pathogenicity">Mode of pathogenicity</label>
+          <input type="text" class="form-control" id="vgp-input-review-pathogenicity" name="vgp-input-review-pathogenicity" placeholder="Provide exceptions to loss of fanction" />
+        </div>
+        <div class="form-group">
+          <label for="vgp-input-review-comment">Comments</label>
+          <textarea class="form-control" id="vgp-input-review-comment" name="vgp-input-review-comment" rows="3" style="resize: none;"></textarea>
+        </div>
+        <button type="submit" class="vgp-submit">Submit</button>
+      </div> <!-- end of left -->
+      <div id="modal-karte-content-detail-right" class="modal-karte-content-detail-subwrapper gene">
+        <div class="modal-karte-content-detail-right-subwrapper gene">
+          <div class="form-group">
+            <label for="vgp-input-review-gene-gene-symbol">Gene Symbol</label>
+            <div class="form-control dropdown vgp-dropdown-wrapper" tabindex="1">
+              <input type="hidden" id="vgp-input-review-gene-gene-symbol" name="vgp-input-review-gene-gene-symbol" />
+              <button id="btn-vgp-review-gene-gene-symbol" type="button" class="vgp-drowdown-btn dropdown-toggle is-empty"
+                  data-toggle="dropdown" data-placeholder="Provide Gene" aria-expanded="false">Provide Gene </button>
+              <div class="dropdown-menu" id="dropdown-menu-vgp-review-gene-gene-symbol"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-gene-hgnc">HGNC</label>
+            <input type="text" class="form-control" id="vgp-input-review-gene-hgnc" name="vgp-input-review-gene-hgnc" placeholder="HGNC" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-gene-ensemblid-grch37">Ensembl Id(GRch37)</label>
+            <input type="text" class="form-control" id="vgp-input-review-gene-ensemblid-grch37" name="vgp-input-review-gene-ensemblid-grch37" placeholder="Ensembl Id(GRch37)" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-gene-ensemblid-grch38">Ensembl Id(GRch38)</label>
+            <input type="text" class="form-control" id="vgp-input-review-gene-ensemblid-grch38" name="vgp-input-review-gene-ensemblid-grch38" placeholder="Ensembl Id(GRch38)" />
+          </div>
+        </div>
+        <div class="modal-karte-content-detail-right-subwrapper str">
+          <div class="form-group">
+            <label for="vgp-input-review-str-gene-symbol">Gene Symbol</label>
+            <div class="form-control dropdown vgp-dropdown-wrapper" tabindex="1">
+              <input type="hidden" id="vgp-input-review-str-gene-symbol" name="vgp-input-review-str-gene-symbol" />
+              <button id="btn-vgp-review-str-gene-symbol" type="button" class="vgp-drowdown-btn dropdown-toggle is-empty"
+                  data-toggle="dropdown" data-placeholder="Provide Gene" aria-expanded="false">Provide Gene </button>
+              <div class="dropdown-menu" id="dropdown-menu-vgp-review-str-gene-symbol"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-str-hgnc">HGNC</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-hgnc" name="vgp-input-review-str-hgnc" placeholder="HGNC" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-str-ensemblid-grch37">Ensembl Id(GRCh37)</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-ensemblid-grch37" name="vgp-input-review-str-ensemblid-grch37" placeholder="Ensembl Id(GRCh37)" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-str-ensemblid-grch38">Ensembl Id(GRCh38)</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-ensemblid-grch38" name="vgp-input-review-str-ensemblid-grch38" placeholder="Ensembl Id(GRCh38)" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-str-position-chromosome">Position Chromosome</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-position-chromosome" name="vgp-input-review-str-position-chromosome" placeholder="Position Chromosome" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-str-position-grch37-start">Position GRCh37 Start</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-position-grch37-start" name="vgp-input-review-str-position-grch37-start" placeholder="Position GRCh37 Start" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-str-position-grch37-end">Position GRCh37 End</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-position-grch37-end" name="vgp-input-review-str-position-grch37-end" placeholder="Position GRCh37 End" />
+          </div>
+          <div class="form-group">   
+            <label for="vgp-input-review-str-position-grch38-start">Position GRCh38 Start</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-position-grch38-start" name="vgp-input-review-str-position-grch38-start" placeholder="Position GRCh38 Start" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-str-position-grch38-end">Position GRCh38 End</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-position-grch38-end" name="vgp-input-review-str-position-grch38-end" placeholder="Position GRCh38 End" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-str-repeated-sequence">STR Repeated Sequence</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-repeated-sequence" name="vgp-input-review-str-repeated-sequence" placeholder="STR Repeated Sequence" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-str-normal-repeats">STR Normal Repeats</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-normal-repeats" name="vgp-input-review-str-normal-repeats" placeholder="STR Normal Repeats" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-str-pathogenic-repeats">STR Pathogenic Repeats</label>
+            <input type="text" class="form-control" id="vgp-input-review-str-pathogenic-repeats" name="vgp-input-review-str-pathogenic-repeats" placeholder="STR Pathogenic Repeats" />
+          </div>
+        </div>
+        <div class="modal-karte-content-detail-right-subwrapper region">
+          <div class="form-group">
+            <label for="vgp-input-review-region-position-chromosome">Position Chromosome</label>
+            <input type="text" class="form-control" id="vgp-input-review-region-position-chromosome" name="vgp-input-review-region-position-chromosome" placeholder="Position Chromosome" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-region-position-grch37-start">Position GRCh37 Start</label>
+            <input type="text" class="form-control" id="vgp-input-review-region-position-grch37-start" name="vgp-input-review-region-position-grch37-start" placeholder="Position GRCh37 Start" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-region-position-grch37-end">Position GRCh37 End</label>
+            <input type="text" class="form-control" id="vgp-input-review-region-position-grch37-end" name="vgp-input-review-region-position-grch37-end" placeholder="Position GRCh37 End" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-region-position-grch38-start">Position GRCh38 Start</label>
+            <input type="text" class="form-control" id="vgp-input-review-region-position-grch38-start" name="vgp-input-review-region-position-grch38-start" placeholder="Position GRCh38 Start" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-region-position-grch38-end">Position GRCh38 End</label>
+            <input type="text" class="form-control" id="vgp-input-review-region-position-grch38-end" name="vgp-input-review-region-position-grch38-end" placeholder="Position GRCh38 End" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-region-haploinsufficiency-score">Region Haploinsufficiency Score</label>
+            <input type="text" class="form-control" id="vgp-input-review-region-haploinsufficiency-score" name="vgp-input-review-region-haploinsufficiency-score" placeholder="Region Haploinsufficiency Score" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-region-triplosensitivity-score">Region Triplosensitivity Score</label>
+            <input type="text" class="form-control" id="vgp-input-review-region-triplosensitivity-score" name="vgp-input-review-region-triplosensitivity-score" placeholder="Region Triplosensitivity Score" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-region-required-overlap-percentage">Region Required Overlap Percentage</label>
+            <input type="text" class="form-control" id="vgp-input-review-region-required-overlap-percentage" name="vgp-input-review-region-required-overlap-percentage" placeholder="Region Required Overlap Percentage" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-region-variant-type">Region Variant Type</label>
+            <input type="text" class="form-control" id="vgp-input-review-region-variant-type" name="vgp-input-review-region-variant-type" placeholder="Region Variant Type" />
+          </div>
+          <div class="form-group">
+            <label for="vgp-input-review-region-verbose-name">Region Verbose Name</label>
+            <input type="text" class="form-control" id="vgp-input-review-region-verbose-name" name="vgp-input-review-region-verbose-name" placeholder="Region Verbose Name" />
+          </div>
+        </div>
+      </div><!-- end of right -->
+    </div>
+    </form>
+  </div>
+</div>

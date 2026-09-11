@@ -1,0 +1,8 @@
+ mysql -u pubcase -ppubcase0712 pubcases < casemini_icd_10.sql 
+ mysql -u pubcase -ppubcase0712 pubcases < casemini_omim_orpha.sql
+ mysql -u pubcase -ppubcase0712 pubcases < casemini_nando.sql
+
+
+./insert.pl NANDO.txt nando
+./insert.pl ICD10.txt icd10
+./insert.pl MONDO_20240619.txt mondo

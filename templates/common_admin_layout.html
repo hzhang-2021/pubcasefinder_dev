@@ -1,0 +1,176 @@
+<!doctype html>
+
+{% if r_lang == "ja" %}
+<html lang="ja">
+{% else %}
+<html lang="en">
+{% endif %}
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="/static/fonts/Web/css/ibm-plex-sans-jp.min.css"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&display=swap"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/static/bootstrap-4.6.2-dist/css/bootstrap.css"> -->
+  <link rel='stylesheet' href="/static/css/pcf/branc.css">
+  <link rel='stylesheet' href="/static/css/pcf/branc-ie7.css">
+  <link rel='stylesheet' href="/static/css/pcf/branc-ie7-codes.css">
+  <link rel='stylesheet' href="/static/css/pcf/branc-embedded.css">
+  <link rel="stylesheet" href="/static/css/pcf/footer.css">
+  <link rel="stylesheet" href="/static/css/common-nav.css">
+  <link rel="stylesheet" href="/static/css/common-nav-auth.css">
+
+  <link rel="stylesheet" href="/static/css/common_admin/vgp-common.css">
+  <link rel="stylesheet" href="/static/css/common_admin/admin.css">
+
+  {% block css_block %}{% endblock %}
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/images/pcf/pcf-favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/images/pcf/pcf-favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/images/pcf/pcf-favicon/favicon-16x16.png">
+  <link rel="manifest" href="/static/images/pcf/pcf-favicon/site.webmanifest">
+  <link rel="mask-icon" href="/static/images/pcf/pcf-favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00a300">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>PubCaseFinder admin : PubCaseFinder</title>
+</head>
+
+<body>
+
+  <div id="vgp-loader-whole"></div>
+
+  {% with service=r_service, show_info=False, show_login=True, show_tag=True %}
+  {% include "common_header.html" %}
+  {% endwith %}
+
+  <div class="vgp-main">
+    <aside class="sidebar {% if r_is_sidebar_collapsed %}collapsed{% endif %} {{ r_service }}">
+      <div class="title">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2501_5543)"><path d="M22.05 3.78C19.61 1.34 16.37 0 12.92 0C9.47 0 6.22 1.34 3.78 3.78C1.34 6.22 0 9.47 0 12.92C0 16.37 1.34 19.61 3.78 22.05C6.22 24.49 9.46 25.83 12.91 25.83C16.36 25.83 19.6 24.49 22.04 22.05C24.48 19.61 25.82 16.37 25.82 12.92C25.82 9.47 24.48 6.23 22.04 3.79L22.05 3.78ZM5.61 21.66C6.04 17.99 9.19 15.16 12.92 15.16C14.89 15.16 16.73 15.93 18.13 17.32C19.3 18.49 20.05 20.03 20.24 21.67C18.26 23.33 15.71 24.33 12.93 24.33C10.15 24.33 7.6 23.33 5.62 21.67L5.61 21.66ZM12.92 13.6C10.76 13.6 9 11.84 9 9.68C9 7.52 10.76 5.76 12.92 5.76C15.08 5.76 16.84 7.52 16.84 9.68C16.84 11.84 15.08 13.6 12.92 13.6ZM21.53 20.38C21.14 18.82 20.34 17.39 19.19 16.24C18.26 15.31 17.16 14.61 15.96 14.17C17.4 13.19 18.35 11.54 18.35 9.67C18.35 6.67 15.91 4.23 12.91 4.23C9.91 4.23 7.47 6.67 7.47 9.67C7.47 11.54 8.42 13.2 9.86 14.17C8.76 14.57 7.73 15.19 6.85 16.01C5.58 17.2 4.69 18.71 4.28 20.37C2.54 18.37 1.49 15.76 1.49 12.91C1.51 6.63 6.63 1.51 12.92 1.51C19.21 1.51 24.32 6.63 24.32 12.91C24.32 15.76 23.27 18.37 21.53 20.37V20.38Z" fill="white"/></g><defs><clipPath id="clip0_2501_5543"><rect width="25.83" height="25.83" fill="white"/></clipPath></defs></svg>
+        <span class="ml-2 mail tobecollapsed">{{ r_mail }}</span>
+        <svg id="toggleAsideTop" class="switch tobecollapsed" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="18" height="18" rx="4" stroke="white" stroke-width="2"/><path d="M10 1.25V19.1667" stroke="white" stroke-width="2"/></svg>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li class="{% if r_active_page == 'user' %}active{% endif %}" data-href="/common_admin_user?service={{ r_service }}">
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 16 22" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2501_5547)"><path d="M15.3327 1.98475C14.9057 1.53748 14.3452 1.2859 13.7447 1.2859H12.7305V1.07624C12.7305 0.489199 12.2768 0 11.703 0H4.31017C3.7497 0 3.28264 0.475222 3.28264 1.07624V1.2859H2.25512C1.02743 1.2859 0.0132522 2.34816 0.0132522 3.64803V19.6239C-9.22605e-05 20.2529 0.226763 20.8539 0.653786 21.3011C1.08081 21.7484 1.64128 22 2.24178 22H13.718C14.959 22 15.9732 20.9377 15.9732 19.6379V3.64803C15.9866 3.01906 15.7597 2.41804 15.3327 1.97078V1.98475ZM4.52368 1.2859H11.4895V2.57179H4.52368V1.2859ZM14.7455 19.6379C14.7455 20.2249 14.2918 20.7141 13.718 20.7141H2.25512C1.97489 20.7141 1.72134 20.6023 1.53452 20.3926C1.3477 20.183 1.24094 19.9174 1.24094 19.6379V3.64803C1.25429 3.06099 1.72134 2.57179 2.28181 2.57179H3.30933V2.78145C3.30933 3.36849 3.76304 3.85769 4.33685 3.85769H11.7163C12.2768 3.85769 12.7439 3.38247 12.7439 2.78145V2.57179H13.758C14.0383 2.57179 14.2918 2.68361 14.4786 2.89327C14.6655 3.10292 14.7722 3.36849 14.7722 3.64803V19.6239L14.7455 19.6379Z" fill="white"/><path d="M8.20662 8.59595H12.5836C12.9172 8.59595 13.1974 8.30243 13.1974 7.95301C13.1974 7.60358 12.9172 7.31006 12.5836 7.31006H8.20662C7.87301 7.31006 7.59277 7.60358 7.59277 7.95301C7.59277 8.30243 7.87301 8.59595 8.20662 8.59595Z" fill="white"/><path d="M8.20662 12.887H12.5836C12.9172 12.887 13.1974 12.5935 13.1974 12.244C13.1974 11.8946 12.9172 11.6011 12.5836 11.6011H8.20662C7.87301 11.6011 7.59277 11.8946 7.59277 12.244C7.59277 12.5935 7.87301 12.887 8.20662 12.887Z" fill="white"/><path d="M12.5969 15.8921H8.20662C7.87301 15.8921 7.59277 16.1856 7.59277 16.535C7.59277 16.8845 7.87301 17.178 8.20662 17.178H12.5969C12.9306 17.178 13.2108 16.8845 13.2108 16.535C13.2108 16.1856 12.9306 15.8921 12.5969 15.8921Z" fill="white"/><path d="M5.59156 6.19187L4.17705 7.67344L3.84344 7.32401C3.60324 7.07242 3.21625 7.07242 2.97605 7.32401C2.73585 7.5756 2.73585 7.98094 2.97605 8.23253L3.75003 9.0432C3.87013 9.16899 4.01692 9.23888 4.19039 9.23888C4.36387 9.23888 4.51066 9.16899 4.63076 9.0432L6.48564 7.10038C6.72584 6.84879 6.72584 6.44345 6.48564 6.19187C6.24544 5.94028 5.85845 5.94028 5.61825 6.19187H5.59156Z" fill="white"/><path d="M5.59156 10.8183L4.17705 12.2999L3.84344 11.9505C3.60324 11.6989 3.21625 11.6989 2.97605 11.9505C2.73585 12.2021 2.73585 12.6074 2.97605 12.859L3.75003 13.6697C3.87013 13.7955 4.01692 13.8653 4.19039 13.8653C4.36387 13.8653 4.51066 13.7955 4.63076 13.6697L6.48564 11.7268C6.72584 11.4753 6.72584 11.0699 6.48564 10.8183C6.24544 10.5667 5.85845 10.5667 5.61825 10.8183H5.59156Z" fill="white"/><path d="M5.59156 15.1093L4.17705 16.5909L3.84344 16.2415C3.60324 15.9899 3.21625 15.9899 2.97605 16.2415C2.73585 16.4931 2.73585 16.8984 2.97605 17.15L3.75003 17.9607C3.87013 18.0865 4.01692 18.1564 4.19039 18.1564C4.36387 18.1564 4.51066 18.0865 4.63076 17.9607L6.48564 16.0179C6.72584 15.7663 6.72584 15.3609 6.48564 15.1093C6.24544 14.8578 5.85845 14.8578 5.61825 15.1093H5.59156Z" fill="white"/></g><defs><clipPath id="clip0_2501_5547"><rect width="16" height="22" fill="white"/></clipPath></defs></svg>
+            </span>
+            <span class="text tobecollapsed">ユーザー管理</span>
+          </li>
+
+          <li class="{% if r_active_page == 'authentication' %}active{% endif %}" data-href="/common_admin_authentication?service={{ r_service }}">
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.6875 1L1 5.2V13C1 17.2 5.15625 23.8 10.5 25C15.8438 23.8 20 17.2 20 13V5.2L10.5 1H11.6875Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11.6875 1L1 5.2V13C1 17.2 5.15625 23.8 10.5 25C15.8438 23.8 20 17.2 20 13V5.2L10.5 1H11.6875Z" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="text tobecollapsed">認証・セッション</span>
+          </li>
+
+          <li class="{% if r_active_page == 'mail' %}active{% endif %}" data-href="/common_admin_mail?service={{ r_service }}">
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="none"><path d="M168-192q-29.7 0-50.85-21.16Q96-234.32 96-264.04v-432.24Q96-726 117.15-747T168-768h624q29.7 0 50.85 21.16Q864-725.68 864-695.96v432.24Q864-234 842.85-213T792-192H168Zm312-240L168-611v347h624v-347L480-432Zm0-85 312-179H168l312 179Zm-312-94v-85 432-347Z" fill="white"/></svg>
+            </span>
+            <span class="text tobecollapsed">メール設定</span>
+          </li>
+
+        </ul>
+      </nav>
+      <div class="bottom">
+        <svg id="toggleAsideBottom" class="switch" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="18" height="18" rx="4" stroke="white" stroke-width="2"/><path d="M10 1.25V19.1667" stroke="white" stroke-width="2"/></svg>
+      </div>
+    </aside>
+
+    <main class="main-content" id="main_content">
+    {% block page_content %}{% endblock %}
+    </main>
+
+    <main class="main-content2 hide" id="main_content2">
+   {% block page_content2 %}{% endblock %}
+    </main>
+
+  {% block modal_content %}{% endblock %}
+
+  </div> <!-- end of vgp-main -->
+
+  <div onclick="topFunction()" id="btn_back_to_top" title="Go to top">
+    <img src="/static/images/pcf/TOP.png"></img>
+  </div>
+
+  {% block outer_modal_content %}{% endblock %}
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+<script src="/static/js/common-header.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+<script src="/static/js/common-header-auth-diseasesearch.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script type="text/javascript" src="/static/js/common_admin/admin.js"></script>
+<script>
+function _vgp_show_loading(){
+    if($('#vgp-loader-whole').is(":visible") === false) $('#vgp-loader-whole').show();
+}
+function _vgp_hide_loading(){
+    if($('#vgp-loader-whole').is(":visible")) $('#vgp-loader-whole').hide();
+}
+
+function _vgp_attach_goToTopfunc(){
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 110) {
+          $('#btn_back_to_top').fadeIn();
+        } else {
+          $('#btn_back_to_top').fadeOut();
+        }
+        //if(tippy) tippy.hideAll();
+    });
+
+    $('#btn_back_to_top').click(function() {
+        $('html, body').animate({scrollTop : 0},200);
+        return false;
+    });
+}
+
+$(document).ready(function(){
+	_vgp_attach_goToTopfunc();
+	//_vgp_hide_loading();
+
+  document.getElementById('toggleAsideTop').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.toggle('collapsed');
+  });
+
+  
+  document.getElementById('toggleAsideBottom').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.toggle('collapsed');
+  });
+
+  document.querySelectorAll('.sidebar .menu ul li').forEach(function(item){
+    item.addEventListener('click', function(){
+      const href = item.getAttribute('data-href');
+      if(href){
+        window.location.href = href;
+      }
+    });
+  });
+});
+
+
+
+</script>
+{% block js_block %}{% endblock %}
+</html>

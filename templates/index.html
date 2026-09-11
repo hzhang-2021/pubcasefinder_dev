@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+
+{% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+<html lang="ja">
+{% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+<html lang="ko">
+{% else %}
+<html lang="en">
+{% endif %}
+
+<head>
+    <!-- START: meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PubCaseFinder: Search system for rare genetic diseases</title>
+    <meta name="description"
+        content="PubCaseFinder (PCF) is a Human Phenotype Ontology (HPO)-based clinical decision support system for rare genetic diseases, always up-to-date." />
+    <meta name="keywords"
+        content="PubCaseFinder, PCF, Rare Disease, Genetic Disease, Human Phenotype Ontology, Phenotype" />
+    <meta name="author" content="Database Center for Life Science" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@fujitoyo" />
+    <meta property="og:url" content="https://pubcasefinder.dbcls.jp/" />
+    <meta property="og:title" content="PubCaseFinder: Search system for rare genetic diseases" />
+    <meta property="og:description"
+        content="PubCaseFinder (PCF) is a Human Phenotype Ontology (HPO)-based clinical decision support system for rare genetic diseases, always up-to-date." />
+    <meta property="og:image" content="https://pubcasefinder.dbcls.jp/static/images/top/logo_color.svg" />
+    <script type="application/ld+json">
+      {
+      "@context": "http://schema.org/",
+      "@type": "Dataset",
+      "name": "PubCaseFinder: Search system for rare genetic diseases",
+      "description": "PubCaseFinder (PCF) is a Human Phenotype Ontology (HPO)-based clinical decision support system for rare genetic diseases, always up-to-date",
+      "url": "https://pubcasefinder.dbcls.jp/",
+      "version": "2.1.0",
+      "keywords": "PubCaseFinder,PCF,Rare Disease,Phenotype,Gene,Match,Assist",
+      "creator": "Database Center for Life Science, DBCLS",
+      "license": "http://creativecommons.org/licenses/by/2.1/jp/",
+      }
+    </script>
+    <!-- END: meta -->
+    <!-- START: css -->
+    <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
+    <link rel="stylesheet" href="/static/css/pcf/branc.css">
+    <link rel="stylesheet" href="/static/css/pcf/branc-ie7.css">
+    <link rel="stylesheet" href="/static/css/pcf/branc-ie7-codes.css">
+    <link rel="stylesheet" href="/static/css/pcf/branc-embedded.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+    <link rel="stylesheet" href="/static/css/pcf/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/pcf/style-togo.css">
+    <link rel="stylesheet" href="/static/css/pcf/tippy.css">
+    <link rel="stylesheet" href="/static/css/pcf/search-box-form.css">
+    <link rel="stylesheet" href="/static/css/pcf/text-input.css">
+    <link rel="stylesheet" href="/static/css/pcf/list-input.css">
+    <link rel="stylesheet" href="/static/css/pcf/footer.css">
+    <link rel="stylesheet" href="/static/css/common-nav.css">
+    <link rel="stylesheet" href="/static/css/common-nav-auth.css">
+    <link rel="stylesheet" href="/static/css/pcf/redesign202503.css"><!-- redesign202503 -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/pcf/magnific-popup.css">
+    <!-- END: css -->
+    <!-- jquery-tokeninput -->
+    <link rel="stylesheet" href="/static/css/pcf/token-input-facebook.css" type="text/css" />
+    <!-- popup-tokeninput -->
+    <link rel="stylesheet" href="/static/css/pcf/popup-hierarchy-hpo.css">
+    <!-- tippy -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale-extreme.css" />
+    <!-- Modernizr JS -->
+    <script src="/static/js/modernizr-2.6.2.min.js"></script>
+    <!--favicon start-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/pcf/pcf-favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/pcf/pcf-favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/pcf/pcf-favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/pcf/pcf-favicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/images/pcf/pcf-favicon/safari-pinned-tab.svg" color="#2a3356">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet"><!-- redesign202503 -->
+    <meta name="msapplication-TileColor" content="#2a3356">
+    <meta name="theme-color" content="#ffffff">
+    <!--favicon end-->
+</head>
+
+<body spellcheck="false">
+    <div id="fh5co-loader"></div>
+    {% with service="diseasesearch", show_info=True, show_login=True, show_tag=True %}
+    {% include "common_header.html" %}
+    {% endwith %}
+    <div id="modal-info" class="modal_box modal-karte">
+        <div class="modal-karte-button-sub" id="modal-info-content">
+            <ul>
+                <li>
+                    <i class="material-symbols-outlined">
+                        computer
+                    </i>
+                    <span>
+                        <h4>How to use</h4>
+                        <p>Here is a brief description of how to use the service. This is a dummy text.This is a dummy
+                            text.
+                        </p>
+                    </span>
+                </li>
+                <li>
+                    <i class="material-symbols-outlined">
+                        subscriptions
+                    </i>
+                    <span>
+                        <h4>How to use</h4>
+                        <p>Here is a brief description of how to use the service. This is a dummy text.This is a dummy
+                            text.
+                        </p>
+                    </span>
+                </li>
+                <li>
+                    <i class="material-symbols-outlined">
+                        format_list_numbered
+                    </i>
+                    <span>
+                        <h4>How to use</h4>
+                        <p>Here is a brief description of how to use the service. This is a dummy text.This is a dummy
+                            text.
+                        </p>
+                    </span>
+                </li>
+                <li>
+                    <i class="material-symbols-outlined">
+                        sign_language
+                    </i>
+                    <span>
+                        <h4>How to use</h4>
+                        <p>Here is a brief description of how to use the service. This is a dummy text.This is a dummy
+                            text.
+                        </p>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div id="modal-info-button">
+            <button class="info-modal-close"><span>Let's start!</span></button>
+        </div>
+    </div>
+
+    <div class="top-wrapper">
+        <section class="content">
+            <div class="search">
+                <div class="search-box_wrapper">
+                    <div class="search-brand">
+                        <a href="/"><img src="/static/images/pcf/top/logo_DiseaseSearch.svg" alt=""></a>
+                        <!-- <a href="https://www.rarediseaseday.org/" target="_blank"><img src="/static/images/pcf/logo_rarediseaseday2023.svg" alt=""></a> -->
+                        {% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+                        <p>希少・遺伝性疾患検索システム</p>
+                        {% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+                        <p>희귀·유전성 질환 검색 시스템</p>
+                        {% else %}
+                        <p>Search System for Rare Genetic Diseases</p>
+                        {% endif %}
+                    </div>
+                    <div id="search_box_form"></div>
+                </div>
+                <div class="search-ex">
+                    <a href="#" id="ex_phenotypes">ex) {{ _('index_Sample') }}</a>
+                </div>
+            </div>
+
+            <!--mapstart-->
+            <div class="map_area">
+                <div class="map_link">
+                    <div class="hover_image_wrap map_link01">
+                        <div class="hover_image">
+                            <button>
+                                <div class="rotate_image"><img data-target="modal3" class="top_modal_highlights_open"
+                                        rel="noopener noreferrer" src="/static/images/pcf/top/img_card_front.svg"
+                                        alt=""></div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hover_image_wrap map_link02">
+                        <div class="hover_image">
+                            <button>
+                                <div class="rotate_image"><img data-target="modal2" class="top_modal_highlights_open"
+                                        rel="noopener noreferrer" src="/static/images/pcf/top/img_card_front.svg"
+                                        alt=""></div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hover_image_wrap map_link03">
+                        <div class="hover_image">
+                            <button>
+                                <div class="rotate_image"><img data-target="modal1" class="top_modal_highlights_open"
+                                        rel="noopener noreferrer" src="/static/images/pcf/top/img_card_front.svg"
+                                        alt=""></div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hover_image_wrap map_link04">
+                        <div class="hover_image">
+                            <button>
+                                <div class="rotate_image"><img data-target="modal4" class="top_modal_highlights_open"
+                                        rel="noopener noreferrer" src="/static/images/pcf/top/img_card_front.svg"
+                                        alt=""></div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hover_image_wrap map_link05">
+                        <div class="hover_image">
+                            <button>
+                                <div class="rotate_image"><img data-target="modal5" class="top_modal_highlights_open"
+                                        rel="noopener noreferrer" src="/static/images/pcf/top/img_card_front.svg"
+                                        alt=""></div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hover_image_wrap map_link06">
+                        <div class="hover_image">
+                            <button>
+                                <div class="rotate_image"><img data-target="modal6" class="top_modal_highlights_open"
+                                        rel="noopener noreferrer" src="/static/images/pcf/top/img_card_front.svg"
+                                        alt=""></div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hover_image_wrap map_link07">
+                        <div class="hover_image">
+                            <button>
+                                <div class="rotate_image"><img data-target="modal7" class="top_modal_highlights_open"
+                                        rel="noopener noreferrer" src="/static/images/pcf/top/img_card_front.svg"
+                                        alt=""></div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hover_image_wrap map_link08">
+                        <div class="hover_image">
+                            <button>
+                                <div class="rotate_image"><img data-target="modal8" class="top_modal_highlights_open"
+                                        rel="noopener noreferrer" src="/static/images/pcf/top/img_card_front.svg"
+                                        alt=""></div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hover_image_wrap map_link09">
+                        <div class="hover_image">
+                            <button>
+                                <div class="rotate_image"><img data-target="modal9" class="top_modal_highlights_open"
+                                        rel="noopener noreferrer" src="/static/images/pcf/top/img_card_front.svg"
+                                        alt=""></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+<!-- __top_modal_highlights_202604__ -->
+{% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+                <div id="modal1" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell top_modal_highlights_shell_intro">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="1"></a>
+                            <a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a>
+                            <a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a>
+                            <a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a>
+                            <a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a>
+                            <a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a>
+                            <a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a>
+                            <a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a>
+                            <a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_intro_stage">
+                            <div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">世界中の症例へ、<br>たどり着くために。</h2>
+
+                                <div class="top_modal_highlights_cta top_modal_highlights_intro_cta">
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/', '_blank');"><img src="/static/images/pcf/top/icon_DS_vertical.svg" alt="">症状から探す</button>
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/icon_CS_vertical.svg" alt="">症例を管理・共有する</button>
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/panelsearch', '_blank');"><img src="/static/images/pcf/top/icon_PS_vertical.svg" alt="">遺伝子パネルデータを検索</button>
+                                    <button class="button_with_icon button_guide top_modal_highlights_intro_guide" onClick="javascript:window.open('/guides?lang=ja', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">ガイド</button>
+                                </div>
+                            </div>
+                        </div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal2" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a>
+                            <a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="2"></a>
+                            <a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a>
+                            <a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a>
+                            <a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a>
+                            <a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a>
+                            <a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a>
+                            <a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a>
+                            <a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_grid">
+                            <div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity02.png" alt=""></div></div>
+                            <div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">症例を、<br>共有して活かす。</h2>
+                                <p class="top_modal_highlights_lead">症例の管理と共有をひとつに。<br><span class="top_modal_highlights_lead_tight">Phenopackets形式での国際共有にも対応しています。</span></p>
+
+                                <div class="top_modal_highlights_cta">
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/service_content_icon_CS.png" alt="">CaseSharing</button>
+                                    <button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/casesharing?lang=ja', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">ガイド</button>
+                                </div>
+                            </div></div>
+                        </div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal3" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_grid">
+                            <div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity01.png" alt=""></div></div>
+                            <div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">症状から、<br>すぐに疾患候補へ。</h2>
+                                <p class="top_modal_highlights_lead">複数の症状を入力することで、<br>それらに関連性の高い疾患をランキングで表示します。<br>文章から症状を自動抽出する検索にも対応しています。</p>
+
+                                <div class="top_modal_highlights_cta">
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/', '_blank');"><img src="/static/images/pcf/top/service_content_icon_DS.png" alt="">DiseaseSearch</button>
+                                    <button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/diseasesearch?lang=ja', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">ガイド</button>
+                                </div>
+                            </div></div>
+                        </div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal4" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity04.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">学びの場に最適な<br>情報を提供。</h2><p class="top_modal_highlights_lead">疾患候補の探索やケーススタディ教材として、<br>複数のシステムを活用できます。</p><p class="top_modal_highlights_note">欧州最大規模の医療施設エラスムス大学医療センターの授業で活用されています。</p>
+
+                                <div class="top_modal_highlights_cta"><button onClick="javascript:window.open('https://cis.erasmusmc.nl/reports/438c09d4-cc52-4c5b-ae3b-6555ad4a77c4/html', '_blank');">Erasmus MC website</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides?lang=ja', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">ガイド</button></div>
+                            </div></div></div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal5" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity05.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">疾患検索から、<br>実際の症例報告へ。</h2><p class="top_modal_highlights_lead">検索した疾患を、症例報告でより深く理解できます。<br>日本語・英語の症例報告に対応しています。</p>
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/result?target=orphanet&phenotype=HP:0000347_ja,HP:0003022_ja,HP:0009381_ja,HP:0000204_ja,HP:0000625_ja&filter=MONDO:0007318&size=10&display_format=full&lang=ja', '_blank');"><img src="/static/images/pcf/top/service_content_icon_DS.png" alt="">DiseaseSearch</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/diseasesearch?lang=ja', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">ガイド</button></div>
+
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal6" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity06.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">症例共有から、<br>次の可能性へ。</h2><p class="top_modal_highlights_lead">類似症例を持つ研究者を見つけやすくし、<br>共同研究を推進することで、<br>治療法開発につながる新たな可能性へ広げます。</p>
+
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/service_content_icon_CS.png" alt="">CaseSharing</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/casesharing?lang=ja', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">ガイド</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal7" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity07.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">バリアントを、<br>自在に絞りこむ。</h2><p class="top_modal_highlights_lead">遺伝子パネルで、多彩なフィルタリングを実現。<br>約9,000件の遺伝子パネルの検索・取得が可能です。</p>
+
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/panelsearch', '_blank');"><img src="/static/images/pcf/top/service_content_icon_PS.png" alt="">PanelSearch</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/panelsearch?lang=ja', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">ガイド</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal8" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity08.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">言語を越えて、<br>同じ情報へ。</h2><p class="top_modal_highlights_lead">日本語や英語に対応し、情報共有の範囲をより広いコミュニティへ広げていけます。</p><p class="top_modal_highlights_note">対応言語のリクエストや、翻訳フィードバックも歓迎しています</p>
+
+                                <div class="top_modal_highlights_cta"><button onClick="location.href='mailto:pubcasefinder@dbcls.rois.ac.jp'">リクエストを送る</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides?lang=ja', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">ガイド</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal9" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity09.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">症例情報を、<br>安全に手元で管理。</h2><p class="top_modal_highlights_lead">症例情報を手元で保存し、必要な時に必要な情報だけ共有できます。<br>安全性を保ちながら、症例情報の活用を広げます。</p>
+
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/service_content_icon_CS.png" alt="">CaseSharing</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/casesharing?lang=ja', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">ガイド</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <figure class="map">
+                    <img src="/static/images/pcf/top/top_map.gif" class="sp_off">
+                </figure>
+            </div>
+
+{% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+                <div id="modal1" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell top_modal_highlights_shell_intro">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="1"></a>
+                            <a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a>
+                            <a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a>
+                            <a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a>
+                            <a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a>
+                            <a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a>
+                            <a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a>
+                            <a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a>
+                            <a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_intro_stage">
+                            <div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">전 세계의 임상 사례에<br>도달하기 위해.</h2>
+
+                                <div class="top_modal_highlights_cta top_modal_highlights_intro_cta">
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/', '_blank');"><img src="/static/images/pcf/top/icon_DS_vertical.svg" alt="">증상으로 검색</button>
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/icon_CS_vertical.svg" alt="">임상 사례 관리·공유</button>
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/panelsearch', '_blank');"><img src="/static/images/pcf/top/icon_PS_vertical.svg" alt="">유전자 패널 데이터 검색</button>
+                                    <button class="button_with_icon button_guide top_modal_highlights_intro_guide" onClick="javascript:window.open('/guides?lang=ko', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">가이드</button>
+                                </div>
+                            </div>
+                        </div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal2" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a>
+                            <a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="2"></a>
+                            <a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a>
+                            <a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a>
+                            <a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a>
+                            <a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a>
+                            <a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a>
+                            <a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a>
+                            <a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_grid">
+                            <div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity02.png" alt=""></div></div>
+                            <div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">임상 사례를<br>공유하고 활용하다.</h2>
+                                <p class="top_modal_highlights_lead">임상 사례의 관리와 공유를 하나로.<br>Phenopackets 형식의 국제 공유도 지원합니다.</p>
+
+                                <div class="top_modal_highlights_cta">
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/service_content_icon_CS.png" alt="">CaseSharing</button>
+                                    <button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/casesharing?lang=ko', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">가이드</button>
+                                </div>
+                            </div></div>
+                        </div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal3" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_grid">
+                            <div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity01.png" alt=""></div></div>
+                            <div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">증상으로<br>바로 질환 후보로.</h2>
+                                <p class="top_modal_highlights_lead">여러 증상을 입력하면<br>관련성이 높은 질환을 순위로 제공합니다.<br>문장에서 증상을 자동 추출하는 검색도 지원합니다.</p>
+
+                                <div class="top_modal_highlights_cta">
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/', '_blank');"><img src="/static/images/pcf/top/service_content_icon_DS.png" alt="">DiseaseSearch</button>
+                                    <button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/diseasesearch?lang=ko', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">가이드</button>
+                                </div>
+                            </div></div>
+                        </div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal4" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity04.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">학습 현장에 최적의<br>정보를 제공합니다.</h2><p class="top_modal_highlights_lead">질환 후보 탐색과 케이스 스터디 교육 자료로<br>다양한 시스템을 활용할 수 있습니다.</p><p class="top_modal_highlights_note">유럽 최대 규모 의료기관 중 하나인 Erasmus MC의 수업에서도 활용되고 있습니다.</p>
+
+                                <div class="top_modal_highlights_cta"><button onClick="javascript:window.open('https://cis.erasmusmc.nl/reports/438c09d4-cc52-4c5b-ae3b-6555ad4a77c4/html', '_blank');">Erasmus MC website</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides?lang=ko', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">가이드</button></div>
+                            </div></div></div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal5" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity05.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">질환 검색에서<br>실제 사례 보고로.</h2><p class="top_modal_highlights_lead">검색한 질환을 사례 보고를 통해<br>더 깊이 이해할 수 있습니다.<br>일본어와 영어로 된 사례 보고를 지원합니다.</p>
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/result?target=orphanet&phenotype=HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625&filter=MONDO:0007318&size=10&display_format=full&lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_DS.png" alt="">DiseaseSearch</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/diseasesearch?lang=ko', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">가이드</button></div>
+
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal6" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity06.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">임상 사례 공유에서<br>다음 가능성으로.</h2><p class="top_modal_highlights_lead">유사한 임상 사례를 가진 연구자를 찾기 쉽게 하고<br>공동 연구를 촉진함으로써<br>치료법 개발로 이어지는 새로운 가능성으로 확장합니다.</p>
+
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/service_content_icon_CS.png" alt="">CaseSharing</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/casesharing?lang=ko', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">가이드</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal7" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity07.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">변이를<br>자유롭게 필터링하다.</h2><p class="top_modal_highlights_lead">유전자 패널을 통해 다양한 필터링을 제공합니다.<br>약 9,000건의 유전자 패널을 검색·조회할 수 있습니다.</p>
+
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/panelsearch', '_blank');"><img src="/static/images/pcf/top/service_content_icon_PS.png" alt="">PanelSearch</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/panelsearch?lang=ko', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">가이드</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal8" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity08.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">언어를 넘어<br>같은 정보로.</h2><p class="top_modal_highlights_lead">일본어와 영어를 지원하며<br>더 넓은 커뮤니티로 정보 공유를 확장할 수 있습니다.</p><p class="top_modal_highlights_note">지원 언어 요청 및 번역 피드백도 환영합니다.</p>
+
+                                <div class="top_modal_highlights_cta"><button onClick="location.href='mailto:pubcasefinder@dbcls.rois.ac.jp'">요청 보내기</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides?lang=ko', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">가이드</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal9" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity09.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">임상 사례 정보를<br>안전하게 로컬에서 관리.</h2><p class="top_modal_highlights_lead">임상 사례 정보를 로컬에 저장하고 필요할 때 필요한 정보만 공유할 수 있습니다.<br>안전성을 유지하면서 임상 사례 정보의 활용을 확장합니다.</p>
+
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/service_content_icon_CS.png" alt="">CaseSharing</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/casesharing?lang=ko', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">가이드</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <figure class="map">
+                    <img src="/static/images/pcf/top/top_map.gif" class="sp_off">
+                </figure>
+            </div>
+
+{% else %}
+                <div id="modal1" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell top_modal_highlights_shell_intro">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="1"></a>
+                            <a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a>
+                            <a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a>
+                            <a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a>
+                            <a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a>
+                            <a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a>
+                            <a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a>
+                            <a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a>
+                            <a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_intro_stage">
+                            <div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">To reach cases<br>around the world.</h2>
+
+                                <div class="top_modal_highlights_cta top_modal_highlights_intro_cta">
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/', '_blank');"><img src="/static/images/pcf/top/icon_DS_vertical.svg" alt="">Search by symptoms</button>
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/icon_CS_vertical.svg" alt="">Manage and share cases</button>
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/panelsearch', '_blank');"><img src="/static/images/pcf/top/icon_PS_vertical.svg" alt="">Search gene panel data</button>
+                                    <button class="button_with_icon button_guide top_modal_highlights_intro_guide" onClick="javascript:window.open('/guides?lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">Guides</button>
+                                </div>
+                            </div>
+                        </div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal2" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a>
+                            <a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="2"></a>
+                            <a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a>
+                            <a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a>
+                            <a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a>
+                            <a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a>
+                            <a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a>
+                            <a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a>
+                            <a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_grid">
+                            <div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity02.png" alt=""></div></div>
+                            <div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">Share cases,<br>put them to use.</h2>
+                                <p class="top_modal_highlights_lead">Bring case management and sharing together.<br>Phenopackets-based international sharing is also supported.</p>
+
+                                <div class="top_modal_highlights_cta">
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/service_content_icon_CS.png" alt="">CaseSharing</button>
+                                    <button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/casesharing?lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">Guides</button>
+                                </div>
+                            </div></div>
+                        </div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal3" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_grid">
+                            <div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity01.png" alt=""></div></div>
+                            <div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">From symptoms to<br>directly to disease candidates.</h2>
+                                <p class="top_modal_highlights_lead">Enter multiple symptoms to see highly relevant diseases ranked.<br>Free-text input with automatic symptom extraction is also supported.</p>
+
+                                <div class="top_modal_highlights_cta">
+                                    <button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/', '_blank');"><img src="/static/images/pcf/top/service_content_icon_DS.png" alt="">DiseaseSearch</button>
+                                    <button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/diseasesearch?lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">Guides</button>
+                                </div>
+                            </div></div>
+                        </div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal4" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell">
+                        <div class="top_modal_highlights_nav">
+                            <a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a>
+                        </div>
+                        <div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity04.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">Providing the right information<br>for learning.</h2><p class="top_modal_highlights_lead">Use multiple systems for candidate-disease exploration and case study materials.</p><p class="top_modal_highlights_note">Used in courses at Erasmus MC, one of Europe’s largest medical centers.</p>
+
+                                <div class="top_modal_highlights_cta"><button onClick="javascript:window.open('https://cis.erasmusmc.nl/reports/438c09d4-cc52-4c5b-ae3b-6555ad4a77c4/html', '_blank');">Erasmus MC website</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides?lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">Guides</button></div>
+                            </div></div></div>
+                        <p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p>
+                    </div>
+                </div>
+
+                <div id="modal5" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity05.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">From disease search to<br>real case reports.</h2><p class="top_modal_highlights_lead">Gain a deeper understanding of searched diseases through case reports.<br>Japanese and English case reports are supported.</p>
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/result?target=orphanet&phenotype=HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625&filter=MONDO:0007318&size=10&display_format=full&lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_DS.png" alt="">DiseaseSearch</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/diseasesearch?lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">Guides</button></div>
+
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal6" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity06.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">From case sharing to<br>what comes next.</h2><p class="top_modal_highlights_lead">Find researchers with similar cases more easily, promote collaborative research,<br>and open up new possibilities for treatment development.</p>
+
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/service_content_icon_CS.png" alt="">CaseSharing</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/casesharing?lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">Guides</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal7" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity07.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">Narrow variants<br>with precision.</h2><p class="top_modal_highlights_lead">Enable rich filtering through gene panels.<br>Around 9,000 gene panels are available for search and retrieval.</p>
+
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/panelsearch', '_blank');"><img src="/static/images/pcf/top/service_content_icon_PS.png" alt="">PanelSearch</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/panelsearch?lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">Guides</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal8" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity08.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">Across languages,<br>to the same information.</h2><p class="top_modal_highlights_lead">Supports Japanese and English, helping extend information sharing to a broader community.</p><p class="top_modal_highlights_note">Requests for additional languages and translation feedback are welcome.</p>
+
+                                <div class="top_modal_highlights_cta"><button onClick="location.href='mailto:pubcasefinder@dbcls.rois.ac.jp'">Send a request</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides?lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">Guides</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <div id="modal9" class="top_modal_highlights">
+                    <div class="top_modal_highlights_shell"><div class="top_modal_highlights_nav"><a data-target="modal1" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="1"></a><a data-target="modal2" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="2"></a><a data-target="modal3" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="3"></a><a data-target="modal4" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="4"></a><a data-target="modal5" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="5"></a><a data-target="modal6" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="6"></a><a data-target="modal7" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="7"></a><a data-target="modal8" class="top_modal_highlights_switch top_modal_highlights_pill" aria-label="8"></a><a data-target="modal9" class="top_modal_highlights_switch top_modal_highlights_pill is_active" aria-label="9"></a></div><div class="top_modal_highlights_grid"><div class="top_modal_highlights_media"><div class="top_modal_highlights_frame"><img src="/static/images/pcf/top/top_modal_highlights/activity09.png" alt=""></div></div><div class="top_modal_highlights_panel"><div class="top_modal_highlights_copy_box">
+
+                                <h2 class="top_modal_highlights_title">Keep case information<br>secure and close at hand.</h2><p class="top_modal_highlights_lead">Save case information locally and share only what is needed, when it is needed.<br>Maintain security while expanding how case information can be used.</p>
+
+                                <div class="top_modal_highlights_cta"><button class="button_with_icon" onClick="javascript:window.open('https://pubcasefinder.dbcls.jp/casesharing', '_blank');"><img src="/static/images/pcf/top/service_content_icon_CS.png" alt="">CaseSharing</button><button class="button_with_icon button_guide" onClick="javascript:window.open('/guides/casesharing?lang=en', '_blank');"><img src="/static/images/pcf/top/service_content_icon_Guide.svg" alt="">Guides</button></div>
+                            </div></div></div><p><a class="top_modal_highlights_close"><div class="batsu">×</div></a></p></div></div>
+
+                <figure class="map">
+                    <img src="/static/images/pcf/top/top_map.gif" class="sp_off">
+                </figure>
+            </div>
+
+{% endif %}
+                <!-- /__top_modal_highlights_202604__ -->
+
+            <!--div class="section-useful">
+                <div class="text-center animation-box">
+                    <h6>PubCaseFinder is useful for finding diseases and cases.</h6>
+                    <h1>Rare and Genetic Disease Search System</h1>
+                </div>
+            </div-->
+
+<!-- redesign202503 -->
+<!-- mission -->
+<div class="section-movie2025">
+  <div class="section_mission">
+    <div class="mission_left_container"></div>
+    <div class="mission_main_container">
+      <div class="mission_content_wrapper">
+        <h2 class="section_title202503">Mission</h2>
+        <div class="mission_subtitle_wrapper">
+          {% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+          <span class="mission_subtitle01">PubCaseFinder</span>
+          <span class="mission_subtitle02">の目指す未来</span>
+          {% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+          <span class="mission_subtitle01">PubCaseFinder</span>
+          <span class="mission_subtitle02">가 지향하는 미래</span>
+          {% else %}
+          <span class="mission_subtitle01">PubCaseFinder's Vision</span>
+          {% endif %}
+        </div>
+        {% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+        <p class="mission_text">希少・遺伝性疾患に関する「世界中のすべての症例」を検索可能にすることが、私たちの長期的なミッションです。<br/>このミッションを達成するために、臨床遺伝専門医をはじめとする医療関係者が必要な情報に迅速かつ的確にアクセスできるシステムを構築しています。</p>
+        {% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+        <p class="mission_text">희귀·유전성 질환에 관한 ‘전 세계의 모든 사례’를 검색할 수 있게 하는 것이 저희의 장기적 미션입니다. 이 미션을 달성하기 위해 임상 유전 전문의를 비롯한 의료 관계자들이 필요한 정보를 신속하고 정확하게 이용할 수 있는 시스템을 구축하고 있습니다</p>
+        {% else %}
+        <p class="mission_text">Our long-term mission is to make “every case worldwide” of rare and genetic diseases searchable. To achieve this mission, we are building a system that enables clinical geneticists and other healthcare professionals to access the information they need quickly and accurately.</p>
+        {% endif %}
+      </div>
+      <img class="mission_illust" src="/static/images/pcf/top/system_06.png" alt="System Image">
+    </div>
+  </div>
+</div>
+
+<!-- service -->
+<div class="section_service2025">
+  <div class="section_service">
+    <div class="service_main_container">
+      <h2 class="section_title202503">Service</h2>
+      <img class="service_illust" src="/static/images/pcf/top/system_08.png" alt="System Image">
+      <div class="service_content_wrapper">
+			        <div class="service_content_DS">
+				        <div class="service_inner_wrapper">
+				          <img class="service_icon" src="/static/images/pcf/top/service_content_icon_DS.png" alt="">
+			            <h3 class="service_contenttitle">DiseaseSearch</h3>
+				    {% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+			            <p class="service_text">患者の症状と関連性の高い希少・遺伝性疾患、疾患原因遺伝子を効率よく検索できるWebサービスです。</p>
+				    {% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+			            <p class="service_text">이 웹 서비스는 환자의 증상과 관련성이 높은 희귀 유전 질환과 그 원인 유전자를 효율적으로 검색합니다.</p>
+				    {% else %}
+			            <p class="service_text">This web service efficiently searches for rare and hereditary diseases and their causative genes that are highly relevant to a patient’s symptoms.</p>
+				    {% endif %}
+			          </div>
+			          <div class="service_inner_wrapper">
+				          <div class="button_service_darkblue"><a href="/" target="_blank">Visit</a></div>
+				          <div class="button_service_gray"><a href="/guides" target="_blank">Guides</a></div>
+			          </div>
+			        </div>
+			        <div class="service_content_CS">
+				        <div class="service_inner_wrapper">
+				          <img class="service_icon" src="/static/images/pcf/top/service_content_icon_CS.png" alt="">
+			            <h3 class="service_contenttitle">CaseSharing</h3>
+				    {% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+			            <p class="service_text">希少・遺伝性疾患の症例情報を、管理・共有するためのWebサービスです。ユーザ登録なしで利用可能です。</p>
+				    {% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+			            <p class="service_text">회원 가입 없이 이용할 수 있는 희귀 및 유전성 질환 사례 정보를 관리하고 공유하기 위한 웹 서비스입니다.</p>
+				    {% else %}
+			            <p class="service_text">This web service allows users to efficiently, confidentially, and seamlessly manage and share case information on rare and genetic diseases without registration.</p>
+				    {% endif %}
+			          </div>
+			          <div class="service_inner_wrapper">
+			            <div class="button_service_darkblue"><a href="/casesharing" target="_blank">Visit</a></div>
+			            <div class="button_service_gray"><a href="/guides" target="_blank">Guides</a></div>
+			          </div>
+			        </div>
+			        <div class="service_content_PS">
+				        <div class="service_inner_wrapper">
+				          <img class="service_icon" src="/static/images/pcf/top/service_content_icon_PS.png" alt="">
+			            <h3 class="service_contenttitle">PanelSearch</h3>
+				    {% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+			            <p class="service_text">ヒトの約1万の希少・遺伝性疾患に関連する遺伝子パネルデータを検索・ダウンロードできるWebサービスです。</p>
+				    {% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+			            <p class="service_text">이 웹 서비스는 인간의 약 1만 개 희귀·유전성 질환과 관련된 유전자 패널 데이터를 검색하고 다운로드할 수 있게 해줍니다.</p>
+				    {% else %}
+			            <p class="service_text">This web service allows users to search for and download gene panel data associated with approximately ten thousand rare and genetic diseases in humans.</p>
+				    {% endif %}
+			          </div>
+			          <div class="service_inner_wrapper">
+			            <div class="button_service_darkblue"><a href="/panelsearch" target="_blank">Visit</a></div>
+			            <div class="button_service_gray"><a href="/guides" target="_blank">Guides</a></div>
+					      </div>
+		          </div>
+		  </div>
+		</div>
+    <div class="service_right_container"></div>
+  </div>
+</div>
+
+<!-- Citation -->
+<div class="section_citation2025">
+	<div class="section_citation">
+		<div class="citation_main_container">
+			<h2 class="section_title202503">Citation</h2>
+			<div class="citation_content_wrapper">
+				<h4><span>&quot; </span>When you use PubCaseFinder in your publications, please cite:<span> &quot;</span></h4>
+
+				<div class="citation_item_wrapper">
+          <p>Shin, J., Fujiwara, T., Saitsu, H., & Yamaguchi, A. (2025). Ontology-based expansion of virtual gene panels to improve diagnostic efficiency for rare genetic diseases. <i>BMC medical informatics and decision making</i>, 25(Suppl 1), 59.</p>
+          <div class="citation_button_wrapper">
+            <div class="button_gray_min"><a href="https://pubmed.ncbi.nlm.nih.gov/39910609/" target="_blank">PubMed</a></div>
+            <div class="button_gray_min"><a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-025-02910-2" target="_blank">Full Text</a></div>
+          </div>
+        </div>
+
+        <div class="citation_item_wrapper">
+          <p>Fujiwara, T., Shin, J. M., & Yamaguchi, A. (2022). Advances in the development of PubCaseFinder, including the new application programming interface and matching algorithm. <i>Human mutation</i>, 10.1002/humu.24341. Advance online publication.</p>
+          <div class="citation_button_wrapper">
+            <div class="button_gray_min"><a href="https://www.ncbi.nlm.nih.gov/pubmed/35143083" target="_blank">PubMed</a></div>
+            <div class="button_gray_min"><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/humu.24341" target="_blank">Full Text</a></div>
+          </div>
+        </div>
+
+        <div class="citation_item_wrapper">
+          <p>Yamaguchi, A., Shin, J. M., & Fujiwara, T. (2021, December). Gene Ranking based on Paths from Phenotypes to Genes on Knowledge Graph. <i>In The 10th International Joint Conference on Knowledge Graphs</i> (pp. 131-134).</p>
+          <div class="citation_button_wrapper">
+            <div class="button_gray_min"><a href="https://dl.acm.org/doi/abs/10.1145/3502223.3502240?casa_token=ZIFfd6o2HOkAAAAA:Eq9dExLyXT3ez937hiexBNv07gL2ci7NjgCPRFqrWVBS-0tLG1wvRVbOljKBHHhO4fniVTobvVzC" target="_blank">Full Text</a></div>
+          </div>
+        </div>
+
+        <div class="citation_item_wrapper">
+          <p>Fujiwara, T., Yamamoto, Y., Kim, J. D., Buske, O., & Takagi, T. (2018). PubCaseFinder: A case-report-based, phenotype-driven differential-diagnosis system for rare diseases. <i>The American Journal of Human Genetics</i>, 103(3), 389-399.</p>
+          <div class="citation_button_wrapper">
+            <div class="button_gray_min"><a href="https://www.ncbi.nlm.nih.gov/pubmed/30173820" target="_blank">PubMed</a>
+					  </div>
+					  <div class="button_gray_min"><a href="https://www.cell.com/ajhg/fulltext/S0002-9297(18)30269-6?code=ajhg-site" target="_blank">Full Text</a>
+					  </div>
+          </div>
+        </div>
+
+				<img class="citation_illust" src="/static/images/pcf/top/system_01.png" alt="System Image">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- specialThanks -->
+<div class="section_specialThanks_memberships2025">
+  <div class="specialThanks_memberships_container">
+      <h2 class="section_title202503">Special Thanks</h2>
+  </div>
+    <div class="grid2025">
+        <div class="item2025">
+            <a href="https://hpo.jax.org/app/" target="_blank"><img src="/static/images/pcf/top/logo_human.png"></a>
+        </div>
+        <div class="item2025">
+            <a href="https://github.com/monarch-initiative/mondo" target="_blank"><img src="/static/images/pcf/top/logo_mondo.png"></a>
+        </div>
+        <div class="item2025">
+            <a href="http://phenopackets.org" target="_blank"><img src="/static/images/pcf/top/logo_phenopackets.png"></a>
+        </div>
+        <div class="item2025">
+            <a href="https://monarchinitiative.org/" target="_blank"><img src="/static/images/pcf/top/logo_monarch.png"></a>
+        </div>
+        <div class="item2025">
+            <a href="https://www.orphadata.com/ordo/" target="_blank"><img src="/static/images/pcf/top/logo_ordo.png"></a>
+        </div>
+        <div class="item2025">
+            <a href="http://www.orphadata.org/cgi-bin/index.php" target="_blank"><img src="/static/images/pcf/top/logo_orpha.png"></a>
+        </div>
+        <div class="item2025">
+            <a href="https://bioportal.bioontology.org/ontologies/NANDO" target="_blank"><img src="/static/images/pcf/top/logo_NANDO.png"></a>
+        </div>
+        <div class="item2025">
+            <a href="https://nanbyodata.jp/" target="_blank"><img src="/static/images/pcf/top/logo_NanbyoData.png"></a>
+        </div>
+
+    </div>
+</div>
+
+<!-- memberships -->
+<div class="section_specialThanks_memberships2025">
+  <div class="specialThanks_memberships_container">
+      <h2 class="section_title202503">Memberships & Collaborators</h2>
+  </div>
+    <div class="grid2025">
+        <div class="item2025">
+            <a href="https://www.ga4gh.org/" target="_blank"><img src="/static/images/pcf/top/logo_global.png">
+            </a>
+        </div>
+        <div class="item2025">
+            <a href="https://www.matchmakerexchange.org" target="_blank"><img
+                    src="/static/images/pcf/top/logo_matchmaker.png">
+            </a>
+        </div>
+        <div class="item2025">
+            <a href="https://biosciencedbc.jp/en/" target="_blank"><img src="/static/images/pcf/top/logo_NBDC.png"></a>
+        </div>
+        <div class="item2025">
+            <a href="https://www.matchmakerexchange.org/" target="_blank"><img
+                    src="/static/images/pcf/top/logo_PhenoTips.png">
+            </a>
+        </div>
+        <div class="item2025">
+            <a href="https://www.phenomecentral.org/" target="_blank"><img src="/static/images/pcf/top/logo_central.png">
+            </a>
+        </div>
+        <div class="item2025">
+            <a href="https://rd-connect.eu" target="_blank"><img src="/static/images/pcf/top/logo_RD.png">
+            </a>
+        </div>
+        <div class="item2025">
+            <a href="https://www.jstage.jst.go.jp/browse/-char/ja" target="_blank"><img
+                    src="/static/images/pcf/top/logo_jstage.png"></a>
+        </div>
+        <div class="item2025">
+            <a href="https://jglobal.jst.go.jp" target="_blank"><img src="/static/images/pcf/top/logo_Jglobal.png"></a>
+        </div>
+    </div>
+</div>
+
+<!-- / redesign202503 -->
+
+
+
+
+
+    </div>
+
+    </section>
+    </div>
+    <div class="floating-banner floating-CaseSharing">
+        <a href="/casesharing" target="_blank">
+            <img src="/static/images/flooring_CaseSharing.svg" alt="CaseSharing">
+            {% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+            <p>症例情報を管理・共有</p>
+            {% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+            <p>의료 사례 정보를 관리/공유</p>
+            {% else %}
+            <p>Manage Case Information</p>
+            {% endif %}
+        </a>
+    </div>
+
+    <div class="floating-banner floating-PanelSearch">
+        <a href="/panelsearch" target="_blank">
+            <img src="/static/images/flooring_PanelSearch.svg" alt="PanelSearch">
+            {% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+            <p>遺伝子パネル情報を検索</p>
+            {% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+            <p>유전자 패널 정보 검색</p>
+            {% else %}
+            <p>Search Gene Panels</p>
+            {% endif %}
+        </a>
+    </div>
+    {% include "footer.html" %}
+</body>
+
+<!-- START: Common header and footer -->
+<!--script type="text/javascript" src="/static/common-header-and-footer/script/common-footer.js"
+    id="common-footer__script"></script-->
+<script type="text/javascript"
+    src="https://dbcls.rois.ac.jp/DBCLS-common-header-footer/v2/script/common-header-and-footer.js"
+    data-show-footer="false" data-show-footer-license="false" data-show-footer-links="false" style="display: block"
+    id="common-header-and-footer__script" data-width="976" data-color="mono"></script>
+<!-- END: Common header and fotter -->
+
+<!-- START: Slider -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+<!-- <script src="js/remodal.min.js"></script>  -->
+<!--追加-->
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+<script>
+    $('.tab-content>div').hide();
+    $('.tab-content>div').first().slideDown();
+    $('.tab-buttons span').click(function () {
+        var thisclass = $(this).attr('class');
+        $('#lamp').removeClass().addClass('#lamp').addClass(thisclass);
+        $('.tab-content>div').each(function () {
+            if ($(this).hasClass(thisclass)) {
+                $(this).fadeIn(800);
+            }
+            else {
+                $(this).hide();
+            }
+        });
+    });
+    jQuery(window).on('scroll', function () {
+        if (jQuery('.search-header').height() < jQuery(this).scrollTop()) {
+            jQuery('.search-header').addClass('change-color');
+        } else {
+            jQuery('.search-header').removeClass('change-color');
+        }
+    });
+    var mySwiper = new Swiper('.swiper-container', {
+        loop: true,
+        speed: 5000,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        autoplay: {
+            stopOnLastSlide: false,
+            disableOnInteraction: false,
+            reverseDirection: false
+        }
+    });
+    $(function () {
+        var countElm = $('.count'),
+            countSpeed = 1;
+
+        countElm.each(function () {
+            var self = $(this),
+                countMax = self.attr('data-num'),
+                thisCount = self.text(),
+                countTimer;
+
+            function timer() {
+                countTimer = setInterval(function () {
+                    var countNext = thisCount++;
+                    self.text(countNext);
+
+                    if (countNext == countMax) {
+                        clearInterval(countTimer);
+                    }
+                }, countSpeed);
+            }
+            timer();
+        });
+
+    });
+
+
+    //modal内容
+    $(function () {
+        $('.modal_open').click(function () {
+
+            $('body').append('<div class="modal_bg"></div>');
+            $('.modal_bg').fadeIn();
+
+            var modal = '#' + $(this).attr('data-target');
+
+            function modalResize() {
+                var w = $(window).width();
+                var h = $(window).height();
+
+                var x = (w - $(modal).outerWidth(true)) / 2;
+                var y = (h - $(modal).outerHeight(true)) / 2;
+
+                $(modal).css({ 'left': x + 'px', 'top': y + 'px' });
+            }
+
+            modalResize();
+
+            $(modal).fadeIn();
+
+            $('.modal_bg, .modal_close').off().click(function () {
+                $('.modal_box').fadeOut();
+                $('.modal_bg').fadeOut('slow', function () {
+                    $('.modal_bg').remove();
+                });
+            });
+
+            $(window).on('resize', function () {
+                modalResize();
+            });
+
+            $('.modal_switch').click(function () {
+
+                $(this).parents('.modal_box').fadeOut();
+
+                var modal = '#' + $(this).attr('data-target');
+
+                function modalResize() {
+                    var w = $(window).width();
+                    var h = $(window).height();
+
+                    var x = (w - $(modal).outerWidth(true)) / 2;
+                    var y = (h - $(modal).outerHeight(true)) / 2;
+
+                    $(modal).css({ 'left': x + 'px', 'top': y + 'px' });
+                }
+
+                modalResize();
+
+                $(modal).fadeIn();
+
+                $(window).on('resize', function () {
+                    modalResize();
+                });
+            });
+        });
+    });
+
+
+    // 追加
+    $(function () {
+
+        $('.modal_open').click(function () {
+
+            $('body').append('<div class="modal_bg"></div>');
+            $('.modal_bg').fadeIn();
+
+            var modal = '#' + $(this).attr('data-target');
+
+            function modalResize() {
+                var w = $(window).width();
+                var h = $(window).height();
+
+                var x = (w - $(modal).outerWidth(true)) / 2;
+                var y = (h - $(modal).outerHeight(true)) / 2;
+
+                $(modal).css({ 'left': x + 'px', 'top': y + 'px' });
+            }
+            //　youtube動画表示（動画URLの挿入）
+            $('.education_movie').attr(
+                'src',
+                'https://www.youtube.com/embed/sPK1FrdN0Dw'
+            );
+            $('.howto_movie').attr(
+                'src',
+                //'https://www.youtube.com/embed/g6SZWbb0Fk4'
+                'https://www.youtube.com/embed/sPK1FrdN0Dw'
+            );
+
+            modalResize();
+
+            $(modal).fadeIn();
+
+            $('.modal_bg, .modal_close').off().click(function () {
+                $('.modal_box').fadeOut();
+                $('.modal_bg').fadeOut('slow', function () {
+                    $('.modal_bg').remove();
+                });
+                //　youtube動画停止（動画URLの削除）
+                $('.education_movie').attr('src', '');
+                $('.howto_movie').attr('src', '');
+            });
+
+            $(window).on('resize', function () {
+                modalResize();
+            });
+
+            $('.modal_switch').click(function () {
+
+                $(this).parents('.modal_box').fadeOut();
+
+                var modal = '#' + $(this).attr('data-target');
+
+                function modalResize() {
+                    var w = $(window).width();
+                    var h = $(window).height();
+
+                    var x = (w - $(modal).outerWidth(true)) / 2;
+                    var y = (h - $(modal).outerHeight(true)) / 2;
+
+                    $(modal).css({ 'left': x + 'px', 'top': y + 'px' });
+                }
+
+                modalResize();
+
+                $(modal).fadeIn();
+
+                $(window).on('resize', function () {
+                    modalResize();
+                });
+            });
+        });
+    });
+
+
+    const banner = document.querySelector('.floating-banner');
+
+    banner.addEventListener('mouseenter', () => {
+        banner.style.transform = 'translate(0, -10px)';
+    });
+
+    banner.addEventListener('mouseleave', () => {
+        banner.style.transform = 'translate(0, 0)';
+    });
+
+</script>
+<!-- END: Slider -->
+
+<!-- START: Import JavaScript -->
+<!-- jQuery -->
+<script src="/static/js/pcf/jquery.min.js"></script>
+<script src="/static/js/pcf/top_modal_highlights.js"></script>
+<!-- jQuery Easing -->
+<script src="/static/js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="/static/js/pcf/bootstrap-4.6.0.bundle.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="/static/js/jquery.waypoints.min.js"></script>
+<script src="/static/js/jquery.countTo.js"></script>
+<script src="/static/js/pcf/jquery.magnific_popup.min.js"></script>
+<script src="/static/js/pcf/magnific-popup-options.js"></script>
+<script src="/static/js/jquery.stellar.min.js"></script>
+<script src="/static/js/pcf/rater.js"></script>
+
+<!-- Main -->
+<script src="/static/js/main.js"></script>
+<script src="/static/js/common-header.js"></script>
+<script src="/static/js/common-header-auth-diseasesearch.js"></script>
+<script src="/static/js/index.js"></script>
+<!-- END: Import JavaScript -->
+
+<!-- START: jquery-tokeninput popup-hierarchy-hpo -->
+<script src="/static/js/pcf/jquery.tokeninput.js"></script>
+<script src="/static/js/d3/3.5.17/d3.min.js"></script>
+<script src="/static/js/three.js-r84/build/three.min.js"></script>
+<script src="/static/js/three.js-r84/examples/js/Detector.js"></script>
+<script src="/static/js/three-bits/OBJLoader.js"></script>
+<script src="/static/js/three-bits/three-bits.js"></script>
+<script src="/static/js/three-bits/three-bits-renderer.js"></script>
+<script src="/static/js/three-bits/defaults.js"></script>
+<script type="text/javascript" src="/static/js/pcf/popup-hierarchy-hpo.js"></script>
+<script src="/static/js/button-ripple-effect.js"></script>
+<script src="/static/js/jaconv/jaconv.min.js"></script>
+<script type="text/javascript" src="/static/js/pcf/jquery.search-box_form.js"></script>
+<script type="text/javascript" src="/static/js/pcf/jquery.textinput_hpo.js"></script>
+<script type="text/javascript" src="/static/js/pcf/jquery.listinput.js"></script>
+<script type="text/javascript">
+    var pcf_show_loading = function () {
+        if ($('#fh5co-loader').css('display') === 'none') $("#fh5co-loader").fadeIn("normal");
+    };
+
+    var pcf_hide_loading = function () {
+        if ($('#fh5co-loader').css('display') === 'none') return;
+        $("#fh5co-loader").fadeOut("slow");
+    };
+
+    $(document).ready(function () {
+
+        $("#search_box_form").search_box_form({
+            'url_tokeninput_hpo': '/tokeninput_hpo',
+            'url_tokeninput_hpo_second': '/pcf_get_hpo_by_text',
+            'url_popup_hierarchy_hpo': '/popup_hierarchy_hpo',
+            'url_load_hpo_data': '/get_hpo_data_by_hpo_id',
+          {% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+          'lang': "ja",
+        {% else %}
+        'lang': "en",
+        {% endif %}
+        'form_para_target': "omim",
+        'form_para_filter': "",
+        'form_para_filter_vgp': "",
+        'form_para_size': "",
+        'form_para_display_format': "full",
+        'show_loading': pcf_show_loading,
+        'hide_loading': pcf_hide_loading,
+        'is_hierarchy_fullscreen': false,
+        'schema': 'schema-2022',
+        //'text_input_schema': 'auto',
+        'text_input_schema': 'manual'
+        });
+
+    $("#ex_phenotypes").click(function () {
+        $("#search_box_form").search_box_form('add_token', { id: "{{ _('index_Sample_1_id') }}", name: "{{ _('index_Sample_1_name') }}" });
+        $("#search_box_form").search_box_form('add_token', { id: "{{ _('index_Sample_2_id') }}", name: "{{ _('index_Sample_2_name') }}" });
+        $("#search_box_form").search_box_form('add_token', { id: "{{ _('index_Sample_3_id') }}", name: "{{ _('index_Sample_3_name') }}" });
+        $("#search_box_form").search_box_form('add_token', { id: "{{ _('index_Sample_4_id') }}", name: "{{ _('index_Sample_4_name') }}" });
+        $("#search_box_form").search_box_form('add_token', { id: "{{ _('index_Sample_5_id') }}", name: "{{ _('index_Sample_5_name') }}" });
+
+        return false;
+    });
+
+    $('[data-toggle="tooltip"]').tooltip({ 'trigger': 'hover' });
+    });
+
+    $('.rater').rate({
+        max_value: 5,
+        step_size: 0.1,
+        initial_value: 0
+    });
+</script>
+
+
+</html>

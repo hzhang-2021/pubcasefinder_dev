@@ -1,0 +1,146 @@
+{% extends "common_admin_layout.html" %}
+
+{% block css_block %}
+<link rel="stylesheet" href="/static/css/common_admin/admin_mail.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+{% endblock %}
+
+{% block page_content %}
+<div class="wrapper title">
+  <svg class="mt-1" width="29" height="29" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="none"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" fill="#1B2C1A"/></svg>
+  <span>メール設定</span>
+</div>
+<div class="wrapper mail">
+  <nav class="vgp-nav">
+    <div class="nav nav-tabs" id="nav-tab" roles="tablist">
+      <a class="nav-item nav-link mr-2 active" id="nav-log-panel" data-toggle="tab" href="#log-panel" role="tab" aria-controls="log-panel" aira-selected="true">Mail Log</a>
+      <a class="nav-item nav-link mr-2" id="nav-template-panel" data-toggle="tab" href="#template-panel" role="tab" aria-controls="template-panel" aria-selected="false">Mail Template</a>
+      <a class="nav-item nav-link mr-2" id="nav-smtp-panel" data-toggle="tab" href="#smtp-panel" role="tab" aria-controls="smtp-panel" aria-selected="false">Mail SMTP Setting</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div id="log-panel" class="tab-pane fade active show" role="tabpanel" aria-labelledby="nav-log-panel">
+      <div id="log-search-wrapper">
+        <input  class= "filter-by-word mr-3" maxlength="255" id="filter_to" type="text" autocomplete="off" autocapitalize="off" placeholder="受信者の名前 / メールアドレス">
+        <label class= "mr-1 pl-1 pr-1">From: <input type="date" id="filter_fromdate"></label>
+        <label class= "mr-3 pl-1 pr-1" >To: <input type="date" id="filter_todate"></label>
+        <label class= "mr-3 hide" >Service: 
+          <select id="filter_auth_type" class="pl-1 pr-1">
+          </select>
+        </label>
+        <label class= "mr-3" >Type:
+          <select id="filter_type" class="pl-1 pr-1">
+            <option value="">ALL</option>
+          </select>
+        </label>
+        <label class= "mr-3" >Status:
+          <select id="filter_status" class="pl-1 pr-1">
+            <option value="">ALL</option>
+            <option value="pending">Pending</option>
+            <option value="sent">Sent</option>
+            <option value="failed">Failed</option>
+          </select>
+        </label>
+        <button id="btn_load_email" class="action-button">Load</button>
+      </div>
+      <div id="log-table-wrapper">
+        <table id="email_table">
+          <thead>
+            <tr>
+              <th>メール種類</th>
+              <th>受信者名</th>
+              <th>受信者所属</th>
+              <th>受信者メールアドレス</th>
+              <th>送信日時</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div id="template-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-template-panel">
+      <div class="search-wrapper mt-3">
+        <label class= "mr-3 hide" >Service:
+          <select id="template_auth_type" class="pl-1 pr-1">
+          </select>
+        </label>
+        <label>template:
+          <select id="template_type" class="pl-1 pr-1">
+          </select>
+        </label>
+      </div>
+      <div id="template-wrapper" class="d-flex flex-column">
+        <table class="setting-table">
+          <tr><th>Subject:</th><td><input id="template_subject" class="form-control" type="text" maxlength="255" autocomplete="off" autocapitalize="off" disabled></td></tr>
+          <tr><th>body:</th><td><textarea id="template_body" class="form-control" rows="15" disabled></textarea></td></tr>
+        </table>
+        <div class="ctl-wrapper">
+          <button class="action-button" id="btn_template_modify">Modify</button>
+          <button class="action-button" id="btn_template_save">Save</button>
+          <button class="cancel-button" id="btn_template_cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div id="smtp-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-smtp-panel">
+      <div id="smtp-setting-wrapper">
+        <table class="setting-table" id="smtp-setting-table">
+          <tr>
+            <th>SMTP Server</th>
+            <td><input type="text" id="smtp_server" class="form-control" placeholder="smtp.gmail.com" disabled></td>
+          </tr>
+          <tr>
+            <th>SMTP Port</th>
+            <td>
+              <input type="radio" class="btn-check" name="encryption" id="ssl" value="ssl" autocomplete="off" disabled>SSL (465)
+              <input type="radio" class="btn-check ml-4" name="encryption" id="tls" value="tls" autocomplete="off" disabled>TLS (587)
+            </td>
+          </tr>
+          <tr>
+            <th>User Name</th>
+            <td><input id="username" placeholder="Username" class="form-control" disabled></td>
+          </tr>
+          <tr>
+            <th>APP Password</th>
+            <td><input id="password" type="password" placeholder="Password / App Password" class="form-control" disabled></td>
+          </tr>
+          <tr>
+            <th>From Name</th>
+            <td><input id="from_name" placeholder="From Name" class="form-control" disabled></td>
+          </tr>
+
+          <tr> 
+            <th>From Email</th>
+            <td><input id="from_email" placeholder="From Email" class="form-control" disabled></td>
+          </tr>
+        </table>
+<!--
+        <div class="smtp-setting-ctl-wrapper">
+          <button class="action-button" id="btn_smtp-setting_modify">Modify</button>
+          <button class="action-button" id="btn_smtp-setting_save">Save</button>
+          <button class="cancel-button" id="btn_smtp-setting_cancel">Cancel</button>
+        </div>
+-->
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+{% endblock %}
+
+{% block js_block %}
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/js/common_admin/admin_mail.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+$(document).ready(function(){
+
+  _vgp_hide_loading();
+  _init({{ r_email_templates | tojson }}, {{ r_email_settings | tojson }});
+});
+</SCRIPT>
+{% endblock %}

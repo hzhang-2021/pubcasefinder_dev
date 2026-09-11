@@ -1,0 +1,337 @@
+#nav-login>a, #nav-user>a { background-color: #258800; color: white; }
+
+#nav-user>a>span.user-initial{display: none;margin-left: 5px; margin-right: 5px;}
+#nav-login>a>span.user-initial{display: none;margin-left: 0px; margin-right: 0px;}
+
+#nav-user>a>span>span.user-name {
+    display: inline-block;   /* 或 block */
+    max-width: 150px;        /* 最大宽度 */
+    height: 20px;
+    vertical-align: top;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#nav-login>a.casesharing, #nav-user>a.casesharing{ background-color: #ff8c00; }
+#nav-login>a.panelsearch, #nav-user>a.panelsearch，
+#nav-login>a.panelsearch_nanbyo, #nav-user>a.panelsearch_nanbyo，
+#nav-login>a.panelsearch_nanbyo_admin, #nav-user>a.panelsearch_nanbyo_admin{ background-color: #258800; }
+#nav-login>a.diseasesearch,#nav-user>a.diseasesearch{ background-color: #E60000; }
+
+#nav-login>a:hover, #nav-user>a:hover {background-color: white; color: #258800; border: 1px solid #258800; }
+#nav-login>a.casesharing:hover, #nav-user>a.casesharing:hover{background-color: white; color: #ff8c00; border: 1px solid #ff8c00; }
+#nav-login>a.panelsearch:hover, #nav-user>a.panelsearch:hover,
+#nav-login>a.panelsearch_nanbyo:hover, #nav-user>a.panelsearch_ananbyo:hover,
+#nav-login>a.panelsearch_nanbyo_admin:hover, #nav-user>a.panelsearch_nanbyo_admin:hover{background-color: white; color: #258800; border: 1px solid #258800; }
+#nav-login>a.diseasesearch:hover,#nav-user>a.diseasesearch:hover{background-color: white; color: #E60000; border: 1px solid #E60000; }
+
+#nav-login>a svg, #nav-user>a svg { fill: currentColor; margin-left: 5px; margin-right: 5px; vertical-align: sub;}
+
+.nav-item-dropdown .dropdown-menu.common-user{right: 70px;}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap{
+  position: relative;
+  z-index: 1001;
+  min-width: 21rem;
+  padding: 1em;
+  height: 145px;
+  background-color: #fff;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 15px 1px rgba(163, 163, 163, 0.2);
+  box-sizing: border-box;
+}
+.nav-item-dropdown .common-user .common-user-menu-wrap.admin{ height: 215px; min-width: 21rem;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo.admin,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo_admin.admin{ height: 375px; min-width: 21rem;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo.curator,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo_admin.curator{ height: 215px; min-width: 21rem;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo.reviewer,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo_admin.reviewer{ height: 215px; min-width: 21rem;}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item{
+  cursor: pointer;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  text-align: center;
+  display: table-cell;
+  float: left;
+  width: 33%;
+}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item.dropdown-selected,
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item:hover {
+  background-color: #e4e5eb; 
+  border-radius: 0.5em;
+  border:0;
+}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item a{
+  border: 0px;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  display: inline-block;
+  height: 70px;
+  color: #11101d;
+  outline: none;
+  text-decoration: none;
+  background-color: unset !important;
+}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item a svg{
+  height: 30px;
+  width: 30px;
+  /*fill: unset !important;*/
+  transition: fill 0.3s ease;
+  overflow: hidden;
+  vertical-align: middle;
+  background-color: transparent;
+}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap.casesharing .dropdown-user-menu-item  a svg,
+.nav-item-dropdown .common-user .common-user-menu-wrap.casesharing .dropdown-user-menu-item  a svg path{fill: #ff8c00;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.casesharing .dropdown-user-menu-item  a svg path{stroke:#ff8c00;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch .dropdown-user-menu-item  a svg,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo .dropdown-user-menu-item  a svg,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo_admin .dropdown-user-menu-item  a svg,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch .dropdown-user-menu-item  a svg path,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo .dropdown-user-menu-item  a svg path,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo_admin .dropdown-user-menu-item  a svg path{fill: #45594f;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch .dropdown-user-menu-item  a svg path,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo .dropdown-user-menu-item  a svg path,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo_admin .dropdown-user-menu-item  a svg path{stroke: #45594f;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.diseasesearch .dropdown-user-menu-item  a svg,
+.nav-item-dropdown .common-user .common-user-menu-wrap.diseasesearch .dropdown-user-menu-item  a svg path{fill: #E60000;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.diseasesearch .dropdown-user-menu-item  a svg path{stroke: #E60000;}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item  a svg.fillnone path{fill: none;}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item  a svg.strokenone path{stroke: none;}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item a span {
+  font-size: 0.8em;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+  color: #45594F;
+}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap.casesharing .dropdown-user-menu-item  a span{color: #ff8c00;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch .dropdown-user-menu-item  a span,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo .dropdown-user-menu-item  a span,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo_admin .dropdown-user-menu-item  a span{color: #45594f;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.diseasesearch .dropdown-user-menu-item  a span{color: #E60000;}
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item.logout{
+  width: 100%;
+  border-top: solid 1px #ccc;
+  border-radius: 0px;
+  padding: 0;
+}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap.casesharing .dropdown-user-menu-item.logout{border-top: solid 1px #ff8c00;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch .dropdown-user-menu-item.logout,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo .dropdown-user-menu-item.logout,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo_admin .dropdown-user-menu-item.logout{border-top: solid 1px #45594f;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.diseasesearch .dropdown-user-menu-item.logout{border-top: solid 1px #E60000;}
+
+
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item.logout button{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 0;
+  color: #45594F;
+  padding: 9px 0px 5px 0px;
+}
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item.logout button:hover{ background-color: #f0f0f0;}
+.nav-item-dropdown .common-user .common-user-menu-wrap .dropdown-user-menu-item.logout button svg{width: 16px; height: 16px;}
+
+.nav-item-dropdown .common-user .common-user-menu-wrap.casesharing .dropdown-user-menu-item.logout button{color: #ff8c00;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.casesharing .dropdown-user-menu-item.logout button svg{fill: #ff8c00;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch .dropdown-user-menu-item.logout button,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo .dropdown-user-menu-item.logout button,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo_admin .dropdown-user-menu-item.logout button{color: #45594f;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch .dropdown-user-menu-item.logout button svg,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo .dropdown-user-menu-item.logout button svg,
+.nav-item-dropdown .common-user .common-user-menu-wrap.panelsearch_nanbyo_admin .dropdown-user-menu-item.logout button svg{fill: #45594f;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.diseasesearch .dropdown-user-menu-item.logout button{color: #E60000;}
+.nav-item-dropdown .common-user .common-user-menu-wrap.diseasesearch .dropdown-user-menu-item.logout button svg{fill: #E60000;}
+
+
+
+
+
+
+
+/*
+.nav-item-dropdown .common-user .common-user-wrap {
+  position: relative;
+  z-index: 1001;
+  min-width: 15rem;
+  padding: 0em;
+  background-color: #fff;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 15px 1px rgba(163, 163, 163, 0.2);
+}
+
+
+.nav-item-dropdown .common-user .common-user-wrap .dropdown-menu-item {
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0.75em 0.75em 0.25em 0.75em;
+}
+.nav-item-dropdown .common-user .common-user-wrap .dropdown-menu-item.first{
+  padding-bottom: 0;
+}
+.nav-item-dropdown .common-user .common-user-wrap .dropdown-menu-item.second{
+  padding-top:0;
+}
+.nav-item-dropdown .common-user .common-user-wrap .dropdown-menu-item.disabled {
+  pointer-events:none;
+  opacity:0.6; 
+}
+
+.nav-item-dropdown .common-user .common-user-wrap .dropdown-menu-item.logout {
+  border-top: solid 1px #ccc;
+  padding: 0;
+}
+
+.nav-item-dropdown .common-user .common-user-wrap .dropdown-menu-item.logout button {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 0;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+.nav-item-dropdown .common-user .common-user-wrap .dropdown-menu-item.logout button:hover {
+  background-color: #f0f0f0;
+}
+.nav-item-dropdown .common-user .common-user-wrap .dropdown-menu-item .mail-addr {
+   display:inline-block; 
+   text-overflow:ellipsis;
+   overflow:hidden; 
+   width:100%;
+}
+
+.nav-item-dropdown .common-user .common-user-wrap .dropdown-menu-item .mail-addr svg{
+  margin-right:8px;
+}
+*/
+
+#modal-login {
+  width: 50%;
+  min-width: 620px;
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 4em 6em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+#modal-login.pcf-common {
+  width: 70%;
+}
+
+#modal-login .modal-login-button {
+  width: 100%;
+  border: solid 1px #BEBEBE;
+  border-radius: 2em;
+  font-size: 22px;
+  font-weight: 500;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  background-color: white;
+}
+#modal-login .modal-login-button img {
+  width:20px;
+  height:20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.modal-login-or {
+  display: table;
+  width: 100%;
+  white-space: nowrap;
+  border-spacing: .2rem 0;
+  color: #BEBEBE;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.modal-login-or:before,
+.modal-login-or:after {
+  display:table-cell;
+  content: '';
+  width: 50%;
+  background: -webkit-linear-gradient(#BEBEBE, #BEBEBE) repeat-x left center;
+  background: linear-gradient(#BEBEBE, #BEBEBE) repeat-x left center;
+  background-size: 0.1rem 0.1rem;
+}
+
+#modal-login .modal-login-title {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 500;
+  padding-top: 10px;
+}
+
+#modal-login p {
+  width: 100%;
+  text-align: left;
+}
+
+#modal-login ul {
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+#modal-login .login-info-list {
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+#modal-login .login-info-list > li {
+  text-indent: -12px;
+  padding-left: 24px;
+}
+
+#modal-login .login-info-list > li::before {
+  width: 12px !important;
+  height: 12px !important;
+  margin-right: 0 !important;
+}
+
+#modal-login .login-info-list > li:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+
+#modal-login ul:not(.login-info-sublist) > li::before {
+  content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjAiIGZpbGw9IiMyNTg4MDAiPjxwYXRoIGQ9Im0zNDQtNjAtNzYtMTI4LTE0NC0zMiAxNC0xNDgtOTgtMTEyIDk4LTExMi0xNC0xNDggMTQ0LTMyIDc2LTEyOCAxMzYgNTggMTM2LTU4IDc2IDEyOCAxNDQgMzItMTQgMTQ4IDk4IDExMi05OCAxMTIgMTQgMTQ4LTE0NCAzMi03NiAxMjgtMTM2LTU4LTEzNiA1OFptOTQtMjc4IDIyNi0yMjYtNTYtNTgtMTcwIDE3MC04Ni04NC01NiA1NiAxNDIgMTQyWiI+PC9wYXRoPjwvc3ZnPg==);
+  display: inline-block;
+  width: 16px; /* Adjust size as needed */
+  height: 16px; /* Adjust size as needed */
+  vertical-align: sub;
+  margin-right: 5px; /* Adjust spacing as needed */
+}
+
+#modal-login .login-info-sublist {
+  list-style: disc;
+  margin-left: 1.5em;
+}
+
+#modal-login .login-info-sublist > li {
+  padding-left: 12px;
+}
+
+.vgp-turnward {
+  transform: rotate( 180deg );
+}
+

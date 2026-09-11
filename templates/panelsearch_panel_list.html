@@ -1,0 +1,198 @@
+{% extends "panelsearch_base.html" %}
+{% block css_block %}
+<link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/static/css/panelsearch/tippy.css" type="text/css">
+<link rel="stylesheet" href="/static/css/panelsearch/vgp-panel-list.css" type="text/css">
+
+<link rel="stylesheet" href="/static/css/pcf/magnific-popup.css">
+<link rel="stylesheet" href="/static/css/panelsearch/token-input-facebook.css" type="text/css">
+<link rel="stylesheet" href="/static/css/panelsearch/popup-hierarchy-hpo.css" type="text/css">
+
+{% endblock %}
+{% block title_block %}PanelSearch : PubCaseFinder{% endblock %}
+{% block main_block %}
+<div class="vgp-wrapper">
+    <div class="vgp-left-panel d-flex flex-column">
+      <div class="vgp-treeview-title-panel">
+        <div class="vgp-treeview-title-subpanel left">Tree (MONDO)</div>
+        <div class="vgp-treeview-title-subpanel right">
+          <span class="material-symbols-outlined" id="vgp-undo-btn" onclick="_vgp_undo();">undo</span>
+          <span class="material-symbols-outlined" id="vgp-redo-btn" onclick="_vgp_redo();">redo</span>
+        </div>
+      </div>
+      <div class="vgp-treeview-treeview-panel d-flex flex-row flex-nowrap">
+        <div style="overflow-x:auto;" class="d-flex flex-grow-1"><ul id="vgp-treeView" class="ztree"></ul></div>
+        <div class="splitter" id="splitter"></div>
+      </div>
+    </div>
+    <main class="vgp-list-main d-flex flex-column" role="main">
+      <div class="vgp-title d-flex justify-content-between">
+        <div class="vgp-title-sub">
+          <span id="vgp-searched-panels-num">0</span>panels
+          <span id="vgp-panels-total-num"></span>
+          <div class="in-circle-wrapper">
+          <span id="panels-num-tooltip" class="in-circle" data-toggle="tooltip" data-placement="top" data-html="true" title="" 
+                {% if r_lang == 'ja' %}
+                data-original-title="左側のツリーで選択した分類を基準に、前の数字は遺伝子パネルが提供される疾患数、後ろの数字は全疾患数です。"
+                {% else %}
+                data-original-title="Based on the category selected in the left tree, the first number shows the number of diseases with an available gene panel, and the second number shows the total number of diseases."
+                {% endif %}
+          >?</span>
+          </div>
+        </div>
+        <div class="vgp-title-sub row align-items-center">
+          <span class="vgp-title-sub-right-date">Updated Jun 12,2026</span>
+          <button id="vgp-download-all-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Download all Panels">
+            All panels <span class="material-icons">save_alt</span>
+          </button>
+        </div>
+      </div>
+      <div class="d-md-flex flex-md-row row vgp-search" id="vgp_filter_panel">
+        <div class="col row vgp-search-sub d-flex flex-row flex-nowrap">
+          <div class="dropdown vgp-target-wrapper">
+            <button id="btn-vgp-target" class="btn btn-vgp-target dropdown-toggle" type="button" data-vgp-target="panel" data-toggle="dropdown" aria-expanded="false">
+              Panel
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button" onclick="change_target('panel');">Panel</button>
+              <button class="dropdown-item" type="button" onclick="change_target('gene');">Gene</button>
+              <button class="dropdown-item" type="button" onclick="change_target('phenotype');">Phenotype</button>
+            </div>
+          </div>
+          <div class="vgp-searchicon-wrapper">
+            <span class="material-symbols-outlined vgp-searchicon">search</span>
+          </div>
+          <!-- <div class="col vgp-filter-wrapper panel" id="vgp_filter_wrapper"> -->
+          <div class="vgp-filter-wrapper panel" id="vgp_filter_wrapper">
+            <div class="vgp-filter-subwrapper panel gene">
+              <input id="vgp-filter" type="text" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="Filter panels"></input>
+            </div>
+            <div class="vgp-filter-subwrapper phenotype">
+              <textarea id="tokeninput_hpo" rows="1"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vgp-title2 panel" id="vgp-title2">
+        <div class="vgp-title-sub-ctl"></div>
+        <div class="vgp-title-sub-ctl filter">
+          <div class="btn-group vgp-filter-phenotype" id="vgp-filter-phenotype-mode-group">
+            <label class="btn active" id="vgp-filter-phenotype-mode-union" data-mode="union"> Union </label>
+            <label class="btn" id="vgp-filter-phenotype-mode-intersection" data-mode="intersection"> Intersection </label>
+          </div>
+          <div class="vgp-filter-phenotype vgp-filter-phenotype-mode-intersection-value-wrapper disabled">
+            Match at least 
+            <span id="selectedValue">1</span><span class="ml-1 mr-1">/</span><span id="maxValue">1</span>
+            phenotypes
+          </div>
+          <div class="vgp-filter-phenotype slider-container disabled">
+            <div id="scale" class="scale"></div>
+            <input type="range" id="rangeSlider" class="slider" min="1" max="1" value="1" step="1">
+          </div>
+        </div>
+        <div class="vgp-title-sub">
+          Per page
+          <div class="dropdown vgp-size-wrapper">
+            <button id="btn-vgp-size" class="btn btn-vgp-size dropdown-toggle" type="button" data-num_per_page=50 data-toggle="dropdown" aria-expanded="false">50</button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button" onclick="change_pagenum(50);">50</button>
+              <button class="dropdown-item" type="button" onclick="change_pagenum(100);">100</button>
+              <button class="dropdown-item" type="button" onclick="change_pagenum(200);">200</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="vgp-list-root-panel"></div>
+    </main>
+  <!--  </div>  -->
+</div>
+{% endblock %}
+{% block js_block %}
+<script type="text/javascript" src="/static/js/popperjs-core-2.11.8/core/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/tippyjs/tippy-bundle.umd.js"></script>
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/jquery.vgp.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/jquery.vgp_collapse_panel.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/vgp_panel_list.js"></script>
+
+<script type="text/javascript" src="/static/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.countTo.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/jquery.magnific_popup.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/magnific-popup-options.js"></script>
+<script type="text/javascript" src="/static/js/jquery.stellar.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/rater.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/jquery.tokeninput.js"></script>
+<script type="text/javascript" src="/static/js/d3/3.5.17/d3.min.js"></script>
+<script type="text/javascript" src="/static/js/three.js-r84/build/three.min.js"></script>
+<script type="text/javascript" src="/static/js/three.js-r84/examples/js/Detector.js"></script>
+<script type="text/javascript" src="/static/js/three-bits/OBJLoader.js"></script>
+<script type="text/javascript" src="/static/js/three-bits/three-bits.js"></script>
+<script type="text/javascript" src="/static/js/three-bits/three-bits-renderer.js"></script>
+<script type="text/javascript" src="/static/js/three-bits/defaults.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/popup-hierarchy-hpo.js"></script>
+<script type="text/javascript" src="/static/js/button-ripple-effect.js"></script>
+<script type="text/javascript" src="/static/js/jaconv/jaconv.min.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+		_vgp_update_custom_panel_num();
+		update_common_panel();
+	}
+});
+
+$(document).ready(function(){
+
+	_vgp_attach_goToTopfunc();
+
+	_vgp_init_root_treeview("{{ r_root_id }}","{{ r_root_name }}",{{ r_root_disease_num }}, "{{ r_lang }}");
+	_vgp_set_root("{{ r_root_id }}",{{ r_root_disease_num }});
+	_vgp_init_panel_list("{{ r_root_id }}");
+    _vgp_init_phenotype_filter();
+	_vgp_init_custom_panel_num();
+
+ 	vgp_set_total_panel_num({{ r_root_panel_num }});
+
+	$('#panels-num-tooltip').tooltip({'trigger':'hover'});
+	
+	const splitter    = document.getElementById("splitter");
+	const leftColumn  = document.querySelector(".vgp-left-panel");
+	const rightColumn = document.querySelector(".vgp-list-main");
+	const container   = document.querySelector(".vgp-wrapper");
+
+	var isResizing = false;
+	var initialX = 0;
+	var initialLeftWidth = 0;
+
+	splitter.addEventListener("mousedown", (e) => {
+		isResizing = true;
+		initialX = e.clientX;
+		initialLeftWidth = leftColumn.offsetWidth;
+
+		document.addEventListener("mousemove", resize);
+		document.addEventListener("mouseup", stopResize);
+
+		e.preventDefault();
+	});
+
+	function resize(e) {
+		if (!isResizing) return;
+		const containerRect = container.getBoundingClientRect();
+		const offsetX       = e.clientX - initialX;
+		const newLeftWidth  = initialLeftWidth + offsetX;
+		const newRightWidth = containerRect.width - newLeftWidth;
+
+		leftColumn.style.width  = newLeftWidth + "px";
+		rightColumn.style.width = newRightWidth + "px";
+		update_description_ellipsis();
+	}
+
+	function stopResize() {
+		isResizing = false;
+		document.removeEventListener("mousemove", resize);
+		document.removeEventListener("mouseup", stopResize);
+	}
+});
+</SCRIPT>
+{% endblock %}

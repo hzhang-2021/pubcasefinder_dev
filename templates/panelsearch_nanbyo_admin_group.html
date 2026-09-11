@@ -1,0 +1,285 @@
+{% extends "panelsearch_nanbyo_admin_layout.html" %}
+
+{% block page_css_block %}
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tokenTypeahead.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tokenDropdownTreeview.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tokenTypeahead_ajax.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/admin_group.css">
+{% endblock %}
+
+{% block page_content %}
+<div class="wrapper title">
+  <svg class="mt-1" width="29" height="29" viewBox="0 0 29 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.5458 11.6252C22.4443 10.094 22.8324 8.31658 22.6537 6.55022C22.3897 3.91833 20.9203 1.59182 18.5186 0L16.8884 2.45781C18.5392 3.55246 19.5439 5.11183 19.718 6.84528C19.7975 7.65087 19.6968 8.46407 19.4233 9.22597C19.1498 9.98787 18.7102 10.6794 18.1365 11.2504L16.3779 13.009L18.7649 13.7097C25.0083 15.5391 25.0806 21.8178 25.0806 21.8813H28.0311C28.0311 19.242 26.6208 14.0845 21.5458 11.6252Z" fill="#1B2C1A"/><path d="M11.0646 13.0301C14.319 13.0301 16.9657 10.3835 16.9657 7.12901C16.9657 3.87455 14.319 1.22791 11.0646 1.22791C7.81011 1.22791 5.16346 3.87455 5.16346 7.12901C5.16346 10.3835 7.81011 13.0301 11.0646 13.0301ZM11.0646 4.17846C12.6918 4.17846 14.0151 5.50178 14.0151 7.12901C14.0151 8.75623 12.6918 10.0796 11.0646 10.0796C9.43733 10.0796 8.11401 8.75623 8.11401 7.12901C8.11401 5.50178 9.43733 4.17846 11.0646 4.17846ZM13.2775 14.5054H8.85165C3.96997 14.5054 0 18.4753 0 23.357V24.8323H2.95055V23.357C2.95055 20.1026 5.59719 17.4559 8.85165 17.4559H13.2775C16.5319 17.4559 19.1786 20.1026 19.1786 23.357V24.8323H22.1291V23.357C22.1291 18.4753 18.1592 14.5054 13.2775 14.5054Z" fill="#1B2C1A"/></svg>
+  <span>グループ管理</span>
+</div>
+<div class="wrapper group">
+  <div class="group-list-wrapper">
+    <div class="title">
+      <div class="cnt-wrapper">
+        <span id="total_group_cnt" class="number">{{ r_group_list|length }}</span> Group
+      </div>
+      {% if r_user_type_admin %}
+      <div class="dropdown">
+        <button id="addGroupToggle" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <svg width="110" height="20" viewBox="0 0 110 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="109" height="19" rx="9.5" fill="white"/><rect x="0.5" y="0.5" width="109" height="19" rx="9.5" stroke="#FF8900"/><path d="M28.7117 14H27.3317L30.3437 5.204H32.0477L35.0477 14H33.6317L32.8277 11.576H29.5037L28.7117 14ZM31.1357 6.44L29.8277 10.412H32.5037L31.1957 6.44H31.1357ZM36.4331 14V5.204H39.5051C40.6571 5.204 41.5611 5.58 42.2171 6.332C42.8731 7.076 43.2011 8.168 43.2011 9.608C43.2011 11.04 42.8731 12.132 42.2171 12.884C41.5611 13.628 40.6571 14 39.5051 14H36.4331ZM39.5051 12.8C40.2011 12.8 40.7491 12.584 41.1491 12.152C41.5571 11.72 41.7611 11.1 41.7611 10.292V8.912C41.7611 8.104 41.5571 7.484 41.1491 7.052C40.7491 6.62 40.2011 6.404 39.5051 6.404H37.7891V12.8H39.5051ZM44.9995 14V5.204H48.0715C49.2235 5.204 50.1275 5.58 50.7835 6.332C51.4395 7.076 51.7675 8.168 51.7675 9.608C51.7675 11.04 51.4395 12.132 50.7835 12.884C50.1275 13.628 49.2235 14 48.0715 14H44.9995ZM48.0715 12.8C48.7675 12.8 49.3155 12.584 49.7155 12.152C50.1235 11.72 50.3275 11.1 50.3275 10.292V8.912C50.3275 8.104 50.1235 7.484 49.7155 7.052C49.3155 6.62 48.7675 6.404 48.0715 6.404H46.3555V12.8H48.0715ZM59.7585 14.156C59.0465 14.156 58.4185 13.98 57.8745 13.628C57.3305 13.276 56.9025 12.76 56.5905 12.08C56.2865 11.4 56.1345 10.58 56.1345 9.62C56.1345 8.652 56.2905 7.828 56.6025 7.148C56.9145 6.46 57.3585 5.94 57.9345 5.588C58.5105 5.228 59.1825 5.048 59.9505 5.048C60.7185 5.048 61.3745 5.22 61.9185 5.564C62.4705 5.908 62.9025 6.392 63.2145 7.016L62.0985 7.664C61.9145 7.224 61.6385 6.88 61.2705 6.632C60.9105 6.384 60.4705 6.26 59.9505 6.26C59.2305 6.26 58.6545 6.496 58.2225 6.968C57.7905 7.432 57.5745 8.08 57.5745 8.912V10.292C57.5745 11.124 57.7905 11.776 58.2225 12.248C58.6625 12.712 59.2585 12.944 60.0105 12.944C60.6105 12.944 61.1025 12.796 61.4865 12.5C61.8785 12.204 62.0745 11.78 62.0745 11.228V10.496H60.2385V9.344H63.3825V14H62.1825V12.668H62.1345C62.0385 13.108 61.7785 13.468 61.3545 13.748C60.9385 14.02 60.4065 14.156 59.7585 14.156ZM66.7579 10.424V14H65.4019V5.204H69.1579C69.9339 5.204 70.5459 5.436 70.9939 5.9C71.4419 6.364 71.6659 7 71.6659 7.808C71.6659 8.448 71.5219 8.984 71.2339 9.416C70.9459 9.84 70.5219 10.128 69.9619 10.28L71.8699 14H70.3579L68.5699 10.424H66.7579ZM69.0619 9.272C69.4299 9.272 69.7179 9.176 69.9259 8.984C70.1419 8.784 70.2499 8.5 70.2499 8.132V7.532C70.2499 7.164 70.1419 6.884 69.9259 6.692C69.7179 6.492 69.4299 6.392 69.0619 6.392H66.7579V9.272H69.0619ZM76.8595 14.156C76.0995 14.156 75.4355 13.98 74.8675 13.628C74.2995 13.276 73.8595 12.76 73.5475 12.08C73.2435 11.4 73.0915 10.576 73.0915 9.608C73.0915 8.64 73.2435 7.816 73.5475 7.136C73.8595 6.448 74.2955 5.928 74.8555 5.576C75.4235 5.224 76.0915 5.048 76.8595 5.048C77.6275 5.048 78.2915 5.224 78.8515 5.576C79.4195 5.928 79.8555 6.444 80.1595 7.124C80.4715 7.804 80.6275 8.632 80.6275 9.608C80.6275 10.576 80.4715 11.4 80.1595 12.08C79.8555 12.76 79.4195 13.276 78.8515 13.628C78.2915 13.98 77.6275 14.156 76.8595 14.156ZM76.8715 12.944C77.5755 12.944 78.1355 12.708 78.5515 12.236C78.9755 11.756 79.1875 11.108 79.1875 10.292V8.912C79.1875 8.096 78.9755 7.452 78.5515 6.98C78.1355 6.5 77.5755 6.26 76.8715 6.26C76.1675 6.26 75.5995 6.5 75.1675 6.98C74.7435 7.452 74.5315 8.096 74.5315 8.912V10.292C74.5315 11.108 74.7435 11.756 75.1675 12.236C75.5995 12.708 76.1675 12.944 76.8715 12.944ZM82.3692 5.204H83.7012V10.628C83.7012 11.42 83.8492 12.004 84.1452 12.38C84.4412 12.756 84.9332 12.944 85.6212 12.944C86.3172 12.944 86.8132 12.756 87.1092 12.38C87.4132 11.996 87.5652 11.412 87.5652 10.628V5.204H88.8972V10.412C88.8972 11.284 88.7892 11.996 88.5732 12.548C88.3572 13.092 88.0092 13.496 87.5292 13.76C87.0572 14.024 86.4212 14.156 85.6212 14.156C84.8292 14.156 84.1932 14.024 83.7132 13.76C83.2412 13.496 82.8972 13.092 82.6812 12.548C82.4732 11.996 82.3692 11.284 82.3692 10.412V5.204ZM92.3865 14H91.0305V5.204H94.7865C95.5785 5.204 96.1945 5.44 96.6345 5.912C97.0825 6.384 97.3065 7.02 97.3065 7.82C97.3065 8.628 97.0825 9.268 96.6345 9.74C96.1945 10.212 95.5785 10.448 94.7865 10.448H92.3865V14ZM92.3865 6.392V9.272H94.6905C95.0665 9.272 95.3585 9.172 95.5665 8.972C95.7745 8.772 95.8785 8.492 95.8785 8.132V7.532C95.8785 7.164 95.7745 6.884 95.5665 6.692C95.3585 6.492 95.0665 6.392 94.6905 6.392H92.3865Z" fill="#FF8900"/><path fill-rule="evenodd" clip-rule="evenodd" d="M19.2789 9.5221L23.23 9.5221L23.23 11.0067H19.2789L19.2789 14.7865H17.727L17.727 11.0067H13.7758L13.7758 9.5221L17.727 9.5221V5.74228H19.2789V9.5221Z" fill="#FF8900"/></svg>
+        </button>
+        <div class="dropdown-menu form-menu" aria-labelledby="addGroupToggle">
+          <div class="dropdown-menu-header">
+            <h6 class="dropdown-header p-0 m-0">新規グループを作成</h6>
+            <button type="button" class="close-btn" id="closeDropdown">&times;</button>
+          </div>
+          <form id="addGroupForm">
+            <div class="form-group mb-2">
+              <textarea id="newGroupName" class="form-control" rows="3" placeholder="Enter group name"></textarea>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button type="button" id="saveGroupBtn">作成</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      {% endif  %}
+    </div>
+    <div class="filter-wrapper">
+      <input id="group_filter" class="filter-by-word" type="text" autocomplete="off" autocapitalize="off" placeholder="Search of group" data-table-id="group_list_table" data-target-class="group-title">
+    </div>
+    <div class="table-wrapper">
+      <table id="group_list_table" class="group-table withselect">
+        <thead id="group_list_table_thead">
+          <tr>
+            <th>
+              <span data-sort-id="0" data-sort-method="letter" class="vgp-sorter vgp-asc">グループ名</span>
+            </th>
+            <th class="num"><span data-sort-id="1" data-sort-method="number" class="vgp-sorter">人数</span></th>
+            {% if r_user_type_admin %}
+            <th class="delete"></th>
+            {% endif %}
+          </tr>
+        </thead>
+        <tbody id="group_list_table_tbody">
+          {% for group in r_group_list %}
+          <tr data-group_id="{{ group.group_id }}">
+            <td class="group-title">{{ group.group_title }}</td>
+            <td>{{ group.num_of_users }}</td>
+            {% if r_user_type_admin %}
+            <td class="delete">
+              <span class="delete" data-group_id="{{ group.group_id }}">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 29C14.45 29 13.9792 28.8042 13.5875 28.4125C13.1958 28.0208 13 27.55 13 27V14H12V12H17V11H23V12H28V14H27V27C27 27.55 26.8042 28.0208 26.4125 28.4125C26.0208 28.8042 25.55 29 25 29H15ZM25 14H15V27H25V14ZM17 25H19V16H17V25ZM21 25H23V16H21V25Z" fill="#9A9A9A"/></svg>
+              </span>
+            </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="group-user-wrapper">
+
+    <div class="title-wrapper">
+      <div id="group_user_list_title" class="title"></div>
+      {% if r_user_type_admin %}
+      <div id="group_user_list_title_ctl">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="20" fill="#005D16"/><path fill-rule="evenodd" clip-rule="evenodd" d="M27.06 11.585L28.41 12.935C29.2 13.715 29.2 14.985 28.41 15.765L15.18 28.995H11V24.815L21.4 14.405L24.23 11.585C25.01 10.805 26.28 10.805 27.06 11.585ZM13 26.995L14.41 27.055L24.23 17.225L22.82 15.815L13 25.635V26.995Z" fill="white"/></svg>
+      </div>
+      {% endif %}
+    </div>
+
+    <nav class="vgp-nav">
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active mr-2" id="nav-group-user" data-toggle="tab" href="#tab-group-user-panel" role="tab" aria-controls="tab-group-user-panel" aria-selected="true">メンバー</a>
+        <a class="nav-item nav-link mr-2" id="nav-group-disease" data-toggle="tab" href="#tab-group-disease-panel" role="tab" aria-controls="tab-group-disease-panel" aria-selected="false">グループの疾患登録</a>
+      </div>
+    </nav>
+
+    <div class="tab-content" id="nav-tabContent">
+      <div id="tab-group-user-panel" class="tab-pane fade show active user-wrapper" role="tabpanel" aria-labelledby="nav-group-user">
+        <div class="sub">
+          <div class="title"><span id="not_in_group_user_cnt" class="number">0</span> Users</div>
+          <div class="filter-wrapper left">
+            <div class="sub-wrapper">
+              <input id="not_in_group_user_filter" class="filter-by-word" type="text" autocomplete="off" autocapitalize="off" placeholder="Search of name & email & affiliation" data-table-id="not_in_group_user_list_table" data-target-class="name,email,affiliation">
+            </div>
+          </div>
+          <div class="sub-table-wrapper table1" id="not_in_group_user_list_table_wrapper">
+            <div id="invite_wrapper">
+              <div class="mt-5">「<span id="invite_user_name"></span>」というユーザーはいません。</div>
+              <div class="mb-3">下記のボタンで招待しますか？</div>
+              <div><button id="btn_invite_user">招待</button></div>
+            </div>
+            <table id="not_in_group_user_list_table" class="group-table group-user-table">
+              <thead id="not_in_group_user_list_table_thead">
+                <tr>
+                  <th class="sel">
+                    <!-- <div class="d-flex"><input type="checkbox" class="check-all"/></div> -->
+                    <label class="custom-checkbox">
+                      <input type="checkbox" class="check-all"><span></span>
+                    </label>
+                  </th>
+                  <th>
+                    <span data-sort-id="1" data-sort-method="letter" data-target-class="name" class="vgp-sorter vgp-asc">Name</span>
+                  </th>
+                  <th><span data-sort-id="2" data-sort-method="letter" class="vgp-sorter">所属機関・職名</span></th>
+                </tr>
+              </thead>
+              <tbody id="not_in_group_user_list_table_tbody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="middle">
+          <div id="btn_add_to_right" class="trigger mb-2">
+            <svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_d_2520_5655)">
+                <!-- 绿色椭圆背景 -->
+                <ellipse cx="25" cy="21.5" rx="21" ry="21.5" fill="#276749"/>
+                <!-- 箭杆（接触三角形箭头左端） -->
+                <line x1="16" y1="21.5" x2="26" y2="21.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- 三角形箭头“>” -->
+                <path d="M26 16 L34 21.5 L26 27" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <defs>
+                <filter id="filter0_d_2520_5655" x="0" y="0" width="50" height="51" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                  <feOffset dy="4"/>
+                  <feGaussianBlur stdDeviation="2"/>
+                  <feComposite in2="hardAlpha" operator="out"/>
+                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2520_5655"/>
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2520_5655" result="shape"/>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+          <div id="btn_add_to_left" class="trigger">
+            <svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_d_2520_5692)">
+                <!-- 白色椭圆背景 -->
+                <ellipse cx="25" cy="21.5" rx="21" ry="21.5" fill="white"/>
+                <!-- 椭圆边框 -->
+                <path d="M25 0.5C36.3108 0.5 45.5 9.89086 45.5 21.5C45.5 33.1091 36.3108 42.5 25 42.5C13.6892 42.5 4.5 33.1091 4.5 21.5C4.5 9.89086 13.6892 0.5 25 0.5Z" stroke="#276749"/>
+                <!-- 箭杆（接触箭头） -->
+                <line x1="24" y1="21.5" x2="34" y2="21.5" stroke="#276749" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- 左箭头“<” -->
+                <path d="M24 16 L16 21.5 L24 27" fill="none" stroke="#276749" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <defs>
+                <filter id="filter0_d_2520_5692" x="0" y="0" width="50" height="51" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                  <feOffset dy="4"/>
+                  <feGaussianBlur stdDeviation="2"/>
+                  <feComposite in2="hardAlpha" operator="out"/>
+                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2520_5692"/>
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2520_5692" result="shape"/>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div class="sub">
+          <div class="title"><span id="in_group_user_cnt" class="number">0</span> Members of this group</div>
+          <div class="filter-wrapper">
+            <input id="in_group_user_filter" class="filter-by-word" type="text" autocomplete="off" autocapitalize="off" placeholder="Search of name & email & affiliation"
+                   data-table-id="in_group_user_list_table" data-target-class="name,email,affiliation">
+          </div>
+          <div class="sub-table-wrapper">
+            <table id="in_group_user_list_table" class="group-table group-user-table">
+              <thead id="in_group_user_list_table_thead">
+                <tr>
+                  <th class="sel">
+                  <!--  <div class="d-flex"><input type="checkbox" class="check-all"/></div> -->
+    				<label class="custom-checkbox"><input type="checkbox" class="check-all"><span></span></label>
+                  </th>
+                  <th>
+                    <span data-sort-id="1" data-sort-method="letter" data-target-class="name" class="vgp-sorter vgp-asc">Name</span>
+                  </th>
+                  <th class="user_type"><span data-sort-id="2" data-sort-method="select" class="vgp-sorter">役割</span></th>
+                  <th><span data-sort-id="3" data-sort-method="letter" class="vgp-sorter">所属機関・職名</span></th>
+                </tr>
+              </thead>
+              <tbody id="in_group_user_list_table_tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div><!-- end of group user tab -->
+
+      <div id="tab-group-disease-panel" 
+           class="tab-pane fade disease-wrapper {% if r_user_type_admin %}admin{% endif %}" 
+           role="tabpanel" 
+           aria-labelledby="nav-group-disease"
+      > 
+        <div class="sub title"><span id="group_disease_cnt">0</span> panels</div>
+        {% if r_user_type_admin %}
+        <div class="sub search">
+          <div id="group_disease_list">
+            <input type="hidden" id="group_disease_ids" />
+          </div>
+          <div class="ctl">
+            <button id="btn_add_disease_to_group">
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 17.22H2V5H9V3H2C0.9 3 0 3.9 0 5V17C0 18.1 0.9 19 2 19H14C15.1 19 16 18.1 16 17V10H14V17.22Z" fill="white"/>
+                <path d="M16 0H14V3H11C11.01 3.01 11 5 11 5H14V7.99C14.01 8 16 7.99 16 7.99V5H19V3H16V0ZM4 7H12V9H4V7ZM4 10V12H12V10H9H4ZM4 13H12V15H4V13Z" fill="white"/>
+              </svg>
+              追加する
+            </button>
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="sub list">
+          <table id="group_disease_table" class="group-table">
+            <thead id="group_disease_table_thead">
+              <tr>
+                <th>
+                  <span data-sort-id="0" data-sort-method="number" class="vgp-sorter">告示番号</span>
+                </th>
+                <th>
+                  <span data-sort-id="1" data-sort-method="letter" class="vgp-sorter vgp-asc">担当疾患</span>
+                </th>
+                <th class="delete"></th>
+              </tr>
+            </thead>
+            <tbody id="group_disease_table_tbody"></tbody>
+          </table>
+        </div>
+
+      </div><!-- end of group disease tab -->
+    </div><!-- end of all tab panel's wrapper-->
+  </div>
+</div>
+{% endblock %}
+
+{% block page_js_block %}
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.tokenTypeahead_ajax.js"></script>
+{% if r_user_type_admin %}
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/admin_group_admin.js"></script>
+{% endif %}
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/admin_group.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+{% if r_template_subject and r_template_body %}
+const INVITE_GROUP_TEMPLATE_SUBJECT = "{{ r_template_subject }}";
+const INVITE_GROUP_TEMPLATE_BODY = `{{ r_template_body }}`;
+{% else %}
+const INVITE_GROUP_TEMPLATE_SUBJECT = "Please join this group";
+const INVITE_GROUP_TEMPLATE_BODY = `Hello {user_name},
+
+Please join 「{group_title}」
+
+Regist PubcaseFinder Panelsearch(Nanbyo) at follow:
+
+{GOOGLE_FORM_URL}
+`;
+
+{% endif %}
+
+$(document).ready(function(){
+  _init_btn_event();
+  _init_table_event();
+  _init_data("{{ r_google_form_url }}");
+});
+</SCRIPT>
+{% endblock %}

@@ -1,0 +1,729 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- START: History page -->
+{% if get_locale() == "ja" or get_locale() == "ja_JP" %}
+
+
+<!-- START: __redesign20260310__日本語バージョン -->
+<div class="utility_wrapper">
+	<section class="content">
+		<h1>History</h1>
+
+		<div class="column-wrapper tab_box">
+			<!-- column-left: サイドバーメニュー -->
+			<div class="column-left">
+				<ul class="sidenav btn_area">
+					<!-- List -->
+					<li class="tab_btn"><a href="#2026">2026</a></li>
+					<li class="tab_btn"><a href="#2025">2025</a></li>
+					<li class="tab_btn disabled"><a href="#2024">2024</a></li>
+					<li class="tab_btn"><a href="#2023">2023</a></li>
+					<li class="tab_btn"><a href="#2022">2022</a></li>
+					<li class="tab_btn"><a href="#2021">2021</a></li>
+					<li class="tab_btn"><a href="#2020">2020</a></li>
+					<li class="tab_btn"><a href="#2019">2019</a></li>
+					<li class="tab_btn"><a href="#2018">2018</a></li>
+					<li class="tab_btn"><a href="#2017">2017</a></li>
+				</ul>
+			</div>
+
+			<!-- column-right: メインコンテンツ -->
+			<div class="column-right panel_area">
+				
+				<div class="history_box">
+					<div class="history_yaer" id="2026">
+						<h2>2026</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2026/04/01</li>
+						<li class="history_box_right">
+							<p>
+								新しい機能「<a href="https://pubcasefinder.dbcls.jp/casesharing" target="_blank">CaseSharing</a>」に症例マッチング機能を追加しました。</br>CaseSharingは、希少疾患・遺伝性疾患の症例情報を管理・共有するためのシステムです。今回のアップデートにより、登録された症例に関連する診断名および遺伝子名をもとに、関連する症例を検索できる症例マッチング機能を追加しました。これにより、同じ疾患や遺伝子に関連する症例を管理している臨床医や研究者を見つけることが可能になり、症例情報の共有や研究連携を促進します。ぜひご活用ください。
+							</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="history_box">
+					<div class="history_yaer" id="2025">
+						<h2>2025</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2025/12/01</li>
+						<li class="history_box_right">
+							<p>
+								「<a href="https://pubcasefinder.dbcls.jp/panelsearch" target="_blank">PanelSearch</a>」にカスタムパネル機能を追加しました。</br>PanelSearchは、ヒト疾患に関連するVirtual Gene Panelを検索・利活用できる公開データベースです。今回のアップデートでは、ユーザーが任意の遺伝子セットを組み合わせてカスタムパネルを作成できる機能を追加しました。これにより、研究目的や解析条件に応じた柔軟な遺伝子パネルの作成が可能になりました。ぜひご活用ください。
+							</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2025/11/01</li>
+						<li>
+							<p>
+								「<a href="https://pubcasefinder.dbcls.jp" target="_blank">DiseaseSearch</a>」にフィルター機能を追加しました。</br>DiseaseSearchは、症状（HPO）情報をもとに関連する疾患を検索する機能です。今回のアップデートにより、検索結果を疾患領域、遺伝形式、年齢などの条件で絞り込むことができるフィルター機能を追加しました。これにより、診断候補疾患の探索をより効率的に行うことができます。
+							</p>
+						</li>	
+					</ul>
+				</div>
+
+				<div class="history_box">
+					<div class="history_yaer" id="2023">
+						<h2>2023</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2023/06/07</li>
+						<li class="history_box_right">
+							<p>
+								新しい機能「<a href="https://pubcasefinder.dbcls.jp/casesharing" target="_blank">CaseSharing</a>」のβ版をリリースしました。</br></br>
+								CaseSharingは、希少疾患・遺伝性疾患の症例情報を、管理・共有するためのシステムです。ユーザ登録なしに利用することができます。<a href="https://pubcasefinder.dbcls.jp/static/data/casesharing_sample_20260608.json" target="_blank">サンプルデータ</a>はこちらからダウンロード可能です。ぜひご活用ください。
+							</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2023/05/27</li>
+						<li>
+							<p>
+								新しい機能「<a href="https://pubcasefinder.dbcls.jp/panelsearch" target="_blank">PanelSearch</a>」をリリースしました。</br></br>
+								ヒトの9,998疾患に関連するVirtual Gene Panelを検索し、利活用できる公開データベースです。Virtual Gene Panelとは、多くの希少・遺伝性疾患を含む<a href="https://www.ebi.ac.uk/ols/ontologies/mondo" target="_blank">Monarch Disease Ontology</a>をベースに、それぞれの疾患について疾患原因遺伝子を自動でまとめた遺伝子パネルです。ゲノム配列の効率的な臨床的解釈に役立てることができます。</br>例えば、Filter Panelsテキストボックスに「Mendelian disease」を入力すると、4280遺伝子を含むMendelian diseaseパネルを検索することができ、パネル名の左にあるダウンロードボタンからダウンロード可能です。全パネルデータは画面右上の「All panels」ボタンからダウンロード可能です。ぜひご活用ください。
+							</p>
+						</li>	
+					</ul>
+				</div>
+
+				<div class="history_box">
+					<div class="history_yaer" id="2022">
+						<h2>2022</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2022/11/03</li>
+						<li><p>PubCaseFinder v3.1.0 を公開しました。</p></li>	
+					</ul>
+					<ul>
+						<li class="topics-title">2022/08/05</li>
+						<li>
+							<p>
+								[英文プレスリリース] For better diagnosis of rare/genetic diseases<br>
+								詳細は<a target="_blank" href="https://www.eurekalert.org/news-releases/960684">EurekAlert!</a>をご覧ください。
+							</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2022/07/13</li>
+						
+						<li>
+							<p>PubCaseFinder v3.0.0 を公開しました。Virtual Gene Panel機能を追加しました。サンプル結果は<a href="https://pubcasefinder.dbcls.jp/result?target=gene&phenotype=HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625&filter=GENEID:10,GENEID:100,GENEID:10000,GENEID:10002,GENEID:10008,GENEID:1001,GENEID:10013,GENEID:100131801,GENEID:100134444,GENEID:100144748,GENEID:100151683,GENEID:10019,GENEID:10020,GENEID:10021,GENEID:10046,GENEID:10049,GENEID:100506658,GENEID:10056,GENEID:10058,GENEID:10059,GENEID:10060,GENEID:10075,GENEID:10082,GENEID:10083,GENEID:10084,GENEID:1009,GENEID:10102,GENEID:10111,GENEID:10117,GENEID:10126,GENEID:10128,GENEID:1013,GENEID:10133,GENEID:10134,GENEID:10142,GENEID:10149,GENEID:10157,GENEID:10159,GENEID:10161,GENEID:10165,GENEID:10166,GENEID:1019,GENEID:10194,GENEID:10195,GENEID:102,GENEID:10205,GENEID:1021,GENEID:10210,GENEID:10216,GENEID:10225,GENEID:10235,GENEID:10243,GENEID:10262,GENEID:10265,GENEID:10269,GENEID:1027,GENEID:10273,GENEID:10274,GENEID:1028,GENEID:10280,GENEID:10283,GENEID:1029,GENEID:10290,GENEID:10293,GENEID:10295,GENEID:10297,GENEID:103,GENEID:10300,GENEID:10309,GENEID:10312,GENEID:10319,GENEID:10320,GENEID:10324,GENEID:10329,GENEID:10342,GENEID:10345,GENEID:10347,GENEID:10352,GENEID:10367,GENEID:10369,GENEID:10370,GENEID:10371,GENEID:10381,GENEID:10382,GENEID:10397,GENEID:1041,GENEID:10413,GENEID:10436,GENEID:10456,GENEID:10457,GENEID:10459,GENEID:10461,GENEID:10463,GENEID:10464,GENEID:10466,GENEID:10472,GENEID:10479,GENEID:10481,GENEID:10483,GENEID:10484,GENEID:10491,GENEID:1050,GENEID:10516,GENEID:10518,GENEID:10519,GENEID:10522,GENEID:10528,GENEID:1053,GENEID:10535,GENEID:10555,GENEID:10558,GENEID:10559,GENEID:1056,GENEID:10560,GENEID:10564,GENEID:10568,GENEID:10577,GENEID:10584,GENEID:10585,GENEID:10586,GENEID:10587,GENEID:10594,GENEID:10599,GENEID:10613,GENEID:10616,GENEID:10617,GENEID:1062,GENEID:1063,GENEID:10641,GENEID:10653,GENEID:10654,GENEID:10661,GENEID:10664,GENEID:10667,GENEID:10682,GENEID:10683,GENEID:10686,GENEID:10695,GENEID:10699,GENEID:107,GENEID:1071,GENEID:10715,GENEID:10716,GENEID:10717,GENEID:1073,GENEID:10733,GENEID:10735,GENEID:10743,GENEID:10747,GENEID:10749,GENEID:1075,GENEID:10758,GENEID:10765,GENEID:10771,GENEID:10785,GENEID:1080,GENEID:10804,GENEID:10806,GENEID:10815,GENEID:10841,GENEID:10846,GENEID:10847,GENEID:10878,GENEID:10892,GENEID:10907,GENEID:10908,GENEID:10913,GENEID:10916,GENEID:10939,GENEID:10940,GENEID:10978,GENEID:10982,GENEID:10984,GENEID:10999,GENEID:11005,GENEID:11019,GENEID:11020,GENEID:1103,GENEID:11041,GENEID:11043,GENEID:1105,GENEID:1106,GENEID:11078,GENEID:11081,GENEID:1109,GENEID:11093,GENEID:111,GENEID:11107,GENEID:11113,GENEID:11128,GENEID:11133,GENEID:11136,GENEID:11141,GENEID:11146,GENEID:11149,GENEID:11151,GENEID:11152,GENEID:11154,GENEID:11155,GENEID:11160,GENEID:11181,GENEID:112,GENEID:1120,GENEID:11200,GENEID:1121,GENEID:11212,GENEID:11222,GENEID:11224,GENEID:1123,GENEID:11231,GENEID:11232,GENEID:11234,GENEID:11235,GENEID:11236,GENEID:112476,GENEID:11253,GENEID:11274,GENEID:112744,GENEID:112752,GENEID:112755,GENEID:11277,GENEID:11280,GENEID:112802,GENEID:11281,GENEID:112817,GENEID:11284,GENEID:11285,GENEID:112858,GENEID:112939,GENEID:1130,GENEID:1131,GENEID:11311,GENEID:11315,GENEID:113179,GENEID:113189,GENEID:11322,GENEID:113235,GENEID:113246,GENEID:113278,GENEID:11330,GENEID:1134,GENEID:11340,GENEID:1135,GENEID:113612,GENEID:1137,GENEID:1139,GENEID:1140,GENEID:114034,GENEID:1141,GENEID:114327,GENEID:1144,GENEID:1145,GENEID:114548,GENEID:1146,GENEID:1147,GENEID:114803,GENEID:114902,GENEID:114928,GENEID:115286,GENEID:115399,GENEID:115650,GENEID:115948,GENEID:116085,GENEID:1161,GENEID:116150,GENEID:116228,GENEID:116369,GENEID:116442,GENEID:116461,GENEID:116519,GENEID:117144,GENEID:117155,GENEID:1174,GENEID:1175,GENEID:117531,GENEID:117581,GENEID:1180,GENEID:1181,GENEID:1183,GENEID:1184,GENEID:118429,GENEID:1186,GENEID:1187,GENEID:1188,GENEID:118856,GENEID:1193,GENEID:119559,GENEID:120,GENEID:1200,GENEID:1201,GENEID:120227,GENEID:1203,GENEID:120892,GENEID:121214,GENEID:1213,GENEID:121340,GENEID:121391,GENEID:121512,GENEID:122402,GENEID:122481,GENEID:122622,GENEID:122961,GENEID:123016,GENEID:123041,GENEID:123263,GENEID:1234,GENEID:123606,GENEID:123624,GENEID:123872,GENEID:124093,GENEID:1244,GENEID:124454,GENEID:124512,GENEID:124583,GENEID:124590,GENEID:124997,GENEID:125336,GENEID:1258,GENEID:1259,GENEID:125988,GENEID:1261,GENEID:126129,GENEID:126326,GENEID:126328,GENEID:126410,GENEID:126695,GENEID:126792,GENEID:1272,GENEID:127534,GENEID:1277,GENEID:1278,GENEID:127833,GENEID:1280,GENEID:1281&vgp=MONDO:0044970,PA:529,PAA:181,GENEID:538,GENEID:5053&size=10&display_format=full&lang=ja">こちら</a>をご参照ください。
+							</p>
+						</li>
+					</ul>
+					
+					<ul>
+						<li class="topics-title">2022/05/26</li>
+						<li>
+							<p>
+								[プレスリリース] PubCaseFinderを大幅にリニューアル －希少・遺伝性疾患の克服を目指し国際協力も推進－<br>
+								詳細は<a href="https://dbcls.rois.ac.jp/PDF/20220526_PubCaseFinder.pdf" target="_blank">報道発表資料PDF</a>をご覧ください。
+							</p>
+						</li>
+					</ul>
+					
+					<ul>
+						<li class="topics-title">2022/05/25</li>
+						<li>
+							<p>
+								PubCaseFinderの最新機能とこれまでの国際連携の成果をまとめた以下の論文が、世界の連携機関の論文と共に、Human Mutation誌の<a href="https://onlinelibrary.wiley.com/toc/10981004/2022/43/6" target="_blank">Matchmaker Exchange Special Issue</a>号に掲載されました。<br><br>
+								Toyofumi Fujiwara, Jae-Moon Shin, Atsuko Yamaguchi "Advances in the development of
+								PubCaseFinder, including the new application programming interface and matching algorithm." Hum Mutat. 2022 Jun;43(6):734-742; <a href="https://doi.org/10.1002/humu.24341" target="_blank">DOI: 10.1002/humu.24341</a>
+							</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2022/04/21</li>
+						<li>
+							<p><a href="https://www.takeda.com/ja-jp/" target="_blank">武田薬品工業株式会社</a>が進める疾患検索システム「Docpedia CaseSearch」の開発において、PubCaseFinderの技術およびAPIを提供しました。同サービスは日本の医師の9割以上にあたる31万人以上が登録する医療従事者専門サイトm3.comから提供されます。<br>詳しくは<a href="https://www.takeda.com/ja-jp/announcements/2022/docpedia-casesearch/" target="_blank">プレスリリース</a>をご参照ください。
+							</p>
+						</li>
+						
+					</ul>
+					<ul>
+						<li class="topics-title">2022/04/01</li>
+						<li>
+							<p>PubCaseFinder v2.1.0 を公開しました。症状入力がより便利になりました（もしかして機能の追加）。また、HPO IDのリスト入力に対応しました。</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2021">
+						<h2>2021</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2021/10/16</li>
+						<li><p>日本人類遺伝学会第66回大会 / 第28回日本遺伝子診療学会大会
+								合同開催にてポスター発表した「診療録からの症状半自動抽出システムPOETの開発」が大会賞を受賞しました。発表した機能は<a href="https://pubcasefinder.dbcls.jp/ehr">こちら</a>になります。ぜひご活用ください。
+							</p>
+						</li>
+					</ul>
+					
+					<ul>
+						<li class="topics-title">2021/09/26</li>
+						<li><p>PubCaseFinder v2.0.0
+							を公開しました。UI/UXを大幅に改良しました。また、疾患・遺伝形式・遺伝子の複数を論理演算子で組み合わせて結果をフィルタリングすることが可能です。サンプル結果は<a href="https://pubcasefinder.dbcls.jp/result?target=omim&phenotype=HP:0000347_ja,HP:0003022_ja,HP:0009381_ja,HP:0000204_ja,HP:0000625_ja&filter=HP:0000006,AND_MONDO:0005015&size=10&display_format=full&lang=ja">こちら</a>をご参照ください。
+							</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2020">
+						<h2>2020</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2020/07/31</li>
+						<li><p>PubCaseFinder v1.3.0
+							を公開しました。入力した症状と関連性の高い順に、インターネット上で公開されている症例18893件をランキング形式で提示します。WESやWGSにおける未知バリアントの評価にご活用いただけます。サンプル結果は<a href="https://pubcasefinder.dbcls.jp/search_disease/phenotype:HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625/gene:/page:1,1,1,1/size:10,10,10,10,case">こちら</a>をご参照ください。
+							</p>
+						</li>	
+					</ul>
+					<ul>
+						<li class="topics-title">2020/07/27</li>
+						<li><p>PubCaseFinder v1.2.0
+							を公開しました。入力した症状と関連性の高い順に、疾患原因遺伝性4312件をランキング形式で提示します。WESやWGSにおける未知バリアントの評価にご活用いただけます。サンプル結果は<a href="https://pubcasefinder.dbcls.jp/search_disease/phenotype:HP:0000347_ja,HP:0003022_ja,HP:0009381_ja,HP:0000204_ja,HP:0000625_ja/gene:/page:1,1,1/size:10,10,10,gene">こちら</a>をご参照ください。</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2019">
+						<h2>2019</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2019/10/17</li>
+						<li><p>米国人類遺伝学会2019において、ポスター発表「PubCaseFinder and PhenoTouch for differential diagnosis in rare disease.」が、Reviewers’ Choice Abstractsとして選出されました。詳しくは<a href="https://www.ashg.org/2019meeting/listing/ReviewersChoice.shtml">こちら</a>をご参照ください。</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2019/10/05</li>
+						<li><p>PubCaseFinder v1.2.0
+							を公開しました。入力した症状と関連性の高い順に、疾患原因遺伝性4312件をランキング形式で提示します。WESやWGSにおける未知バリアントの評価にご活用いただけます。サンプル結果は<a
+								href="https://pubcasefinder.dbcls.jp/sources">こちら</a>をご参照ください。</p>
+						</li>	
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2018">
+						<h2>2018</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2018/08/30</li>
+						<li><p>PubCaseFinderの論文がThe American Journal of Human Genetics誌に掲載されました。論文は<a href="https://www.cell.com/ajhg/fulltext/S0002-9297(18)30269-6">こちら</a>をご参照ください。</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2017">
+						<h2>2017</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2017/09/27</li>
+						<li><p>PubCaseFinder v.1.0.0 の公開を開始しました。詳細は<a href="https://dbcls.rois.ac.jp/ja/2017/09/27/post1.html">ニュース</a>をご参照ください。</p>
+						</li>
+					</ul>
+				</div>
+				<!-- /history_box -->
+			</div><!-- column-right: メインコンテンツ -->
+		</div><!-- /column-wrapper tab_box -->
+
+	</section>
+</div><!-- /utility_wrapper -->
+<!-- END: __redesign20260310_日本語バージョン -->
+
+
+{% elif get_locale() == "ko" or get_locale() == "ko_KR" %}
+
+
+<!-- START: __redesign20260310__韓国語（英語と共通）バージョン -->
+<div class="utility_wrapper">
+	<section class="content">
+		<h1>History</h1>
+
+		<div class="column-wrapper tab_box">
+			<!-- column-left: サイドバーメニュー -->
+			<div class="column-left">
+				<ul class="sidenav btn_area">
+					<!-- List -->
+					<li class="tab_btn"><a href="#2026">2026</a></li>
+					<li class="tab_btn"><a href="#2025">2025</a></li>
+					<li class="tab_btn disabled"><a href="#2024">2024</a></li>
+					<li class="tab_btn"><a href="#2023">2023</a></li>
+					<li class="tab_btn"><a href="#2022">2022</a></li>
+					<li class="tab_btn"><a href="#2021">2021</a></li>
+					<li class="tab_btn"><a href="#2020">2020</a></li>
+					<li class="tab_btn"><a href="#2019">2019</a></li>
+					<li class="tab_btn"><a href="#2018">2018</a></li>
+					<li class="tab_btn"><a href="#2017">2017</a></li>
+				</ul>
+			</div>
+
+			<!-- column-right: メインコンテンツ -->
+			<div class="column-right panel_area">
+				
+				<div class="history_box">
+					<div class="history_yaer" id="2026">
+						<h2>2026</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2026/04/01</li>
+						
+						<li class="history_box_right">
+							<p>
+								We have added a case matching feature to <a href="https://pubcasefinder.dbcls.jp/casesharing" target="_blank">CaseSharing</a>.</br>CaseSharing is a system designed to manage and share case information on rare and genetic diseases.</br>With this update, users can search for related cases based on the diagnoses and gene names associated with registered cases.</br>This feature enables users to identify clinicians and researchers working on cases related to the same disease or gene, thereby promoting the sharing of case information and facilitating research collaboration.
+							</p>
+						</li>
+						
+					</ul>
+				</div>
+
+				<div class="history_box">
+					<div class="history_yaer" id="2025">
+						<h2>2025</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2025/12/01</li>
+						
+						<li class="history_box_right">
+							<p>
+								We have added a custom panel feature to <a href="https://pubcasefinder.dbcls.jp/panelsearch" target="_blank">PanelSearch</a>.</br>PanelSearch is a public database that allows users to search and utilize Virtual Gene Panels associated with human diseases. With this update, users can now create custom panels by combining gene sets of their choice. This enables the creation of flexible gene panels tailored to specific research purposes and analysis conditions. We encourage you to make use of this feature.
+							</p>
+						</li>
+						
+					</ul>
+					<ul>
+						<li class="topics-title">2025/11/01</li>
+						
+						<li>
+							<p>
+								We have added a filter feature to <a href="https://pubcasefinder.dbcls.jp" target="_blank">DiseaseSearch</a>.</br>DiseaseSearch is a function that allows users to search for related diseases based on phenotypic information (HPO terms). With this update, we have added a filter feature that enables users to refine search results by conditions such as disease category, inheritance pattern, and age. This allows users to explore candidate diseases for diagnosis more efficiently.
+							</p>
+						</li>	
+					</ul>
+				</div>
+
+				<div class="history_box">
+					<div class="history_yaer" id="2023">
+						<h2>2023</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2023/06/07</li>
+						
+						<li class="history_box_right">
+							<p>We releae a beta version of the new system, <a href="https://pubcasefinder.dbcls.jp/casesharing" target="_blank">CaseSharing</a>.</br></br>CaseSharing is a system for managing and sharing case information on rare and genetic diseases.The system can be used without user registration. Lets get an idea of how to use this system with <a href="https://pubcasefinder.dbcls.jp/static/data/casesharing_sample_20260608.json"
+                            target="_blank">sample data</a>. We hope you will make use of it.
+							</p>
+						</li>
+						
+					</ul>
+					<ul>
+						<li class="topics-title">2023/05/27</li>
+						
+						<li>
+							<p>We releae a new system, <a href="https://pubcasefinder.dbcls.jp/panelsearch" target="_blank">PanelSearch</a>.</br></br>PanelSearch is a publicly-available database that allows you to search and utilize Virtual Gene Panels associated with 9,998 human diseases. Virtual Gene Panels can be used for efficient clinical interpretation of genome sequences. We hope you will make use of it.
+							</p>
+						</li>	
+					</ul>
+				</div>
+
+				<div class="history_box">
+					<div class="history_yaer" id="2022">
+						<h2>2022</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2022/11/03</li>
+						<li><p>PubCaseFinder v3.1.0 is available.</p></li>	
+					</ul>
+					<ul>
+						<li class="topics-title">2022/08/05</li>
+						<li>
+							<p> [<b>PRESS RELEASE</b>] For better diagnosis of rare/genetic diseases<br>
+								EurekAlert! - <a target="_blank" href="https://www.eurekalert.org/news-releases/960684">https://www.eurekalert.org/news-releases/960684</a>
+							</p>
+						</li>
+						
+					</ul>
+					<ul>
+						<li class="topics-title">2022/07/13</li>
+						
+						<li>
+							<p>PubCaseFinder v3.0.0 is abailable. We developed the new function which enable users to use the Mondo-based virtual gene panels. An example is <a href="
+https://pubcasefinder.dbcls.jp/result?target=gene&phenotype=HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625&filter=GENEID:10,GENEID:100,GENEID:10000,GENEID:10002,GENEID:10008,GENEID:1001,GENEID:10013,GENEID:100131801,GENEID:100134444,GENEID:100144748,GENEID:100151683,GENEID:10019,GENEID:10020,GENEID:10021,GENEID:10046,GENEID:10049,GENEID:100506658,GENEID:10056,GENEID:10058,GENEID:10059,GENEID:10060,GENEID:10075,GENEID:10082,GENEID:10083,GENEID:10084,GENEID:1009,GENEID:10102,GENEID:10111,GENEID:10117,GENEID:10126,GENEID:10128,GENEID:1013,GENEID:10133,GENEID:10134,GENEID:10142,GENEID:10149,GENEID:10157,GENEID:10159,GENEID:10161,GENEID:10165,GENEID:10166,GENEID:1019,GENEID:10194,GENEID:10195,GENEID:102,GENEID:10205,GENEID:1021,GENEID:10210,GENEID:10216,GENEID:10225,GENEID:10235,GENEID:10243,GENEID:10262,GENEID:10265,GENEID:10269,GENEID:1027,GENEID:10273,GENEID:10274,GENEID:1028,GENEID:10280,GENEID:10283,GENEID:1029,GENEID:10290,GENEID:10293,GENEID:10295,GENEID:10297,GENEID:103,GENEID:10300,GENEID:10309,GENEID:10312,GENEID:10319,GENEID:10320,GENEID:10324,GENEID:10329,GENEID:10342,GENEID:10345,GENEID:10347,GENEID:10352,GENEID:10367,GENEID:10369,GENEID:10370,GENEID:10371,GENEID:10381,GENEID:10382,GENEID:10397,GENEID:1041,GENEID:10413,GENEID:10436,GENEID:10456,GENEID:10457,GENEID:10459,GENEID:10461,GENEID:10463,GENEID:10464,GENEID:10466,GENEID:10472,GENEID:10479,GENEID:10481,GENEID:10483,GENEID:10484,GENEID:10491,GENEID:1050,GENEID:10516,GENEID:10518,GENEID:10519,GENEID:10522,GENEID:10528,GENEID:1053,GENEID:10535,GENEID:10555,GENEID:10558,GENEID:10559,GENEID:1056,GENEID:10560,GENEID:10564,GENEID:10568,GENEID:10577,GENEID:10584,GENEID:10585,GENEID:10586,GENEID:10587,GENEID:10594,GENEID:10599,GENEID:10613,GENEID:10616,GENEID:10617,GENEID:1062,GENEID:1063,GENEID:10641,GENEID:10653,GENEID:10654,GENEID:10661,GENEID:10664,GENEID:10667,GENEID:10682,GENEID:10683,GENEID:10686,GENEID:10695,GENEID:10699,GENEID:107,GENEID:1071,GENEID:10715,GENEID:10716,GENEID:10717,GENEID:1073,GENEID:10733,GENEID:10735,GENEID:10743,GENEID:10747,GENEID:10749,GENEID:1075,GENEID:10758,GENEID:10765,GENEID:10771,GENEID:10785,GENEID:1080,GENEID:10804,GENEID:10806,GENEID:10815,GENEID:10841,GENEID:10846,GENEID:10847,GENEID:10878,GENEID:10892,GENEID:10907,GENEID:10908,GENEID:10913,GENEID:10916,GENEID:10939,GENEID:10940,GENEID:10978,GENEID:10982,GENEID:10984,GENEID:10999,GENEID:11005,GENEID:11019,GENEID:11020,GENEID:1103,GENEID:11041,GENEID:11043,GENEID:1105,GENEID:1106,GENEID:11078,GENEID:11081,GENEID:1109,GENEID:11093,GENEID:111,GENEID:11107,GENEID:11113,GENEID:11128,GENEID:11133,GENEID:11136,GENEID:11141,GENEID:11146,GENEID:11149,GENEID:11151,GENEID:11152,GENEID:11154,GENEID:11155,GENEID:11160,GENEID:11181,GENEID:112,GENEID:1120,GENEID:11200,GENEID:1121,GENEID:11212,GENEID:11222,GENEID:11224,GENEID:1123,GENEID:11231,GENEID:11232,GENEID:11234,GENEID:11235,GENEID:11236,GENEID:112476,GENEID:11253,GENEID:11274,GENEID:112744,GENEID:112752,GENEID:112755,GENEID:11277,GENEID:11280,GENEID:112802,GENEID:11281,GENEID:112817,GENEID:11284,GENEID:11285,GENEID:112858,GENEID:112939,GENEID:1130,GENEID:1131,GENEID:11311,GENEID:11315,GENEID:113179,GENEID:113189,GENEID:11322,GENEID:113235,GENEID:113246,GENEID:113278,GENEID:11330,GENEID:1134,GENEID:11340,GENEID:1135,GENEID:113612,GENEID:1137,GENEID:1139,GENEID:1140,GENEID:114034,GENEID:1141,GENEID:114327,GENEID:1144,GENEID:1145,GENEID:114548,GENEID:1146,GENEID:1147,GENEID:114803,GENEID:114902,GENEID:114928,GENEID:115286,GENEID:115399,GENEID:115650,GENEID:115948,GENEID:116085,GENEID:1161,GENEID:116150,GENEID:116228,GENEID:116369,GENEID:116442,GENEID:116461,GENEID:116519,GENEID:117144,GENEID:117155,GENEID:1174,GENEID:1175,GENEID:117531,GENEID:117581,GENEID:1180,GENEID:1181,GENEID:1183,GENEID:1184,GENEID:118429,GENEID:1186,GENEID:1187,GENEID:1188,GENEID:118856,GENEID:1193,GENEID:119559,GENEID:120,GENEID:1200,GENEID:1201,GENEID:120227,GENEID:1203,GENEID:120892,GENEID:121214,GENEID:1213,GENEID:121340,GENEID:121391,GENEID:121512,GENEID:122402,GENEID:122481,GENEID:122622,GENEID:122961,GENEID:123016,GENEID:123041,GENEID:123263,GENEID:1234,GENEID:123606,GENEID:123624,GENEID:123872,GENEID:124093,GENEID:1244,GENEID:124454,GENEID:124512,GENEID:124583,GENEID:124590,GENEID:124997,GENEID:125336,GENEID:1258,GENEID:1259,GENEID:125988,GENEID:1261,GENEID:126129,GENEID:126326,GENEID:126328,GENEID:126410,GENEID:126695,GENEID:126792,GENEID:1272,GENEID:127534,GENEID:1277,GENEID:1278,GENEID:127833,GENEID:1280,GENEID:1281&vgp=MONDO:0044970,PA:529,PAA:181,GENEID:538,GENEID:5053&size=10&display_format=full&lang=en
+">here</a>.
+							</p>
+						</li>
+						
+					</ul>
+					
+					<!-- <ul>
+						<li class="topics-title">2022/05/26</li>
+						<li>
+							<p>
+								[プレスリリース] PubCaseFinderを大幅にリニューアル －希少・遺伝性疾患の克服を目指し国際協力も推進－<br>
+								詳細は<a href="https://dbcls.rois.ac.jp/PDF/20220526_PubCaseFinder.pdf" target="_blank">報道発表資料PDF</a>をご覧ください。
+							</p>
+						</li>
+					</ul> -->
+					
+					<ul>
+						<li class="topics-title">2022/05/25</li>
+						<li>
+							<p>
+								The following paper was published in the <a href="https://onlinelibrary.wiley.com/toc/10981004/2022/43/6" target="_blank">Human Mutation special issue on Matchmaker Exchange</a>.<br><br>
+								Toyofumi Fujiwara, Jae-Moon Shin, Atsuko Yamaguchi "Advances in the development of PubCaseFinder, including the new application programming interface and matching algorithm." Hum Mutat. 2022 Jun;43(6):734-742; <a href="https://doi.org/10.1002/humu.24341" target="_blank">DOI: 10.1002/humu.24341</a>
+							</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2022/04/21</li>
+						<li>
+							<p><a href="https://www.takeda.com" target="_blank">TAKEDA Japan</a> has developed the disease
+                        search system called 'Docpedia CaseSearch' using PubCaseFinder technology and APIs.<br>The press
+                        release is <a href="https://www.takeda.com/ja-jp/announcements/2022/docpedia-casesearch/"
+                            target="_blank">here</a>.</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2022/04/01</li>
+						<li>
+							<p>PubCaseFinder v2.1.0 is abailable. Symptom input is now more convenient ('did you mean'
+                        algorithm available). Moreover, you can import Human Phenotype Ontology (HPO) term IDs to
+                        extract multiple HPO term IDs from any kind of textual input.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2021">
+						<h2>2021</h2>
+					</div>
+					<!-- <ul>
+						<li class="topics-title">2021/10/16</li>
+						<li><p>日本人類遺伝学会第66回大会 / 第28回日本遺伝子診療学会大会
+								合同開催にてポスター発表した「診療録からの症状半自動抽出システムPOETの開発」が大会賞を受賞しました。発表した機能は<a href="https://pubcasefinder.dbcls.jp/ehr">こちら</a>になります。ぜひご活用ください。
+							</p>
+						</li>
+					</ul> -->
+					
+					<ul>
+						<li class="topics-title">2021/09/26</li>
+						<li><p>PubCaseFinder v2.0.0 is abailable. The UI/UX has been greatly improved. It is possible to filter
+                        the results by combining disease, mode of inheritance, and gene with logical operators. An
+                        example is <a
+                            href="https://pubcasefinder.dbcls.jp/result?target=omim&phenotype=HP:0000347_ja,HP:0003022_ja,HP:0009381_ja,HP:0000204_ja,HP:0000625_ja&filter=HP:0000006,AND_MONDO:0005015&size=10&display_format=full&lang=en">here</a>.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2020">
+						<h2>2020</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2020/07/31</li>
+						<li><p>PubCaseFinder v1.3.0 is abailable. A ranked list of public cases on the Internet is produced based on patient phenotypes. An example is <a href="https://pubcasefinder.dbcls.jp/search_disease/phenotype:HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625/gene:/page:1,1,1,1/size:10,10,10,10,case">here</a>.</p>
+						</li>	
+					</ul>
+					<ul>
+						<li class="topics-title">2020/07/27</li>
+						<li><p>PubCaseFinder v1.2.0 is abailable. A ranked list of causative genes of rare and genetic diseases
+                        is produced based on patient phenotypes. An example is <a href="https://pubcasefinder.dbcls.jp/search_disease/phenotype:HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625/gene:/page:1,1,1/size:10,10,10,gene">here</a>.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2019">
+						<h2>2019</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2019/10/17</li>
+						<li><p>Our poster presentation &quot;PubCaseFinder and PhenoTouch for differential diagnosis in rare
+                        disease.&quot; was selected as Reviewers' Choice Abstracts in <a href="https://www.ashg.org/2019meeting/listing/ReviewersChoice.shtml">ASHG2019</a>.</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2019/10/05</li>
+						<li><p>PubCaseFinder v1.1.0 is abailable. Datasets and ontologies are <a href="/sources">here</a>.</p>
+						</li>	
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2018">
+						<h2>2018</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2018/08/30</li>
+						<li><p>The PubCaseFinder paper is available on <i>The American Journal of Human Genetics</i>. Full text
+                        paper is <a href="https://www.cell.com/ajhg/fulltext/S0002-9297(18)30269-6">here</a>.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2017">
+						<h2>2017</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2017/09/27</li>
+						<li><p>PubCaseFinder v1.0.0 has been released.</p>
+						</li>
+					</ul>
+				</div>
+				<!-- /history_box -->
+			</div><!-- column-right: メインコンテンツ -->
+		</div><!-- /column-wrapper tab_box -->
+
+	</section>
+</div><!-- /utility_wrapper -->
+<!-- END: __redesign20260310__韓国語（英語と共通）バージョン -->
+
+
+{% else %}
+
+
+<!-- START: __redesign20260310__英語バージョン -->
+<div class="utility_wrapper">
+	<section class="content">
+		<h1>History</h1>
+
+		<div class="column-wrapper tab_box">
+			<!-- column-left: サイドバーメニュー -->
+			<div class="column-left">
+				<ul class="sidenav btn_area">
+					<!-- List -->
+					<li class="tab_btn"><a href="#2026">2026</a></li>
+					<li class="tab_btn"><a href="#2025">2025</a></li>
+					<li class="tab_btn disabled"><a href="#2024">2024</a></li>
+					<li class="tab_btn"><a href="#2023">2023</a></li>
+					<li class="tab_btn"><a href="#2022">2022</a></li>
+					<li class="tab_btn"><a href="#2021">2021</a></li>
+					<li class="tab_btn"><a href="#2020">2020</a></li>
+					<li class="tab_btn"><a href="#2019">2019</a></li>
+					<li class="tab_btn"><a href="#2018">2018</a></li>
+					<li class="tab_btn"><a href="#2017">2017</a></li>
+				</ul>
+			</div>
+
+			<!-- column-right: メインコンテンツ -->
+			<div class="column-right panel_area">
+				
+				<div class="history_box">
+					<div class="history_yaer" id="2026">
+						<h2>2026</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2026/04/01</li>
+						
+						<li class="history_box_right">
+							<p>
+								We have added a case matching feature to <a href="https://pubcasefinder.dbcls.jp/casesharing" target="_blank">CaseSharing</a>.</br>CaseSharing is a system designed to manage and share case information on rare and genetic diseases.</br>With this update, users can search for related cases based on the diagnoses and gene names associated with registered cases.</br>This feature enables users to identify clinicians and researchers working on cases related to the same disease or gene, thereby promoting the sharing of case information and facilitating research collaboration.
+							</p>
+						</li>
+						
+					</ul>
+				</div>
+
+				<div class="history_box">
+					<div class="history_yaer" id="2025">
+						<h2>2025</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2025/12/01</li>
+						
+						<li class="history_box_right">
+							<p>
+								We have added a custom panel feature to <a href="https://pubcasefinder.dbcls.jp/panelsearch" target="_blank">PanelSearch</a>.</br>PanelSearch is a public database that allows users to search and utilize Virtual Gene Panels associated with human diseases. With this update, users can now create custom panels by combining gene sets of their choice. This enables the creation of flexible gene panels tailored to specific research purposes and analysis conditions. We encourage you to make use of this feature.
+							</p>
+						</li>
+						
+					</ul>
+					<ul>
+						<li class="topics-title">2025/11/01</li>
+						
+						<li>
+							<p>
+								We have added a filter feature to <a href="https://pubcasefinder.dbcls.jp" target="_blank">DiseaseSearch</a>.</br>DiseaseSearch is a function that allows users to search for related diseases based on phenotypic information (HPO terms). With this update, we have added a filter feature that enables users to refine search results by conditions such as disease category, inheritance pattern, and age. This allows users to explore candidate diseases for diagnosis more efficiently.
+							</p>
+						</li>	
+					</ul>
+				</div>
+
+				<div class="history_box">
+					<div class="history_yaer" id="2023">
+						<h2>2023</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2023/06/07</li>
+						
+						<li class="history_box_right">
+							<p>We releae a beta version of the new system, <a href="https://pubcasefinder.dbcls.jp/casesharing" target="_blank">CaseSharing</a>.</br></br>CaseSharing is a system for managing and sharing case information on rare and genetic diseases.The system can be used without user registration. Lets get an idea of how to use this system with <a href="https://pubcasefinder.dbcls.jp/static/data/casesharing_sample_20260608.json"
+                            target="_blank">sample data</a>. We hope you will make use of it.
+							</p>
+						</li>
+						
+					</ul>
+					<ul>
+						<li class="topics-title">2023/05/27</li>
+						
+						<li>
+							<p>We releae a new system, <a href="https://pubcasefinder.dbcls.jp/panelsearch" target="_blank">PanelSearch</a>.</br></br>PanelSearch is a publicly-available database that allows you to search and utilize Virtual Gene Panels associated with 9,998 human diseases. Virtual Gene Panels can be used for efficient clinical interpretation of genome sequences. We hope you will make use of it.
+							</p>
+						</li>	
+					</ul>
+				</div>
+
+				<div class="history_box">
+					<div class="history_yaer" id="2022">
+						<h2>2022</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2022/11/03</li>
+						<li><p>PubCaseFinder v3.1.0 is available.</p></li>	
+					</ul>
+					<ul>
+						<li class="topics-title">2022/08/05</li>
+						<li>
+							<p> [<b>PRESS RELEASE</b>] For better diagnosis of rare/genetic diseases<br>
+								EurekAlert! - <a target="_blank" href="https://www.eurekalert.org/news-releases/960684">https://www.eurekalert.org/news-releases/960684</a>
+							</p>
+						</li>
+						
+					</ul>
+					<ul>
+						<li class="topics-title">2022/07/13</li>
+						
+						<li>
+							<p>PubCaseFinder v3.0.0 is abailable. We developed the new function which enable users to use the Mondo-based virtual gene panels. An example is <a href="
+https://pubcasefinder.dbcls.jp/result?target=gene&phenotype=HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625&filter=GENEID:10,GENEID:100,GENEID:10000,GENEID:10002,GENEID:10008,GENEID:1001,GENEID:10013,GENEID:100131801,GENEID:100134444,GENEID:100144748,GENEID:100151683,GENEID:10019,GENEID:10020,GENEID:10021,GENEID:10046,GENEID:10049,GENEID:100506658,GENEID:10056,GENEID:10058,GENEID:10059,GENEID:10060,GENEID:10075,GENEID:10082,GENEID:10083,GENEID:10084,GENEID:1009,GENEID:10102,GENEID:10111,GENEID:10117,GENEID:10126,GENEID:10128,GENEID:1013,GENEID:10133,GENEID:10134,GENEID:10142,GENEID:10149,GENEID:10157,GENEID:10159,GENEID:10161,GENEID:10165,GENEID:10166,GENEID:1019,GENEID:10194,GENEID:10195,GENEID:102,GENEID:10205,GENEID:1021,GENEID:10210,GENEID:10216,GENEID:10225,GENEID:10235,GENEID:10243,GENEID:10262,GENEID:10265,GENEID:10269,GENEID:1027,GENEID:10273,GENEID:10274,GENEID:1028,GENEID:10280,GENEID:10283,GENEID:1029,GENEID:10290,GENEID:10293,GENEID:10295,GENEID:10297,GENEID:103,GENEID:10300,GENEID:10309,GENEID:10312,GENEID:10319,GENEID:10320,GENEID:10324,GENEID:10329,GENEID:10342,GENEID:10345,GENEID:10347,GENEID:10352,GENEID:10367,GENEID:10369,GENEID:10370,GENEID:10371,GENEID:10381,GENEID:10382,GENEID:10397,GENEID:1041,GENEID:10413,GENEID:10436,GENEID:10456,GENEID:10457,GENEID:10459,GENEID:10461,GENEID:10463,GENEID:10464,GENEID:10466,GENEID:10472,GENEID:10479,GENEID:10481,GENEID:10483,GENEID:10484,GENEID:10491,GENEID:1050,GENEID:10516,GENEID:10518,GENEID:10519,GENEID:10522,GENEID:10528,GENEID:1053,GENEID:10535,GENEID:10555,GENEID:10558,GENEID:10559,GENEID:1056,GENEID:10560,GENEID:10564,GENEID:10568,GENEID:10577,GENEID:10584,GENEID:10585,GENEID:10586,GENEID:10587,GENEID:10594,GENEID:10599,GENEID:10613,GENEID:10616,GENEID:10617,GENEID:1062,GENEID:1063,GENEID:10641,GENEID:10653,GENEID:10654,GENEID:10661,GENEID:10664,GENEID:10667,GENEID:10682,GENEID:10683,GENEID:10686,GENEID:10695,GENEID:10699,GENEID:107,GENEID:1071,GENEID:10715,GENEID:10716,GENEID:10717,GENEID:1073,GENEID:10733,GENEID:10735,GENEID:10743,GENEID:10747,GENEID:10749,GENEID:1075,GENEID:10758,GENEID:10765,GENEID:10771,GENEID:10785,GENEID:1080,GENEID:10804,GENEID:10806,GENEID:10815,GENEID:10841,GENEID:10846,GENEID:10847,GENEID:10878,GENEID:10892,GENEID:10907,GENEID:10908,GENEID:10913,GENEID:10916,GENEID:10939,GENEID:10940,GENEID:10978,GENEID:10982,GENEID:10984,GENEID:10999,GENEID:11005,GENEID:11019,GENEID:11020,GENEID:1103,GENEID:11041,GENEID:11043,GENEID:1105,GENEID:1106,GENEID:11078,GENEID:11081,GENEID:1109,GENEID:11093,GENEID:111,GENEID:11107,GENEID:11113,GENEID:11128,GENEID:11133,GENEID:11136,GENEID:11141,GENEID:11146,GENEID:11149,GENEID:11151,GENEID:11152,GENEID:11154,GENEID:11155,GENEID:11160,GENEID:11181,GENEID:112,GENEID:1120,GENEID:11200,GENEID:1121,GENEID:11212,GENEID:11222,GENEID:11224,GENEID:1123,GENEID:11231,GENEID:11232,GENEID:11234,GENEID:11235,GENEID:11236,GENEID:112476,GENEID:11253,GENEID:11274,GENEID:112744,GENEID:112752,GENEID:112755,GENEID:11277,GENEID:11280,GENEID:112802,GENEID:11281,GENEID:112817,GENEID:11284,GENEID:11285,GENEID:112858,GENEID:112939,GENEID:1130,GENEID:1131,GENEID:11311,GENEID:11315,GENEID:113179,GENEID:113189,GENEID:11322,GENEID:113235,GENEID:113246,GENEID:113278,GENEID:11330,GENEID:1134,GENEID:11340,GENEID:1135,GENEID:113612,GENEID:1137,GENEID:1139,GENEID:1140,GENEID:114034,GENEID:1141,GENEID:114327,GENEID:1144,GENEID:1145,GENEID:114548,GENEID:1146,GENEID:1147,GENEID:114803,GENEID:114902,GENEID:114928,GENEID:115286,GENEID:115399,GENEID:115650,GENEID:115948,GENEID:116085,GENEID:1161,GENEID:116150,GENEID:116228,GENEID:116369,GENEID:116442,GENEID:116461,GENEID:116519,GENEID:117144,GENEID:117155,GENEID:1174,GENEID:1175,GENEID:117531,GENEID:117581,GENEID:1180,GENEID:1181,GENEID:1183,GENEID:1184,GENEID:118429,GENEID:1186,GENEID:1187,GENEID:1188,GENEID:118856,GENEID:1193,GENEID:119559,GENEID:120,GENEID:1200,GENEID:1201,GENEID:120227,GENEID:1203,GENEID:120892,GENEID:121214,GENEID:1213,GENEID:121340,GENEID:121391,GENEID:121512,GENEID:122402,GENEID:122481,GENEID:122622,GENEID:122961,GENEID:123016,GENEID:123041,GENEID:123263,GENEID:1234,GENEID:123606,GENEID:123624,GENEID:123872,GENEID:124093,GENEID:1244,GENEID:124454,GENEID:124512,GENEID:124583,GENEID:124590,GENEID:124997,GENEID:125336,GENEID:1258,GENEID:1259,GENEID:125988,GENEID:1261,GENEID:126129,GENEID:126326,GENEID:126328,GENEID:126410,GENEID:126695,GENEID:126792,GENEID:1272,GENEID:127534,GENEID:1277,GENEID:1278,GENEID:127833,GENEID:1280,GENEID:1281&vgp=MONDO:0044970,PA:529,PAA:181,GENEID:538,GENEID:5053&size=10&display_format=full&lang=en
+">here</a>.
+							</p>
+						</li>
+						
+					</ul>
+					
+					<!-- <ul>
+						<li class="topics-title">2022/05/26</li>
+						<li>
+							<p>
+								[プレスリリース] PubCaseFinderを大幅にリニューアル －希少・遺伝性疾患の克服を目指し国際協力も推進－<br>
+								詳細は<a href="https://dbcls.rois.ac.jp/PDF/20220526_PubCaseFinder.pdf" target="_blank">報道発表資料PDF</a>をご覧ください。
+							</p>
+						</li>
+					</ul> -->
+					
+					<ul>
+						<li class="topics-title">2022/05/25</li>
+						<li>
+							<p>
+								The following paper was published in the <a href="https://onlinelibrary.wiley.com/toc/10981004/2022/43/6" target="_blank">Human Mutation special issue on Matchmaker Exchange</a>.<br><br>
+								Toyofumi Fujiwara, Jae-Moon Shin, Atsuko Yamaguchi "Advances in the development of PubCaseFinder, including the new application programming interface and matching algorithm." Hum Mutat. 2022 Jun;43(6):734-742; <a href="https://doi.org/10.1002/humu.24341" target="_blank">DOI: 10.1002/humu.24341</a>
+							</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2022/04/21</li>
+						<li>
+							<p><a href="https://www.takeda.com" target="_blank">TAKEDA Japan</a> has developed the disease
+                        search system called 'Docpedia CaseSearch' using PubCaseFinder technology and APIs.<br>The press
+                        release is <a href="https://www.takeda.com/ja-jp/announcements/2022/docpedia-casesearch/"
+                            target="_blank">here</a>.</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2022/04/01</li>
+						<li>
+							<p>PubCaseFinder v2.1.0 is abailable. Symptom input is now more convenient ('did you mean'
+                        algorithm available). Moreover, you can import Human Phenotype Ontology (HPO) term IDs to
+                        extract multiple HPO term IDs from any kind of textual input.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2021">
+						<h2>2021</h2>
+					</div>
+					<!-- <ul>
+						<li class="topics-title">2021/10/16</li>
+						<li><p>日本人類遺伝学会第66回大会 / 第28回日本遺伝子診療学会大会
+								合同開催にてポスター発表した「診療録からの症状半自動抽出システムPOETの開発」が大会賞を受賞しました。発表した機能は<a href="https://pubcasefinder.dbcls.jp/ehr">こちら</a>になります。ぜひご活用ください。
+							</p>
+						</li>
+					</ul> -->
+					
+					<ul>
+						<li class="topics-title">2021/09/26</li>
+						<li><p>PubCaseFinder v2.0.0 is abailable. The UI/UX has been greatly improved. It is possible to filter
+                        the results by combining disease, mode of inheritance, and gene with logical operators. An
+                        example is <a
+                            href="https://pubcasefinder.dbcls.jp/result?target=omim&phenotype=HP:0000347_ja,HP:0003022_ja,HP:0009381_ja,HP:0000204_ja,HP:0000625_ja&filter=HP:0000006,AND_MONDO:0005015&size=10&display_format=full&lang=en">here</a>.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2020">
+						<h2>2020</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2020/07/31</li>
+						<li><p>PubCaseFinder v1.3.0 is abailable. A ranked list of public cases on the Internet is produced based on patient phenotypes. An example is <a href="https://pubcasefinder.dbcls.jp/search_disease/phenotype:HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625/gene:/page:1,1,1,1/size:10,10,10,10,case">here</a>.</p>
+						</li>	
+					</ul>
+					<ul>
+						<li class="topics-title">2020/07/27</li>
+						<li><p>PubCaseFinder v1.2.0 is abailable. A ranked list of causative genes of rare and genetic diseases
+                        is produced based on patient phenotypes. An example is <a href="https://pubcasefinder.dbcls.jp/search_disease/phenotype:HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625/gene:/page:1,1,1/size:10,10,10,gene">here</a>.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2019">
+						<h2>2019</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2019/10/17</li>
+						<li><p>Our poster presentation &quot;PubCaseFinder and PhenoTouch for differential diagnosis in rare
+                        disease.&quot; was selected as Reviewers' Choice Abstracts in <a href="https://www.ashg.org/2019meeting/listing/ReviewersChoice.shtml">ASHG2019</a>.</p>
+						</li>
+					</ul>
+					<ul>
+						<li class="topics-title">2019/10/05</li>
+						<li><p>PubCaseFinder v1.1.0 is abailable. Datasets and ontologies are <a href="/sources">here</a>.</p>
+						</li>	
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2018">
+						<h2>2018</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2018/08/30</li>
+						<li><p>The PubCaseFinder paper is available on <i>The American Journal of Human Genetics</i>. Full text
+                        paper is <a href="https://www.cell.com/ajhg/fulltext/S0002-9297(18)30269-6">here</a>.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="history_box">
+					<div class="history_yaer" id="2017">
+						<h2>2017</h2>
+					</div>
+					<ul>
+						<li class="topics-title">2017/09/27</li>
+						<li><p>PubCaseFinder v1.0.0 has been released.</p>
+						</li>
+					</ul>
+				</div>
+				<!-- /history_box -->
+			</div><!-- column-right: メインコンテンツ -->
+		</div><!-- /column-wrapper tab_box -->
+
+	</section>
+</div><!-- /utility_wrapper -->
+<!-- END: __redesign20260310__英語バージョン -->
+
+
+{% endif %}
+
+
+
+<!-- END: History page -->
+{% endblock %}

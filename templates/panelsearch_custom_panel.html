@@ -1,0 +1,119 @@
+{% extends "panelsearch_base.html" %}
+{% block css_block %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+<link rel="stylesheet" href="/static/css/panelsearch/vgp-panel-detail.css">
+<link rel="stylesheet" href="/static/css/panelsearch/tippy.css" type="text/css">
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale-extreme.css" />
+{% endblock %}
+{% block title_block %}PanelSearch : PubCaseFinder{% endblock %}
+{% block main_block %}
+<div class="vgp-main">
+  <div class="vgp-wrapper vgp-wrapper-upper">
+    <div class="vgp-content d-flex flex-column">
+      <div class="d-flex flex-row flex-nowrap color-white">
+        <div id="vgp-panel-name">Custom panel</div>
+        <div id="vgp-panel-name-ctl-wrapper" ><span id="vgp-panel-name-ctl" class="material-symbols-outlined">edit_square</span></div>
+      </div>
+      <div class="vgp-controll">
+        <button id="btn_download_panel">Download
+          <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18" fill="currentColor">
+            <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+          </svg>
+        </button>
+        <button id="btn_copy_link">Copy link <span class="material-symbols-outlined">share</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="vgp-wrapper">
+    <div class="vgp-content d-flex flex-column">
+      <div class="vgp-panel-detail d-flex">
+        <div class="vgp-detail-wrapper-custom">
+          <nav class="vgp-nav">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active mr-2" id="nav-vgp-panel-genes-panel" data-toggle="tab" href="#vgp-panel-genes-panel" role="tab" aria-controls="vgp-panel-genes-panel" aria-selected="true">Panel genes</a>
+            </div>
+          </nav>          
+          <div class="tab-content" id="nav-tabContent">
+            <div id="vgp-panel-genes-panel" class="tab-pane fade show active mt-1" role="tabpanel" aria-labelledby="nav-vgp-panel-genes-panel">
+              <div class="vgp-filter-sample-panel">
+                <div class="vgp-filter-wrapper">
+                  <div class="d-flex justify-content-between flex-nowrap">
+                    <div class="vgp-panel-genes-num-wrapper">
+                      <span class="vgp-panel-genes-num">0</span> Genes
+                    </div>
+                  </div>
+                  <input id="vgp-panel-genes-filter" class="vgp-filter" type="text" autocomplete="off" autocapitalize="off" 
+                         data-table-id="vgp-panel-table" 
+                         data-target-row-class="vgp-table-datarow" 
+                         data-sort-inner-target="vgp-panel-gene-name"
+                         placeholder="Filter 0 Genes" />
+                </div>
+                <div class="d-flex flex-row flex-nowrap align-items-end">
+                  <div class="vgp_rating_tag_title">Rating:</div>
+                  <div class="in-circle-wrapper">
+                    <span class="in-circle" data-toggle="tooltip" data-placement="top" data-html="true" title="" data-original-title="...">?</span>
+                  </div>
+                  <div class="vgp-rating-tag-list-container vgp-rating-tag-list-container-width sample">
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-definitive sample"></span></div><div class="vgp-rotate45">Definitive</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-strong sample"></span></div><div class="vgp-rotate45">Strong</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-moderate sample"></span></div><div class="vgp-rotate45">Moderate</div></div>
+                    <div class="vgp-rating-tag-subcontainer vgp-rating-divide"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-supportive sample"></span></div><div class="vgp-rotate45">Supportive</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-limited sample" ></span></div><div class="vgp-rotate45">Limited</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-disputed sample" ></span></div><div class="vgp-rotate45">Disputed</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-refuted sample" ></span></div><div class="vgp-rotate45">Refuted</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-animal sample" ></span></div><div class="vgp-rotate45">Animal</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-noknown sample" ></span></div><div class="vgp-rotate45">No known</div></div>
+                    <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper sample"><span class="vgp-rating-list-tag vgp-rating-norating sample" ></span></div><div class="vgp-rotate45">No rating</div></div>
+                    <div class="vgp-rating-tag-subcontainer-space"></div>
+                  </div>
+                </div>
+              </div>
+              <table class="vgp-panel-table" id="vgp-panel-table">
+                <thead>
+                  <tr>
+                    <th class="width-panel">
+                      <div>
+                        <span>
+                          <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.84961 20.319H20.2732V16.9891H8.84961V20.319ZM3.74544 11.01H7.39128V7.68012H3.74544V11.01ZM3.74544 15.5551H7.39128V12.4683H3.74544V15.5551ZM3.74544 20.319H7.39128V16.9891H3.74544V20.319ZM8.84961 15.5551H20.2732V12.4683H8.84961V15.5551ZM8.84961 11.01H20.2732V7.68012H8.84961V11.01ZM3.74544 21.7773C3.35655 21.7773 3.01628 21.6315 2.72461 21.3398C2.43294 21.0482 2.28711 20.7079 2.28711 20.319V7.68012C2.28711 7.29123 2.43294 6.95095 2.72461 6.65929C3.01628 6.36762 3.35655 6.22179 3.74544 6.22179H20.2732C20.6621 6.22179 21.0024 6.36762 21.2941 6.65929C21.5857 6.95095 21.7316 7.29123 21.7316 7.68012V20.319C21.7316 20.7079 21.5857 21.0482 21.2941 21.3398C21.0024 21.6315 20.6621 21.7773 20.2732 21.7773H3.74544Z" fill="#212529"/></svg>
+                        </span>
+                        <span>Panel</span>
+                      </div>
+                    </th>
+                    <th class="width-panel-gene">
+                      <div>
+                        <span>
+                          <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.63281 24.6943V23.7221C5.63281 21.4536 6.20284 19.6226 7.3429 18.2291C8.48296 16.8355 9.96504 15.4258 11.7891 13.9999C9.96504 12.574 8.48296 11.1642 7.3429 9.77072C6.20284 8.37721 5.63281 6.54619 5.63281 4.27767V3.30545H7.21136V4.27767C7.21136 4.45591 7.21574 4.622 7.22451 4.77593C7.23328 4.92987 7.24644 5.08785 7.26398 5.24989H18.7347C18.7523 5.08785 18.7654 4.92987 18.7742 4.77593C18.783 4.622 18.7874 4.45591 18.7874 4.27767V3.30545H20.3659V4.27767C20.3659 6.54619 19.7959 8.37721 18.6558 9.77072C17.5158 11.1642 16.0337 12.574 14.2096 13.9999C16.0337 15.4258 17.5158 16.8355 18.6558 18.2291C19.7959 19.6226 20.3659 21.4536 20.3659 23.7221V24.6943H18.7874V23.7221C18.7874 23.5439 18.783 23.3778 18.7742 23.2238C18.7654 23.0699 18.7523 22.9119 18.7347 22.7499H7.26398C7.24644 22.9119 7.23328 23.0699 7.22451 23.2238C7.21574 23.3778 7.21136 23.5439 7.21136 23.7221V24.6943H5.63281ZM8.7899 9.13878H17.2088C17.4894 8.7661 17.7306 8.38126 17.9323 7.98427C18.134 7.58727 18.305 7.16193 18.4453 6.70823H7.55338C7.69369 7.16193 7.8647 7.58727 8.0664 7.98427C8.26811 8.38126 8.50927 8.7661 8.7899 9.13878ZM12.9994 13.052C13.5431 12.6307 14.0605 12.2215 14.5516 11.8245C15.0427 11.4276 15.4987 11.0184 15.9197 10.5971H10.079C10.5 11.0184 10.9516 11.4276 11.434 11.8245C11.9163 12.2215 12.4381 12.6307 12.9994 13.052ZM10.079 17.4027H15.9197C15.4987 16.9814 15.0427 16.5722 14.5516 16.1752C14.0605 15.7782 13.5431 15.3691 12.9994 14.9478C12.4556 15.3691 11.9382 15.7782 11.4471 16.1752C10.956 16.5722 10.5 16.9814 10.079 17.4027ZM7.55338 21.2916H18.4453C18.305 20.8379 18.134 20.4125 17.9323 20.0155C17.7306 19.6185 17.4894 19.2337 17.2088 18.861H8.7899C8.50927 19.2337 8.26811 19.6185 8.0664 20.0155C7.8647 20.4125 7.69369 20.8379 7.55338 21.2916Z" fill="#212529"/></svg>
+                        </span>
+                        <span>Panel genes</span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="vgp-panel-table-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block js_block %}
+<script type="text/javascript" src="/static/js/popperjs-core-2.11.8/core/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/tippyjs/tippy-bundle.umd.js"></script>
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/common.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch/vgp_custom_panel.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+$(document).ready(function(){
+	_vgp_attach_goToTopfunc();
+	_vgp_init("{{ r_custom_panel_name }}", "{{ r_panel_id_list_str }}");
+   vgp_set_total_panel_num({{ r_root_panel_num }});
+});
+</SCRIPT>
+{% endblock %}

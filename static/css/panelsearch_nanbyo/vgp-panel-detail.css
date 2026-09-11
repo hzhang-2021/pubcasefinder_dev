@@ -1,0 +1,871 @@
+.vgp-main {
+  width: 100%;
+}
+
+.vgp-main .vgp-wrapper {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.vgp-main .vgp-wrapper.vgp-wrapper-upper{background-color: #002F19;}
+
+.vgp-main .vgp-wrapper .vgp-content{
+  margin: 0px auto 0px auto;
+  width: 90%;
+  min-width: 1250px;
+}
+
+ruby rt {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-version{margin-bottom: 20px;}
+.vgp-main .vgp-wrapper .vgp-content .vgp-version .vgp-version-sub { margin-right: 20px;}
+.vgp-main .vgp-wrapper .vgp-content .vgp-version .vgp-version-sub .vgp-version-label{
+  color: #85BA9A; 
+  width:132px;
+  display: inline-block;
+}
+.vgp-main .vgp-wrapper .vgp-content .vgp-version .vgp-version-sub .vgp-version-date{color: #FFF; border-bottom: solid 1px #FFF;}
+.vgp-main .vgp-wrapper .vgp-content .vgp-version .vgp-version-sub svg{margin-bottom: 2px;}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-controll button {
+  border-radius: 2rem;
+  border: solid 2px #85BA9A;
+  padding: 3px 15px 3px 15px;
+  background-color: #CDE7D6;
+  color: #276749;
+  font-weight: 600;
+}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-controll button svg { margin-bottom: 2px;}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-info { width:100%;}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-info .vgp-panel-controll{
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.vgp-source-wrapper a,
+.vgp-source-wrapper span.id{
+  color: #147786;
+  border-radius: 15px;
+  padding: 2px 18px 4px 18px;
+  margin-right: 5px;
+  background-color: #CBE1E4;
+  text-decoration: none;
+  white-space: nowrap;
+  align-items: center;
+}
+
+.vgp-source-wrapper a{
+  padding-top: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 3px;
+  color: #147786;
+  border: 1px solid #147786;
+  border-radius: 16px;
+  background:#FFF;
+
+  cursor: pointer;
+}
+
+.vgp-source-wrapper a::after {
+  content: "";
+  display: inline-block;
+  vertical-align: sub;
+  width: 18px;
+  height: 18px;
+  margin-left: 2px;
+  background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%200.48%200.48%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%23147786%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%220.04%22%20d%3D%22M0.2%200.08H0.12a0.04%200.04%200%200%200%20-0.04%200.04v0.24a0.04%200.04%200%200%200%200.04%200.04h0.24a0.04%200.04%200%200%200%200.04%20-0.04v-0.08m-0.16%20-0.04%200.16%20-0.16m0%200v0.1m0%20-0.1h-0.1%22%2F%3E%3C%2Fsvg%3E');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*
+.vgp-source-wrapper a::after{
+  content: "";
+  display: inline-block;
+  vertical-align: sub;
+  width: 18px;
+  height: 18px;
+  margin-left: 2px;
+  background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%200.48%200.48%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%23FFF%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%220.04%22%20d%3D%22M0.2%200.08H0.12a0.04%200.04%200%200%200%20-0.04%200.04v0.24a0.04%200.04%200%200%200%200.04%200.04h0.24a0.04%200.04%200%200%200%200.04%20-0.04v-0.08m-0.16%20-0.04%200.16%20-0.16m0%200v0.1m0%20-0.1h-0.1%22%2F%3E%3C%2Fsvg%3E');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+*/
+#wrapper_panel_add_entity_btn{margin-left:auto; align-content: center;}
+#wrapper_panel_add_entity_btn .vgp-review-btn{padding-top: 2px; padding-bottom: 4px;}
+#vgp-panel-gene-table .vgp-review-btn{margin-right:5px;}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail {width:100%;}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail .vgp-detail-wrapper{
+  width: 70%;
+  margin-right:10px;
+  min-width: 1010px;
+}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail .vgp-detail-wrapper .vgp-detail-sub-panel{
+  display:none;
+  margin-top: 15px;
+}
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail .vgp-detail-wrapper .vgp-detail-sub-panel.vgp-active{display:block;}
+
+.vgp-filter-sample-panel{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.vgp-filter-sample-panel .vgp-filter-wrapper{
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+
+.vgp-panel-genes-num-wrapper{font-size: 1.3rem;font-weight:500;color:#96A995; margin-bottom:5px;}
+.vgp-panel-genes-num{color: #4AB223;}
+
+.vgp-panel-genes-switch-wrapper{ align-content: end; }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  vertical-align: sub;
+}
+.switch input{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.25s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.25s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #258800;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.vgp-filter:focus{outline: none;}
+.vgp-filter::placeholder{color: #CBCBCB;}
+.vgp-filter {
+  border: 2px solid #E1E3E1;;
+  border-radius: 5px;
+  display: block;
+  padding: 9px 4px 9px 40px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath fill='%23CBCBCB' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center; 
+  
+}
+
+.vgp-main .vgp-wrapper .vgp-content .vgp-panel-detail .vgp-treeview-wrapper{
+  width: 25%;
+  min-width:250px;
+}
+
+.vgp-treeview-wrapper .vgp-treeview-title-panel {width: 100%;}
+
+.vgp-treeview-wrapper .vgp-treeview-title-panel .vgp-treeview-title-subpanel{
+  width: 50%;
+  white-space: nowrap;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.vgp-treeview-wrapper .vgp-treeview-title-panel .vgp-treeview-title-subpanel.left{
+  font-size: 20px;
+  font-weight: 600;
+  color: #276749;
+  text-align: center;
+  border-left: solid 2px #276749;
+  border-top: solid 2px #276749;
+  border-right: solid 2px #276749;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.vgp-treeview-wrapper .vgp-treeview-title-panel .vgp-treeview-title-subpanel.right{
+  border-bottom: 2px solid #276749;
+  text-align: right;
+}
+
+.vgp-treeview-title-panel .vgp-treeview-title-subpanel.right span {
+  color: #BABBBB;
+  font-weight: 600;
+  font-size: 22px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+#vgp-treeview{
+  padding-top: 5px;
+  padding-bottom: 10px;
+  overflow-y:auto;
+  overflow-x:auto;
+}
+
+.splitter {
+  margin-top: 3px;
+  width: 3px;
+  cursor: ew-resize;
+  background-color: #ccc;
+  height: 100%;
+}
+
+.vgp-panel-genes-table-wrapper{
+  width: 100%;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border: 0px;
+}
+
+.vgp-panel-genes-table{ width: 100%;}
+.vgp-panel-genes-table span{ user-select: none; }
+.vgp-panel-genes-table > thead > tr > th,
+.vgp-panel-genes-table > tbody > tr > td{border: 0;}
+.vgp-panel-genes-table > thead > tr > th:first-child,
+.vgp-panel-genes-table > tbody > tr > td:first-child{padding-left: 15px;}
+.vgp-panel-genes-table>thead>tr>th{
+  background-color: #EBEBEB;
+  color: #697468;
+  font-size: 1.1rem;
+  font-weight: normal;
+  padding-top: 0.25rem;
+  padding-left: 0;
+  padding-bottom: 0.25rem;
+  white-space: nowrap !important;
+}
+
+.vgp-panel-genes-table>thead>tr>th.width-entity{padding-left: 15px;}
+.vgp-panel-genes-table>thead>tr>th.width-entity.short,
+.vgp-panel-genes-table>tbody>tr>td.width-entity.short{width:150px; min-width:150px;}
+.vgp-panel-genes-table>thead>tr>th.width-entity.middium,
+.vgp-panel-genes-table>tbody>tr>td.width-entity.middium{width:170px; min-width:170px;}
+.vgp-panel-genes-table>thead>tr>th.width-entity.long,
+.vgp-panel-genes-table>tbody>tr>td.width-entity.long{width:220px; min-width:220px;}
+
+.vgp-panel-genes-table>tbody>tr>td.width-entity>.ctl-wrapper{
+  width: 100%;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.vgp-panel-genes-table>thead>tr>th.width-source-panel{width:auto; flex-grow:1;}
+.vgp-panel-genes-table>thead>tr>th.width-rating{width:200px; min-width:200px;}
+.vgp-panel-genes-table>thead>tr>th.width-sources{width:360px; min-width:360px;}
+.vgp-panel-genes-table>thead>tr>th.width-paper{width:100px; min-width:100px;}
+
+.vgp-panel-genes-table>tbody>tr{border-bottom: 2px solid #E1E3E1;}
+
+.vgp-panel-genes-table.native>tbody>tr.not_native{display: none !important;}
+/*
+.vgp-panel-genes-table.native>tbody>tr>td>.wrapper>.row-wrapper.not_native{display: none;}
+.vgp-panel-genes-table.native>tbody>tr>td>.wrapper>.row-wrapper.not_native.active{
+  margin-top: 10px;
+  padding-top: 10px;
+  display: flex;
+}
+*/
+
+.vgp-panel-genes-table>tbody>tr>td{padding: 10px 0px 10px 0px;}
+
+.vgp-sorter{
+  position: relative; 
+  padding-right: 0.5rem;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; 
+  cursor: pointer;
+}
+
+.vgp-sorter::before, .vgp-sorter::after {
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  border: 7px solid transparent;
+  right: -8px;
+  top: 13px;
+}
+
+.vgp-sorter::before {
+  border-bottom-color: #aaa;
+  margin-top: -16px;
+}
+
+.vgp-sorter::after {
+  border-top-color: #aaa;
+  margin-top: 0px;
+}
+
+.vgp-sorter.vgp-asc::before {border-bottom-color: #276749;}
+.vgp-sorter.vgp-dsc::after {border-top-color: #276749;}
+
+.vgp-panel-genes-table > tbody > tr > td.right > div.wrapper {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+}
+
+.vgp-panel-genes-table>tbody>tr>td.right > .wrapper> .row-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 10px 0px 0px 0px;
+  /*border-bottom: 1px solid #E1E3E1;*/
+}
+
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper.not_native{
+  border-top: 1px solid #E1E3E1;
+  display: none;
+}
+
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper.not_native.active{
+  margin-top: 10px;
+  padding-top: 10px;
+  display: flex;
+}
+
+
+.vgp-panel-genes-table>tbody>tr>td.right > .wrapper> .row-wrapper:first-child{padding-top: 0px;}
+.vgp-panel-genes-table>tbody>tr>td.right > .wrapper> .row-wrapper:last-child{padding-bottom: 0px; border-bottom: none;}
+.vgp-panel-genes-table.native>tbody>tr>td.right > .wrapper> .row-wrapper{padding-top: 0px; padding-bottom: 0px; border-bottom: none;}
+
+
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row{display: flex;flex-direction: row;flex-wrap: nowrap;width: 100%;}
+
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-source-panel{
+  width: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper.not_native>.upper-row>.width-source-panel{padding-left: 15px;}
+
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-source-panel>.ctl-wrapper{
+  display:flex;
+  flex-wrap:wrap;
+}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-source-panel>.parent{color:#B7B7B7;}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-source-panel>.vgp-panel-name{
+  color: #1B2C1A;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-source-panel>.subtype-switch{
+  background-color: #F0F0F0;
+  border: 1px solid #F0F0F0;
+  border-radius:32px;
+  width: 90px;
+  margin-top:5px;
+  padding: 0px 8px 2px 10px;
+  color: #B3B3B3;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.hide{display: none; margin-top: 0px;}
+
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-source-panel>.subtype-switch i{
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: 10px;
+}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-source-panel>.subtype-switch.active i{
+	transform: rotate(180deg);
+}
+.vgp-panel-genes-table .width-rating .guide-wrapper svg,
+.compare-table .width-rating .guide-wrapper svg,
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-source-panel>.vgp-panel-name>svg{
+  margin-left: 5px;
+  display: inline-block;
+  border: 0px;
+  width: 14px;
+  height: 14px;
+  color: #1B2C1A;
+  background-color: #FFF;
+  background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20License%3A%20MIT.%20Made%20by%20halfmage%3A%20https%3A%2F%2Fgithub.com%2Fhalfmage%2Fmajesticons%20--%3E%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22currentcolor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M10%204H6a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-4m-8-2%208-8m0%200v5m0-5h-5%22%2F%3E%3C%2Fsvg%3E);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-rating {
+  width:200px;
+  min-width:200px;
+  display: flex;
+  flex-direction: column;
+}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-rating>a{
+  width;100%;
+  height:18px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-rating>.vgp-rating-tag{
+  padding-top: 4px;
+  padding-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.entity-name-wrapper{ height:30px;}
+.entity-name-wrapper > .vgp-panel-gene-name { 
+  border: 0; 
+  background-color:unset; 
+  padding: 0; 
+}
+.entity-name-wrapper > .vgp-panel-gene-name span {
+  color: #1B2C1A;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-right: 5px;
+  border: none;
+  background-color: unset;
+  padding: 0;
+}
+.entity-name-wrapper>.vgp-panel-gene-name span svg{
+  border: 0px;
+  width: 16px;
+  height: 16px;
+  background-color: unset;
+  color:  #1B2C1A;
+  background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20License%3A%20MIT.%20Made%20by%20halfmage%3A%20https%3A%2F%2Fgithub.com%2Fhalfmage%2Fmajesticons%20--%3E%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22currentcolor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M10%204H6a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-4m-8-2%208-8m0%200v5m0-5h-5%22%2F%3E%3C%2Fsvg%3E);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-sources{
+  width:360px;
+  min-width: 360px;
+  display: flex;
+  flex-direction: column;
+}
+.show_review_title{color:#949494;}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.upper-row>.width-paper{
+  width:100px;
+  min-width: 100px;
+}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.lower-row{width:100%;padding-left: 20px;}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.lower-row>.vgp-review-table-wrapper>.title{
+  width: 155px;
+  height:30px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #FFF;
+  text-align: center;
+  align-content: center;
+  margin-top: 10px;
+}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.lower-row>.vgp-review-table-wrapper>.title.from_reviewer{background:#1B2C1A;}
+.vgp-panel-genes-table>tbody>tr>td>.wrapper>.row-wrapper>.lower-row>.vgp-review-table-wrapper>.title.auto_review{background:#CEA06A;}
+
+
+
+
+
+
+.vgp-review-table-wrapper{display: none; width: 100%;}
+.vgp-review-table,.vgp-paper-table{width: 100%; table-layout: fixed;}
+.vgp-paper-table{margin-top: 10px;}
+
+.vgp-pagination-wrapper{width: 100%;}
+.vgp-panel-genes-table .vgp-review-table thead tr,
+.vgp-panel-genes-table .vgp-paper-table  thead tr {height:32px; background-color:#EBEBEB;}
+.vgp-panel-genes-table .vgp-review-table.from_reviewer thead tr {background-color:#DAF0DD;}
+.vgp-panel-genes-table .vgp-review-table.auto_review thead tr {background-color:#F0EADD;}
+.vgp-panel-genes-table .vgp-review-table thead tr th,
+.vgp-panel-genes-table .vgp-paper-table  thead tr th {
+  font-weight: normal;
+  color:#697468; 
+  padding:0px; 
+  border:0px;
+  vertical-align: middle;
+}
+
+.vgp-table-tr-borderbottom{ border-bottom: 1px solid #E1E3E1; }
+
+.vgp-review-table tr td { padding-top: 0.5rem ; padding-left: 0px; padding-right: 1.0rem;}
+.vgp-review-table tr td:last-child { padding-right: 0;}
+
+.vgp-review-table tr td font{cursor: pointer;}
+.vgp-review-table tr td font:hover { background-color: #B4DEB8; }
+
+.vgp-review-table tbody tr td .vgp-rating-tag{
+  font-size: 0.8rem;
+  width: 100px;
+  padding-top: 1px;
+  display:inline-block;
+}
+
+.vgp-review-table colgroup col:first-child{ width: 130px; }
+.vgp-review-table colgroup col:nth-child(2),
+.vgp-review-table colgroup col:nth-child(3),
+.vgp-review-table colgroup col:nth-child(4){ width: 33%;}
+
+.vgp-review-table tbody tr, .vgp-paper-table tbody tr{ border-bottom: 1px solid #E1E3E1;}
+.vgp-review-table tbody tr:last-child, .vgp-paper-table tbody tr:last-child{border: 0;}
+.vgp-review-table tbody tr.vgp-subtable-datarow td a,
+.vgp-paper-table  tbody tr.vgp-subtable-datarow td a{
+  color: black;
+  text-decoration: underline;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.vgp-review-table tbody tr.vgp-subtable-datarow td a svg,
+.vgp-paper-table  tbody tr.vgp-subtable-datarow td a svg{
+  margin-left: 5px;
+  display: inline-block;
+  border: 0px;
+  width:  14px;
+  height: 14px;
+  background-color: #FFF;
+  background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20License%3A%20MIT.%20Made%20by%20halfmage%3A%20https%3A%2F%2Fgithub.com%2Fhalfmage%2Fmajesticons%20--%3E%3Csvg%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22currentcolor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M10%204H6a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-4m-8-2%208-8m0%200v5m0-5h-5%22%2F%3E%3C%2Fsvg%3E);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.vgp-review-table tbody tr.vgp-subtable-datarow td a.user{ 
+  margin-left: 5px;
+  text-decoration: none; 
+}
+.vgp-review-table tbody tr.vgp-subtable-datarow td a.user svg{
+  margin-right: 3px;
+  display: inline-block;
+  border: 0px;
+  width:  18px;
+  height: 18px;
+  background-color: #FFF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%2345594F'%3E%3Cpath d='M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.vgp-paper-table-wrapper{ display: none; width: 100%;}
+.vgp-paper-table-wrapper .loading {
+  width: 100%;
+  height: 50px;
+  background: url(../../images/pcf/loader.gif) center no-repeat #fff;
+}
+
+.vgp-paper-table{ width: 100%; table-layout: fixed;}
+.vgp-paper-table td { padding: 10px 15px 10px 0px;}
+
+.vgp-paper-table colgroup col:nth-child(2),
+.vgp-paper-table colgroup col:nth-child(4){width: 180px;}
+.vgp-paper-table colgroup col:nth-child(3){width: 150px;}
+
+.vgp-reviewer-table thead tr>*:first-child,.vgp-paper-table thead tr>*:first-child{ padding-left: 15px; }
+
+.vgp-reviewer-table-tbody tr>*:first-child,
+.vgp-paper-table-tbody tr>*:first-child{ color: #276749; font-weight:500; padding-left:15px; }
+
+.vgp-paper-wrapper{
+  white-space: nowrap;
+  height: 40px;
+  font-size: 1.0rem;
+  font-weight: 500;
+  align-content: center;
+}
+
+.vgp-paper-wrapper .num{padding-left:2px; font-size: 1.1rem;}
+
+.vgp-treeview-title-icon > path {
+  fill: #258800;
+}
+
+.vgp-treeview-title-icon:hover > path{
+  fill: #FFF;
+}
+.vgp-treeview-btn:hover .vgp-treeview-title-icon > path{
+  fill: #FFF;
+}
+
+
+footer { margin-top: 0px; }
+
+
+.vgp-rating-tag-list-container-width{
+  min-width: 460px;
+  width: 460px;
+}
+.vgp-rating-tag-subcontainer-space{width: 142px !important;}
+
+.related-paper-num.empty{color: #BBBBBB;}
+.vgp-summary-controll.paper{ color: #BBBBBB; text-decoration:underline;}
+.vgp-summary-controll.paper.vgp-active{color: #DB7600;}
+.vgp-summary-controll.paper::before{display:none;}
+.vgp-summary-controll.paper i {
+  display: inline-block;
+  vertical-align: sub;
+  margin-left: 3px;
+  font-size: 20px;
+  transition: transform 0.2s;
+}
+.vgp-summary-controll.paper.vgp-active i{transform: rotate(180deg);}
+
+
+.vgp-review-btn { padding-bottom: 2px; margin-top: 5px;}
+
+.vgp-panel-genes-table .width-rating .guide-wrapper,
+.compare-table .width-rating .guide-wrapper{
+  width: 100%;
+  align-items: center;
+  display: flex;
+  color: #1B2C1A;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.compare-table .width-rating .vgp-rating-tag {
+    padding-top: 4px;
+    padding-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.compare-table .width-rating .guide-wrapper{
+    height: 18px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.tooltip .tooltip-inner {
+  max-width: 350px;      /* 你想要多宽 */
+  white-space: normal;   /* 允许换行 */
+  word-break: break-word;/* 长词强制断行 */
+}
+
+.div_review_tag_wrapper2{
+  width: 350px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: row;
+}
+.div_review_tag_wrapper2 > div{width: 50%;}
+
+.div_review_tag_wrapper2 > div > span{height: 24px;display: inline-block;}
+
+.tab-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  flex-direction: column;
+}
+.tab-loading .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: #276749;
+}
+.tab-content-placeholder {
+  padding: 1.5rem 0;
+}
+
+#compare-content{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+
+
+#compare-content .compare-summary{
+  width: 100%; 
+  color:#1B2C1A;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+#compare-content .compare-summary .desc{
+  font-weight: 500;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+#compare-content .compare-summary .summary-tag{
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 3px 10px;
+}
+
+#compare-content .compare-summary .count{font-size: 16px;}
+
+.rating-change-added{background-color: #D8E8E4;}
+.rating-change-removed{background-color: #FFEEEE;}
+.rating-change-changed{background-color: #F8FCD5;}
+
+.compare-table{width:100%;}
+.compare-table thead tr{background-color: #E8F0EB;}
+.compare-table thead tr th{
+  padding: 10px 0px;
+  font-size: 16px;
+  color: #697468;
+  font-weight: 400;
+}
+.compare-table .col-entity{width:220px;}
+.compare-table .col-status{width:180px;}
+
+.compare-table thead tr th:first-child,
+.compare-table tbody tr td:first-child{
+  padding-left: 15px;
+}
+
+.compare-table thead tr th .version-selector{
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.compare-table thead tr th .dropdown .btn-version-selector{
+  border: 1px solid #CBCBCB;
+  border-radius: 7px;
+  padding: 1px 15px 4px 15px;
+  font-weight: 400;
+  font-size: 16px;
+  background-color:  #FFF;
+}
+.compare-table thead tr th .dropdown .btn-version-selector::after{
+
+}
+
+.compare-table thead tr th .dropdown .dropdown-menu{padding: 0px;}
+.compare-table thead tr th .dropdown .dropdown-menu .dropdown-item{padding-left: 15px; padding-right:30px;}
+.compare-table thead tr th .dropdown .dropdown-menu .dropdown-item.selected,
+.compare-table thead tr th .dropdown .dropdown-menu .dropdown-item:hover{
+  color: #fff; background: #258800;
+}
+
+.compare-table tbody tr{border-bottom: 3px solid #E1E3E1;}
+.compare-table tbody tr:last-child {border-bottom: none;}
+.compare-table tbody tr td{padding: 15px 30px 15px 15px;}
+
+
+.vgp-nav .nav-tabs .nav-link { z-index: 1;}
+
+#reviewer_reviews_num{
+  text-align:center;
+  margin-bottom: 10px;
+  color: #212529;
+}
+#reviewer_reviews_num font{
+  color: #276749;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#reviewer_reviews_intro{
+  border: solid 1px #ccc;
+  background-color: #F2F5F3;
+  color: #276749;
+  border-radius: 5px;
+  display: flex;
+  padding: 5px 15px;
+}
+
+.btn-reviewer-reviews{
+  border:0;
+  background-color: #FFF;
+  color: #276749;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.reviewer-reviews-table-intro{
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#reviewer-reviews-table{
+  border: solid 1px #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+#reviewer-reviews-table .vgp-rating-tag{padding-bottom: 2px;}
+
+#reviewer-reviews-table a{
+    display: inline-flex;
+    align-items: center;
+}
+
+#reviewer-reviews-table a svg{
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+#reviewer-reviews-table thead tr {
+  background-color: #EBEBEB;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+
+#reviewer-reviews-table thead tr th,
+#reviewer-reviews-table tbody tr td{ padding-right: 20px;}
+#reviewer-reviews-table thead tr th:first-child,
+#reviewer-reviews-table tbody tr td:first-child{ padding-left: 15px;}
+
+.paginationjs .paginationjs-pages li.active>a{background-color:#276749;}
+
+/*
+.popup-reviewer-reviews{
+  min-height: 300px;
+  max-height: 500px;
+  overflow-y: auto;
+
+}
+*/

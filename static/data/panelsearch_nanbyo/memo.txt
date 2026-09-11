@@ -1,0 +1,12 @@
+# 1. all panel
+mysql> select 'panel_name','nando_id,'gene_symbol_list' UNION ALL select OntoName,OntoID,GeneSymbolList into OUTFILE '/var/lib/mysql-files/all_panel.tsv' FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' FROM panelsearch_nando_panel;
+
+# 2. gene symbol
+download from NCBI Gene ID    Approved symbol
+
+# 3. all panel treeview json
+# use the data @ mysql database
+created by /opt/services/case/app/pcf-4.0.0/static/data/panelsearch-nando/20251007/create_tree_json.pl  
+
+# 4. mode of inheritances json
+manually created based on xlsx file

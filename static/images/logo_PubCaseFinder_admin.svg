@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="32" viewBox="0 0 220 32">
+  <text x="4" y="24"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="24"
+        font-weight="bold"
+        fill="#000000">PubCaseFinder</text>
+
+  <text x="180" y="24"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="12"
+        font-weight="bold"
+        fill="#ff0000">Admin</text>
+</svg>

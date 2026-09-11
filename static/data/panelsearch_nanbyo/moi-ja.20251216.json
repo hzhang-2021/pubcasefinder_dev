@@ -1,0 +1,242 @@
+[
+   {
+      "open" : true,
+      "nocheck" : true,
+      "isParent" : true,
+      "name" : "遺伝形式",
+      "children" : [
+         {
+            "isParent" : false,
+            "name" : "孤発性",
+            "id" : "HP:0003745"
+         },
+         {
+            "open" : true,
+            "isParent" : true,
+            "name" : "メンデル遺伝",
+            "children" : [
+               {
+                  "isParent" : false,
+                  "name" : "常染色体顕性遺伝",
+                  "id" : "HP:0000006"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "常染色体潜性遺伝",
+                  "id" : "HP:0000007"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "ミトコンドリア遺伝",
+                  "id" : "HP:0001427"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "偽常染色体遺伝",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "偽常染色体顕性遺伝",
+                        "id" : "HP:0034340"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "偽常染色体潜性遺伝",
+                        "id" : "HP:0034341"
+                     }
+                  ],
+                  "id" : "HP:0034339"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "半顕性遺伝",
+                  "id" : "HP:0032113"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "X連鎖性遺伝",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "X連鎖顕性遺伝",
+                        "id" : "HP:0001423"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "X連鎖潜性遺伝",
+                        "id" : "HP:0001419"
+                     }
+                  ],
+                  "id" : "HP:0001417"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Y連鎖性遺伝",
+                  "id" : "HP:0001450"
+               }
+            ],
+            "id" : "HP:0034345"
+         },
+         {
+            "open" : true,
+            "isParent" : true,
+            "name" : "非メンデル遺伝",
+            "children" : [
+               {
+                  "isParent" : false,
+                  "name" : "二遺伝子遺伝",
+                  "id" : "HP:0010984"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "オリゴジェニック遺伝",
+                  "id" : "HP:0010983"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "多遺伝子遺伝",
+                  "id" : "HP:0010982"
+               }
+            ],
+            "id" : "HP:0001426"
+         },
+         {
+            "open" : true,
+            "nocheck" : true,
+            "isParent" : true,
+            "name" : "遺伝を識別する語句",
+            "children" : [
+               {
+                  "isParent" : false,
+                  "name" : "隣接遺伝子症候群",
+                  "id" : "HP:0001466"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "遺伝的表現促進現象",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "父由来表現促進バイアスを受けている表現促進現象",
+                        "id" : "HP:0003744"
+                     }
+                  ],
+                  "id" : "HP:0003743"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "インプリンティング",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "母由来インプリンティングを受けている常染色体顕性遺伝",
+                        "id" : "HP:0012275"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "父由来インプリンティングを受けている常染色体顕性遺伝",
+                        "id" : "HP:0012274"
+                     }
+                  ],
+                  "id" : "HP:0034338"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "ヘテロ接合が必要",
+                  "id" : "HP:0034343"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "限性発現",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "女性のみに発現",
+                        "id" : "HP:0034344"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "男性のみに発現",
+                        "id" : "HP:0001475"
+                     }
+                  ],
+                  "id" : "HP:0001470"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "主として新規",
+                  "id" : "HP:0025352"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "加齢に伴う疾患を特徴とする",
+                  "id" : "HP:0003831"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "完全浸透を特徴とする",
+                  "id" : "HP:0034950"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "発症年齢の大きなばらつきを特徴とする",
+                  "id" : "HP:0034857"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "不完全浸透を特徴とする",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "高浸透度を特徴とする",
+                        "id" : "HP:4000158"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "低浸透度を特徴とする",
+                        "id" : "HP:4000160"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "中浸透度を特徴とする",
+                        "id" : "HP:4000159"
+                     }
+                  ],
+                  "id" : "HP:0003829"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "体細胞モザイクを特徴とする",
+                  "id" : "HP:0001442"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "片親性ダイソミー",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "片親性ヘテロダイソミー",
+                        "id" : "HP:0032383"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "片親性イソダイソミー",
+                        "id" : "HP:0032384"
+                     }
+                  ],
+                  "id" : "HP:0032382"
+               }
+            ],
+            "id" : "HP:0034335"
+         }
+      ],
+      "id" : "HP:0000005"
+   }
+]

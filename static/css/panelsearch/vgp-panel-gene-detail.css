@@ -1,0 +1,78 @@
+
+.vgp-main {
+  width: 100%;
+  margin-top: 60px;
+}
+
+.vgp-main .vgp-wrapper {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.vgp-main .vgp-wrapper.vgp-wrapper-upper{background-color: #002F19;}
+
+.vgp-main .vgp-wrapper.vgp-wrapper-upper span.vgp-rating-tag{
+  border: 1px solid #FFF;
+  margin-right: 5px;
+}
+
+.vgp-main .vgp-wrapper .vgp-content{
+  margin: 0px auto 0px auto;
+  width: 80%;
+  min-width: 920px;
+}
+
+.vgp-gene-title-wrapper{
+  white-space: nowrap;
+}
+
+#vgp-panel-gene-name{display:inline-block;}
+#vgp-panel-gene-fullname{display:inline-block;font-weight:normal;}
+
+
+.vgp-panel-controll{
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.vgp-panel-info table tr td{padding-left:0px;}
+.vgp-panel-info table tr td.vgp-rating-tag-wrapper{width:160px;}
+.vgp-panel-info table tr td.vgp-disease-wrapper span.divide{
+  font-size: 0.9rem;
+  color: #787878;
+  margin-left:10px;
+  margin-right: 10px;
+}
+.vgp-panel-info table tr td.vgp-disease-wrapper a{
+  color: black;
+  text-decoration: underline;
+}
+.vgp-panel-info table tr td.vgp-disease-wrapper a:hover{
+  color: black;
+}
+
+#paginationButtons button {
+  color: #276749;
+  border: solid 1.5px #276749;
+  background-color:  #FFF;
+  border-radius: 1rem;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#paginationButtons button:disabled{
+  background-color: #AFB1AD;
+  color: #DDD;
+}
+
+.vgp-panel-gene-view-list-wrapper.other{background-color:#f5f5f5}
+
+.vgp-panel-gene-view-list-wrapper .vgp-rating-tag{
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-bottom: 5px;
+}
+
+.vgp-rating-tag-list-container .vgp-rating-tag-subcontainer .vgp-rating-tag-wrapper .vgp-rating-list-tag {cursor:pointer;}

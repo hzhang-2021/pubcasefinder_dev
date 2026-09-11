@@ -1,0 +1,15 @@
+
+python3 convert_xlsx_to_tsv.py ICD10_5.0_20240712.xlsx ICD10_5.0_20240712.txt
+
+python3 convert_xlsx_to_tsv.py MONDO_2024-07-02_20240712.xlsx MONDO_2024-07-02_20240712.txt
+
+python3 convert_xlsx_to_tsv.py NANDO_2023-11-27_20240712.xlsx NANDO_2023-11-27_20240712.txt
+
+mysql -u pubcase -ppubcase0712 pubcases < casemini_icd_10.sql 
+./insert-20240712.pl ICD10_5.0_20240712.txt icd10
+
+mysql -u pubcase -ppubcase0712 pubcases < casemini_omim_orpha.sql 
+./insert-20240712.pl MONDO_2024-07-02_20240712.txt mondo
+
+mysql -u pubcase -ppubcase0712 pubcases < casemini_nando.sql 
+./insert-20240712.pl NANDO_2023-11-27_20240712.txt nando

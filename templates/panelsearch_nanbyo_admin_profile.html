@@ -1,0 +1,150 @@
+{% extends "panelsearch_nanbyo_admin_layout.html" %}
+
+{% block page_css_block %}
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-common.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/admin_profile.css">
+{% endblock %}
+
+{% block page_content %}
+<div class="wrapper title">
+  <svg width="29" height="29" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2501_5543)"><path d="M22.05 3.78C19.61 1.34 16.37 0 12.92 0C9.47 0 6.22 1.34 3.78 3.78C1.34 6.22 0 9.47 0 12.92C0 16.37 1.34 19.61 3.78 22.05C6.22 24.49 9.46 25.83 12.91 25.83C16.36 25.83 19.6 24.49 22.04 22.05C24.48 19.61 25.82 16.37 25.82 12.92C25.82 9.47 24.48 6.23 22.04 3.79L22.05 3.78ZM5.61 21.66C6.04 17.99 9.19 15.16 12.92 15.16C14.89 15.16 16.73 15.93 18.13 17.32C19.3 18.49 20.05 20.03 20.24 21.67C18.26 23.33 15.71 24.33 12.93 24.33C10.15 24.33 7.6 23.33 5.62 21.67L5.61 21.66ZM12.92 13.6C10.76 13.6 9 11.84 9 9.68C9 7.52 10.76 5.76 12.92 5.76C15.08 5.76 16.84 7.52 16.84 9.68C16.84 11.84 15.08 13.6 12.92 13.6ZM21.53 20.38C21.14 18.82 20.34 17.39 19.19 16.24C18.26 15.31 17.16 14.61 15.96 14.17C17.4 13.19 18.35 11.54 18.35 9.67C18.35 6.67 15.91 4.23 12.91 4.23C9.91 4.23 7.47 6.67 7.47 9.67C7.47 11.54 8.42 13.2 9.86 14.17C8.76 14.57 7.73 15.19 6.85 16.01C5.58 17.2 4.69 18.71 4.28 20.37C2.54 18.37 1.49 15.76 1.49 12.91C1.51 6.63 6.63 1.51 12.92 1.51C19.21 1.51 24.32 6.63 24.32 12.91C24.32 15.76 23.27 18.37 21.53 20.37V20.38Z" fill="#003537"/></g><defs><clipPath id="clip0_2501_5543"><rect width="25.83" height="25.83" fill="#003537"/></clipPath></defs></svg>
+  <span>プロフィール</span>
+</div>
+<div class="wrapper profile">
+  <form action="/google_user_save" method="post" autocomplete="off" id="vgp-user-form">
+    <input type="hidden" name="service" id="i_service" value="{{ r_service }}" required />
+    <input type="hidden" name="uid" id="i_uid" value="{{ r_user_info.uid }}" required />
+    <div class="vgp-user-input-wrapper" id="vgp-user-input-table-wrapper">
+      <table class= "vgp-user-input-table {{ r_service  }}">
+        <tr><th>Google Account</th><td>{{ r_mail }}</td></tr>
+        <tr><th>First name (English)</th><td>{{ r_user_info.first_name_en }}</td></tr>
+        <tr><th>First name (native language)</th><td>{{ r_user_info.first_name_nl }}</td></tr>
+        <tr><th>Last name (English)</th><td>{{ r_user_info.last_name_en }}</td></tr>
+        <tr><th>Last name (native language)</th><td>{{ r_user_info.last_name_nl }}</td></tr>
+        <tr><th>Affiliation</th><td>{{ r_user_info.affiliation }}</td></tr>
+        <tr><th>Email</th><td>{{ r_user_info.email }}</td></tr>
+        <tr><th>Job title</th><td>{{ r_user_info.job_title }}</td></tr>
+      </table>
+    </div>
+    <div class="vgp-user-input-wrapper" id="vgp-user-input-input-wrapper" style="display: none;">
+      <fieldset class="vgp-user-input-form">
+        <div class="form-group vgp-user-input" style="margin-top: 15px;">
+          <label class="vgp-user-input-title {{ r_service  }}" for="i_google_id">*Google Account</label>
+          <input type="text" name="google_id" id="i_google_id" value="{{ r_mail }}" 
+                 class="form-control vgp-user-input-readonly" title="required" readonly="readonly" required />
+        </div>
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title {{ r_service  }}" for="i_last_name_en">*Last name (English)</label>
+          <input type="text" name="last_name_en" id="i_last_name_en" value="{{ r_user_info.last_name_en }}" maxlength="40"
+                 class="form-control vgp-user-input-input for-check notempty" placeholder="Last name (English)" title="required" required />
+        </div>
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title {{ r_service  }}" for="i_last_name_nl">
+            *Last name (native language)</label>
+          <input type="text" name="last_name_nl" id="i_last_name_nl" value="{{ r_user_info.last_name_nl }}" maxlength="40"
+                 class="form-control vgp-user-input-input for-check notempty" 
+                 placeholder="Last name (native language)" required />
+        </div>
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title {{ r_service  }}" for="i_first_name_en">*First name (English)</label>
+          <input type="text" name="first_name_en" id="i_first_name_en" value="{{ r_user_info.first_name_en }}" maxlength="40" 
+                 class="form-control vgp-user-input-input for-check notempty" placeholder="First name (English)" title="required" id="i_first_name_en" required />
+        </div>
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title {{ r_service  }}" for="i_first_name_nl">
+            *First name (native language)
+          </label>
+          <input type="text" name="first_name_nl" id="i_first_name_nl" value="{{ r_user_info.first_name_nl }}" maxlength="40" 
+                 class="form-control vgp-user-input-input for-check notempty" 
+                 placeholder="First name (native language)" required />
+        </div>
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title {{ r_service  }}" for="i_affiliation">*Affiliation</label>
+          <input type="text" name="affiliation" id="i_affiliation" value="{{ r_user_info.affiliation }}" maxlength="256" 
+                 class="form-control vgp-user-input-input for-check notempty" placeholder="Affiliation" title="required" required />
+        </div>
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title {{ r_service  }}" for="i_affiliation_email">*Affiliation email</label>
+          <input type="text" name="email" id="i_affiliation_email" value="{{ r_user_info.email }}"  maxlength="50" 
+                 class="form-control vgp-user-input-input for-check email" placeholder="Email" required />
+        </div>
+        <div class="form-group vgp-user-input">
+          <label class="vgp-user-input-title {{ r_service  }}" for="i_job_title">*Job Title</label>
+          <input type="text" name="job_title" id="i_job_title" value="{{ r_user_info.job_title }}" maxlength="256" 
+                 class="form-control vgp-user-input-input for-check notempty" placeholder="Job title" title="required" required />
+        </div>
+      </fieldset>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div>
+        <button type="button" class="vgp-user-btn vgp-user-btn1 {{ r_service }}" id="vgp-user-btn-edit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+          </svg>  Edit
+        </button>
+        <button type="button" class="vgp-user-btn vgp-user-btn1 {{ r_service }}" id="vgp-user-btn-save" style="display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+          </svg> Save
+        </button>
+        <button type="button" class="vgp-user-btn vgp-user-btn2" id="vgp-user-btn-cancel" style="display: none;">Cancel</button>
+      </div>
+      <div>
+        <button type="button" class="vgp-user-btn vgp-user-btn3" data-toggle="modal" data-target="#deleteModal" id="vgp-user-btn-delete">
+          <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18" fill="currentColor">
+            <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+          </svg> Delete
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block outer_modal_content %}
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Please confirm by entering the google account(email) to delete:</p>
+        <form id="deleteForm">
+          <input type="hidden" id="originalEmail" value="{{ r_mail }}">
+          <div class="form-group">
+            <label for="confirmEmail">Google Account(Email)</label>
+            <input type="email" class="form-control" id="confirmEmail" required>
+          </div>
+          <div class="text-danger" id="errorMessage" style="display: none;">Google Account(Email) does not match!</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button id="submitDeleteBtn" type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form action="/google_user_delete" method="post" id="vgp-user-delete-form" style="display: none;">
+  <input type="hidden" name="uid" id="in-user-uid" value="{{ r_user_info.uid }}" />
+  <input type="hidden" name="service" id="in-user-service" value="{{ r_service }}" />
+  <input type="hidden" name="account" id="in-user-account"  value="{{ r_mail }}" />
+</form>
+
+{% endblock %}
+
+{% block page_js_block %}
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/admin_profile.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+$(document).ready(function(){
+  //_init();
+});
+</SCRIPT>
+{% endblock %}

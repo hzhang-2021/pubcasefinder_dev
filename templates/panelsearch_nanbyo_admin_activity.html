@@ -1,0 +1,126 @@
+{% extends "panelsearch_nanbyo_admin_layout.html" %}
+
+{% block page_css_block %}
+<!-- <link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css"> -->
+<link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-common.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/admin_activity.css">
+
+{% endblock %}
+
+{% block page_content %}
+<div class="wrapper title">
+  <svg class="mt-1" width="29" height="29" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 9.5574L14 12.5574C14.1833 12.7407 14.275 12.9741 14.275 13.2574C14.275 13.5407 14.1833 13.7741 14 13.9574C13.8167 14.1407 13.5833 14.2324 13.3 14.2324C13.0167 14.2324 12.7833 14.1407 12.6 13.9574L9.3 10.6574C9.2 10.5574 9.125 10.4451 9.075 10.3204C9.025 10.1957 9 10.0664 9 9.9324V5.9574C9 5.67406 9.096 5.43673 9.288 5.2454C9.48 5.05406 9.71733 4.95806 10 4.9574C10.2827 4.95673 10.5203 5.05273 10.713 5.2454C10.9057 5.43806 11.0013 5.6754 11 5.9574V9.5574ZM13.25 2.9574C12.9 2.9574 12.604 2.83673 12.362 2.5954C12.12 2.35406 11.9993 2.05806 12 1.7074C12.0007 1.35673 12.1217 1.06073 12.363 0.819396C12.6043 0.578063 12.9 0.457396 13.25 0.457396C13.6 0.457396 13.896 0.578396 14.138 0.820396C14.38 1.0624 14.5007 1.35806 14.5 1.7074C14.4993 2.05673 14.3783 2.35273 14.137 2.5954C13.8957 2.83806 13.6 2.95873 13.25 2.9574ZM13.25 19.4574C12.9 19.4574 12.604 19.3364 12.362 19.0944C12.12 18.8524 11.9993 18.5567 12 18.2074C12.0007 17.8581 12.1217 17.5621 12.363 17.3194C12.6043 17.0767 12.9 16.9561 13.25 16.9574C13.6 16.9587 13.896 17.0797 14.138 17.3204C14.38 17.5611 14.5007 17.8567 14.5 18.2074C14.4993 18.5581 14.3783 18.8541 14.137 19.0954C13.8957 19.3367 13.6 19.4574 13.25 19.4574ZM17.25 6.4574C16.9 6.4574 16.604 6.3364 16.362 6.0944C16.12 5.8524 15.9993 5.55673 16 5.2074C16.0007 4.85806 16.1217 4.56206 16.363 4.3194C16.6043 4.07673 16.9 3.95606 17.25 3.9574C17.6 3.95873 17.896 4.07973 18.138 4.3204C18.38 4.56106 18.5007 4.85673 18.5 5.2074C18.4993 5.55806 18.3783 5.85406 18.137 6.0954C17.8957 6.33673 17.6 6.4574 17.25 6.4574ZM17.25 15.9574C16.9 15.9574 16.604 15.8364 16.362 15.5944C16.12 15.3524 15.9993 15.0567 16 14.7074C16.0007 14.3581 16.1217 14.0621 16.363 13.8194C16.6043 13.5767 16.9 13.4561 17.25 13.4574C17.6 13.4587 17.896 13.5797 18.138 13.8204C18.38 14.0611 18.5007 14.3567 18.5 14.7074C18.4993 15.0581 18.3783 15.3541 18.137 15.5954C17.8957 15.8367 17.6 15.9574 17.25 15.9574ZM18.75 11.2074C18.4 11.2074 18.104 11.0864 17.862 10.8444C17.62 10.6024 17.4993 10.3067 17.5 9.9574C17.5007 9.60806 17.6217 9.31206 17.863 9.0694C18.1043 8.82673 18.4 8.70606 18.75 8.7074C19.1 8.70873 19.396 8.82973 19.638 9.0704C19.88 9.31106 20.0007 9.60673 20 9.9574C19.9993 10.3081 19.8783 10.6041 19.637 10.8454C19.3957 11.0867 19.1 11.2074 18.75 11.2074ZM0 9.9574C0 7.34073 0.871 5.09073 2.613 3.2074C4.355 1.32406 6.49233 0.257396 9.025 0.00739644C9.29167 -0.0259369 9.521 0.0533966 9.713 0.245397C9.905 0.437397 10.0007 0.67473 10 0.957397C10 1.22406 9.91267 1.4574 9.738 1.6574C9.56333 1.8574 9.34233 1.97406 9.075 2.0074C7.05833 2.24073 5.375 3.1074 4.025 4.6074C2.675 6.1074 2 7.89073 2 9.9574C2 12.0407 2.675 13.8284 4.025 15.3204C5.375 16.8124 7.05833 17.6747 9.075 17.9074C9.34167 17.9407 9.56267 18.0574 9.738 18.2574C9.91333 18.4574 10.0007 18.6907 10 18.9574C10 19.2407 9.904 19.4784 9.712 19.6704C9.52 19.8624 9.291 19.9414 9.025 19.9074C6.475 19.6574 4.33333 18.5907 2.6 16.7074C0.866667 14.8241 0 12.5741 0 9.9574Z" fill="#1B2C1A" />
+  </svg>
+ 
+  <span>パネル履歴</span>
+</div>
+<div class="wrapper filter">
+
+  <div id="filter_panel" class="sub filter">
+    <small>Panel</small>
+    <div class="dropdown filter">
+      <button id="btn_filter_panel" class="btn dropdown-toggle empty" type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+        <svg width="18" height="18" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1201 12.331L21 19.211L19.211 21L12.331 14.1201C11.0463 15.0446 9.49743 15.6089 7.80446 15.6089C3.494 15.6089 0 12.1149 0 7.80446C0 3.494 3.494 0 7.80446 0C12.1149 0 15.6089 3.494 15.6089 7.80446C15.6089 9.49743 15.0446 11.0463 14.1201 12.331ZM7.80446 2.40137C4.81475 2.40137 2.40137 4.81475 2.40137 7.80446C2.40137 10.7942 4.81475 13.2075 7.80446 13.2075C10.7942 13.2075 13.2075 10.7942 13.2075 7.80446C13.2075 4.81475 10.7942 2.40137 7.80446 2.40137Z" fill="#212529"/>
+        </svg>
+        <span class="name">Filter</span>
+        <span id="btn_clear_panel" class="material-symbols-outlined">cancel</span>
+      </button>
+      <div id="menu_filter_panel" class="dropdown-menu" aria-labelledby="btn_filter_panel">
+        <div><ul id="vgp-treeView" class="ztree"></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub dropdown filter panel_version">
+    <button id="btn_filter_panel_version" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+      <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.12282 7.49898V14.0648C8.15532 14.3147 8.07408 14.5814 7.88723 14.7563C7.81207 14.8336 7.7228 14.8949 7.62452 14.9367C7.52625 14.9785 7.42089 15 7.3145 15C7.2081 15 7.10275 14.9785 7.00447 14.9367C6.90619 14.8949 6.81692 14.8336 6.74176 14.7563L5.10886 13.0816C5.02031 12.9927 4.95298 12.884 4.91211 12.7641C4.87124 12.6441 4.85795 12.5161 4.87327 12.39V7.49898H4.8489L0.169548 1.34982C0.037623 1.17612 -0.0219042 0.955919 0.00397369 0.737342C0.0298516 0.518764 0.139031 0.319579 0.307654 0.183308C0.462008 0.0666576 0.632609 0 0.811334 0H12.1848C12.3635 0 12.5341 0.0666576 12.6884 0.183308C12.8571 0.319579 12.9662 0.518764 12.9921 0.737342C13.018 0.955919 12.9585 1.17612 12.8265 1.34982L8.14719 7.49898H8.12282Z" fill="#37405B"></path>
+      </svg> 
+      Version
+    </button>
+    <div id="menu_filter_panel_version" class="dropdown-menu" aria-labelledby="btn_filter_panel_version"></div>
+  </div>
+
+  <div class="sub dropdown filter entity">
+    <button id="btn_filter_entity" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+      <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.12282 7.49898V14.0648C8.15532 14.3147 8.07408 14.5814 7.88723 14.7563C7.81207 14.8336 7.7228 14.8949 7.62452 14.9367C7.52625 14.9785 7.42089 15 7.3145 15C7.2081 15 7.10275 14.9785 7.00447 14.9367C6.90619 14.8949 6.81692 14.8336 6.74176 14.7563L5.10886 13.0816C5.02031 12.9927 4.95298 12.884 4.91211 12.7641C4.87124 12.6441 4.85795 12.5161 4.87327 12.39V7.49898H4.8489L0.169548 1.34982C0.037623 1.17612 -0.0219042 0.955919 0.00397369 0.737342C0.0298516 0.518764 0.139031 0.319579 0.307654 0.183308C0.462008 0.0666576 0.632609 0 0.811334 0H12.1848C12.3635 0 12.5341 0.0666576 12.6884 0.183308C12.8571 0.319579 12.9662 0.518764 12.9921 0.737342C13.018 0.955919 12.9585 1.17612 12.8265 1.34982L8.14719 7.49898H8.12282Z" fill="#37405B"></path>
+      </svg>
+      Gene or Genomic Entity
+    </button>
+    <div id="menu_filter_entity" class="dropdown-menu" aria-labelledby="btn_filter_entity">
+    </div>
+  </div>
+
+  <div class="date-row">
+    <div class="date-field">
+      <small>Date from</small>
+      <label for="dateFrom" class="visually-hidden">Date from</label>
+      <input id="dateFrom" name="from" type="date">
+    </div>
+    <span class="tilde">~</span>
+    <div class="date-field">
+      <small>Date to</small>
+      <label for="dateTo" class="visually-hidden">Date to</label>
+      <input id="dateTo" name="to" type="date">
+    </div>
+  </div>
+</div><!-- end of wrapper filter-->
+<div class="wrapper pagination-panel-wrapper">
+
+  <div class="title d-flex justify-content-between mt-2 mb-1">
+    <div class="left"><span id="total_num">0</span> Results</div>
+    <div class="right">Per page
+      <div class="dropdown vgp-size-wrapper">
+        <button id="btn-vgp-size" class="btn btn-vgp-size dropdown-toggle" type="button" data-num_per_page="30" data-toggle="dropdown" aria-expanded="false">30</button>
+        <div class="dropdown-menu" id="dropdown-menu-size">
+          <button class="dropdown-item" type="button" data-num_per_page="10">10</button>
+          <button class="dropdown-item selected" type="button" data-num_per_page="30">30</button>
+          <button class="dropdown-item" type="button" data-num_per_page="50">50</button>
+          <button class="dropdown-item" type="button" data-num_per_page="100">100</button>
+          <button class="dropdown-item" type="button" data-num_per_page="200">200</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table id="activity_table" class="activity">
+      <thead>
+        <tr>
+          <th class="created_at"><span data-target-class="created_at" class="vgp-sorter vgp-dsc">Date</span></th>
+          <th class="user_name"><span data-target-class="user_name" class="vgp-sorter">User</span></th>
+          <th class="panel_name"><span data-target-class="panel_name" class="vgp-sorter">Panel</span></th>
+          <th class="panel_version"><span data-target-class="panel_version" class="vgp-sorter">Ver</span></th>
+          <th class="entity_name"><span data-target-class="entity_name" class="vgp-sorter">Entity</span></th>
+          <th class="action"><span data-target-class="action" class="vgp-sorter">Action</span></th>
+          <th class="difference"><span data-target-class="difference" class="vgp-sorter">Activity</span></th>
+        </tr>
+      </thead>
+      <tbody id="activity_table_tbody"></tbody>
+    </table>
+  </div>
+  <div class="d-flex  justify-content-between" id="table-pagination-wrapper">
+    <div id="table-pagination"></div>
+    <div id="table-pagination-desc"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block page_js_block %}
+<!-- <script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.core.js"></script> -->
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.all.min.js"></script>
+<script type="text/javascript" src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/admin_activity.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+$(document).ready(function(){
+  _init();
+});
+</SCRIPT>
+{% endblock %}

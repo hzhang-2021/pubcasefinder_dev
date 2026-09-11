@@ -1,0 +1,6 @@
+# create dataset for textinput辞書
+./createDataset-20240619.pl HPO-japanese.20221104.txt  hp_20240426.obo HPO-japanese.20221104. yes
+
+# modify UI source
+# static/js/hposearch/jquery.multitextinput_hpo.js
+# const HPO_DIC="/static/data/casemini/text_input/HPO-japanese.20221104.textinput.txt"

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <clipPath id="clip-common-service">
+      <rect width="400" height="400"/>
+    </clipPath>
+  </defs>
+  <g id="common-service" clip-path="url(#clip-common-service)">
+    <path id="パス_124801" data-name="パス 124801" d="M33-16H295a49.056,49.056,0,0,1,49,49V178a49.056,49.056,0,0,1-49,49H33a49.056,49.056,0,0,1-49-49V33A49.056,49.056,0,0,1,33-16ZM295,195a17.019,17.019,0,0,0,17-17V33a17.019,17.019,0,0,0-17-17H33A17.019,17.019,0,0,0,16,33V178a17.019,17.019,0,0,0,17,17Z" transform="translate(36 45)"/>
+    <path id="パス_124802" data-name="パス 124802" d="M26-16H302a42,42,0,0,1,0,84H26a42,42,0,0,1,0-84ZM302,36a10,10,0,0,0,0-20H26a10,10,0,0,0,0,20Z" transform="translate(36 303)"/>
+    <circle id="楕円形_471" data-name="楕円形 471" cx="23.5" cy="23.5" r="23.5" transform="translate(93 131)"/>
+    <circle id="楕円形_472" data-name="楕円形 472" cx="23.5" cy="23.5" r="23.5" transform="translate(177 131)"/>
+    <circle id="楕円形_473" data-name="楕円形 473" cx="23.5" cy="23.5" r="23.5" transform="translate(261 131)"/>
+  </g>
+</svg>

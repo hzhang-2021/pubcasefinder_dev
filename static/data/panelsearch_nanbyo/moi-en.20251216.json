@@ -1,0 +1,242 @@
+[
+   {
+      "open" : true,
+      "nocheck" : true,
+      "isParent" : true,
+      "name" : "Mode of inheritance",
+      "children" : [
+         {
+            "isParent" : false,
+            "name" : "Sporadic",
+            "id" : "HP:0003745"
+         },
+         {
+            "open" : true,
+            "isParent" : true,
+            "name" : "Mendelian inheritance",
+            "children" : [
+               {
+                  "isParent" : false,
+                  "name" : "Autosomal dominant inheritance",
+                  "id" : "HP:0000006"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Autosomal recessive inheritance",
+                  "id" : "HP:0000007"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Mitochondrial inheritance",
+                  "id" : "HP:0001427"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "Pseudoautosomal inheritance",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "Pseudoautosomal dominant inheritance",
+                        "id" : "HP:0034340"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "Pseudoautosomal recessive inheritance",
+                        "id" : "HP:0034341"
+                     }
+                  ],
+                  "id" : "HP:0034339"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Semidominant inheritance",
+                  "id" : "HP:0032113"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "X-linked inheritance",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "X-linked dominant inheritance",
+                        "id" : "HP:0001423"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "X-linked recessive inheritance",
+                        "id" : "HP:0001419"
+                     }
+                  ],
+                  "id" : "HP:0001417"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Y-linked inheritance",
+                  "id" : "HP:0001450"
+               }
+            ],
+            "id" : "HP:0034345"
+         },
+         {
+            "open" : true,
+            "isParent" : true,
+            "name" : "Non-Mendelian inheritance",
+            "children" : [
+               {
+                  "isParent" : false,
+                  "name" : "Digenic inheritance",
+                  "id" : "HP:0010984"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Oligogenic inheritance",
+                  "id" : "HP:0010983"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Polygenic inheritance",
+                  "id" : "HP:0010982"
+               }
+            ],
+            "id" : "HP:0001426"
+         },
+         {
+            "open" : true,
+            "nocheck" : true,
+            "isParent" : true,
+            "name" : "Inheritance qualifier",
+            "children" : [
+               {
+                  "isParent" : false,
+                  "name" : "Contiguous gene syndrome",
+                  "id" : "HP:0001466"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "Genetic anticipation",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "Genetic anticipation with paternal anticipation bias",
+                        "id" : "HP:0003744"
+                     }
+                  ],
+                  "id" : "HP:0003743"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "Imprinted",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "Autosomal dominant inheritance with maternal imprinting",
+                        "id" : "HP:0012275"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "Autosomal dominant inheritance with paternal imprinting",
+                        "id" : "HP:0012274"
+                     }
+                  ],
+                  "id" : "HP:0034338"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Requires heterozygosity",
+                  "id" : "HP:0034343"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "Sex-limited expression",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "Female-limited expression",
+                        "id" : "HP:0034344"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "Male-limited expression",
+                        "id" : "HP:0001475"
+                     }
+                  ],
+                  "id" : "HP:0001470"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Typically de novo",
+                  "id" : "HP:0025352"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Typified by age-related disease onset",
+                  "id" : "HP:0003831"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Typified by complete penetrance",
+                  "id" : "HP:0034950"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Typified by highly variable age of onset",
+                  "id" : "HP:0034857"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "Typified by incomplete penetrance",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "Typified by high penetrance",
+                        "id" : "HP:4000158"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "Typified by low penetrance",
+                        "id" : "HP:4000160"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "Typified by moderate penetrance",
+                        "id" : "HP:4000159"
+                     }
+                  ],
+                  "id" : "HP:0003829"
+               },
+               {
+                  "isParent" : false,
+                  "name" : "Typified by somatic mosaicism",
+                  "id" : "HP:0001442"
+               },
+               {
+                  "open" : true,
+                  "isParent" : true,
+                  "name" : "Uniparental disomy",
+                  "children" : [
+                     {
+                        "isParent" : false,
+                        "name" : "Uniparental heterodisomy",
+                        "id" : "HP:0032383"
+                     },
+                     {
+                        "isParent" : false,
+                        "name" : "Uniparental isodisomy",
+                        "id" : "HP:0032384"
+                     }
+                  ],
+                  "id" : "HP:0032382"
+               }
+            ],
+            "id" : "HP:0034335"
+         }
+      ],
+      "id" : "HP:0000005"
+   }
+]

@@ -1,0 +1,91 @@
+.token-input-container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px 0.75rem;
+  background: #fff;
+  gap: 3px 8px;
+  position: relative;
+  width: 100%;
+  min-height:38px;
+}
+
+.token {
+  display: inline-flex;
+  align-items: center;
+  background-color: #4AB223;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.token-input-container.static .token { 
+  background-color: #FFF;
+  font-weight: 400;
+  padding-left: 0;
+  color: unset;
+  border: 0;
+}
+
+.token .remove-btn {
+  margin-left: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.token .remove-btn:hover {
+  color: #ffdddd;
+}
+
+.token-input-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 4px;
+  min-width: 60px;
+}
+
+.token-input-container.static input{
+  display: none;
+}
+
+.typeahead-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.typeahead-dropdown .dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.typeahead-dropdown .dropdown-item:hover {
+  background: #f1f1f1;
+}
+
+.typeahead-dropdown .dropdown-item.active,
+.typeahead-dropdown .dropdown-item:hover{
+  color: #fff;
+  background-color: #4AB223;
+}

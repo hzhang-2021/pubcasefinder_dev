@@ -1,0 +1,28 @@
+#1. init or clear db tables
+mysql  -u pubcase -ppubcase0712 pubcases < casemini_OntoTermHPAncestor.sql
+mysql  -u pubcase -ppubcase0712 pubcases < casemini_OntoTermHPDbxref.sql
+mysql  -u pubcase -ppubcase0712 pubcases < casemini_OntoTermHPDescendant.sql
+mysql  -u pubcase -ppubcase0712 pubcases < casemini_OntoTermHPHierarchy.sql
+mysql  -u pubcase -ppubcase0712 pubcases < casemini_OntoTermHPInformation.sql
+mysql  -u pubcase -ppubcase0712 pubcases < casemini_OntoTermHPIntersection.sql
+mysql  -u pubcase -ppubcase0712 pubcases < casemini_OntoTermHPSynonym.sql
+mysql  -u pubcase -ppubcase0712 pubcases < casemini_OntoTermHPSynonymJa.sql
+
+#2. download obo data and create edited data
+#wget https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-04-26/hp.obo -o hp_20240426.obo
+#edit.20240426.sh
+
+#3. insert data into following tables:
+# casemini_OntoTermHPAncestor
+# casemini_OntoTermHPDbxref
+# casemini_OntoTermHPDescendant
+# casemini_OntoTermHPHierarchy
+# casemini_OntoTermHPInformation
+# casemini_OntoTermHPIntersection
+# casemini_OntoTermHPSynonym
+#./update_casemini_OntoTermHPInformation_tbl.pl pubcases /var/lib/mysql/mysql.sock /etc/my.cnf pubcase pubcase0712 hp_20240426_edited.obo HPO-japanese.alpha.18Oct2017.tsv 1>/dev/null
+./update_casemini_OntoTermHPInformation_tbl.20240620.pl pubcases /var/lib/mysql/mysql.sock /etc/my.cnf pubcase pubcase0712 hp_20240426_edited.obo HPO-japanese.20221104.txt 1>/dev/null
+
+#4. insert data into casemini_OntoTermHPSynonymJa table and Modify OntoTermSynonymJa column of casemini_OntoTermHPInformation table
+./insert_hpo_synonymja_data_into_db.pl  HPO-japanese.20221104.txt
+

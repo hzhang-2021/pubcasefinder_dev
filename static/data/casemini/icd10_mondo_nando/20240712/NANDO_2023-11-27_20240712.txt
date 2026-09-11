@@ -1,0 +1,1184 @@
+ID=label_en=synonym_en=label_ja=synonym_ja=notification_number=Mondo
+1200001=[指定] Spinal and bulbar muscular atrophy=SBMA|Kennedy disease=[指定] 球脊髄性筋萎縮症=Kennedy-Alter-Sung症候群|KAS=1=MONDO:0010735|MONDO:0016113
+1200002=[指定] Amyotrophic lateral sclerosis=ALS=[指定] 筋萎縮性側索硬化症==2=MONDO:0004976
+1200003=[指定] Spinal muscular atrophy=SMA=[指定] 脊髄性筋萎縮症==3=MONDO:0001516
+1200008=[指定] Primary lateral sclerosis=PLS=[指定] 原発性側索硬化症==4=MONDO:0018155
+1200009=[指定] Progressive supranuclear palsy=PSP=[指定] 進行性核上性麻痺==5=MONDO:0019037
+1200010=[指定] Parkinson's disease=Parkinson disease|PD=[指定] パーキンソン病==6=MONDO:0005180
+1200011=[指定] Corticobasal degeneration=CBD=[指定] 大脳皮質基底核変性症==7=MONDO:0022308|MONDO:0022880
+1200012=[指定] Huntington's disease=Huntington disease=[指定] ハンチントン病==8=MONDO:0007739
+1200013=[指定] Neuroacanthocytosis==[指定] 神経有棘赤血球症==9=MONDO:0016987
+1200016=[指定] Charcot-Marie-Tooth disease=CMT=[指定] シャルコー・マリー・トゥース病==10=MONDO:0015626
+1200020=[指定] Myasthenia gravis=MG=[指定] 重症筋無力症==11=MONDO:0009688
+1200021=[指定] Congenital myasthenic syndrome=CMS=[指定] 先天性筋無力症候群==12=MONDO:0018940
+1200022=[指定] Multiple sclerosis/Neuromyelitis optica spectrum disorders=MS/NMOSD|Multiple sclerosis/Neuromyelitis optica|MS/NMO=[指定] 多発性硬化症／視神経脊髄炎==13=
+1200029=[指定] Chronic inflammatory demyelinating polyneuropathy/Multifocal motor neuropathy=CIDP/MMN=[指定] 慢性炎症性脱髄性多発神経炎／多巣性運動ニューロパチー==14=
+1200032=[指定] Sporadic inclusion body myositis=sIBM=[指定] 封入体筋炎==15=MONDO:0007827
+1200033=[指定] Crow-Fukase syndrome=POEMS syndrome|Polyneuropathy, organomegaly, endocrinopathy, M-protein, and skin changes syndrome=[指定] クロウ・深瀬症候群=POEMS症候群=16=MONDO:0017364
+1200034=[指定] Multiple system atrophy=MSA=[指定] 多系統萎縮症==17=MONDO:0007803
+1200037=[指定] Spinocerebellar degeneration=SCD=[指定] 脊髄小脳変性症==18=MONDO:0000437
+1200055=[指定] Lysosomal storage disease==[指定] ライソゾーム病==19=MONDO:0002561
+1200165=[指定] Adrenoleukodystrophy==[指定] 副腎白質ジストロフィー==20=MONDO:0018544
+1200173=[指定] Mitochondrial diseases==[指定] ミトコンドリア病=ミトコンドリア脳筋症=21=MONDO:0004069|MONDO:0044970
+1200183=[指定] Moyamoya disease==[指定] もやもや病=ウィリス動脈輪閉塞症=22=MONDO:0016820
+1200186=[指定] Prion disease==[指定] プリオン病==23=MONDO:0005429
+1200195=[指定] Subacute sclerosing panencephalitis=SSPE=[指定] 亜急性硬化性全脳炎==24=MONDO:0009835
+1200205=[指定] Progressive multifocal leukoencephalopathy=PML=[指定] 進行性多巣性白質脳症==25=MONDO:0016318
+1200206=[指定] HTLV-1-associated myelopathy=HAM=[指定] HTLV-1関連脊髄症=HAM=26=MONDO:0008039
+1200207=[指定] Idiopathic basal ganglia calcification=IBGC=[指定] 特発性基底核石灰化症==27=MONDO:0008947
+1200209=[指定] Systemic amyloidosis==[指定] 全身性アミロイドーシス==28=MONDO:0017816
+1200215=[指定] Ullrich disease=Ullrich's disease|Ullrich congenital muscular dystrophy=[指定] ウルリッヒ病=ウルリッヒ型先天性筋ジストロフィー=29=MONDO:0000355|MONDO:0009681
+1200216=[指定] Distal myopathy==[指定] 遠位型ミオパチー==30=MONDO:0018949
+1200220=[指定] Bethlem Myopathy==[指定] ベスレムミオパチー==31=MONDO:0008029
+1200221=[指定] Autophagic vacuolar myopathy==[指定] 自己貪食空胞性ミオパチー==32=
+1200224=[指定] Schwartz-Jampel syndrome=SJS=[指定] シュワルツ・ヤンペル症候群=Schwartz-Jampel症候群=33=MONDO:0009717
+1200225=[指定] Neurofibromatosis==[指定] 神経線維腫症==34=MONDO:0018975|MONDO:0021061
+1200228=[指定] Pemphigus==[指定] 天疱瘡==35=MONDO:0006594
+1200234=[指定] Epidermolysis bullosa==[指定] 表皮水疱症==36=MONDO:0006541
+1200240=[指定] Pustular psoriasis=Generalized pustular psoriasis|GPP=[指定] 膿疱性乾癬（汎発型）==37=MONDO:0016597|MONDO:0022205
+1200245=[指定] Stevens-Johnson syndrome=SJS=[指定] スティーヴンス・ジョンソン症候群=皮膚粘膜眼症候群|Stevens-Johnson症候群=38=MONDO:0018229
+1200246=[指定] Toxic epidermal necrolysis=TEN=[指定] 中毒性表皮壊死症==39=MONDO:0019810
+1200251=[指定] Takayasu arteritis=Aortitis syndrome|Takayasu's arteritis=[指定] 高安動脈炎==40=MONDO:0006656|MONDO:0017991
+1200258=[指定] Giant cell arteritis=GCA=[指定] 巨細胞性動脈炎==41=MONDO:0008538
+1200261=[指定] Polyarteritis nodosa=Periarteritis nodosa|PAN=[指定] 結節性多発動脈炎=結節性動脈周囲炎=42=MONDO:0019170
+1200262=[指定] Microscopic polyangiitis=MPA=[指定] 顕微鏡的多発血管炎==43=MONDO:0019124
+1200263=[指定] Granulomatosis with polyangiitis=Wegeners granulomatosis|GPA=[指定] 多発血管炎性肉芽腫症=ウェゲナー肉芽腫症=44=MONDO:0012105
+1200264=[指定] Eosinophilic granulomatosis with polyangiitis=EGPA|Allergic granulomatous angiitis|Churg Strauss syndrome=[指定] 好酸球性多発血管炎性肉芽腫症=アレルギー性肉芽腫性血管炎|チャーグ・ストラウス症候群=45=MONDO:0015943
+1200265=[指定] Rheumatoid vasculitis=Rheumatoid arthritis with vasculitis|Malignant rheumatoid arthritis=[指定] 悪性関節リウマチ=リウマトイド血管炎|血管炎を伴う関節リウマチ=46=MONDO:0043267
+1200266=[指定] Buerger's disease=Thromboangiitis obliterans|TAO=[指定] バージャー病=ビュルガー病|閉塞性血栓血管炎=47=MONDO:0008889
+1200267=[指定] Primary antiphospholipid antibody syndrome=Primary antiphospholipid syndrome|Primary APS=[指定] 原発性抗リン脂質抗体症候群=原発性APS=48=MONDO:0005204
+1200272=[指定] Systemic lupus erythematosus==[指定] 全身性エリテマトーデス==49=MONDO:0007915
+1200273=[指定] Dermatomyositis/Polymyositis=DM/PM=[指定] 皮膚筋炎／多発性筋炎==50=
+1200277=[指定] Systemic sclerosis=Systemic scleroderma=[指定] 全身性強皮症==51=MONDO:0005100
+1200278=[指定] Mixed connective tissue disease=MCTD=[指定] 混合性結合組織病==52=MONDO:0005854
+1200279=[指定] Sjogren's syndrome=Sjogren syndrome|Sjögren's syndrome=[指定] シェーグレン症候群=Sjogren症候群=53=MONDO:0010030
+1200282=[指定] Adult Still's disease=Adult Still disease|Adult-onset Still disease|AOSD=[指定] 成人スチル病=成人Still病=54=MONDO:0019355
+1200283=[指定] Relapsing polychondritis=RP=[指定] 再発性多発軟骨炎==55=MONDO:0019125
+1200284=[指定] Behcet's disease=Behcet disease=[指定] ベーチェット病==56=MONDO:0007191
+1200285=[指定] Idiopathic dilated cardiomyopathy==[指定] 特発性拡張型心筋症==57=
+1200286=[指定] Hypertrophic cardiomyopathy=HCM=[指定] 肥大型心筋症==58=MONDO:0005045
+1200292=[指定] Restrictive cardiomyopathy=Restricted cardiomyopathy=[指定] 拘束型心筋症==59=MONDO:0005201
+1200295=[指定] Aplastic anemia=Aplastic anaemia=[指定] 再生不良性貧血==60=MONDO:0015909
+1200305=[指定] Autoimmune hemolytic anemia=Autoimmune haemolytic anaemia|AIHA=[指定] 自己免疫性溶血性貧血==61=MONDO:0020108
+1200311=[指定] Paroxysmal nocturnal hemoglobinuria=Paroxysmal nocturnal haemoglobinuria|PNH=[指定] 発作性夜間ヘモグロビン尿症==62=MONDO:0018641
+1200315=[指定] Idiopathic thrombocytopenic purpura=Primary immune thrombocytopenia=[指定] 特発性血小板減少性紫斑病==63=MONDO:0008558
+1200316=[指定] Thrombotic thrombocytopenic purpura=TTP=[指定] 血栓性血小板減少性紫斑病==64=MONDO:0018896
+1200320=[指定] Primary immunodeficiency syndrome=Primary immunodeficiency disease|PID=[指定] 原発性免疫不全症候群==65=MONDO:0003778
+1200366=[指定] IgA nephropathy==[指定] IgＡ腎症==66=MONDO:0005342
+1200367=[指定] Polycystic kidney disease=Polycystic kidney|PKD=[指定] 多発性嚢胞腎==67=MONDO:0020642
+1200370=[指定] Ossification of ligamentum flavum=Ossification of the ligamentum flavum|OLF=[指定] 黄色靱帯骨化症==68=
+1200371=[指定] Ossification of posterior longitudinal ligament=OPLL|Ossification of the posterior longitudinal ligament=[指定] 後縦靱帯骨化症=OPLL=69=MONDO:0011230
+1200372=[指定] Coexisting cervical and lumbar spinal stenosis==[指定] 広範脊柱管狭窄症==70=MONDO:0005965
+1200373=[指定] Idiopathic osteonecrosis of femoral head=Idiopathic osteonecrosis of the femoral head|ION=[指定] 特発性大腿骨頭壊死症==71=MONDO:0012126
+1200374=[指定] Diencephalo-hypophysial insufficiency-inappropriate ADH syndrome=Pituitary ADH secretion disorders|Syndrome of inappropriate ADH secretion|SIADH=[指定] 下垂体性ADH分泌異常症==72=
+1200377=[指定] Diencephalo-hypophysial insufficiency-inappropriate thyroid stimulating hormone syndrome=TSH-secreting pituitary adenoma|Syndrome of inappropriate thyroid-stimulating hormone secretion|Syndrome of inappropriate TSH secretion=[指定] 下垂体性TSH分泌亢進症==73=MONDO:0019611
+1200378=[指定] Diencephalo-hypophysial insufficiency-inappropriate prolactin syndrome=Prolactin secreting pituitary adenoma|PRL-secreting pituitary adenoma|Inappropriate prolactin secretion syndrome=[指定] 下垂体性PRL分泌亢進症==74=MONDO:0010911
+1200379=[指定] Cushing disease=Cushing's Disease=[指定] クッシング病=Cushing病=75=MONDO:0009050
+1200380=[指定] Diencephalo-hypophysial dysfunction-syndrome of abnormal secretion of gonadotropin=Pituitary gonadotropin secretion hyperthyroidism=[指定] 下垂体性ゴナドトロピン分泌亢進症==76=
+1200386=[指定] Diencephalo-hypophysial dysfunction-syndrome of abnormal secretion of growth hormone=Growth hormone secreting pituitary adenoma=[指定] 下垂体性成長ホルモン分泌亢進症==77=MONDO:0006238
+1200387=[指定] Hypopituitarism syndrome=Hypopituitarism=[指定] 下垂体前葉機能低下症==78=MONDO:0005152
+1200394=[指定] Homozygous familial hypercholesterolemia=Homozygous familial hypercholesterolaemia|Homozygous FH=[指定] 家族性高コレステロール血症ホモ接合体=FHホモ接合体=79=MONDO:0018328
+1200395=[指定] Resistance to thyroid hormone=Syndrome of Resistance to Thyroid Hormone|RTH|Thyroid hormone insensitivity syndrome=[指定] 甲状腺ホルモン不応症==80=MONDO:0001328|MONDO:0010131
+1200396=[指定] Congenital adrenal enzyme deficiency=Congenital adrenal hyperplasia|Congenial adrenal cortex enzyme deficiency=[指定] 先天性副腎皮質酵素欠損症==81=MONDO:0018479
+1200403=[指定] Congenital adrenal hypoplasia==[指定] 先天性副腎低形成症=常染色体性先天性副腎低形成=82=MONDO:0010264|MONDO:0016241
+1200411=[指定] Addison's disease=Primary chronic adrenocortical insufficiency|Addison disease=[指定] アジソン病=Addison病=83=MONDO:0009410|MONDO:0015129
+1200415=[指定] Sarcoidosis==[指定] サルコイドーシス==84=MONDO:0019338
+1200416=[指定] Idiopathic interstitial pneumonia=IIPs=[指定] 特発性間質性肺炎==85=MONDO:0002429
+1200425=[指定] Pulmonary arterial hypertension=PAH=[指定] 肺動脈性肺高血圧症==86=MONDO:0015924
+1200426=[指定] Pulmonary veno-occlusive disease / pulmonary capillary hemangiomatosis=Pulmonary veno-occlusive disease / pulmonary capillary haemangiomatosis|Pulmonary veno-occlusive disease and/or pulmonary capillary haemangiomatosis|PVOD / PCH=[指定] 肺静脈閉塞症／肺毛細血管腫症==87=MONDO:0018554
+1200429=[指定] Chronic thromboembolic pulmonary hypertension=CTEPH=[指定] 慢性血栓塞栓性肺高血圧症==88=MONDO:0013024
+1200430=[指定] Lymphangioleiomyomatosis=LAM=[指定] リンパ脈管筋腫症=LAM=89=MONDO:0011705
+1200431=[指定] Retinitis pigmentosa==[指定] 網膜色素変性症==90=MONDO:0019200
+1200437=[指定] Budd-Chiari syndrome==[指定] バッド・キアリ症候群==91=MONDO:0010947
+1200438=[指定] Idiopathic portal hypertension=Banti syndrome|IPH=[指定] 特発性門脈圧亢進症=バンチ症候群|Banti症候群=92=MONDO:0021969
+1200439=[指定] Primary biliary cholangitis=Primary biliary cirrhosis|PBC=[指定] 原発性胆汁性胆管炎==93=MONDO:0005388
+1200440=[指定] Primary sclerosing cholangitis=PSC=[指定] 原発性硬化性胆管炎=PSC=94=MONDO:0013433|MONDO:0018646
+1200441=[指定] Autoimmune hepatitis=AIH=[指定] 自己免疫性肝炎==95=MONDO:0016264
+1200444=[指定] Crohn's disease=Crohn Disease=[指定] クローン病=Crohn病=96=MONDO:0005011
+1200449=[指定] Ulcerative colitis==[指定] 潰瘍性大腸炎==97=MONDO:0005101
+1200454=[指定] Eosinophilic gastrointestinal disorders=Eosinophilic gastrointestinal disease|EGID=[指定] 好酸球性消化管疾患==98=MONDO:0018438
+1200458=[指定] Chronic idiopathic intestinal pseudo-obstruction=CIIP=[指定] 慢性特発性偽性腸閉塞症==99=MONDO:0017574
+1200459=[指定] Megacystis-microcolon-intestinal hypoperistalsis syndrome=Huge bladder short and small colon intestinal peristalsis deficiency|Megacystis microcolon intestinal hypoperistalsis syndrome|MMIHS=[指定] 巨大膀胱短小結腸腸管蠕動不全症==100=MONDO:0007960
+1200460=[指定] Congenital isolated hypoganglionosis=Intestinal ganglion cells insignificant disease=[指定] 腸管神経節細胞僅少症==101=MONDO:0008738
+1200461=[指定] Rubinstein-Taybi syndrome==[指定] ルビンシュタイン・テイビ症候群=Rubinstein-Taybi症候群=102=MONDO:0019188
+1200462=[指定] CFC Syndrome=Cardio-facio-cutaneous syndrome=[指定] CFC症候群=心臓・顔・皮膚症候群|cardio-facio-cutaneous症候群=103=MONDO:0015280
+1200463=[指定] Costello syndrome==[指定] コステロ症候群=Costello症候群=104=MONDO:0009026
+1200464=[指定] CHARGE syndrome==[指定] チャージ症候群=CHARGE症候群=105=MONDO:0008965
+1200465=[指定] Cryopyrin-associated periodic syndrome=Cryopyrin associated periodic fever syndrome=[指定] クリオピリン関連周期熱症候群==106=MONDO:0016168
+1200469=[指定] Juvenile idiopathic arthritis=JIA=[指定] 若年性特発性関節炎==107=MONDO:0011429
+1200472=[指定] TNF receptor-associated periodic fever syndrome=TRAPS=[指定] TNF受容体関連周期性症候群==108=MONDO:0007727
+1200473=[指定] Atypical hemolytic uremic syndrome=Atypical haemolytic uraemic syndrome|aHUS=[指定] 非典型溶血性尿毒症症候群==109=MONDO:0016244
+1200476=[指定] Blau syndrome=Early onset sarcoidosis=[指定] ブラウ症候群=Blau症候群|若年発症サルコイドーシス=110=MONDO:0008523
+1200477=[指定] Congenital myopathy==[指定] 先天性ミオパチー==111=MONDO:0019952
+1200485=[指定] Marinesco-Sjogren syndrome==[指定] マリネスコ・シェーグレン症候群=MSS|Marinesco-Sjogren症候群=112=MONDO:0009567
+1200486=[指定] Muscular dystrophy==[指定] 筋ジストロフィー==113=MONDO:0020121
+1200496=[指定] Non-dystrophic myotonia=Non-dystrophic myotonic syndromes=[指定] 非ジストロフィー性ミオトニー症候群==114=MONDO:0016110
+1200502=[指定] Hereditary periodic paralysis=Familial periodic paralysis=[指定] 遺伝性周期性四肢麻痺==115=MONDO:0000995
+1200505=[指定] Atopic myelitis==[指定] アトピー性脊髄炎==116=
+1200506=[指定] Syringomyelia==[指定] 脊髄空洞症==117=MONDO:0017987
+1200509=[指定] Myelomeningocele==[指定] 脊髄髄膜瘤==118=MONDO:0017069|MONDO:0019773
+1200510=[指定] Isaacs syndrome=Isaacs' syndrome=[指定] アイザックス症候群=Isaacs症候群=119=MONDO:0019399
+1200511=[指定] Hereditary dystonia==[指定] 遺伝性ジストニア==120=MONDO:0044807
+1200542=[指定] Neuroferritinopathy==[指定] 神経フェリチン症==121=MONDO:0011638
+1200543=[指定] Superficial siderosis=Brain table hemosiderosis=[指定] 脳表ヘモジデリン沈着症==122=MONDO:0016594
+1200544=[指定] Cerebral autosomal recessive arteriopathy with subcortical infarcts and leukoencephalopathy=Cerebral autosomal recessive arteriopathy with baldness and degenerative spondylosis|Autosomal recessive leukoencephalopathy with baldness and degenerative spondylosis|CARASIL=[指定] 禿頭と変形性脊椎症を伴う常染色体劣性白質脳症=CARASIL=123=MONDO:0010829
+1200545=[指定] Cerebral autosomal dominant arteriopathy with subcortical infarct and leukoencephalopathy=Autosomal dominant cerebral artery disease with subcortical infarct and leukoencephalopathy|Cerebral autosomal dominant arteriopathy with subcortical infarcts and leukoencephalopathy|CADASIL=[指定] 皮質下梗塞と白質脳症を伴う常染色体優性脳動脈症=CADASIL=124=MONDO:0007432
+1200546=[指定] Hereditary diffuse leukoencephalopathy with spheroid=HDLS=[指定] 神経軸索スフェロイド形成を伴う遺伝性びまん性白質脳症==125=MONDO:0009096
+1200547=[指定] Perry syndrome==[指定] ペリー症候群=Perry症候群=126=MONDO:0008201
+1200548=[指定] Frontotemporal lobar degeneration=FTLD=[指定] 前頭側頭葉変性症==127=MONDO:0017276
+1200551=[指定] Bickerstaff's brainstem encephalitis=Bickerstaff brainstem encephalitis|Vickers staff brainstem encephalitis=[指定] ビッカースタッフ脳幹脳炎=Bickerstaff型脳幹脳炎=128=MONDO:0019208
+1200552=[指定] Acute encephalopathy with biphasic seizures and late reduced diffusion=AESD=[指定] 痙攣重積型（二相性）急性脳症=痙攣重積型急性脳症=129=MONDO:0018198
+1200553=[指定] Congenital insensitivity to pain with anhidrosis=CIPA=[指定] 先天性無痛無汗症==130=MONDO:0009746
+1200554=[指定] Alexander disease=AxD=[指定] アレキサンダー病=Alexander病=131=MONDO:0008752
+1200558=[指定] Congenital suprabulbar paresis=Congenital supranuclear bulbar palsy|Worster-Drought syndrome=[指定] 先天性核上性球麻痺=ウースター・ドロート症候群=132=MONDO:0008503
+1200559=[指定] Moebius syndrome=Möbius syndrome=[指定] メビウス症候群=Moebius症候群=133=MONDO:0008006
+1200560=[指定] Septo-optic dysplasia / De Morsier syndrome=SOD=[指定] 中隔視神経形成異常症／ドモルシア症候群=中隔視神経形成異常症／De Morsier症候群=134=MONDO:0008428
+1200562=[指定] Aicardi syndrome==[指定] アイカルディ症候群=Aicardi症候群=135=MONDO:0010568
+1200563=[指定] Hemimegalencephaly==[指定] 片側巨脳症==136=MONDO:0020492
+1200564=[指定] Focal cortical dysplasia=FCD=[指定] 限局性皮質異形成=FCD=137=MONDO:0019009
+1200574=[指定] Neuronal migration defects=Lissencephaly|Nerve cell migration disorders|Miller-Dieker syndrom=[指定] 神経細胞移動異常症==138=MONDO:0018838
+1200575=[指定] Congenital hypomyelinating leukodystrophy=Congenital cerebral white matter aplasia=[指定] 先天性大脳白質形成不全症==139=MONDO:0019046
+1200587=[指定] Dravet syndrome=Dorabe syndrome=[指定] ドラベ症候群==140=MONDO:0100135
+1200588=[指定] Mesial temporal lobe epilepsy with bilateral hippocampal sclerosis=Mesial temporal lobe epilepsy with hippocampal sclerosis=[指定] 海馬硬化を伴う内側側頭葉てんかん==141=MONDO:0020476
+1200589=[指定] Myoclonic absence epilepsy=Epilepsy with myoclonic absence|EMA=[指定] ミオクロニー欠神てんかん==142=MONDO:0019487
+1200590=[指定] Epilepsy with myoclonic atonic seizures=Epilepsy with myoclonic cataplexy=[指定] ミオクロニー脱力発作を伴うてんかん==143=MONDO:0016025
+1200591=[指定] Lennox-Gastaut syndrome==[指定] レノックス・ガストー症候群=Lennox-Gastaut症候群=144=MONDO:0016532
+1200592=[指定] West syndrome=Infantile spasms=[指定] ウエスト症候群=点頭てんかん|West症候群=145=MONDO:0018097
+1200593=[指定] Ohtahara syndrome=Early infantile epileptic encephalopathy with suppression burst=[指定] 大田原症候群=早期乳児てんかん性脳症=146=MONDO:0100062
+1200594=[指定] Early myoclonic encephalopathy==[指定] 早期ミオクロニー脳症=EME=147=MONDO:0016022
+1200595=[指定] Epilepsy of infancy with migrating focal seizures=Infant epilepsy with migratory focus seizure|Migrating partial seizures in infancy|EIMFS=[指定] 遊走性焦点発作を伴う乳児てんかん==148=MONDO:0017385|MONDO:0100025
+1200596=[指定] Hemiconvulsion-hemiplegia-epilepsy syndrome=One side convulsions, hemiplegia epilepsy syndrome|HHE=[指定] 片側痙攣・片麻痺・てんかん症候群==149=MONDO:0019485
+1200597=[指定] Ring chromosome 20 syndrome=Ring chromosome 20 epilepsy syndrome=[指定] 環状20番染色体症候群==150=MONDO:0015436
+1200598=[指定] Rasmussen's encephalitis=Rasmussen encephalitis=[指定] ラスムッセン脳炎=Rasmussen脳炎=151=MONDO:0016019
+1200599=[指定] PCDH19-related syndrome=PCDH19 epilepsy|PCDH19-related epilepsy|Epilepsy and mental retardation limited to females|EFMR=[指定] ＰＣＤＨ19関連症候群=PCDH19関連てんかん=152=MONDO:0010246
+1200600=[指定] Acute encephalitis with refractory, repetitive partial seizures=Refractory frequent partial seizures intussusception acute encephalitis|AERRPS=[指定] 難治頻回部分発作重積型急性脳炎==153=MONDO:0015584
+1200601=[指定] Epileptic encephalopathy with continuous spike-and-wave during sleep=Epilepsy with continuous spikes and waves during slow sleep=[指定] 徐波睡眠期持続性棘徐波を示すてんかん性脳症==154=MONDO:0019123|MONDO:0022858
+1200602=[指定] Landau-Kleffner syndrome=Acquired aphasia with convulsive disorder=[指定] ランドウ・クレフナー症候群=Landau-Kleffner症候群=155=MONDO:0009509
+1200603=[指定] Rett syndrome==[指定] レット症候群=Rett症候群=156=MONDO:0010726
+1200606=[指定] Sturge-Weber syndrome==[指定] スタージ・ウェーバー症候群==157=MONDO:0008501
+1200607=[指定] Tuberous sclerosis complex=Tuberous sclerosis|TSC=[指定] 結節性硬化症==158=MONDO:0001734|MONDO:0019341
+1200608=[指定] Xeroderma pigmentosum=XP=[指定] 色素性乾皮症==159=MONDO:0019600
+1200609=[指定] Congenital ichthyosis==[指定] 先天性魚鱗癬==160=MONDO:0015947
+1200631=[指定] Benign familial pemphigus=Hailey-Hailey disease|Familial benign chronic pemphigus=[指定] 家族性良性慢性天疱瘡=ヘイリー・ヘイリー病=161=MONDO:0008218
+1200632=[指定] Pemphigoid (including Epidermolysis bullosa acquisita)=Pemphigoid=[指定] 類天疱瘡==162=MONDO:0019082
+1200636=[指定] Acquired idiopathic generalized anhidrosis=Idiopathic acquired systemic anhidrosis|Idiopathic pure sudomotor failure|AIGA=[指定] 特発性後天性全身性無汗症==163=
+1200637=[指定] Oculocutaneous albinism=OCA=[指定] 眼皮膚白皮症==164=MONDO:0018910
+1200642=[指定] Pachydermoperiostosis=PDP=[指定] 肥厚性皮膚骨膜症==165=MONDO:0009799|MONDO:0016620
+1200643=[指定] Pseudoxanthoma elasticum=PXE=[指定] 弾性線維性仮性黄色腫=PXE=166=MONDO:0024308
+1200644=[指定] Marfan syndrome==[指定] マルファン症候群=Marfan症候群=167=MONDO:0007947
+1200645=[指定] Ehlers-Danlos Syndrome=EDS=[指定] エーラス・ダンロス症候群==168=MONDO:0020066
+1200653=[指定] Menkes disease==[指定] メンケス病==169=MONDO:0010651
+1200654=[指定] Occipital horn syndrome==[指定] オクシピタル・ホーン症候群==170=MONDO:0010572
+1200655=[指定] Wilson disease==[指定] ウィルソン病=Wilson病=171=MONDO:0010200
+1200656=[指定] Hypophosphatasia==[指定] 低ホスファターゼ症==172=MONDO:0018570
+1200657=[指定] VATER syndrome=VATER association=[指定] VATER症候群==173=MONDO:0008642
+1200658=[指定] Nasu-Hakola disease==[指定] 那須・ハコラ病==174=MONDO:0009092
+1200659=[指定] Weaver syndrome==[指定] ウィーバー症候群=Weaver症候群=175=MONDO:0010193
+1200660=[指定] Coffin-Lowry syndrome==[指定] コフィン・ローリー症候群=Coffin-Lowry症候群=176=MONDO:0010561
+1200661=[指定] Joubert syndrome and related disorders=Cerebro-oculo-hepato-renal syndrome=[指定] ジュベール症候群関連疾患==177=MONDO:0015369
+1200663=[指定] Mowat-Wilson syndrome==[指定] モワット・ウィルソン症候群=Mowat-Wilson症候群=178=MONDO:0009341
+1200664=[指定] Williams syndrome==[指定] ウィリアムズ症候群=Williams症候群=179=MONDO:0008678
+1200665=[指定] ATR-X syndrome=Alpha-thalassemia/mental retardation syndrome|X-linked a-thalassemia/intellectual disability syndrome=[指定] ATR-X症候群=X連鎖αサラセミア・精神遅滞症候群=180=MONDO:0010519
+1200666=[指定] Crouzon's syndrome=Crouzon syndrome=[指定] クルーゾン症候群=Crouzon症候群=181=MONDO:0007405
+1200667=[指定] Apert syndrome==[指定] アペール症候群=Apert症候群=182=MONDO:0007041
+1200668=[指定] Pfeiffer syndrome==[指定] ファイファー症候群=Pfeiffer症候群=183=MONDO:0005810|MONDO:0007043
+1200669=[指定] Antley-Bixler syndrome=Antley-Bixler Syndrome Phenotype=[指定] アントレー・ビクスラー症候群==184=MONDO:0008803
+1200670=[指定] Coffin-Siris syndrome==[指定] コフィン・シリス症候群=Coffin-Siris症候群=185=MONDO:0015452
+1200671=[指定] Rothmund-Thomson syndrome==[指定] ロスムンド・トムソン症候群==186=MONDO:0010002
+1200672=[指定] Kabuki syndrome==[指定] 歌舞伎症候群==187=MONDO:0016512
+1200673=[指定] Polysplenia syndrome==[指定] 多脾症候群==188=
+1200674=[指定] Asplenia syndrome==[指定] 無脾症候群==189=
+1200675=[指定] Branchio-oto-renal syndrome=BOR syndrome=[指定] 鰓耳腎症候群=BOR症候群=190=MONDO:0007029|MONDO:0018878
+1200676=[指定] Werner syndrome==[指定] ウェルナー症候群==191=MONDO:0010196
+1200677=[指定] Cockayne syndrome==[指定] コケイン症候群=Cockayne症候群=192=MONDO:0016006
+1200678=[指定] Prader-Willi syndrome==[指定] プラダー・ウィリ症候群=Prader-Willi症候群=193=MONDO:0008300
+1200679=[指定] Sotos syndrome==[指定] ソトス症候群=Sotos症候群=194=MONDO:0019349
+1200680=[指定] Noonan syndrome==[指定] ヌーナン症候群=Noonan症候群=195=MONDO:0018997
+1200681=[指定] Young-Simpson syndrome==[指定] ヤング・シンプソン症候群=Young-Simpson症候群=196=MONDO:0011365
+1200682=[指定] 1p36 deletion syndrome==[指定] １ｐ36欠失症候群==197=MONDO:0011929
+1200683=[指定] 4p deletion syndrome=4p-syndrome|Wolf-Hirschhorn syndrome=[指定] 4p欠失症候群=ウォルフ・ヒルシュホーン症候群=198=MONDO:0008684
+1200684=[指定] 5p deletion syndrome=5p-syndrome=[指定] 5p欠失症候群=5p-症候群=199=MONDO:0007404
+1200685=[指定] Paternal uniparental disomy of chromosome 14=No. 14 chromosome father disomy syndrome|Kagami-Ogata syndrome|Paternal uniparental disomy 14=[指定] 第14番染色体父親性ダイソミー症候群==200=MONDO:0011975
+1200686=[指定] Angelman syndrome==[指定] アンジェルマン症候群=Angelman症候群=201=MONDO:0007113
+1200687=[指定] Smith-Magenis syndrome==[指定] スミス・マギニス症候群=Smith-Magenis症候群=202=MONDO:0008434
+1200688=[指定] 22q11.2 deletion syndrome=Chromosome 22q11.2 deletion syndrome=[指定] 22q11.2欠失症候群==203=MONDO:0008564|MONDO:0008644|MONDO:0018923
+1200689=[指定] Emanuel syndrome==[指定] エマヌエル症候群==204=MONDO:0012176
+1200690=[指定] Fragile X syndrome related diseases=Fragile X-associated tremor/ataxia syndrome|Fragile X-associated disorders|Fragile X syndrome and associated disorders=[指定] 脆弱Ｘ症候群関連疾患==205=MONDO:0010382
+1200692=[指定] Fragile X syndrome==[指定] 脆弱X症候群==206=MONDO:0010383
+1200693=[指定] Truncus arteriosus communis==[指定] 総動脈幹遺残症==207=MONDO:0018072
+1200698=[指定] Corrected transposition of great arteries=Corrected transposition of the great arteries=[指定] 修正大血管転位症==208=MONDO:0019443
+1200699=[指定] Complete transposition of the great arteries=Complete TGA=[指定] 完全大血管転位症==209=MONDO:0016301
+1200704=[指定] Single ventricle=Univentricular heart=[指定] 単心室症==210=MONDO:0015451
+1200705=[指定] Hypoplastic left heart syndrome==[指定] 左心低形成症候群==211=MONDO:0004933
+1200706=[指定] Tricuspid atresia==[指定] 三尖弁閉鎖症==212=MONDO:0011514
+1200707=[指定] Pulmonary atresia with intact ventricular septum=Pulmonary atresia without ventricular septum defect=[指定] 心室中隔欠損を伴わない肺動脈閉鎖症==213=MONDO:0009931
+1200708=[指定] Pulmonary atresia with ventricular septal defect==[指定] 心室中隔欠損を伴う肺動脈閉鎖症=極型ファロー四徴症=214=MONDO:0008343
+1200709=[指定] Tetralogy of Fallot=Fallot's Tetralogy=[指定] ファロー四徴症==215=MONDO:0008542
+1200710=[指定] Double outlet right ventricle==[指定] 両大血管右室起始症==216=MONDO:0018089
+1200711=[指定] Ebstein's anomaly=Ebstein anomaly|Ebstein's malformation|Ebstein malformation=[指定] エプスタイン病=Ebstein病|Ebstein奇形=217=MONDO:0009144
+1200712=[指定] Alport's syndrome=Alport syndrome=[指定] アルポート症候群=Alport症候群=218=MONDO:0018965
+1200713=[指定] Galloway-Mowat syndrome==[指定] ギャロウェイ・モワト症候群=Galloway-Mowat症候群=219=MONDO:0009627
+1200714=[指定] Rapidly progressive glomerulonephritis=Crescentic glomerulonephritis=[指定] 急速進行性糸球体腎炎==220=MONDO:0001645|MONDO:0017236
+1200718=[指定] Goodpasture syndrome=Anti-glomerular basement membrane disease|Anti-GBM nephritis=[指定] 抗糸球体基底膜腎炎=グッドパスチャー症候群|Goodpasture症候群=221=MONDO:0009303
+1200719=[指定] Primary nephrotic syndrome==[指定] 一次性ネフローゼ症候群==222=MONDO:0018170
+1200725=[指定] Primary membranoproliferative glomerulonephritis=Primary MPGN=[指定] 一次性膜性増殖性糸球体腎炎==223=MONDO:0018904
+1200741=[指定] Henoch-Schonlein purpura nephritis=Henoch-Schönlein purpura nephritis|HSPN=[指定] 紫斑病性腎炎==224=MONDO:0006785
+1200742=[指定] Congenital nephrogenic diabetes insipidus=Nephrogenic diabetes insipidus=[指定] 先天性腎性尿崩症=遺伝性腎性尿崩症=225=MONDO:0016383
+1200743=[指定] Interstitial cystitis (Hunner type)=Interstitial cystitis|Interstitial cystitis with Hunner's ulcer=[指定] 間質性膀胱炎（ハンナ型）==226=MONDO:0018301
+1200744=[指定] Osler disease=Hereditary hemorrhagic telangiectasia|Hereditary haemorrhagic telangiectasia=[指定] オスラー病=遺伝性出血性末梢血管拡張症=227=MONDO:0019180
+1200745=[指定] Bronchiolitis obliterans=Obliterating bronchiolitis=[指定] 閉塞性細気管支炎==228=MONDO:0015265
+1200746=[指定] Pulmonary alveolar proteinosis=PAP=[指定] 肺胞蛋白症==229=MONDO:0001437|MONDO:0012580
+1200751=[指定] Alveolar hypoventilation syndrome=AHS=[指定] 肺胞低換気症候群==230=MONDO:0008346
+1200755=[指定] Alpha-1-antitrypsin deficiency=AATD|α-1-antitrypsin deficiency=[指定] α1-アンチトリプシン欠損症==231=MONDO:0013282
+1200756=[指定] Carney complex==[指定] カーニー複合=Carney複合=232=MONDO:0015285
+1200757=[指定] Wolfram syndrome==[指定] ウォルフラム症候群=Wolfram症候群=233=MONDO:0018105
+1200758=[指定] Peroxisomal disorder=Peroxisomal disease=[指定] ペルオキシソーム病==234=MONDO:0019053
+1200775=[指定] Hypoparathyroidism=Accessory thyroid hypergasia disease=[指定] 副甲状腺機能低下症==235=MONDO:0001220|MONDO:0015895
+1200776=[指定] Pseudohypoparathyroidism==[指定] 偽性副甲状腺機能低下症==236=MONDO:0019992
+1200777=[指定] ACTH unresponsiveness=Adrenocorticotropic hormone unresponsiveness|Adrenocorticotropic hormone insensitivity|Adrenocorticotropin unresponsiveness=[指定] 副腎皮質刺激ホルモン不応症=ACTH不応症=237=
+1200778=[指定] Vitamin D-resistant rickets/Vitamin D-resistant osteomalacia=Vitamin D Resistant Rickets / Osteomalacia=[指定] ビタミンＤ抵抗性くる病/骨軟化症=低リン血症性くる病・骨軟化症=238=MONDO:0024300
+1200781=[指定] Vitamin D-dependent rickets / Osteomalacia=Vitamin D-dependent osteomalacia=[指定] ビタミンＤ依存性くる病/骨軟化症==239=MONDO:0024299
+1200784=[指定] Phenylketonuria=PKU|Hyperphenylalaninemia|HPA=[指定] フェニルケトン尿症=高フェニルアラニン血症=240=MONDO:0009861
+1200788=[指定] Tyrosinemia type 1=Tyrosinaemia type 1=[指定] 高チロシン血症１型==241=MONDO:0010161
+1200789=[指定] Tyrosinemia type 2=Tyrosinaemia type 2=[指定] 高チロシン血症２型==242=MONDO:0010160
+1200790=[指定] Tyrosinemia type 3=Tyrosinaemia type 3=[指定] 高チロシン血症３型==243=MONDO:0010162
+1200791=[指定] Maple syrup urine disease=MSUD=[指定] メープルシロップ尿症==244=MONDO:0009563
+1200792=[指定] Propionic acidemia=Propionic acidaemia|PA=[指定] プロピオン酸血症==245=MONDO:0011628
+1200793=[指定] Methylmalonic acidemia=Methylmalonic acidaemia|MMA=[指定] メチルマロン酸血症==246=MONDO:0002012
+1200798=[指定] Isovaleric acidemia=Isovaleric acidaemia=[指定] イソ吉草酸血症==247=MONDO:0009475
+1200799=[指定] Glucose transporter 1 deficiency=GLUT-1 deficiency|GLUT-1 DS=[指定] グルコーストランスポーター1欠損症=GLUT1欠損症=248=MONDO:0000188|MONDO:0011724
+1200800=[指定] Glutaric acidemia type 1=Glutaric acidaemia type 1|Glutaryl-CoA dehydrogenase deficiency|GA1=[指定] グルタル酸血症１型==249=MONDO:0009281
+1200801=[指定] Glutaric acidemia type 2=Glutaric acidaemia type 2|Multiple acyl-CoA dehydrogenase deficiency|GA2=[指定] グルタル酸血症２型==250=MONDO:0009282
+1200802=[指定] Urea cycle disorder==[指定] 尿素サイクル異常症==251=MONDO:0004739
+1200809=[指定] Lysinuric protein intolerance==[指定] リジン尿性蛋白不耐症==252=MONDO:0009109
+1200810=[指定] Hereditary folate malabsorption=Congenital folate malabsorption=[指定] 先天性葉酸吸収不全症==253=MONDO:0009238
+1200811=[指定] Porphyria==[指定] ポルフィリン症==254=MONDO:0037939
+1200820=[指定] Multiple carboxylase deficiency==[指定] 複合カルボキシラーゼ欠損症==255=MONDO:0015454
+1200823=[指定] Muscle glycogen storage disease=Glycogen storage disease type VII|Skeletal muscle glycogenosis|Muscular glycogenosis=[指定] 筋型糖原病==256=MONDO:0009295|MONDO:0016118
+1200838=[指定] Hepatic glycogen storage disease=Hepatic glycogenosis=[指定] 肝型糖原病==257=MONDO:0002412|MONDO:0009414
+1200851=[指定] Galactose-1-phosphate uridyltransferase deficiency=Galactose-1-phosphate uridylyltransferase deficiency|Galactosemia type 1|GALT deficiency=[指定] ガラクトース-1-リン酸ウリジルトランスフェラーゼ欠損症=GALT欠損症|ガラクトース血症I 型=258=MONDO:0009258
+1200852=[指定] Lecithin cholesterol acyltransferase deficiency=LCAT deficiency=[指定] レシチンコレステロールアシルトランスフェラーゼ欠損症=LCAT欠損症=259=MONDO:0009515|MONDO:0018999
+1200853=[指定] Sitosterolemia=Sitosterolaemia=[指定] シトステロール血症==260=MONDO:0008863
+1200854=[指定] Tangier disease==[指定] タンジール病=Tangier病=261=MONDO:0008783
+1200855=[指定] Primary hyperchylomicronemia=Primary hyperchylomicronaemia=[指定] 原発性高カイロミクロン血症==262=
+1200856=[指定] Cerebrotendinous xanthomatosis=CTX=[指定] 脳腱黄色腫症=27-ヒドロキシラーゼ欠損症=263=MONDO:0008948
+1200857=[指定] Abetalipoproteinemia=Abetalipoproteinaemia=[指定] 無βリポタンパク血症=MTP欠損症=264=MONDO:0008692
+1200858=[指定] Lipodystrophy==[指定] 脂肪萎縮症=脂肪異栄養症=265=MONDO:0006573
+1200863=[指定] Familial Mediterranean fever=FMF=[指定] 家族性地中海熱==266=MONDO:0018088
+1200866=[指定] Hyper IgD syndrome=Hyperimmunoglobulinemia D and periodic fever syndrome|Mevalonate kinase deffiency|MKD|HIDS=[指定] 高IgD症候群=メバロン酸キナーゼ欠損症=267=MONDO:0009849|MONDO:0012481
+1200867=[指定] Nakajo-Nishimura syndrome=Autoinflammation, lipodystrophy, and dermatosis syndrome|CANDLE syndrome|Chronic atypical neutrophilic dermatosis with lipodystrophy and elevated temperature syndrome|JMP syndrome|Joint contractures, muscle atrophy, microcytic anemia, and panniculitis induced lipodystrophy=[指定] 中條・西村症候群=脂肪異栄養症および発熱を伴う慢性非典型的好中球性皮膚疾患症候群|関節拘縮、筋委縮、小球性貧血、脂肪異栄養症誘因性脂肪織炎=268=MONDO:0009726
+1200868=[指定] Pyogenic arthritis, pyoderma gangrenosum, acne syndrome=PAPA syndrome|Pyogenic arthritis, pyoderma gangrenosum and acne syndrome=[指定] 化膿性無菌性関節炎・壊疽性膿皮症・アクネ症候群=PAPA症候群=269=MONDO:0011462
+1200869=[指定] Chronic recurrent multifocal osteomyelitis=CRMO=[指定] 慢性再発性多発性骨髄炎=CRMO=270=MONDO:0009813
+1200870=[指定] Ankylosing spondylitis=Spondylarthritis ankylopoietica=[指定] 強直性脊椎炎==271=MONDO:0005306
+1200871=[指定] Fibrodysplasia ossificans progressiva=FOP=[指定] 進行性骨化性線維異形成症=FOP=272=MONDO:0003964|MONDO:0007606
+1200872=[指定] Congenital scoliosis with rib anomalies=Congenital scoliosis with rib anomaly=[指定] 肋骨異常を伴う先天性側弯症==273=
+1200873=[指定] Osteogenesis imperfecta==[指定] 骨形成不全症==274=MONDO:0019019
+1200874=[指定] Thanatophoric dysplasia=TD=[指定] タナトフォリック骨異形成症==275=MONDO:0017042
+1200877=[指定] Achondroplasia==[指定] 軟骨無形成症==276=MONDO:0007037
+1200878=[指定] Lymphangiomatosis / Gorham-Stout disease=Lymphangiomatosis/Gorham disease=[指定] リンパ管腫症/ゴーハム病==277=MONDO:0003157|MONDO:0007414
+1200881=[指定] Giant lymphatic malformation (cervicofacial lesion)=Huge lymphatic malformation|Huge lymphatic malformation with cervicofacial lesion=[指定] 巨大リンパ管奇形（頚部顔面病変）==278=MONDO:0016233|MONDO:0019328
+1200882=[指定] Giant venous malformation (cervical, oral and oropharyngeal diffuse lesion)=Huge venous malformation|Huge venous malformation with cervical, oral and pharyngeal diffuse lesion=[指定] 巨大静脈奇形（頚部口腔咽頭びまん性病変）==279=
+1200883=[指定] Huge arteriovenous malformation with cervicofacial or limb lesion=gigantic arteriovenous malformation (cervicofacial/limb lesion)=[指定] 巨大動静脈奇形（頚部顔面又は四肢病変）==280=
+1200884=[指定] Klippel-Trenaunay-Weber syndrome=Klippel-Trénanay-Weber syndrome=[指定] クリッペル・トレノネー・ウェーバー症候群==281=MONDO:0007864
+1200885=[指定] Congenital dyserythropoietic anemia=Congenital dyserythropoietic anaemia|CDA=[指定] 先天性赤血球形成異常性貧血==282=MONDO:0019403
+1200889=[指定] Acquired pure red cell aplasia==[指定] 後天性赤芽球癆==283=MONDO:0020338
+1200890=[指定] Diamond-Blackfan anemia=Diamond-Blackfan anaemia|Congenital red cell aplasia=[指定] ダイアモンド・ブラックファン貧血=先天性赤芽球癆|Diamond-Blackfan貧血=284=MONDO:0015253
+1200891=[指定] Fanconi anemia=Fanconi anaemia=[指定] ファンコニ貧血==285=MONDO:0019391
+1200892=[指定] Hereditary sideroblastic anemia=Hereditary sideroblastic anaemia=[指定] 遺伝性鉄芽球性貧血==286=MONDO:0020099
+1200893=[指定] Epstein syndrome==[指定] エプスタイン症候群=Epstein症候群=287=MONDO:0007954
+1200896=[指定] Autoimmune acquired coagulation factor deficiency=AiCFD=[指定] 自己免疫性後天性凝固因子欠乏症==288=MONDO:0020599
+1200901=[指定] Cronkhite-Canada syndrome==[指定] クロンカイト・カナダ症候群=Cronkhite-Canada症候群=289=MONDO:0008283
+1200902=[指定] Chronic nonspecific multiple ulcers of the small intestine=Chronic enteropathy associated with SLCO2A1|CEAS=[指定] 非特異性多発性小腸潰瘍症==290=
+1200903=[指定] Hirschsprung disease=Hirschsprung Disease (Entire Colon type / Extensive type)|Hirschsprung's disease=[指定] ヒルシュスプルング病=Hirschsprung病=291=MONDO:0018309
+1200909=[指定] Cloacal exstrophy==[指定] 総排泄腔外反症==292=MONDO:0009774
+1200910=[指定] Persistent cloaca==[指定] 総排泄腔遺残==293=MONDO:0009774
+1200911=[指定] Congenital diaphragmatic hernia=CDH=[指定] 先天性横隔膜ヘルニア==294=MONDO:0005711
+1200912=[指定] Infantile giant hepatic hemangiomas=Infantile giant hepatic haemangiomas=[指定] 乳幼児肝巨大血管腫==295=
+1200913=[指定] Biliary atresia=BA=[指定] 胆道閉鎖症==296=MONDO:0008867|MONDO:0028737
+1200918=[指定] Alagille syndrome=AGS=[指定] アラジール症候群=Alagille症候群=297=MONDO:0007318
+1200921=[指定] Hereditary pancreatitis==[指定] 遺伝性膵炎==298=MONDO:0008185
+1200922=[指定] Cystic fibrosis=CF=[指定] 嚢胞性線維症==299=MONDO:0009061
+1200923=[指定] IgG4-related disease=IgG4-RD=[指定] IgG4関連疾患==300=MONDO:0017287
+1200931=[指定] Macular dystrophy==[指定] 黄斑ジストロフィー==301=MONDO:0020242
+1200940=[指定] Leber hereditary optic neuropathy=LHON=[指定] レーベル遺伝性視神経症=レーベル病=302=MONDO:0010788
+1200941=[指定] Usher syndrome==[指定] アッシャー症候群=Usher症候群=303=MONDO:0019501
+1200945=[指定] Juvenile bilateral sensorineural hearing loss=Juvenile-onset bilateral sensorineural hearing loss=[指定] 若年発症型両側性感音難聴==304=
+1200946=[指定] Delayed endolymphatic hydrops==[指定] 遅発性内リンパ水腫==305=
+1200947=[指定] Eosinophilic sinusitis==[指定] 好酸球性副鼻腔炎==306=
+1200948=[指定] Canavan disease==[指定] カナバン病==307=MONDO:0010079
+1200949=[指定] Progressive leukoencephalopathy=Leukoencephalopathy=[指定] 進行性白質脳症==308=
+1200953=[指定] Progressive myoclonus epilepsy=PME=[指定] 進行性ミオクローヌスてんかん==309=MONDO:0020074
+1200957=[指定] Congenital anomalies syndrome=Malformative syndrome|Congenital malformation syndrome=[指定] 先天異常症候群==310=MONDO:0000839
+1200962=[指定] Congenital tricuspid stenosis=Tricuspid atresia|Congenital tricuspid atresia|Congenital tricuspid valve stenosis=[指定] 先天性三尖弁狭窄症==311=MONDO:0011514|MONDO:0019813
+1200963=[指定] Congenital mitral stenosis=Mitral stenosis|Mitral valve stenosis|Congenital mitral valve stenosis=[指定] 先天性僧帽弁狭窄症==312=MONDO:0005852|MONDO:0020398
+1200964=[指定] Congenital pulmonary vein stenosis=Congenital pulmonary venous obstruction=[指定] 先天性肺静脈狭窄症==313=MONDO:0017864
+1200965=[指定] Vascular sling=PA sling|Pulmonary artery sling=[指定] 左肺動脈右肺動脈起始症==314=
+1200966=[指定] Nail-patella syndrome/LMX1B-associated nephropathy==[指定] ネイルパテラ症候群（爪膝蓋骨症候群）／ＬＭＸ１Ｂ関連腎症=Nail-patella症候群=315=
+1200969=[指定] Carnitine cycle disorders==[指定] カルニチン回路異常症==316=MONDO:0017716
+1200974=[指定] Trifunctional protein deficiency=mitochondrial trifunctional protein deficiency|TFP deficiency=[指定] 三頭酵素欠損症==317=MONDO:0012172
+1200978=[指定] Citrin deficiency==[指定] シトリン欠損症==318=MONDO:0016602
+1200982=[指定] Sepiapterin reductase deficiency=SRD=[指定] セピアプテリン還元酵素欠損症=ＳＲ欠損症=319=MONDO:0012994
+1200983=[指定] Inherited glycosylphosphatidylinositol deficiency=IGD=[指定] 先天性グリコシルホスファチジルイノシトール欠損症=先天性GPI欠損症=320=MONDO:0012465
+1200984=[指定] Nonketotic hyperglycinemia=Nonketotic hyperglycinaemia|NKH=[指定] 非ケトーシス型高グリシン血症==321=MONDO:0011612
+1200987=[指定] Beta-ketothiolase deficiency=β-ketothiolase deficiency=[指定] β-ケトチオラーゼ欠損症==322=MONDO:0008760
+1200988=[指定] Aromatic L-amino acid decarboxylase deficiency==[指定] 芳香族L－アミノ酸脱炭酸酵素欠損症==323=MONDO:0012084
+1200989=[指定] Methylglutaconic aciduria==[指定] メチルグルタコン酸尿症==324=MONDO:0017359
+1200993=[指定] Hereditary autoinflammatory syndrome=Hereditary autoinflammatory diseases=[指定] 遺伝性自己炎症疾患==325=
+1200998=[指定] Osteopetrosis==[指定] 大理石骨病==326=MONDO:0017198
+1200999=[指定] Idiopathic thrombosis (due to inherited predisposition to thrombosis) (neonates, infants)==[指定] 特発性血栓症==327=
+1201000=[指定] Anterior segment dysgenesis=ASGD1|ASD=[指定] 前眼部形成異常==328=MONDO:0019503
+1201001=[指定] Aniridia==[指定] 無虹彩症==329=MONDO:0019172
+1201002=[指定] Congenital tracheal stenosis/congenital subglottic stenosis==[指定] 先天性気管狭窄症／先天性声門下狭窄症==330=
+1201005=[指定] Idiopathic multicentric Castleman's disease==[指定] 特発性多中心性キャッスルマン病==331=
+1201006=[指定] Gelatinous drop-like corneal dystrophy=GDLD=[指定] 膠様滴状角膜ジストロフィー==332=MONDO:0008777
+1201007=[指定] Hutchinson-Gilford syndrome=Hutchinson-Gilford progeria syndrome|HGPS=[指定] ハッチンソン・ギルフォード症候群==333=MONDO:0008310
+1201032=[指定] Cerebral creatine deficiency syndromes=CCDSs=[指定] 脳クレアチン欠乏症候群==334=MONDO:0000456
+1201036=[指定] Nephronophthisis=NPH=[指定] ネフロン癆==335=MONDO:0009728|MONDO:0019005
+1201037=[指定] Homozygous familial hypobetalipoproteinemia 1==[指定] 家族性低βリポタンパク血症1（ホモ接合体）==336=MONDO:0014252
+1201038=[指定] Homocystinuria==[指定] ホモシスチン尿症==337=MONDO:0004737
+1201042=[指定] Progressive familial intrahepatic cholestasis=PFIC=[指定] 進行性家族性肝内胆汁うっ滞症==338=MONDO:0015762
+2200001=[小慢] B-cell precursor lymphoblastic leukemia=B-cell precursor lymphoblastic leukaemia=[小慢] 前駆B細胞急性リンパ性白血病==80=MONDO:0020511
+2200002=[小慢] Mature B-cell lymphoblastic leukemia=Mature B-cell acute lymphoblastic leukemia|Acute lymphoblastic leukemia|ALL=[小慢] 成熟B細胞急性リンパ性白血病=急性リンパ芽球性白血病=77=MONDO:0000872
+2200003=[小慢] T-cell lymphoblastic leukemia=T-cell lymphoblastic leukaemia|Acute lymphoblastic leukemia|ALL=[小慢] T細胞急性リンパ性白血病=急性リンパ芽球性白血病=81=MONDO:0004963
+2200004=[小慢] Acute myeloid leukemia with minimal differentiation=Acute myeloid leukaemia with minimal differentiation=[小慢] 急性骨髄性白血病、最未分化==71=MONDO:0005223
+2200005=[小慢] Acute myeloid leukemia without maturation=Acute myeloid leukaemia without maturation=[小慢] 成熟を伴わない急性骨髄性白血病==79=MONDO:0005224
+2200006=[小慢] Acute myeloid leukemia with maturation=Acute myeloid leukaemia with maturation=[小慢] 成熟を伴う急性骨髄性白血病==78=MONDO:0020320
+2200007=[小慢] Acute promyelocytic leukemia=Acute promyelocytic leukaemia=[小慢] 急性前骨髄球性白血病==74=MONDO:0012883
+2200008=[小慢] Acute monocytic leukemia=Acute monocytic leukaemia=[小慢] 急性骨髄単球性白血病==72=MONDO:0000875|MONDO:0007896
+2200009=[小慢] Acute monocytic leukemia=Acute monocytic leukaemia=[小慢] 急性単球性白血病==75=MONDO:0000875|MONDO:0007896
+2200010=[小慢] Acute erythremia=Acute erythraemia|Di Guglielmo's disease=[小慢] 急性赤白血病==73=MONDO:0017858
+2200011=[小慢] Acute megakaryoblastic leukemia=Acute megakaryoblastic leukaemia=[小慢] 急性巨核芽球性白血病==70=MONDO:0018872
+2200012=[小慢] NK cell leukemia=NK cell leukaemia=[小慢] NK細胞白血病=ナチュラルキラー細胞白血病=82=MONDO:0019470
+2200013=[小慢] Chronic myeloid leukemia=Chronic myeloid leukaemia|CML| Chronic myelogenous leukemia=[小慢] 慢性骨髄性白血病==83=MONDO:0011996
+2200014=[小慢] Chronic myelomonocytic leukemia=Chronic myelomonocytic leukaemia|CMML=[小慢] 慢性骨髄単球性白血病==84=MONDO:0011908|MONDO:0020311
+2200015=[小慢] Juvenile myelomonocytic leukemia=Juvenile myelomonocytic leukaemia|JMML=[小慢] 若年性骨髄単球性白血病=JMML=76=MONDO:0011908
+2200016=[小慢] Other leukemia=Other leukaemia=[小慢] 1から15までに掲げるもののほか、白血病==85=
+2200019=[小慢] Myelodysplastic syndrome=MDS=[小慢] 骨髄異形成症候群=MDS=44=MONDO:0018881|MONDO:0044873
+2200020=[小慢] Mature B-cell lymphoma=B-NHL=[小慢] 成熟B細胞リンパ腫=B-NHL=86=MONDO:0015759
+2200021=[小慢] Anaplastic large cell lymphoma=ALCL=[小慢] 未分化大細胞リンパ腫=ALCL=90=MONDO:0020325
+2200022=[小慢] Precursor B lymphoblastic lymphoma==[小慢] Bリンパ芽球性リンパ腫==88=MONDO:0020511
+2200023=[小慢] Precursor T lymphoblastic lymphoma==[小慢] Tリンパ芽球性リンパ腫==87=MONDO:0044917
+2200024=[小慢] Hodgkin lymphoma=HL=[小慢] ホジキンリンパ腫=Hodgkinリンパ腫=89=MONDO:0004952
+2200025=[小慢] Other malignant lymphomas==[小慢] 18から22までに掲げるもののほか、リンパ腫==91=
+2200031=[小慢] Langerhans cell histiocytosis=LCH=[小慢] ランゲルハンス細胞組織球症=Langerhans細胞組織球症=46=MONDO:0017025|MONDO:0017029|MONDO:0018310
+2200032=[小慢] Hemophagocytic lymphohistiocytosis=HLH|Haemophagocytic lymphohistiocytosis=[小慢] 血球貪食性リンパ組織球症=HLH=45=MONDO:0015540
+2200033=[小慢] Other histiocytosis==[小慢] 24及び25に掲げるもののほか、組織球症==47=
+2200040=[小慢] Neuroblastoma==[小慢] 神経芽腫==20=MONDO:0005072
+2200041=[小慢] Ganglioneuroblastoma==[小慢] 神経節芽腫==21=MONDO:0005035
+2200042=[小慢] Retinoblastoma==[小慢] 網膜芽細胞腫==40=MONDO:0008380
+2200043=[小慢] Wilms tumour=Nephroblastoma=[小慢] ウィルムス腫瘍／腎芽腫=Wilms腫瘍|腎芽腫=5=MONDO:0019004
+2200044=[小慢] Clear cell sarcoma of the kidney==[小慢] 腎明細胞肉腫==23=MONDO:0005006
+2200045=[小慢] Renal cell carcinoma==[小慢] 腎細胞癌==22=MONDO:0005086|MONDO:0005549
+2200046=[小慢] Hepatoblastoma==[小慢] 肝芽腫==9=MONDO:0018666
+2200047=[小慢] Hepatocellular carcinoma==[小慢] 肝細胞癌==10=MONDO:0007256
+2200048=[小慢] Osteosarcoma==[小慢] 骨肉腫==15=MONDO:0002623|MONDO:0009807
+2200049=[小慢] Osteochondromatosis==[小慢] 骨軟骨腫症==14=MONDO:0005508|MONDO:0008145
+2200050=[小慢] Chondrosarcoma==[小慢] 軟骨肉腫==32=MONDO:0008977
+2200051=[小慢] Chondroblastoma==[小慢] 軟骨芽細胞腫==31=MONDO:0004997
+2200052=[小慢] Malignancy in giant cell tumour of bone==[小慢] 悪性骨巨細胞腫==3=MONDO:0006287
+2200053=[小慢] Ewing's sarcoma=Ewing sarcoma=[小慢] ユーイング肉腫=Ewing肉腫=41=MONDO:0012817
+2200054=[小慢] Primitive neuroectodermal tumors==[小慢] 未分化神経外胚葉性腫瘍（末梢性のものに限る。）==36=MONDO:0018271
+2200056=[小慢] Rhabdomyosarcoma==[小慢] 横紋筋肉腫==6=MONDO:0005212
+2200057=[小慢] Malignant rhabdoid tumour==[小慢] 悪性ラブドイド腫瘍==4=MONDO:0002728
+2200058=[小慢] Undifferentiated sarcoma==[小慢] 未分化肉腫==37=MONDO:0005102
+2200059=[小慢] Desmoplastic small round cell tumors=DSRCT=[小慢] 線維形成性小円形細胞腫瘍==26=MONDO:0019373
+2200060=[小慢] Fibrosarcoma==[小慢] 線維肉腫==27=MONDO:0002676|MONDO:0002678|MONDO:0005164
+2200061=[小慢] Synovial sarcoma==[小慢] 滑膜肉腫==8=MONDO:0010434
+2200062=[小慢] Clear cell sarcoma==[小慢] 明細胞肉腫==39=MONDO:0002926
+2200063=[小慢] Alveolar soft part sarcoma==[小慢] 胞巣状軟部肉腫==35=MONDO:0011655
+2200064=[小慢] Leiomyosarcoma==[小慢] 平滑筋肉腫==34=MONDO:0005058
+2200065=[小慢] Liposarcoma==[小慢] 脂肪肉腫==17=MONDO:0003585|MONDO:0003587|MONDO:0005060
+2200066=[小慢] Dysgerminoma==[小慢] 未分化胚細胞腫==38=MONDO:0003002
+2200067=[小慢] Embryonal carcinoma==[小慢] 胎児性癌==28=MONDO:0005440
+2200068=[小慢] Polyembryoma==[小慢] 多胎芽腫==30=MONDO:0015863
+2200069=[小慢] Yolk sac tumour==[小慢] 卵黄嚢腫=卵黄嚢腫瘍=42=MONDO:0005744|MONDO:0003759
+2200070=[小慢] Choriocarcinoma==[小慢] 絨毛癌==18=MONDO:0005207
+2200071=[小慢] Mixed germ cell tumour==[小慢] 混合性胚細胞腫瘍==16=MONDO:0015864
+2200072=[小慢] Sex-cord stromal tumour==[小慢] 性索間質性腫瘍==25=MONDO:0006055
+2200073=[小慢] Adrenocortical carcinoma==[小慢] 副腎皮質癌==33=MONDO:0006639
+2200074=[小慢] Thyroid cancer==[小慢] 甲状腺癌==13=MONDO:0002108|MONDO:0015075
+2200075=[小慢] Epipharyngeal carcinoma==[小慢] 上咽頭癌==19=
+2200076=[小慢] Salivary grand carcinoma==[小慢] 唾液腺癌==29=MONDO:0000521
+2200077=[小慢] Malignant melanoma==[小慢] 悪性黒色腫==2=MONDO:0005105
+2200078=[小慢] Pheochromocytoma==[小慢] 褐色細胞腫==7=MONDO:0004974
+2200079=[小慢] Malignant thymoma==[小慢] 悪性胸腺腫==1=MONDO:0006451
+2200080=[小慢] Pleuropulmonaryblastoma=Pleuropulmonary blastoma=[小慢] 胸膜肺芽腫==12=MONDO:0011014
+2200081=[小慢] Bronchial tumour==[小慢] 気管支腫瘍==11=MONDO:0002807
+2200082=[小慢] Pancreatoblastoma==[小慢] 膵芽腫==24=MONDO:0019035
+2200083=[小慢] Other solid tumours==[小慢] 27から68までに掲げるもののほか、固形腫瘍==43=
+2200084=[小慢] Pilocytic astrocytoma==[小慢] 毛様細胞性星細胞腫==68=MONDO:0004000|MONDO:0016691
+2200085=[小慢] Diffuse astrocytoma==[小慢] びまん性星細胞腫==64=MONDO:0016686
+2200086=[小慢] Anaplastic astrocytoma==[小慢] 退形成性星細胞腫==63=MONDO:0016684
+2200087=[小慢] Glioblastoma==[小慢] 膠芽腫==52=MONDO:0018177|MONDO:0020690
+2200088=[小慢] Ependymoma==[小慢] 上衣腫==53=MONDO:0016698
+2200089=[小慢] Oligodendroglioma==[小慢] 乏突起神経膠腫=乏突起膠腫=65=MONDO:0002540|MONDO:0002543|MONDO:0016695
+2200090=[小慢] Medulloblastoma==[小慢] 髄芽腫==58=MONDO:0002794|MONDO:0002797|MONDO:0007959
+2200091=[小慢] Craniopharyngioma==[小慢] 頭蓋咽頭腫==60=MONDO:0018907
+2200092=[小慢] Pineocytoma==[小慢] 松果体腫==54=MONDO:0016723
+2200093=[小慢] Choroid plexus papilloma==[小慢] 脈絡叢乳頭腫==67=MONDO:0009837
+2200094=[小慢] Meningioma==[小慢] 髄膜腫==59=MONDO:0003057|MONDO:0016642
+2200095=[小慢] Pituitary adenoma==[小慢] 下垂体腺腫==50=MONDO:0006373
+2200096=[小慢] Ganglioglioma==[小慢] 神経節膠腫==56=MONDO:0016733
+2200097=[小慢] Gangliocytoma==[小慢] 神経節腫=神経節細胞腫=57=MONDO:0016730
+2200098=[小慢] Chordoma==[小慢] 脊索腫==62=MONDO:0008978
+2200099=[小慢] Primitive neuroectodermal tumour of the central nervous system=Central nervous system primitive neuroectodermal tumor=[小慢] 未分化神経外胚葉性腫瘍（中枢性のものに限る。）=中枢神経系原始神経外胚葉性腫瘍=66=MONDO:0000640
+2200101=[小慢] Atypical teratoid, rhabdoid tumour=AT/RT=[小慢] 異型奇形腫瘍／ラブドイド腫瘍=非定型奇形腫様ラブドイド腫瘍|AT/RT=49=MONDO:0020560
+2200102=[小慢] Malignant neurinoma==[小慢] 悪性神経鞘腫=悪性末梢神経鞘腫瘍=48=MONDO:0017827
+2200103=[小慢] Neurinoma==[小慢] 神経鞘腫==55=MONDO:0002546
+2200104=[小慢] Teratoma of the central nervous system==[小慢] 奇形腫==51=MONDO:0002718
+2200108=[小慢] Intracranial germ cell tumour==[小慢] 頭蓋内胚細胞腫瘍==61=MONDO:0004218
+2200109=[小慢] Other tumours of the central nervous system==[小慢] 70から90までに掲げるもののほか、中枢神経系腫瘍==69=
+2200110=[小慢] Congenital nephrotic syndrome of the Finnish type=CNF=[小慢] フィンランド型先天性ネフローゼ症候群==26=MONDO:0009732
+2200111=[小慢] Diffuse mesangial sclerosis=DMS=[小慢] びまん性メサンギウム硬化症==25=MONDO:0019654
+2200112=[小慢] Minimal change nephrotic syndrome=MCNS=[小慢] 微小変化型ネフローゼ症候群==24=MONDO:0006835
+2200113=[小慢] Focal segmental glomerulosclerosis=FSGS=[小慢] 巣状分節性糸球体硬化症==23=MONDO:0005363
+2200114=[小慢] Membranous nephropathy==[小慢] 膜性腎症==27=MONDO:0005376
+2200115=[小慢] Other nephrotic syndromes==[小慢] 1から6までに掲げるもののほか、ネフローゼ症候群==28=
+2200121=[小慢] IgA nephropathy==[小慢] IgA腎症==32=MONDO:0005342
+2200122=[小慢] Mesangial proliferative glomerulonephritis=MesPGN=[小慢] メサンギウム増殖性糸球体腎炎==43=MONDO:0003139
+2200123=[小慢] Membranoproliferative glomerulonephritis=MPGN=[小慢] 膜性増殖性糸球体腎炎==41=MONDO:0002461|MONDO:0018904
+2200124=[小慢] Henoch-Schonlein purpura nephritis=Henoch-Schönlein purpura nephritis|HSPN=[小慢] 紫斑病性腎炎==37=
+2200125=[小慢] Goodpasture syndrome=Anti-glomerular basement membrane disease|Anti-GBM Nephritis=[小慢] 抗糸球体基底膜腎炎=グッドパスチャー症候群|Goodpasture症候群=36=MONDO:0009303
+2200126=[小慢] Alport syndrome=Alport's syndrome|AS=[小慢] 慢性糸球体腎炎（アルポート 症候群によるものに限る。）==42=MONDO:0018965
+2200127=[小慢] Epstein syndrome==[小慢] エプスタイン症候群=Epstein症候群=33=MONDO:0007954
+2200128=[小慢] Lupus nephritis=LN=[小慢] ループス腎炎==45=MONDO:0005556
+2200129=[小慢] Rapidly progressive glomerulonephritis due to microscopic poly-angitis=Rapidly progressive glomerulonephritis due to MPA=[小慢] 急速進行性糸球体腎炎（顕微鏡的多発血管炎によるものに限る。）==34=
+2200130=[小慢] Rapidly progressive glomerulonephritis due to granulomatosis with polyangiitis=Rapidly progressive glomerulonephritis due to GPA=[小慢] 急速進行性糸球体腎炎（多発血管炎性肉芽腫症によるものに限る。）==35=
+2200131=[小慢] Atypical hemolytic uremic syndrome=Atypical haemolytic uraemic syndrome|aHUS=[小慢] 非典型溶血性尿毒症症候群==39=MONDO:0016244
+2200132=[小慢] Nail-patella syndrome==[小慢] ネイル・パテラ症候群=爪膝蓋骨症候群|Nail-Patella症候群=38=MONDO:0008061
+2200133=[小慢] Glomerulopathy with fibronectin deposits, fibronectin nephropathy==[小慢] フィブロネクチン腎症==40=MONDO:0007671
+2200134=[小慢] Lipoprotein glomerulopathy=LPG=[小慢] リポタンパク糸球体症==44=MONDO:0012725
+2200135=[小慢] Other chronic glomerulonephritis==[小慢] 8から21までに掲げるもののほか、慢性糸球体腎炎==46=
+2200136=[小慢] Tubulointerstitial nephritis=TIN=[小慢] 慢性尿細管間質性腎炎==50=MONDO:0001085
+2200137=[小慢] Chronic pyelonephritis==[小慢] 慢性腎盂腎炎==47=MONDO:0001110
+2200138=[小慢] Amyloid nephropathy==[小慢] アミロイド腎==1=MONDO:0019065|MONDO:0007099
+2200139=[小慢] Familial juvenile hyperuricemic nephropathy=FJHN|Familial juvenile hyperuricaemic nephropathy=[小慢] 家族性若年性高尿酸血症性腎症==3=MONDO:0000608
+2200140=[小慢] Nephronophthisis=NPH|Juvenile nephronophthisis=[小慢] ネフロン癆==29=MONDO:0009728|MONDO:0019005
+2200141=[小慢] Renovascular hypertension==[小慢] 腎血管性高血圧==14=MONDO:0001105|MONDO:0006947
+2200142=[小慢] Renal vein thrombosis=RVT=[小慢] 腎静脈血栓症==15=
+2200143=[小慢] Renal arteriovenous fistula==[小慢] 腎動静脈瘻==16=
+2200144=[小慢] Renal tubular acidosis=RTA=[小慢] 尿細管性アシドーシス==18=MONDO:0001909
+2200145=[小慢] Gitelman syndrome=GS=[小慢] ギッテルマン症候群=Gitelman症候群=4=MONDO:0009904
+2200146=[小慢] Bartter syndrome=BS=[小慢] バーター症候群=Bartter症候群=30=MONDO:0015231
+2200147=[小慢] Nephro- and urolithiasis=Nephro-urolithiasis=[小慢] 腎尿管結石==17=
+2200148=[小慢] Chronic renal failure due to renal tumour==[小慢] 慢性腎不全（腎腫瘍によるものに限る。）==49=
+2200149=[小慢] Chronic renal failure due to acute tubular necrosis or renal ischemias=Chronic renal failure due to acute tubular necrosis or renal ischaemias=[小慢] 慢性腎不全（急性尿細管壊死または腎虚血によるものに限る。）==48=
+2200152=[小慢] Polycystic kidney disease=PKD|Polycystic kidney=[小慢] 多発性嚢胞腎==10=MONDO:0020642
+2200155=[小慢] Hypoplastic kidney==[小慢] 低形成腎==11=MONDO:0019637
+2200156=[小慢] Renal aplasia==[小慢] 腎無形成==8=MONDO:0018470
+2200157=[小慢] Potter syndrome=Potter sequence=[小慢] ポッター症候群=Potter症候群=12=MONDO:0001558
+2200158=[小慢] Multicystic dysplastic kidney=MCDK=[小慢] 多嚢胞性異形成腎==9=MONDO:0015988
+2200159=[小慢] Oligomeganephronia==[小慢] 寡巨大糸球体症==6=MONDO:0016407
+2200160=[小慢] Other renal malformations==[小慢] 38から44までに掲げるもののほか、腎奇形==13=
+2200178=[小慢] Obstructive uropathy==[小慢] 閉塞性尿路疾患==19=MONDO:0003330
+2200179=[小慢] Vesicoureteral reflux=VUR=[小慢] 膀胱尿管逆流==20=MONDO:0006007
+2200180=[小慢] Other urinary tract malformations==[小慢] 46及び47に掲げるもののほか、尿路奇形==21=
+2200186=[小慢] Atrophic kidney==[小慢] 萎縮腎==2=
+2200187=[小慢] Fanconi syndrome==[小慢] ファンコーニ症候群=Fanconi症候群=31=MONDO:0001083
+2200188=[小慢] Lowe syndrome=Oculocerebrorenal syndrome of Lowe|OCRL=[小慢] ロウ症候群=Lowe症候群=51=MONDO:0010645
+2200189=[小慢] Airway obstruction and stenosis==[小慢] 気道狭窄==6=
+2200197=[小慢] Bronchial asthma==[小慢] 気管支喘息==5=MONDO:0010940
+2200198=[小慢] Congenital central hypoventilation syndrome=CCHS=[小慢] 先天性中枢性低換気症候群==8=MONDO:0008852
+2200199=[小慢] Idiopathic interstitial pneumonia=IIPs=[小慢] 特発性間質性肺炎==2=MONDO:0002429
+2200200=[小慢] Congenital alveolar proteinosis=Congenital pulmonary alveolar proteinosis|C-PAP|Congenital PAP|Hereditary pulmonary alveolar proteinosis=[小慢] 先天性肺胞蛋白症=先天性PAP=1=MONDO:0012580
+2200202=[小慢] Pulmonary alveolar microlithiasis=PAM=[小慢] 肺胞微石症==3=MONDO:0009928
+2200203=[小慢] Primary ciliary dyskinesia==[小慢] 線毛機能不全症候群==10=MONDO:0016575
+2200205=[小慢] Cystic fibrosis=CF=[小慢] 嚢胞性線維症==12=MONDO:0009061
+2200206=[小慢] Bronchiectasis==[小慢] 気管支拡張症==4=MONDO:0004822
+2200207=[小慢] Idiopathic pulmonary hemosiderosis=Idiopathic pulmonary haemosiderosis=[小慢] 特発性肺ヘモジデローシス==11=MONDO:0008346
+2200208=[小慢] Chronic lung disease=CLD=[小慢] 慢性肺疾患==14=
+2200209=[小慢] Bronchiolitis obliterans=Obliterating bronchiolitis=[小慢] 閉塞性細気管支炎==13=MONDO:0015265
+2200210=[小慢] Congenital diaphragmatic hernia=CDH=[小慢] 先天性横隔膜ヘルニア==7=MONDO:0005711
+2200211=[小慢] Congenital cystic lung disease==[小慢] 先天性嚢胞性肺疾患==9=
+2200212=[小慢] Sick sinus syndrome=SSS=[小慢] 洞不全症候群==72=MONDO:0001823
+2200213=[小慢] Mobitz type II second degree atrioventricular block==[小慢] モビッツ2型ブロック=Mobitz2型ブロック =96=MONDO:0001261
+2200214=[小慢] Complete atrio-ventricular block==[小慢] 完全房室ブロック==9=MONDO:0000468|MONDO:0009326
+2200215=[小慢] Bundle branch block==[小慢] 脚ブロック==13=MONDO:0020803
+2200216=[小慢] Polymorphic ventricular premature beat==[小慢] 多源性心室期外収縮==67=MONDO:0017990
+2200217=[小慢] Supraventricular tachycardia due to WPW syndrome==[小慢] 上室頻拍（WPW症候群によるものに限る。）==26=MONDO:0008685
+2200218=[小慢] Multiple atrial tachycardia==[小慢] 多源性心房頻拍==27=MONDO:0005479|MONDO:0005310
+2200219=[小慢] Other supraventricular tachycardia==[小慢] 6及び7に掲げるもののほか、上室頻拍==28=
+2200220=[小慢] Verapamil sensitive ventricular tachycardia==[小慢] ベラパミル感受性心室頻拍==33=
+2200221=[小慢] Catecholaminergic polymorphic ventricular tachycardia=CPVT=[小慢] カテコラミン誘発多形性心室頻拍==32=MONDO:0017990
+2200222=[小慢] Other ventricular tachycardia==[小慢] 9及び10に掲げるもののほか、心室頻拍==34=
+2200225=[小慢] Atrial flutter==[小慢] 心房粗動==47=MONDO:0005310
+2200226=[小慢] Atrial fibrillation=AF=[小慢] 心房細動==46=MONDO:0004981
+2200227=[小慢] Ventricular fibrillation==[小慢] 心室細動==30=MONDO:0000190
+2200228=[小慢] Long qt syndrome=LQTS=[小慢] QT延長症候群==14=MONDO:0002442|MONDO:0019171
+2200229=[小慢] Hypertrophic cardiomyopathy=HCM=[小慢] 肥大型心筋症==88=MONDO:0005045
+2200230=[小慢] Arrhythmogenic right ventricular cardiomyopathy or dysplasia==[小慢] 不整脈源性右室心筋症==91=MONDO:0016587
+2200231=[小慢] Non-compaction of the ventricle==[小慢] 心筋緻密化障害==29=MONDO:0018901
+2200232=[小慢] Dilated cardiomyopathy=DCM=[小慢] 拡張型心筋症==4=MONDO:0005021
+2200233=[小慢] Restrictive cardiomyopathy=Restricted cardiomyopathy=[小慢] 拘束型心筋症==20=MONDO:0005201
+2200234=[小慢] Aneurysm of ventricle=Diverticulum of ventricle=[小慢] 心室瘤==35=MONDO:0006779|MONDO:0015677
+2200235=[小慢] Endocardial fibroelastosis==[小慢] 心内膜線維弾性症==45=MONDO:0009169
+2200236=[小慢] Cardiac tumor==[小慢] 心臓腫瘍==36=MONDO:0021209
+2200237=[小慢] Chronic myocarditis==[小慢] 慢性心筋炎==93=
+2200238=[小慢] Chronic pericarditis==[小慢] 慢性心膜炎==94=
+2200239=[小慢] Constrictive pericarditis==[小慢] 収縮性心膜炎==25=MONDO:0006711
+2200240=[小慢] Congenital defect of the pericardium==[小慢] 先天性心膜欠損症==53=
+2200241=[小慢] Idiopathic rupture of chordae tendineae of the mitral valve in infants==[小慢] 乳児特発性僧帽弁腱索断裂==76=
+2200242=[小慢] Abnormal origin of left coronary artery from pulmonary artery==[小慢] 左冠動脈肺動脈起始症==10=MONDO:0000811
+2200243=[小慢] Abnormal origin of right coronary artery from pulmonary artery==[小慢] 右冠動脈肺動脈起始症==11=
+2200244=[小慢] Other anomalous origin of coronary artery==[小慢] 29及び30に掲げるもののほか、冠動脈起始異常==12=
+2200245=[小慢] Coronary aneurysms complicated with Kawasaki disease==[小慢] 川崎病性冠動脈瘤==5=
+2200246=[小慢] Stenosis or atresia of coronary artery==[小慢] 冠動脈狭窄症==6=MONDO:0006715
+2200247=[小慢] Angina pectoris==[小慢] 狭心症==15=
+2200248=[小慢] Myocardial infarction==[小慢] 心筋梗塞==16=MONDO:0005068
+2200249=[小慢] Hypoplastic left heart syndrome==[小慢] 左心低形成症候群==22=MONDO:0004933
+2200250=[小慢] Single ventricle==[小慢] 単心室症==68=MONDO:0015451
+2200251=[小慢] Tricuspid atresia==[小慢] 三尖弁閉鎖症==24=MONDO:0011514
+2200252=[小慢] Pulmonary atresia with ventricular septal defect==[小慢] 心室中隔欠損を伴う肺動脈閉鎖症=極型ファロー四徴症=84=MONDO:0008343
+2200253=[小慢] Pulmonary atresia with intact ventricular septum==[小慢] 心室中隔欠損を伴わない肺動脈閉鎖症==85=MONDO:0009931
+2200254=[小慢] Tetralogy of Fallot=Fallot's Tetralogy=[小慢] ファロー四徴症=Fallot四徴症=89=MONDO:0008542
+2200255=[小慢] Taussig-Bing anomaly==[小慢] タウジッヒ・ビング奇形=Taussig-Bing奇形=97=
+2200256=[小慢] Double outlet right ventricle==[小慢] 両大血管右室起始症==98=MONDO:0018089
+2200257=[小慢] Double-outlet left ventricle==[小慢] 両大血管左室起始症==99=MONDO:0018090
+2200258=[小慢] Complete transposition of the great arteries=Complete TGA=[小慢] 完全大血管転位症==8=MONDO:0000153
+2200259=[小慢] Congenitally corrected transposition of the great arteries==[小慢] 先天性修正大血管転位症==52=MONDO:0016301
+2200260=[小慢] Ebstein's anomaly=Ebstein anomaly|Ebstein's malformation|Ebstein malformation=[小慢] エプスタイン病=Ebstein病|Ebstein奇形=3=MONDO:0009144
+2200261=[小慢] Truncus arteriosus communis==[小慢] 総動脈幹遺残症==54=MONDO:0018072
+2200262=[小慢] Aorto-pulmonary window==[小慢] 大動脈肺動脈窓==63=MONDO:0021902
+2200263=[小慢] Cor triatriatum==[小慢] 三心房心==23=MONDO:0015450
+2200264=[小慢] Patent ductus arteriosus==[小慢] 動脈管開存症==73=MONDO:0011827
+2200265=[小慢] Common atrium==[小慢] 単心房症==49=
+2200266=[小慢] Atrial septal defect, ostium secundum type==[小慢] 二次孔型心房中隔欠損症==50=MONDO:0020434|MONDO:0020439
+2200267=[小慢] Atrial septal defect, sinus venosus type==[小慢] 静脈洞型心房中隔欠損症==48=MONDO:0020436
+2200268=[小慢] Incomplete atrioventricular septal defect==[小慢] 不完全型房室中隔欠損症=不完全型心内膜床欠損症=51=MONDO:0015275
+2200269=[小慢] Complete atrioventricular septal defect==[小慢] 完全型房室中隔欠損症=完全型心内膜床欠損症=7=MONDO:0015273
+2200270=[小慢] Ventricular septal defect==[小慢] 心室中隔欠損症==31=MONDO:0002070
+2200271=[小慢] Total anomalous pulmonary venous connection==[小慢] 総肺静脈還流異常症==77=MONDO:0007130
+2200272=[小慢] Partial anomalous pulmonary venous connection==[小慢] 部分肺静脈還流異常症==78=MONDO:0020453
+2200273=[小慢] Pulmonary venous obstruction==[小慢] 肺静脈狭窄症==79=MONDO:0017864
+2200274=[小慢] Left ventricular-right atrial communication==[小慢] 左室右房交通症==21=MONDO:0020428
+2200275=[小慢] Double-chambered right ventricle==[小慢] 右室二腔症==2=MONDO:0016581
+2200276=[小慢] Subvalvular pulmonary stenosis==[小慢] 肺動脈弁下狭窄症==86=MONDO:0006935
+2200277=[小慢] Subvalvular aortic stenosis==[小慢] 大動脈弁下狭窄症==64=MONDO:0006987
+2200278=[小慢] Supravalvular pulmonary stenosis==[小慢] 肺動脈弁上狭窄症==80=MONDO:0017870
+2200279=[小慢] Peripheral pulmonary stenosis==[小慢] 末梢性肺動脈狭窄症==81=
+2200280=[小慢] Absent pulmonary valve==[小慢] 肺動脈弁欠損==87=MONDO:0020064
+2200281=[小慢] Origin of pulmonary artery from ascending aorta==[小慢] 肺動脈上行大動脈起始症==82=MONDO:0020391
+2200282=[小慢] Unilateral absence of a pulmonary artery==[小慢] 一側肺動脈欠損==1=MONDO:0020007
+2200283=[小慢] Coarctation of the aorta==[小慢] 大動脈縮窄症==59=MONDO:0007345
+2200284=[小慢] Coarctation complex==[小慢] 大動脈縮窄複合==60=MONDO:0007345|MONDO:0015446
+2200285=[小慢] Supravalvular aortic stenosis==[小慢] 大動脈弁上狭窄症==61=MONDO:0008504
+2200286=[小慢] Williams syndrome==[小慢] ウィリアムズ症候群=Williams症候群=58=MONDO:0008678
+2200287=[小慢] Other coarctation of the aorta==[小慢] 70から73までに掲げるもののほか、大動脈狭窄症==62=
+2200288=[小慢] Interruption of aortic arch complex==[小慢] 大動脈弓離断複合==57=MONDO:0009010
+2200289=[小慢] Aortic arch occlusive disease==[小慢] 大動脈弓閉塞症==56=
+2200290=[小慢] Double aortic arch disease==[小慢] 重複大動脈弓症==18=MONDO:0020413
+2200291=[小慢] Vascular sling=PA sling|Pulmonary artery sling=[小慢] 左肺動脈右肺動脈起始症==17=
+2200292=[小慢] Other vascular ring==[小慢] 77及び78に掲げるもののほか、血管輪==19=
+2200293=[小慢] Aneurysm of sinus valsalva==[小慢] バルサルバ洞動脈瘤=Valsalva洞動脈瘤=66=MONDO:0015197
+2200294=[小慢] Aortic aneurysm==[小慢] 大動脈瘤==65=MONDO:0005160
+2200295=[小慢] Pulmonary arteriovenous fistulae==[小慢] 肺動静脈瘻==70=MONDO:0009930
+2200296=[小慢] Coronary artery fistula==[小慢] 冠動脈瘻==69=MONDO:0016081
+2200297=[小慢] Other arteriovenous fistulae==[小慢] 82及び83に掲げるもののほか、動静脈瘻==71=
+2200298=[小慢] Pulmonary arterial hypertension==[小慢] 肺動脈性肺高血圧症==83=MONDO:0015924
+2200299=[小慢] Chronic cor pulmonale==[小慢] 慢性肺性心==95=MONDO:0001493
+2200300=[小慢] Tricuspid valve stenosis==[小慢] 三尖弁狭窄症==37=MONDO:0005997
+2200301=[小慢] Tricuspid valve regurgitation==[小慢] 三尖弁閉鎖不全症==38=MONDO:0002870
+2200302=[小慢] Mitral valve stenosis==[小慢] 僧帽弁狭窄症==39=MONDO:0005852
+2200303=[小慢] Mitral regurgitation==[小慢] 僧帽弁閉鎖不全症==40=MONDO:0001298
+2200304=[小慢] Pulmonary valve stenosis==[小慢] 肺動脈弁狭窄症==43=MONDO:0006936
+2200305=[小慢] Pulmonary valve regurgitation==[小慢] 肺動脈弁閉鎖不全症==44=MONDO:0001927
+2200306=[小慢] Aortic valve stenosis==[小慢] 大動脈弁狭窄症==41=MONDO:0042981
+2200307=[小慢] Aortic valve regurgitation==[小慢] 大動脈弁閉鎖不全症==42=MONDO:0005648
+2200308=[小慢] Supramitral ring==[小慢] 僧帽弁弁上輪==55=MONDO:0020400
+2200309=[小慢] Asplenia syndrome==[小慢] 無脾症候群==75=
+2200310=[小慢] Polysplenia syndrome==[小慢] 多脾症候群==74=
+2200311=[小慢] Post-Fontan syndrome==[小慢] フォンタン術後症候群=Fontan術後症候群=90=
+2200312=[小慢] Congenital hypopituitarism==[小慢] 先天性下垂体機能低下症==5=MONDO:0018762
+2200313=[小慢] Acquired hypopituitarism==[小慢] 後天性下垂体機能低下症==4=MONDO:0019832
+2200314=[小慢] Pituitary gigantism==[小慢] 下垂体性巨人症==6=MONDO:0020479
+2200315=[小慢] Acromegaly==[小慢] 先端巨大症==55=MONDO:0019933
+2200316=[小慢] Growth hormone deficiency caused by cerebral organic disorders==[小慢] 成長ホルモン分泌不全性低身長症（脳の器質的原因によるものに限る。）=GH分泌不全性低身長症（脳の器質的原因によるものに限る。）=45=
+2200318=[小慢] Growth hormone deficiency not caused by cerebral organic disorders==[小慢] 成長ホルモン分泌不全性低身長症（脳の器質的原因によるものを除く。）=GH分泌不全性低身長症（脳の器質的原因によるものを除く。）=46=
+2200320=[小慢] IGF1 insensitivity==[小慢] インスリン様成長因子1不応症=IGF-1不応症=43=MONDO:0010038
+2200321=[小慢] Growth hormone insensitivity==[小慢] 成長ホルモン不応性症候群==44=MONDO:0015892
+2200322=[小慢] Hyperprolactinemia=Hyperprolactinaemia=[小慢] 高プロラクチン血症==33=MONDO:0005804
+2200323=[小慢] Syndrome of inappropriate secretion of antidiuretic hormone=SIADH=[小慢] 抗利尿ホルモン不適切分泌症候群=バゾプレシン分泌過剰症|ADH分泌亢進症=34=MONDO:0006802
+2200324=[小慢] Central diabetes insipidus==[小慢] 中枢性尿崩症==75=MONDO:0015790
+2200325=[小慢] Adipsic hypernatremia=Adipsic hypernatraemia|Essential hypernatremia=[小慢] 口渇中枢障害を伴う高ナトリウム血症=本態性高ナトリウム血症|無飲症性高ナトリウム血症=73=MONDO:0018620
+2200326=[小慢] Nephrogenic diabetes insipidus==[小慢] 腎性尿崩症==74=MONDO:0016383
+2200327=[小慢] Cerebral salt wasting syndrome==[小慢] 中枢性塩喪失症候群==67=
+2200328=[小慢] Basedow disease=Graves' disease=[小慢] バセドウ病=Basedow病 =24=MONDO:0005364
+2200329=[小慢] Hyperthyroidism==[小慢] 甲状腺機能亢進症==23=MONDO:0004425
+2200330=[小慢] Ectoic thyroid==[小慢] 異所性甲状腺==28=MONDO:0019854
+2200331=[小慢] Thyroid agenesis=Athyreosis=[小慢] 無甲状腺症==30=MONDO:0019855
+2200332=[小慢] Thyroid-stimulating hormone deficiency==[小慢] 甲状腺刺激ホルモン分泌低下症=TSH分泌低下症=29=MONDO:0016410
+2200334=[小慢] Other congenital hypothyroidism=CH=[小慢] 17から19までに掲げるもののほか、先天性甲状腺機能低下症==31=
+2200335=[小慢] Hashimoto disease=Hashimoto’s thyroiditis=[小慢] 橋本病==26=MONDO:0007699
+2200336=[小慢] Atrophic thyroiditis=Primary myxedema=[小慢] 萎縮性甲状腺炎=特発性粘液水腫=25=MONDO:0005624
+2200337=[小慢] Other acquired hypothyroidism==[小慢] 21及び22に掲げるもののほか、後天性甲状腺機能低下症==27=
+2200341=[小慢] Resistance to thyroid hormone=Syndrome of Resistance to Thyroid Hormone|RTH=[小慢] 甲状腺ホルモン不応症==32=MONDO:0001328|MONDO:0010131
+2200342=[小慢] Adenomatous goiter=Adenomatous goitre=[小慢] 腺腫様甲状腺腫==54=
+2200343=[小慢] Hyperparathyroidism==[小慢] 副甲状腺機能亢進症==78=MONDO:0001741
+2200344=[小慢] Parathyroid gland defect==[小慢] 副甲状腺欠損症==80=
+2200345=[小慢] Hypoparathyroidism==[小慢] 副甲状腺機能低下症==79=MONDO:0001220|MONDO:0015895
+2200346=[小慢] Autoimmune polyendocrinopathy type 1==[小慢] 自己免疫性多内分泌腺症候群1型==35=MONDO:0009411
+2200347=[小慢] Autoimmune polyendocrinopathy type 2==[小慢] 自己免疫性多内分泌腺症候群2型==36=MONDO:0010012
+2200348=[小慢] Pseudopseudohypoparathyroidism==[小慢] 偽性偽性副甲状腺機能低下症==8=MONDO:0012912
+2200349=[小慢] Pseudohypoparathyroidism==[小慢] 偽性副甲状腺機能低下症==9=MONDO:0019992
+2200350=[小慢] Cushing disease=Cushing's Disease=[小慢] クッシング病=Cushing病=11=MONDO:0009050
+2200351=[小慢] Ectopic ACTH syndrome==[小慢] 異所性副腎皮質刺激ホルモン産生症候群=異所性ACTH産生症候群=10=MONDO:0043472
+2200352=[小慢] Adrenal adenoma==[小慢] 副腎腺腫==12=MONDO:0003924
+2200353=[小慢] ACTH-independent macronodular adrenal hyperplasia==[小慢] 副腎皮質結節性過形成==13=MONDO:0009049
+2200354=[小慢] Other Cushing syndrome==[小慢] 33から36までに掲げるもののほか、クッシング症候群==14=
+2200355=[小慢] Isolated ACTH deficiency==[小慢] 副腎皮質刺激ホルモン単独欠損症=ACTH単独欠損症=83=MONDO:0008720|MONDO:0016042
+2200356=[小慢] ACTH unresponsiveness=Adrenocorticotropin unresponsiveness|Adrenocorticotropic hormone unresponsiveness|Adrenocorticotropic hormone insensitivity=[小慢] 副腎皮質刺激ホルモン不応症=ACTH不応症=84=
+2200357=[小慢] Congenital adrenal hypoplasia==[小慢] 先天性副腎低形成症==82=MONDO:0010264|MONDO:0016241
+2200358=[小慢] Glucocorticoid resistance==[小慢] グルココルチコイド抵抗症==81=MONDO:0014421
+2200359=[小慢] Other chronic adrenal insufficiency=Addison disease=[小慢] 38から41までに掲げるもののほか、慢性副腎皮質機能低下症==85=MONDO:0009410|MONDO:0015129
+2200361=[小慢] Aldosteronism==[小慢] アルドステロン症==1=MONDO:0001422
+2200362=[小慢] Apparent mineralocorticoid excess syndrome=AME syndrome=[小慢] 見かけの鉱質コルチコイド過剰症候群=AME症候群=86=MONDO:0006657|MONDO:0009025
+2200363=[小慢] Liddle syndrome==[小慢] リドル症候群=Liddle症候群=87=MONDO:0008323
+2200364=[小慢] Hyporeninemic hypoaldosteronism=Hyporeninaemic hypoaldosteronism=[小慢] 低レニン性低アルドステロン症==69=
+2200365=[小慢] Aldosterone synthase deficiency==[小慢] アルドステロン合成酵素欠損症==68=MONDO:0020489
+2200366=[小慢] other hypoaldosteronism==[小慢] 46及び47に掲げるもののほか、低アルドステロン症==70=
+2200367=[小慢] Pseudohypoaldosteronism==[小慢] 偽性低アルドステロン症==7=MONDO:0018638
+2200370=[小慢] Congenital lipoid adrenal hyperplasia==[小慢] リポイド副腎過形成症=先天性リポイド過形成症=61=MONDO:0018479
+2200371=[小慢] 3 beta-hydroxysteroid dehydrogenase deficiency=3β-hydroxysteroid dehydrogenase deficiency=[小慢] 3β-ヒドロキシステロイド脱水素酵素欠損症==57=MONDO:0008727
+2200372=[小慢] 11-β-Hydroxylase deficiency=11-beta-hydroxylase deficiency=[小慢] 11β-水酸化酵素欠損症==56=MONDO:0008729
+2200373=[小慢] 17 alpha-hydroxylase deficiency=17-α-Hydroxylase deficiency=[小慢] 17α-水酸化酵素欠損症==58=MONDO:0008730
+2200374=[小慢] 21-Hydroxylase deficiency==[小慢] 21-水酸化酵素欠損症==59=MONDO:0008728
+2200375=[小慢] P450 oxidoreductase deficiency=PORD=[小慢] P450酸化還元酵素欠損症=P450オキシドレダクターゼ欠損症|POR欠損症=60=MONDO:0013310
+2200376=[小慢] Other congenital adrenal hyperplasia==[小慢] 50から55までに掲げるもののほか、先天性副腎過形成症==62=
+2200377=[小慢] Gonadotropin-dependent precocious puberty==[小慢] ゴナドトロピン依存性思春期早発症==37=MONDO:0019165
+2200378=[小慢] Non-gonadotropin-dependent precocious puberty==[小慢] ゴナドトロピン非依存性思春期早発症==38=MONDO:0015791
+2200379=[小慢] Hyperestrogenism==[小慢] エストロゲン過剰症==3=MONDO:0001946
+2200380=[小慢] Hyperandrogenism==[小慢] アンドロゲン過剰症==2=MONDO:0001324
+2200381=[小慢] Kallmann syndrome==[小慢] カルマン症候群=Kallmann症候群=71=MONDO:0018800
+2200382=[小慢] Hypogonadotropic hypogonadism==[小慢] 低ゴナドトロピン性性腺機能低下症=ゴナドトロピン分泌低下症=72=MONDO:0018555
+2200383=[小慢] Testicular dysgenesis==[小慢] 精巣形成不全==20=MONDO:0005437
+2200384=[小慢] Ovarian dysgenesis==[小慢] 卵巣形成不全==21=MONDO:0009299
+2200385=[小慢] Hypergonadotropic hypogonadism of other etiologies==[小慢] 63及び64に掲げるもののほか、高ゴナドトロピン性性腺機能低下症==22=
+2200387=[小慢] Ovotesticular dsd=Ovotesticular disorder of sex development=[小慢] 卵精巣性性分化疾患==53=MONDO:0016281
+2200388=[小慢] Mixed gonadal dysgenesis==[小慢] 混合性性腺異形成症==51=MONDO:0001969|MONDO:0015779
+2200389=[小慢] 5 alpha-reductase deficiency==[小慢] 5α-還元酵素欠損症==49=MONDO:0009923
+2200390=[小慢] 17 beta-hydroxysteroid dehydrogenase deficiency==[小慢] 17β-ヒドロキシステロイド脱水素酵素欠損症==48=MONDO:0009916
+2200391=[小慢] Androgen insensitivity syndrome==[小慢] アンドロゲン不応症==47=MONDO:0019154
+2200392=[小慢] Other disorders of sex development of 46,XY==[小慢] 68から70までに掲げるもののほか、46,XY性分化疾患==50=
+2200393=[小慢] Disorders of sex development of 46,XX=46,XY DSD=[小慢] 46,XX性分化疾患==52=MONDO:0020040|MONDO:0020042
+2200394=[小慢] Vipoma==[小慢] VIP産生腫瘍==42=MONDO:0019960
+2200395=[小慢] Gastrinoma==[小慢] ガストリノーマ==40=MONDO:0003523
+2200396=[小慢] Carcinoid syndrome==[小慢] カルチノイド症候群==41=MONDO:0005369|MONDO:0006689
+2200397=[小慢] Glucagonoma==[小慢] グルカゴノーマ==15=MONDO:0019959
+2200398=[小慢] Insulinoma==[小慢] インスリノーマ==17=MONDO:0024677
+2200399=[小慢] Congenital hyperinsulinemia=Congenital hyperinsulinaemia=[小慢] 先天性高インスリン血症==18=MONDO:0005803|MONDO:0017182
+2200400=[小慢] Other hyperinsulinemic hypoglycemia=Other hyperinsulinaemic hypoglycaemia=[小慢] 77及び78に掲げるもののほか、高インスリン血性低血糖症==19=
+2200401=[小慢] Vitamin D-dependent rickets==[小慢] ビタミンD依存性くる病==76=MONDO:0024299
+2200402=[小慢] Vitamin D-resistant osteomalacia==[小慢] ビタミンD抵抗性骨軟化症==77=MONDO:0024300
+2200403=[小慢] Primary hypophosphatemic rickets=Primary hypophosphataemic rickets=[小慢] 原発性低リン血症性くる病==16=MONDO:0024300
+2200404=[小慢] Lipodystrophy==[小慢] 脂肪萎縮症=脂肪異栄養症=39=MONDO:0006573
+2200405=[小慢] Multiple endocrine neoplasia type 1=MEN1|Wermer syndrome=[小慢] 多発性内分泌腫瘍1型=Wermer症候群|ウェルマー症候群=64=MONDO:0007540
+2200406=[小慢] Multiple endocrine neoplasia type 2=MEN 2|Sipple syndrome=[小慢] 多発性内分泌腫瘍2型=Sipple症候群|シップル症候群=65=MONDO:0008234|MONDO:0019003
+2200407=[小慢] Other multiple endocrine neoplasia==[小慢] 84及び85に掲げるもののほか、多発性内分泌腫瘍==66=
+2200409=[小慢] Polycystic ovary syndrome==[小慢] 多嚢胞性卵巣症候群==63=MONDO:0008487
+2200410=[小慢] Turner syndrome==[小慢] ターナー症候群=Turner症候群=88=MONDO:0019499
+2200411=[小慢] Prader-Willi syndrome==[小慢] プラダー・ウィリ症候群=Prader-Willi症候群=91=MONDO:0008300
+2200412=[小慢] McCune-Albright syndrome==[小慢] マッキューン・オルブライト症候群=McCune-Albright症候群=92=MONDO:0018919
+2200413=[小慢] Noonan syndrome==[小慢] ヌーナン症候群=Noonan症候群=89=MONDO:0018997
+2200414=[小慢] Bardet-Biedl syndrome==[小慢] バルデー・ビードル症候群=Bardet-Biedl症候群=90=MONDO:0015229
+2200415=[小慢] Juvenile idiopathic arthritis=JIA=[小慢] 若年性特発性関節炎==8=MONDO:0011429
+2200416=[小慢] Systemic lupus erythematosus=SLE=[小慢] 全身性エリテマトーデス==9=MONDO:0007915
+2200417=[小慢] Juvenile dermatomyositis, polymyositis=PM/DM=[小慢] 皮膚筋炎／多発性筋炎==10=
+2200420=[小慢] Sjogren's syndrome=Sjögren's syndrome=[小慢] シェーグレン症候群=Sjogren症候群=7=MONDO:0010030
+2200421=[小慢] Anti-phospholipid antibody syndrome==[小慢] 抗リン脂質抗体症候群==6=MONDO:0007140
+2200422=[小慢] Behcet's disease=Behçet disease=[小慢] ベーチェット病=Behçet病=11=MONDO:0007191
+2200423=[小慢] Takayasu arteritis=Aortitis syndrome|Takayasu's arteritis=[小慢] 高安動脈炎=大動脈炎症候群=4=MONDO:0006656|MONDO:0017991
+2200424=[小慢] Granulomatosis with polyangiitis=GPA=[小慢] 多発血管炎性肉芽腫症==5=MONDO:0012105
+2200425=[小慢] Polyangiitis nodosa=PN=[小慢] 結節性多発血管炎=結節性多発動脈炎=1=MONDO:0019170
+2200426=[小慢] Microscopic polyangiitis=MPA=[小慢] 顕微鏡的多発血管炎==2=MONDO:0019124
+2200427=[小慢] Eosinophilic granulomatosis with polyangiitis=EGPA=[小慢] 好酸球性多発血管炎性肉芽腫症==3=MONDO:0015943
+2200428=[小慢] Relapsing polychondritis=RP=[小慢] 再発性多発軟骨炎==12=MONDO:0019125
+2200429=[小慢] Systemic sclerosis=SSc=[小慢] 全身性強皮症==23=MONDO:0005100
+2200430=[小慢] Mixed connective tissue disease=MCTD=[小慢] 混合性結合組織病==24=MONDO:0005854
+2200431=[小慢] Familial Mediterranean fever=FMF=[小慢] 家族性地中海熱==14=MONDO:0018088
+2200432=[小慢] Cryopyrin-associated periodic syndrome=Cryopyrin associated periodic fever syndrome=[小慢] クリオピリン関連周期熱症候群=家族性寒冷自己炎症症候群=16=MONDO:0016168
+2200433=[小慢] TNF receptor-associated periodic fever syndrome=TRAPS=[小慢] TNF受容体関連周期性症候群==18=MONDO:0007727
+2200434=[小慢] Blau syndrome, early onset sarcoidosis=Early onset sarcoidosis=[小慢] ブラウ症候群=Blau症候群|若年発症サルコイドーシス=20=MONDO:0008523
+2200435=[小慢] Nakajo-Nishimura syndrome=Autoinflammation, lipodystrophy, and dermatosis syndrome|CANDLE syndrome|Chronic atypical neutrophilic dermatosis with lipodystrophy and elevated temperature syndrome|JMP syndrome|Joint contractures, muscle atrophy, microcytic anemia, and panniculitis induced lipodystrophy=[小慢] 中條・西村症候群=関節拘縮、筋委縮、小球性貧血、脂肪異栄養症誘因性脂肪織炎|脂肪異栄養症および発熱を伴う慢性非典型的好中球性皮膚疾患症候群=19=MONDO:0009726
+2200436=[小慢] Hyper IgD syndrome=Mevalonate kinase deficiency|MKD|HIDS=[小慢] 高IgD症候群=メバロン酸キナーゼ欠損症=17=MONDO:0009849|MONDO:0017708
+2200437=[小慢] Pyogenic arthritis, pyoderma gangrenosum, acne syndrome=PAPA syndrome|Pyogenic arthritis, pyoderma gangrenosum and acne syndrome|PAPA syndrome=[小慢] 化膿性無菌性関節炎・壊疽性膿皮症・アクネ症候群=PAPA症候群=15=MONDO:0004471|MONDO:0011462|MONDO:0018824
+2200438=[小慢] Chronic recurrent multifocal osteomyelitis=CRMO=[小慢] 慢性再発性多発性骨髄炎=CRMO=21=MONDO:0009813
+2200439=[小慢] Deficiency of the interleukin-1-receptor antagonist==[小慢] インターロイキンI受容体拮抗分子欠損症==13=MONDO:0013021
+2200440=[小慢] Other autoinflammatory diseases==[小慢] 15から23までに掲げるもののほか、自己炎症性疾患==22=
+2200460=[小慢] Diabetes mellitus type 1=Type 1 diabetes mellitus=[小慢] 1型糖尿病==1=MONDO:0005147
+2200461=[小慢] Diabetes mellitus type 2=Type 2 Diabetes Mellitus=[小慢] 2型糖尿病==6=MONDO:0005148|MONDO:0007452
+2200462=[小慢] Maturity-onset diabetes of the young=MODY=[小慢] 若年発症成人型糖尿病=MODY=4=MONDO:0018911
+2200463=[小慢] Neonatal diabetes mellitus==[小慢] 新生児糖尿病==5=MONDO:0016391
+2200464=[小慢] Insulin receptor abnormality==[小慢] インスリン受容体異常症==2=
+2200465=[小慢] Lipoatrophic diabetes==[小慢] 脂肪萎縮性糖尿病==3=MONDO:0005827|MONDO:0018883
+2200466=[小慢] Other diabetes mellitus==[小慢] 1から6までに掲げるもののほか、糖尿病==7=
+2200467=[小慢] Phenylketonuria=PKU|Hyperphenylalaninemia|HPA=[小慢] フェニルケトン尿症=高フェニルアラニン血症=17=MONDO:0009861
+2200468=[小慢] Tyrosinemia type 1=Tyrosinaemia type 1=[小慢] 高チロシン血症１型==8=MONDO:0010161
+2200469=[小慢] Tyrosinemia type 2=Tyrosinaemia type 2=[小慢] 高チロシン血症２型==9=MONDO:0010160
+2200470=[小慢] Tyrosinemia type 3=Tyrosinaemia type 3=[小慢] 高チロシン血症３型==10=MONDO:0010162
+2200471=[小慢] Hyperprolinemia=Hyperprolinaemia=[小慢] 高プロリン血症==11=MONDO:0023419
+2200472=[小慢] Prolidase deficiency=Hyperimidodipeptiduria=[小慢] プロリダーゼ欠損症==18=MONDO:0008221
+2200473=[小慢] Maple syrup urine disease=MSUD=[小慢] メープルシロップ尿症==20=MONDO:0009563
+2200474=[小慢] Homocystinuria==[小慢] ホモシスチン尿症==19=MONDO:0004737
+2200475=[小慢] Hypermethioninemia=Hypermethioninaemia=[小慢] 高メチオニン血症==12=MONDO:0000351
+2200476=[小慢] Nonketotic hyperglycinemia=Nonketotic hyperglycinaemia|NKH=[小慢] 非ケトーシス型高グリシン血症==16=MONDO:0011612
+2200477=[小慢] N-acetylglutamate synthetase deficiency=NAGS deficiency=[小慢] N-アセチルグルタミン酸合成酵素欠損症==3=MONDO:0009377
+2200478=[小慢] Carbamoylphosphate synthetase deficiency=Carbamyl phosphate synthetase deficiency=[小慢] カルバミルリン酸合成酵素欠損症==5=MONDO:0009376
+2200479=[小慢] Ornithine transcarbamylase deficiency==[小慢] オルニチントランスカルバミラーゼ欠損症==4=MONDO:0010703
+2200480=[小慢] Argininosuccinate synthetase deficiency=Citrullinaemia type 1|Citrullinemia Type 1|Type I citrullinaemia|CTLN1=[小慢] アルギニノコハク酸合成酵素欠損症=シトルリン血症I型|CTLN1=1=MONDO:0008988
+2200481=[小慢] Argininosuccinic aciduria==[小慢] アルギニノコハク酸尿症==2=MONDO:0008815
+2200482=[小慢] Hyperargininemia=Hyperargininaemia=[小慢] 高アルギニン血症==6=MONDO:0008814
+2200483=[小慢] Citrin deficiency==[小慢] シトリン欠損症==14=MONDO:0016602
+2200484=[小慢] Hyperornithinemia=Hyperornithinaemia=[小慢] 高オルニチン血症==7=MONDO:0009796
+2200487=[小慢] Hartnup disease==[小慢] ハートナップ病=Hartnup病=15=MONDO:0009324
+2200488=[小慢] Lysinuric protein intolerance==[小慢] リジン尿性蛋白不耐症==21=MONDO:0009109
+2200489=[小慢] Cystinuria==[小慢] シスチン尿症==13=MONDO:0009067
+2200490=[小慢] Other disorders of amino acid metabolism==[小慢] 1から21までに掲げるもののほか、アミノ酸代謝異常症==22=
+2200491=[小慢] Methylmalonic acidemia=Methylmalonic acidaemia|MMA=[小慢] メチルマロン酸血症==109=MONDO:0002012
+2200492=[小慢] Propionic acidemia=Propionic acidaemia|PA=[小慢] プロピオン酸血症==106=MONDO:0011628
+2200493=[小慢] Beta-ketothiolase deficiency=β-ketothiolase deficiency=[小慢] β-ケトチオラーゼ欠損症==107=MONDO:0008760
+2200494=[小慢] Isovaleric acidemia=Isovaleric acidaemia=[小慢] イソ吉草酸血症==95=MONDO:0009475
+2200495=[小慢] 3-methylcrotonyl-CoA carboxylase deficiency==[小慢] 3-メチルクロトニルCoAカルボキシラーゼ欠損症=メチルクロトニルグリシン尿症=103=MONDO:0018950
+2200496=[小慢] Methylglutaconic aciduria==[小慢] メチルグルタコン酸尿症==108=MONDO:0017359
+2200497=[小慢] 3-hydroxy-3-methylglutaric acidemia=3-hydroxy-3-methylglutaric acidaemia|HMG-CoA lyase deficiency=[小慢] 3-ヒドロキシ-3-メチルグルタル酸血症=ＨＭＧ血症=102=MONDO:0009520
+2200498=[小慢] 3-hydroxy-3-methylglutaryl-CoA synthase deficiency=HMG-CoA synthase deficiency=[小慢] 3-ヒドロキシ-3-メチルグルタリルCoA合成酵素欠損症==101=MONDO:0011614
+2200499=[小慢] Succinyl-CoA:3-ketoacid CoA transferase deficiency=SCOT deficiency=[小慢] スクシニル-CoA：3-ケト酸CoAトランスフェラーゼ欠損症=SCOT欠損症=100=MONDO:0009492
+2200500=[小慢] Multiple carboxylase deficiency==[小慢] 複合カルボキシラーゼ欠損症==105=MONDO:0015454
+2200501=[小慢] Glutaric acidemia type 1=Glutaric acidaemia type 1|Glutaryl-CoA dehydrogenase deficiency|GA1=[小慢] グルタル酸血症1型==97=MONDO:0009281
+2200502=[小慢] Glutaric acidemia type 2=Glutaric acidaemia type 2|Multiple acyl-CoA dehydrogenase deficiency|GA2|multiple acyl-CoA dehydrogenase deficiency=[小慢] グルタル酸血症２型==98=MONDO:0009282
+2200503=[小慢] Primary hyperoxaluria==[小慢] 原発性高シュウ酸尿症==99=MONDO:0002474
+2200504=[小慢] Alkaptonuria==[小慢] アルカプトン尿症==94=MONDO:0008753
+2200505=[小慢] Glycerol kinase deficiency=GKD=[小慢] グリセロール尿症==96=MONDO:0010613
+2200506=[小慢] Inborn errors of bile acid metabolism==[小慢] 先天性胆汁酸代謝異常症==104=MONDO:0019218
+2200507=[小慢] Other disorders of organic acid metabolism==[小慢] 23から38までに掲げるもののほか、有機酸代謝異常症==110=
+2200508=[小慢] Organic cation transporter 2 deficiency=OCTN2 deficiency|Carnitine uptake defect=[小慢] 全身性カルニチン欠損症==46=MONDO:0008919
+2200509=[小慢] Carnitine palmitoyltransferase I deficiency==[小慢] カルニチンパルミトイルトランスフェラーゼⅠ欠損症=CPT1欠損症=41=MONDO:0009705
+2200510=[小慢] Carnitine palmitoyltransferase II deficiency=CPT II deficiency=[小慢] カルニチンパルミトイルトランスフェラーゼII欠損症=CPT2欠損症=42=MONDO:0015515
+2200511=[小慢] Carnitine-acylcarnitine translocase deficiency=CACT deficiency=[小慢] カルニチン/アシルカルニチントランスロカーゼ欠損症=CACT欠損症=40=MONDO:0008918
+2200512=[小慢] Very-long-chain acyl-CoA dehydrogenase deficiency=VLCADD|VLCAD deficiency=[小慢] 極長鎖アシルCoA脱水素酵素欠損症==43=MONDO:0008723
+2200513=[小慢] Medium-chain acyl-CoA dehydrogenase deficiency=MCAD deficiency=[小慢] 中鎖アシルCoA脱水素酵素欠損症==48=MONDO:0008721
+2200514=[小慢] Short-chain acyl-CoA dehydrogenase deficiency=SCAD deficiency=[小慢] 短鎖アシルCoA脱水素酵素欠損症==47=MONDO:0008722
+2200515=[小慢] Trifunctional protein deficiency=mitochondrial trifunctional protein deficiency|TFP deficiency=[小慢] 三頭酵素欠損症==44=MONDO:0012172
+2200516=[小慢] 3-hydroxy acyl-CoA dehydrogenase deficiency=HADH deficiency=[小慢] 3-ヒドロキシアシルCoA脱水素酵素欠損症==45=MONDO:0009278
+2200517=[小慢] Other disorders of fatty-acid metabolism==[小慢] 40から48までに掲げるもののほか、脂肪酸代謝異常症==49=
+2200518=[小慢] Pyruvate dehydrogenase complex deficiency==[小慢] ピルビン酸脱水素酵素複合体欠損症==87=MONDO:0019169
+2200519=[小慢] Pyruvate carboxylase deficiency==[小慢] ピルビン酸カルボキシラーゼ欠損症==86=MONDO:0009949
+2200520=[小慢] Fumarase deficiency==[小慢] フマラーゼ欠損症==88=MONDO:0011730
+2200521=[小慢] Succinyl-CoA ligase deficiency==[小慢] スクシニル-CoAリガーゼ欠損症==85=
+2200522=[小慢] Mitochondrial respiratory chain disorders==[小慢] ミトコンドリア呼吸鎖複合体欠損症==89=MONDO:0017718
+2200523=[小慢] Mitochondrial DNA depletion syndrome==[小慢] ミトコンドリアDNA枯渇症候群==91=MONDO:0018158
+2200524=[小慢] Diseases due to mitochondrial DNA mutation==[小慢] ミトコンドリアDNA突然変異==92=MONDO:0016793
+2200528=[小慢] Diseases due to mitochondrial DNA deletion==[小慢] ミトコンドリアDNA欠失==90=MONDO:0018158
+2200530=[小慢] Other mitochondrial diseases==[小慢] 50から57までに掲げるもののほか、ミトコンドリア病==93=
+2200531=[小慢] Hereditary fructose intolerance=HFI=[小慢] 遺伝性フルクトース不耐症==57=MONDO:0009249
+2200532=[小慢] Galactose-1-phosphate uridyltransferase deficiency=Galactose-1-phosphate uridylyltransferase deficiency|Galactosemia type 1|GALT deficiency=[小慢] ガラクトース-1-リン酸ウリジルトランスフェラーゼ欠損症==59=MONDO:0009258
+2200533=[小慢] Galactokinase deficiency==[小慢] ガラクトキナーゼ欠損症==60=MONDO:0009255
+2200534=[小慢] UDP-galactose-4-epimerase deficiency==[小慢] ウリジル二リン酸ガラクトース-4-エピメラーゼ欠損症==58=MONDO:0009257
+2200535=[小慢] Fructose-1,6-bisphosphatase deficiency==[小慢] フルクトース-1,6-ビスホスファターゼ欠損症==70=MONDO:0009251
+2200536=[小慢] Phosphoenolpyruvate carboxykinase deficiency==[小慢] ホスホエノールピルビン酸カルボキシキナーゼ欠損症==71=MONDO:0017320
+2200537=[小慢] Glycogen synthase deficiency=Glycogen storage disease type 0|GSD0=[小慢] グリコーゲン合成酵素欠損症=糖原病0型=61=MONDO:0009414
+2200538=[小慢] Glycogen storage disease type I==[小慢] 糖原病I型==63=MONDO:0002413
+2200539=[小慢] Glycogen storage disease type III=Cori disease=[小慢] 糖原病III型=Cori病|コーリー病=64=MONDO:0009291
+2200540=[小慢] Glycogen storage disease type IV=Andersen disease=[小慢] 糖原病IV型==65=MONDO:0009292
+2200541=[小慢] Glycogen storage disease type V=McArdle disease=[小慢] 糖原病V型=McArdle病|マッカードル病=66=MONDO:0009293
+2200542=[小慢] Glycogen storage disease type VI==[小慢] 糖原病VI型=ハース病=67=MONDO:0009294
+2200543=[小慢] Glycogen storage disease type VII=Tarui disease=[小慢] 糖原病VII型==68=MONDO:0009295
+2200544=[小慢] Glycogen storage disease type IX==[小慢] 糖原病IX型==69=MONDO:0018251
+2200545=[小慢] Glucose transporter 1 deficiency=GLUT-1 deficiency|GLUT-1 DS=[小慢] グルコーストランスポーター1欠損症=GLUT1欠損症=62=MONDO:0011724
+2200546=[小慢] Other disorders of carbohydrate metabolism==[小慢] 59から73までに掲げるもののほか、糖質代謝異常症==72=
+2200547=[小慢] Mucopolysaccharidosis type I=MPS I=[小慢] ムコ多糖症I型=Hurler-Scheie症候群=129=MONDO:0001586
+2200548=[小慢] Mucopolysaccharidosis type II=MPS II|Hunter syndrome=[小慢] ムコ多糖症II型=Hunter症候群=130=MONDO:0010674
+2200549=[小慢] Mucopolysaccharidosis type III=MPS III|Sanfilippo syndrome=[小慢] ムコ多糖症III型=Sanfilippo症候群=131=MONDO:0018937
+2200550=[小慢] Mucopolysaccharidosis type IV=MPS IV|Morquio disease=[小慢] ムコ多糖症IV型=Morquio症候群=132=MONDO:0018938
+2200551=[小慢] Mucopolysaccharidosis type VI=MPS VI|Maroteaux-Lamy syndrome|Maroteaux-Lamy disease=[小慢] ムコ多糖症VI型=Maroteaux-Lamy症候群|マロトー・ラミー症候群|マロトー・ラミー病=133=MONDO:0009661
+2200552=[小慢] Mucopolysaccharidosis type VII=MPS VII|Sly disease=[小慢] ムコ多糖症VII型=Sly病=134=MONDO:0009662
+2200553=[小慢] Fucosidosis==[小慢] フコシドーシス==125=MONDO:0009254
+2200554=[小慢] Mannosidosis==[小慢] マンノシドーシス==128=
+2200555=[小慢] Aspartylglucosaminuria==[小慢] アスパルチルグルコサミン尿症==111=MONDO:0008830
+2200556=[小慢] Sialidosis==[小慢] シアリドーシス==117=MONDO:0017734
+2200557=[小慢] Galactosialidosis==[小慢] ガラクトシアリドーシス==113=MONDO:0009737
+2200558=[小慢] GM1 Gangliosidosis=Beta-galactosidase-1 deficiency=[小慢] GM1ガングリオシドーシス==118=MONDO:0018149
+2200559=[小慢] GM2 gangliosidosis==[小慢] GM2ガングリオシドーシス==119=MONDO:0017720
+2200560=[小慢] Metachromatic leukodystrophy=MLD=[小慢] 異染性白質ジストロフィー==112=MONDO:0018868
+2200561=[小慢] Niemann-Pick disease=NPD=[小慢] ニーマン・ピック病=Niemann-Pick病=122=MONDO:0001982
+2200562=[小慢] Gaucher disease==[小慢] ゴーシェ病=Gaucher病=115=MONDO:0018150
+2200563=[小慢] Fabry disease==[小慢] ファブリー病=Fabry病=124=MONDO:0010526
+2200564=[小慢] Krabbe disease==[小慢] クラッベ病=Krabbe病=114=MONDO:0009499
+2200565=[小慢] Farber disease=Farber's lipogranulomatosis|FD=[小慢] ファーバー病=Farber病=123=MONDO:0009218
+2200566=[小慢] Multiple sulfatase deficiency==[小慢] マルチプルスルファターゼ欠損症=マルチプルサルファターゼ欠損症|多発性スルファターゼ欠損症=127=MONDO:0010088
+2200567=[小慢] Mucolipidosis II=ML II|I-cell disease=[小慢] ムコリピドーシスII型=I-cell病=135=MONDO:0009650
+2200568=[小慢] Mucolipidosis III=ML III=[小慢] ムコリピドーシスIII型==136=MONDO:0018931
+2200569=[小慢] Pompe disease=glycogen storage disease type II=[小慢] ポンペ病=Pompe病=126=MONDO:0009290
+2200570=[小慢] Acid lipase deficiency=Wolman disease and cholesterol ester storage disease=[小慢] 酸性リパーゼ欠損症==116=MONDO:0019148
+2200571=[小慢] Cystinosis==[小慢] シスチン症==120=MONDO:0016239
+2200572=[小慢] Free Sialic Acid Storage Disease==[小慢] 遊離シアル酸蓄積症==137=MONDO:0019366
+2200573=[小慢] Neuronal ceroid lipofuscinoses=NCL=[小慢] 神経セロイドリポフスチン症=セロイドリポフスチノーシス=121=MONDO:0016295
+2200574=[小慢] Other lysosomal diseases==[小慢] 75から101までに掲げるもののほか、ライソゾーム病==138=
+2200575=[小慢] Peroxisome biogenesis disorders=PBD=[小慢] ペルオキシソーム形成異常症=PEX遺伝子異常症=82=MONDO:0019234
+2200576=[小慢] Adrenoleukodystrophy==[小慢] 副腎白質ジストロフィー==81=MONDO:0018544
+2200577=[小慢] Refsum disease==[小慢] レフサム病=Refsum病=83=MONDO:0009958
+2200578=[小慢] Other peroxisomal diseases==[小慢] 103から105までに掲げるもののほか、ペルオキシソーム病==84=
+2200579=[小慢] Wilson disease==[小慢] ウィルソン病=Wilson病=25=MONDO:0010200
+2200580=[小慢] Menkes disease==[小慢] メンケス病=Menkes病=29=MONDO:0010651
+2200581=[小慢] Occipital horn syndrome==[小慢] オクシピタル・ホーン症候群==26=MONDO:0010572
+2200582=[小慢] Aceruloplasminemia=Aceruloplasminaemia=[小慢] 無セルロプラスミン血症==28=MONDO:0011426
+2200583=[小慢] Sulfite oxidase deficiency==[小慢] 亜硫酸酸化酵素欠損症==24=MONDO:0010089
+2200584=[小慢] Acrodermatitis enteropathica==[小慢] 先天性腸性肢端皮膚炎==27=MONDO:0008713
+2200585=[小慢] Other disorders of metal metabolism==[小慢] 107から112までに掲げるもののほか、金属代謝異常症==30=
+2200586=[小慢] Lesch-Nyhan syndrome=Hypoxanthine-guanine phosphoribosyltransferase deficiency|HPRT deficiency=[小慢] ヒポキサンチングアニンホスホリボシルトランスフェラーゼ欠損症=レッシュ・ナイハン症候群|Lesch-Nyhan症候群=79=MONDO:0010298|MONDO:0016088
+2200587=[小慢] Adenine phosphoribosyltransferase deficiency==[小慢] アデニンホスホリボシルトランスフェラーゼ欠損症==75=MONDO:0013869
+2200588=[小慢] Xanthinuria==[小慢] キサンチン尿症==77=MONDO:0000721
+2200589=[小慢] Genetic defects in urate transporters==[小慢] 尿酸トランスポーター異常症==78=
+2200590=[小慢] Orotic aciduria==[小慢] オロト酸尿症=オロチン酸尿症=76=MONDO:0009797
+2200591=[小慢] Other disorders of purine and pyrimidine metabolism==[小慢] 114から118までに掲げるもののほか、プリンピリミジン代謝異常症==80=
+2200592=[小慢] Hereditary folate malabsorption=Congenital folate malabsorption=[小慢] 先天性葉酸吸収不全症==73=MONDO:0009238
+2200593=[小慢] Other disorders of vitamin metabolism==[小慢] 120に掲げるもののほか、ビタミン代謝異常症==74=
+2200594=[小慢] Tetrahydrobiopterin deficiency=BH4 deficiency=[小慢] ビオプテリン代謝異常症=BH4欠損症=54=MONDO:0016543
+2200595=[小慢] Tyrosine hydroxylase deficiency==[小慢] チロシン水酸化酵素欠損症==52=MONDO:0100064
+2200596=[小慢] Aromatic L-amino acid decarboxylase deficiency==[小慢] 芳香族L-アミノ酸脱炭酸酵素欠損症==55=MONDO:0012084
+2200597=[小慢] Dopamine beta hydroxylase deficiency=dopamine-β-hydroxylase deficiency=[小慢] ドーパミンβ-水酸化酵素欠損症==53=MONDO:0009123
+2200598=[小慢] Gamma-amino butyrate aminotransferase deficiency==[小慢] GABAアミノ基転移酵素欠損症==50=MONDO:0013166
+2200599=[小慢] Succinic semialdehyde dehydrogenase deficiency=SSADH deficiency|SSADHD=[小慢] コハク酸セミアルデヒド脱水素酵素欠損症=SSADH欠損症=51=MONDO:0010083
+2200600=[小慢] Other disorder of neurotransmitter metabolism and transport==[小慢] 122から127までに掲げるもののほか、神経伝達物質異常症==56=
+2200601=[小慢] Primary hyperchylomicronemia=Primary hyperchylomicronaemia=[小慢] 原発性高カイロミクロン血症==36=
+2200602=[小慢] Familial hypercholesterolemia=Familial hypercholesterolaemia|FH=[小慢] 家族性高コレステロール血症==34=MONDO:0005439|MONDO:0007750|MONDO:0016525
+2200603=[小慢] Familial combined hyperlipidemia=Familial combined hyperlipidaemia|FCHL=[小慢] 家族性複合型高脂血症==35=MONDO:0001336
+2200604=[小慢] Abetalipoproteinemia=Abetalipoproteinaemia=[小慢] 無βリポタンパク血症==38=MONDO:0008692
+2200605=[小慢] HDL deficiency=high density lipoprotein deficiency=[小慢] 高比重リポタンパク欠乏症=HDL欠乏症=37=MONDO:0017773|MONDO:0100189
+2200606=[小慢] Other disorder of lipid metabolism==[小慢] 129から133までに掲げるもののほか、脂質代謝異常症==39=
+2200607=[小慢] Ehlers-Danlos syndrome=EDS=[小慢] エーラス・ダンロス症候群=Ehlers-Danlos症候群=31=MONDO:0020066
+2200608=[小慢] Lipoid proteinosis==[小慢] リポイドタンパク症==32=MONDO:0009530
+2200609=[小慢] Other connective tissue disorder==[小慢] 135及び136に掲げるもののほか、結合組織異常症==33=
+2200610=[小慢] Congenital porphyria==[小慢] 先天性ポルフィリン症==11=MONDO:0019142
+2200611=[小慢] Alpha-1-antitrypsin deficiency=AATD|α-1-antitrypsin deficiency=[小慢] α1-アンチトリプシン欠損症==23=MONDO:0013282
+2200612=[小慢] Megaloblastic anemia=Megaloblastic anaemia=[小慢] 巨赤芽球性貧血==10=MONDO:0001700
+2200613=[小慢] Acquired pure red cell aplasia==[小慢] 後天性赤芽球癆==26=MONDO:0020338
+2200614=[小慢] Congenital red cell aplasia=Diamond-Blackfan anaemia=[小慢] 先天性赤芽球癆=ダイアモンド・ブラックファン貧血|Diamond-Blackfan貧血=27=MONDO:0015253
+2200615=[小慢] Congenital dyserythropoietic anemia=Congenital dyserythropoietic anaemia|CDA=[小慢] 先天性赤血球形成異常性貧血==43=MONDO:0019403
+2200616=[小慢] Sideroblastic anemia=Sideroblastic anaemia=[小慢] 鉄芽球性貧血==46=MONDO:0015194
+2200617=[小慢] Congenital atransferrinemia=Congenital atransferrinaemia=[小慢] 無トランスフェリン血症==50=MONDO:0008846
+2200618=[小慢] Cold agglutinin disease=CAD=[小慢] 寒冷凝集素症==21=MONDO:0018922
+2200619=[小慢] Paroxysmal cold hemoglobinuria=PCH|Paroxysmal cold haemoglobinuria=[小慢] 発作性寒冷ヘモグロビン尿症==22=MONDO:0019533
+2200620=[小慢] Other autoimmune hemolytic anemia=Other autoimmune haemolytic anaemia=[小慢] 7及び8に掲げるもののほか、自己免疫性溶血性貧血==23=
+2200621=[小慢] Paroxysmal nocturnal hemoglobinuria=PNH|Paroxysmal nocturnal haemoglobinuria=[小慢] 発作性夜間ヘモグロビン尿症==48=MONDO:0018641
+2200622=[小慢] Hereditary spherocytosis=HS=[小慢] 遺伝性球状赤血球症==1=MONDO:0019350
+2200623=[小慢] Hereditary stomatocytosis==[小慢] 口唇赤血球症==4=MONDO:0020102
+2200624=[小慢] Sickle cell disease=SCD=[小慢] 鎌状赤血球症==2=MONDO:0011382
+2200625=[小慢] Unstable hemoglobin disease=Unstable haemoglobin disease=[小慢] 不安定ヘモグロビン症==7=MONDO:0020459
+2200626=[小慢] Thalassemia=Thalassaemia=[小慢] サラセミア==5=MONDO:0000984
+2200627=[小慢] Glucose-6-phosphate dehydrogenase deficiency==[小慢] グルコース-6-リン酸脱水素酵素欠乏症==3=MONDO:0005775
+2200628=[小慢] Hemolytic anemia due to red cell pyruvate kinase deficiency=Hemolytic anaemia due to red cell pyruvate kinase deficiency=[小慢] ピルビン酸キナーゼ欠乏性貧血==6=MONDO:0009950
+2200629=[小慢] Other hereditary hemolytic anemia=Other hereditary haemolytic anaemia=[小慢] 11から17までに掲げるもののほか、遺伝性溶血性貧血==8=
+2200636=[小慢] Hemolytic anemia=Haemolytic anaemia=[小慢] 溶血性貧血（脾機能亢進症によるものに限る。）==52=MONDO:0003664
+2200638=[小慢] Microangiopathic hemolytic anemia=Microangiopathic haemolytic anaemia|MAHA=[小慢] 微小血管障害性溶血性貧血==47=
+2200643=[小慢] Polycythemia vera=Polycythaemia vera|PV=[小慢] 真性多血症==25=MONDO:0009891
+2200644=[小慢] Familial polycythemia=Familial polycythaemia=[小慢] 家族性赤血球増加症==9=MONDO:0001115
+2200645=[小慢] Immune thrombocytopenic purpura==[小慢] 免疫性血小板減少性紫斑病==16=MONDO:0008558
+2200646=[小慢] Other thrombocytopenic purpura==[小慢] 23に掲げるもののほか、血小板減少性紫斑病==17=
+2200649=[小慢] Thrombotic thrombocytopenic purpura==[小慢] 血栓性血小板減少性紫斑病==18=MONDO:0018896
+2200650=[小慢] Thrombocytopenia due to hypersplenism==[小慢] 血小板減少症（脾機能亢進症によるものに限る。）==15=
+2200651=[小慢] Congenital amegakaryocytic thrombocytopenia=CAMT|Congenital amegakaryocytic thrombocytopaenia=[小慢] 先天性無巨核球性血小板減少症==41=MONDO:0011469
+2200652=[小慢] Fanconi anemia=Fanconi anaemia=[小慢] ファンコニ貧血=Fanconi貧血=42=MONDO:0019391
+2200653=[小慢] Cyclic thrombocytopenia==[小慢] 周期性血小板減少症==24=MONDO:0008556
+2200654=[小慢] May-Hegglin anomaly==[小慢] メイ・ヘグリン異常症=May-Hegglin異常症=51=MONDO:0007954
+2200655=[小慢] Essential thrombocythemia=Essential thrombocythaemia|ET=[小慢] 本態性血小板血症==49=MONDO:0005029
+2200656=[小慢] Bernard-Soulier syndrome==[小慢] ベルナール・スーリエ症候群=Bernard-Soulier症候群=13=MONDO:0009276
+2200657=[小慢] Thrombasthenia==[小慢] 血小板無力症==12=MONDO:0010119
+2200658=[小慢] Platelet secretion defects==[小慢] 血小板放出機構異常症==11=
+2200659=[小慢] Other platelet dysfunction==[小慢] 32から34までに掲げるもののほか、血小板機能異常症==14=
+2200672=[小慢] Afibrinogenemia=Afibrinogenaemia|Congenital afibrinogenaemia|Congenital afibrinogenemia=[小慢] 先天性フィブリノーゲン欠乏症=先天性フィブリノゲン欠損症=31=MONDO:0008737
+2200673=[小慢] Hypoprothrombinemia=Hypoprothrombinaemia|Congenital hypoprothrombinaemia|Congenital hypoprothrombinemia=[小慢] 先天性プロトロンビン欠乏症==32=MONDO:0013361
+2200674=[小慢] Factor V deficiency==[小慢] 第V因子欠乏症==33=MONDO:0020586
+2200675=[小慢] Factor VII deficiency==[小慢] 第VII因子欠乏症==34=MONDO:0002244
+2200676=[小慢] Hemophilia A=Haemophilia A|Factor VIII deficiency=[小慢] 血友病Ａ=第VIII因子欠乏症=29=MONDO:0010602
+2200677=[小慢] Hemophilia B=Haemophilia B|Factor IX deficiency=[小慢] 血友病Ｂ=第IX因子欠乏症=30=MONDO:0010604
+2200678=[小慢] Factor X deficiency==[小慢] 第Ⅹ因子欠乏症==35=MONDO:0002247
+2200679=[小慢] Factor XI deficiency==[小慢] 第XI因子欠乏症==36=MONDO:0020587
+2200680=[小慢] Factor XII deficiency==[小慢] 第XII因子欠乏症==37=MONDO:0009315
+2200681=[小慢] Factor XIII deficiency==[小慢] 第XIII因子欠乏症==38=MONDO:0002241|MONDO:0018029
+2200682=[小慢] Von Willebrand disease=VWD=[小慢] フォンウィルブランド病=von Willebrand病=39=MONDO:0024574
+2200683=[小慢] Other inherited bleeding disorder==[小慢] 36から46までに掲げるもののほか、先天性血液凝固因子異常==40=
+2200689=[小慢] Protein C deficiency=Heritable thrombophilia|Congenital protein C deficiency=[小慢] 先天性プロテインC欠乏症==44=MONDO:0019145
+2200690=[小慢] Protein S deficiency=Heritable thrombophilia=[小慢] 先天性プロテインS欠乏症==45=MONDO:0002304
+2200691=[小慢] Antithrombin deficiency=Heritable thrombophilia=[小慢] 先天性アンチトロンビン欠乏症==28=
+2200692=[小慢] Myelofibrosis=MF=[小慢] 骨髄線維症==19=MONDO:0044903
+2200693=[小慢] Aplastic anemia=Aplastic anaemia=[小慢] 再生不良性貧血==20=MONDO:0015909
+2200694=[小慢] X-linked severe combined immunodeficiency=X-SCID=[小慢] X連鎖重症複合免疫不全症==30=MONDO:0010315
+2200695=[小慢] Reticular dysgenesis==[小慢] 細網異形成症==32=MONDO:0009973
+2200696=[小慢] Adenosine deaminase deficiency=ADA deficiency=[小慢] アデノシンデアミナーゼ欠損症=ADA欠損症=29=MONDO:0007064
+2200697=[小慢] Omenn syndrome==[小慢] オーメン症候群=Omenn症候群=31=MONDO:0011338
+2200698=[小慢] Purine nucleoside phosphorylase deficiency==[小慢] プリンヌクレオシドホスホリラーゼ欠損症==35=MONDO:0013171
+2200699=[小慢] CD8 deficiency==[小慢] CD8欠損症==34=MONDO:0012161
+2200700=[小慢] ZAP-70 deficiency==[小慢] ZAP-70欠損症==33=MONDO:0010023
+2200701=[小慢] MHC class I deficiency=Major histocompatibility complex class I deficiency=[小慢] MHCクラスI欠損症==36=MONDO:0011476
+2200702=[小慢] MHC class II deficiency=Major histocompatibility complex class II deficiency=[小慢] MHCクラスII欠損症==37=MONDO:0008855
+2200703=[小慢] Other combined immunodeficiencies=Combined immunodeficiencies=[小慢] 1から9までに掲げるもののほか、複合免疫不全症==38=
+2200704=[小慢] Wiskott-Aldrich syndrome==[小慢] ウィスコット・オルドリッチ症候群=Wiskott-Aldrich症候群=46=MONDO:0010518
+2200705=[小慢] Ataxia telangiectasia==[小慢] 毛細血管拡張性運動失調症==55=MONDO:0008840
+2200706=[小慢] Nijmegen breakage syndrome==[小慢] ナイミーヘン染色体不安定症候群=Nijmegen染色体不安定症候群=52=MONDO:0009623
+2200707=[小慢] Bloom syndrome==[小慢] ブルーム症候群=Bloom症候群=54=MONDO:0008876
+2200708=[小慢] ICF syndrome==[小慢] ICF症候群==45=MONDO:0000133
+2200709=[小慢] PMS2 deficiency==[小慢] PMS2異常症==53=
+2200710=[小慢] RIDDLE syndrome=Radiosensitivity, immunodeficiency dysmorphic features and learning difficulties syndrome=[小慢] RIDDLE症候群==56=MONDO:0012764
+2200711=[小慢] Schimke syndrome==[小慢] シムケ症候群=Schimke症候群=50=MONDO:0009458
+2200712=[小慢] Thymus hypoplasia=DiGeorge syndrome|22q11.2 deletion syndrome=[小慢] 胸腺低形成=22q11.2欠失症候群|ディ・ジョージ症候群=48=MONDO:0008564|MONDO:0008644|MONDO:0018923
+2200713=[小慢] Hyper-IgE syndrome==[小慢] 高IgE症候群==49=MONDO:0018037
+2200714=[小慢] Hepatic veno-occlusive disease with immunodeficiency=VODI=[小慢] 肝中心静脈閉鎖症を伴う免疫不全症==47=MONDO:0009338
+2200715=[小慢] Dyskeratosis congenita==[小慢] 先天性角化異常症=先天性角化不全症=51=MONDO:0015780
+2200716=[小慢] X-linked agammaglobulinemia=X-linked agammaglobulinaemia|XLA=[小慢] X連鎖無ガンマグロブリン血症==2=MONDO:0010421
+2200717=[小慢] Common variable immunodeficiency=CVID=[小慢] 分類不能型免疫不全症==7=MONDO:0015517
+2200718=[小慢] Hyper-IgM syndrome==[小慢] 高IgM症候群==3=MONDO:0003947
+2200719=[小慢] Isolated IgG subclass deficiency==[小慢] IgGサブクラス欠損症==1=MONDO:0013576
+2200720=[小慢] Selective IgA deficiency==[小慢] 選択的IgA欠損症==4=MONDO:0001341
+2200721=[小慢] Specific antibody deficiency with normal Ig concentrations and normal numbers of B cells==[小慢] 特異抗体産生不全症==5=MONDO:0015711
+2200722=[小慢] Transient hypogammaglobulinemia of infancy with normal numbers of B cells=Transient hypogammaglobulinaemia of infancy with normal numbers of B cells=[小慢] 乳児一過性低ガンマグロブリン血症==6=MONDO:0015698
+2200723=[小慢] Other predominantly antibody deficiencies==[小慢] 23から29までに掲げるもののほか、液性免疫不全を主とする疾患==8=
+2200724=[小慢] Chédiak-Higashi syndrome=CHS=[小慢] チェディアック・東症候群=Chediak-Higashi症候群=43=MONDO:0008963
+2200725=[小慢] X-linked lymphoproliferative syndrome=XLP=[小慢] X連鎖リンパ増殖症候群==41=MONDO:0010627
+2200726=[小慢] Autoimmune lymphoproliferative syndrome=ALPS=[小慢] 自己免疫性リンパ増殖症候群=ALPS=42=MONDO:0017979
+2200727=[小慢] Other diseases of immune dysregulation==[小慢] 31から33までに掲げるもののほか、免疫調節障害==44=
+2200745=[小慢] Severe congenital neutropenia==[小慢] 重症先天性好中球減少症==10=MONDO:0018542
+2200746=[小慢] Cyclic neutropenia==[小慢] 周期性好中球減少症==9=MONDO:0008090
+2200747=[小慢] Other congenital defects of neutrophil function==[小慢] 35及び36に掲げるもののほか、慢性の経過をたどる好中球減少症==11=
+2200755=[小慢] Leukocyte adhesion deficiency=LAD=[小慢] 白血球接着不全症==13=MONDO:0017570
+2200756=[小慢] Shwachman-Diamond syndrome=SDS=[小慢] シュワッハマン・ダイアモンド症候群=Shwachman-Diamond症候群=12=MONDO:0009833
+2200757=[小慢] Chronic granulomatous disease=CGD=[小慢] 慢性肉芽腫症==14=MONDO:0018305
+2200758=[小慢] Myeloperoxidase deficiency==[小慢] ミエロペルオキシダーゼ欠損症==15=MONDO:0009694
+2200759=[小慢] Mendelian susceptibility to mycobacterial disease=MSMD=[小慢] メンデル遺伝型マイコバクテリア易感染症==16=MONDO:0019146
+2200760=[小慢] Other congenital defects of phagocyte function==[小慢] 38から42までに掲げるもののほか、白血球機能異常==17=
+2200761=[小慢] Anhidrotic ectodermal dysplasia with immunodeficiency=EDA-ID=[小慢] 免疫不全を伴う無汗性外胚葉形成異常症==24=MONDO:0010293
+2200762=[小慢] IRAK4 deficiency==[小慢] IRAK4欠損症==21=MONDO:0011888
+2200763=[小慢] MyD88 deficiency==[小慢] MyD88欠損症==23=MONDO:0012839
+2200764=[小慢] Chronic mucocutaneous candidiasis=CMC=[小慢] 慢性皮膚粘膜カンジダ症==22=MONDO:0015279
+2200765=[小慢] Other defects in innate immunity==[小慢] 44から47までに掲げるもののほか、自然免疫異常==25=
+2200776=[小慢] Inherited deficiency of complement system==[小慢] 先天性補体欠損症==27=MONDO:0003832
+2200795=[小慢] Hereditary angioedema=C1 inhibitor deficiency=[小慢] 遺伝性血管性浮腫=C1インヒビター欠損症=26=MONDO:0007361|MONDO:0019623
+2200796=[小慢] Other inherited deficiency of complement system==[小慢] 49及び50に掲げるもののほか、先天性補体欠損症==28=
+2200805=[小慢] Hyper eosinophilic syndrome==[小慢] 好酸球増加症==18=MONDO:0015691
+2200808=[小慢] Chronic active EB virus infection=CAEBV=[小慢] 慢性活動性EBウイルス感染症==40=MONDO:0009194
+2200809=[小慢] Acquired immune deficiency syndrome=AIDS=[小慢] 後天性免疫不全症候群==19=MONDO:0012268
+2200811=[小慢] Phenocopies of primary immunodeficiency==[小慢] 後天的な免疫系障害による免疫不全症==20=
+2200812=[小慢] Chronic graft-versus-host disease=Chronic GVHD=[小慢] 慢性移植片対宿主病==39=MONDO:0020547
+2200813=[小慢] Meningoencephalocele==[小慢] 髄膜脳瘤==38=MONDO:0017079
+2200814=[小慢] Myelomeningocele==[小慢] 脊髄髄膜瘤==39=MONDO:0017069|MONDO:0019773
+2200815=[小慢] Spinal lipoma==[小慢] 脊髄脂肪腫==37=MONDO:0001790
+2200816=[小慢] Sacrococcygeal teratoma==[小慢] 仙尾部奇形腫==54=MONDO:0042727
+2200817=[小慢] Lissencephaly==[小慢] 滑脳症==81=MONDO:0018838
+2200818=[小慢] Schizencephaly==[小慢] 裂脳症==89=MONDO:0010011
+2200819=[小慢] Holoprosencephaly==[小慢] 全前脳胞症==84=MONDO:0016296
+2200820=[小慢] Septo-optic dysplasia=De Morsier syndrome|SOD=[小慢] 中隔視神経形成異常症=ドモルシア症候群|de Morsier症候群|中隔視神経異常症|中隔視神経異形成症=87=MONDO:0008428
+2200821=[小慢] Dandy-Walker syndrome==[小慢] ダンディー・ウォーカー症候群=Dandy-Walker症候群=86=MONDO:0009072
+2200822=[小慢] Congenital hydrocephalus==[小慢] 先天性水頭症==85=MONDO:0016349
+2200823=[小慢] Megalencephaly-capillary malformation syndrome=Megalencephaly-capillary malformation-polymicrogyria=[小慢] 巨脳症－毛細血管奇形症候群==83=MONDO:0011240
+2200824=[小慢] Joubert syndrome related disorders==[小慢] ジュベール症候群関連疾患=Joubert症候群関連疾患=21=MONDO:0015369
+2200825=[小慢] Rett syndrome==[小慢] レット症候群=Rett症候群=100=MONDO:0010726
+2200826=[小慢] Tuberous sclerosis complex=TSC|Tuberous sclerosis=[小慢] 結節性硬化症==24=MONDO:0001734|MONDO:0019341
+2200827=[小慢] Neurocutaneous melanosis==[小慢] 神経皮膚黒色症==26=MONDO:0009578
+2200828=[小慢] Gorlin syndrome=Basal cell nevus syndrome=[小慢] ゴーリン症候群=Gorlin症候群|基底細胞母斑症候群=25=MONDO:0007187
+2200829=[小慢] von Hippel-Lindau disease==[小慢] フォンヒッペル・リンドウ病=von Hippel-Lindau病=28=MONDO:0008667
+2200830=[小慢] Sturge-Weber syndrome==[小慢] スタージ・ウェーバー症候群=Sturge-Weber症候群=25=MONDO:0008501
+2200831=[小慢] Werner syndrome==[小慢] ウェルナー症候群=Werner症候群=56=MONDO:0010196
+2200832=[小慢] Cockayne syndrome==[小慢] コケイン症候群=Cockayne症候群=57=MONDO:0016006
+2200833=[小慢] Hutchinson-Gilford syndrome=Hutchinson-Gilford progeria syndrome|HGPS=[小慢] ハッチンソン・ギルフォード症候群==58=MONDO:0008310
+2200834=[小慢] Canavan disease==[小慢] カナバン病=Canavan病=3=MONDO:0010079
+2200835=[小慢] Alexander disease==[小慢] アレキサンダー病=Alexander病=2=MONDO:0008752
+2200836=[小慢] Congenital hypomyelinating leukodystrophy==[小慢] 先天性大脳白質形成不全症==4=MONDO:0019046
+2200837=[小慢] Megaloencephalic leukoencephalopathy with subcortical cysts==[小慢] 皮質下嚢胞をもつ大頭型白質脳症==6=MONDO:0011391
+2200838=[小慢] Vanishing white matter disease==[小慢] 白質消失病==5=MONDO:0011380
+2200839=[小慢] ATR-X syndrome=X-linked a-thalassemia/intellectual disability syndrome=[小慢] ATR-X症候群=X連鎖αサラセミア・精神遅滞症候群=8=MONDO:0010519
+2200840=[小慢] Fragile X syndrome==[小慢] 脆弱Ｘ症候群==35=MONDO:0010383
+2200841=[小慢] Inherited glycosylphosphatidylinositol deficiency=IGD=[小慢] 先天性グリコシルホスファチジルイノシトール欠損症=先天性GPI欠損症=62=MONDO:0024321
+2200842=[小慢] Cerebral creatine deficiency syndrome==[小慢] 脳クレアチン欠乏症候群==80=MONDO:0000456
+2200843=[小慢] Non-syndromic craniosynostosis==[小慢] 非症候性頭蓋骨縫合早期癒合症==33=MONDO:0015337
+2200844=[小慢] Apert syndrome==[小慢] アペール症候群=Apert症候群=31=MONDO:0007041
+2200845=[小慢] Crouzon disease==[小慢] クルーゾン病=Crouzon病=32=MONDO:0007405
+2200846=[小慢] Other craniosynostosis==[小慢] 35から37までに掲げるもののほか、重度の頭蓋骨早期癒合症==34=
+2200850=[小慢] Moyamoya disease==[小慢] もやもや病=ウィリス動脈輪閉塞症=98=MONDO:0016820
+2200851=[小慢] Cerebral arteriovenous malformation=Cerebral AVM=[小慢] 脳動静脈奇形==90=MONDO:0007154
+2200852=[小慢] Cavernous angioma of the brain and spinal cord==[小慢] 海綿状血管腫（脳脊髄）==9=MONDO:0002327
+2200853=[小慢] Spinal muscular atrophy==[小慢] 脊髄性筋萎縮症==40=MONDO:0001516
+2200854=[小慢] Congenital insensitivity to pain with anhidrosis=CIPA=[小慢] 先天性無痛無汗症==46=MONDO:0009746
+2200855=[小慢] Hereditary Motor and Sensory Neuropathy=Charcot-Marie-Tooth disease=[小慢] 遺伝性運動感覚ニューロパチー==45=MONDO:0015358|MONDO:0015626
+2200856=[小慢] Duchenne muscular dystrophy==[小慢] デュシェンヌ型筋ジストロフィー=Duchenne型筋ジストロフィー=14=MONDO:0010679
+2200857=[小慢] Emery-Dreifuss muscular dystrophy==[小慢] エメリー・ドレイフス型筋ジストロフィー=Emery-Dreifuss型筋ジストロフィー=11=MONDO:0016830
+2200858=[小慢] Limb-girdle muscular dystrophy==[小慢] 肢帯型筋ジストロフィー==13=MONDO:0016971
+2200859=[小慢] Facioscapulohumeral muscular dystrophy=FSMD=[小慢] 顔面肩甲上腕型筋ジストロフィー==12=MONDO:0001347
+2200860=[小慢] Fukuyama type congenital muscular dystrophy=FCMD=[小慢] 福山型先天性筋ジストロフィー==15=MONDO:0009678
+2200861=[小慢] Merosin-deficient congenital muscular dystrophy==[小慢] メロシン欠損型先天性筋ジストロフィー==16=MONDO:0011925
+2200862=[小慢] Ullrich congenital muscular dystrophy=Ullrich disease|Ullrich's disease=[小慢] ウルリヒ型先天性筋ジストロフィー=Ullrich型先天性筋ジストロフィー|ウルリッヒ病=10=MONDO:0000355
+2200863=[小慢] Other muscular dystrophy==[小慢] 45から51に掲げるもののほか、筋ジストロフィー==17=
+2200867=[小慢] Myotubular myopathy=X-linked centronuclear myopathy=[小慢] ミオチュブラーミオパチー==51=MONDO:0002921|MONDO:0018947
+2200868=[小慢] Congenital fiber-type disproportion myopathy==[小慢] 先天性筋線維不均等症=先天性筋線維タイプ不均等症=47=MONDO:0009711
+2200869=[小慢] Nemaline myopathy==[小慢] ネマリンミオパチー==49=MONDO:0018958
+2200870=[小慢] Central core disease==[小慢] セントラルコア病==48=MONDO:0007294
+2200871=[小慢] Multicore disease==[小慢] マルチコア病==50=MONDO:0018948
+2200872=[小慢] Minicore myopathy=Mini core disease=[小慢] ミニコア病==52=MONDO:0009712
+2200873=[小慢] Other congenital structural myopathy==[小慢] 53から58までに掲げるもののほか、先天性ミオパチー==53=
+2200876=[小慢] Schwartz-Jampel syndrome=SJS=[小慢] シュワルツ・ヤンペル症候群=Schwartz-Jampel症候群=22=MONDO:0009717
+2200877=[小慢] Severe myoclonic epilepsy in infancy=Dravet syndrome=[小慢] 乳児重症ミオクロニーてんかん=Dravet症候群|ドラベ症候群=71=MONDO:0100135
+2200878=[小慢] West syndrome=Infantile spasms=[小慢] 点頭てんかん=ウエスト症候群|West症候群=70=MONDO:0018097
+2200879=[小慢] Lennox-Gastaut syndrome==[小慢] レノックス・ガストー症候群=Lennox-Gastaut症候群=77=MONDO:0016532
+2200880=[小慢] Unverricht-Lundborg disease=ULD=[小慢] ウンフェルリヒト・ルントボルク病=Unverricht-Lundborg病=29=MONDO:0009698
+2200881=[小慢] Lafora disease==[小慢] ラフォラ病=Lafora病=30=MONDO:0009697
+2200882=[小慢] Spinocerebellar degeneration=SCD=[小慢] 脊髄小脳変性症==36=MONDO:0000437
+2200883=[小慢] Alternating hemiplegia of childhood=AHC=[小慢] 小児交互性片麻痺==23=MONDO:0016241
+2200884=[小慢] Dystonia musculorum deformans==[小慢] 変形性筋ジストニー==96=MONDO:0007492
+2200885=[小慢] Segawa syndrome=Dopamine-responsive dystonia|DRD|Hereditary progressive dystonia with diurnal variation|HPD=[小慢] 瀬川病==95=MONDO:0016812
+2200886=[小慢] Pantothenate kinase-associated neurodegeneration=PKAN=[小慢] パントテン酸キナーゼ関連神経変性症==93=MONDO:0009319
+2200887=[小慢] Infantile neuroaxonal dystrophy=INAD=[小慢] 乳児神経軸索ジストロフィー==92=MONDO:0009739
+2200888=[小慢] Infantile bilateral striatal necrosis=IBSN=[小慢] 乳児両側線条体壊死==79=MONDO:0015518
+2200889=[小慢] Congenital herpes simplex virus infection==[小慢] 先天性ヘルペスウイルス感染症==44=MONDO:0017381
+2200890=[小慢] Congenital rubella syndrome==[小慢] 先天性風疹症候群==43=MONDO:0005713|MONDO:0017361
+2200891=[小慢] Congenital cytomegalovirus infection==[小慢] 先天性サイトメガロウイルス感染症==41=MONDO:0017409
+2200892=[小慢] Congenital toxoplasmosis==[小慢] 先天性トキソプラズマ感染症==42=MONDO:0005715
+2200893=[小慢] Aicardi-Goutières Syndrome=AGS=[小慢] エカルディ・グティエール症候群=Aicardi-Goutieres症候群|Aicardi-Goutières症候群|TREX1欠損症=7=MONDO:0018866
+2200899=[小慢] Subacute sclerosing panencephalitis=SSPE=[小慢] 亜急性硬化性全脳炎==1=MONDO:0009835
+2200900=[小慢] Rasmussen's encephalitis=Rasmussen encephalitis=[小慢] ラスムッセン脳炎=Rasmussen脳炎=99=MONDO:0016019
+2200901=[小慢] Acute encephalopathy with biphasic seizures and late reduced diffusion=AESD=[小慢] 痙攣重積型急性脳症=痙攣重積型（二相性）急性脳症=18=MONDO:0018198
+2200902=[小慢] Autoimmune encephalitis==[小慢] 自己免疫介在性脳炎・脳症==19=MONDO:0020640
+2200903=[小慢] Acute encephalitis with refractory, repetitive partial seizures=AERRPS=[小慢] 難治頻回部分発作重積型急性脳炎==78=MONDO:0015584
+2200904=[小慢] Multiple sclerosis=MS=[小慢] 多発性硬化症==59=MONDO:0005301
+2200905=[小慢] Chronic inflammatory demyelinating polyneuropathy=CIDP=[小慢] 慢性炎症性脱髄性多発神経炎==97=MONDO:0002335|MONDO:0006702|MONDO:0007691
+2200906=[小慢] Myasthenia gravis=MG=[小慢] 重症筋無力症==20=MONDO:0009688
+2200907=[小慢] Lactose intolerance==[小慢] 乳糖不耐症==28=MONDO:0009116
+2200908=[小慢] Congenital sucrase-isomaltase deficiency=CSID=[小慢] ショ糖イソ麦芽糖分解酵素欠損症==25=MONDO:0009114
+2200909=[小慢] Glucose-galactose malabsorption=GGM=[小慢] 先天性グルコース・ガラクトース吸収不良症==26=MONDO:0011731
+2200910=[小慢] Enterokinase deficiency==[小慢] エンテロキナーゼ欠損症==24=MONDO:0009173
+2200911=[小慢] Amylase deficiency==[小慢] アミラーゼ欠損症==23=MONDO:0015169
+2200912=[小慢] Lipase deficiency==[小慢] リパーゼ欠損症==30=MONDO:0013700
+2200913=[小慢] Microvillus inclusion disease=Congenital microvillus atrophy=[小慢] 微絨毛封入体病=先天性微絨毛萎縮症=29=MONDO:0009635
+2200914=[小慢] Intestinal lymphangiectasia==[小慢] 腸リンパ管拡張症==27=MONDO:0018178
+2200915=[小慢] Familial adenomatous polyposis=FAP=[小慢] 家族性腺腫性ポリポーシス==39=MONDO:0021055
+2200916=[小慢] Juvenile polyposis==[小慢] 若年性ポリポーシス==40=MONDO:0017380
+2200917=[小慢] Peutz-Jeghers syndrome==[小慢] ポイツ・ジェガース症候群=Peutz-Jeghers症候群=41=MONDO:0008280
+2200918=[小慢] Cowden syndrome==[小慢] カウデン症候群=Cowden症候群=38=MONDO:0016063
+2200919=[小慢] Cyclic vomiting syndrome=CVS=[小慢] 周期性嘔吐症候群==19=MONDO:0010778
+2200920=[小慢] Ulcerative colitis==[小慢] 潰瘍性大腸炎==1=MONDO:0005101
+2200921=[小慢] Crohn's disease==[小慢] クローン病=Crohn病=2=MONDO:0005011
+2200922=[小慢] Early-onset inflammatory bowel disease==[小慢] 早期発症型炎症性腸疾患==4=
+2200923=[小慢] Autoimmune enteropathy==[小慢] 自己免疫性腸症=IPEX症候群=3=MONDO:0019787
+2200925=[小慢] Chronic nonspecific multiple ulcers of the small intestine=Chronic enteropathy associated with SLCO2A1|CEAS=[小慢] 非特異性多発性小腸潰瘍症==33=MONDO:0018766
+2200926=[小慢] Acute liver failure with hepatic coma=Hepatic coma=[小慢] 急性肝不全（昏睡型）==17=
+2200927=[小慢] Neonatal hemochromatosis=Neonatal haemochromatosis=[小慢] 新生児ヘモクロマトーシス==44=MONDO:0009275
+2200928=[小慢] Autoimmune hepatitis=AIH=[小慢] 自己免疫性肝炎==43=MONDO:0016264
+2200929=[小慢] Primary sclerosing cholangitis=PSC=[小慢] 原発性硬化性胆管炎==42=MONDO:0013433|MONDO:0018646
+2200930=[小慢] biliary atresia=BA=[小慢] 胆道閉鎖症==16=MONDO:0008867|MONDO:0028737
+2200931=[小慢] Alagille syndrome==[小慢] アラジール症候群=Alagille症候群=11=MONDO:0007318
+2200932=[小慢] Non-syndromic paucity of intrahepatic bile duct==[小慢] 肝内胆管減少症=非症候性肝内胆管減少症=12=
+2200933=[小慢] Progressive familial intrahepatic cholestasis=PFIC=[小慢] 進行性家族性肝内胆汁うっ滞症==13=MONDO:0015762
+2200934=[小慢] Caroli disease==[小慢] 先天性多発肝内胆管拡張症=カロリ病|Caroli病=14=MONDO:0010913|MONDO:0018808
+2200935=[小慢] Congenital biliary dilatation==[小慢] 先天性胆道拡張症==15=
+2200936=[小慢] Congenital hepatic fibrosis=CHF=[小慢] 先天性肝線維症==10=MONDO:0018840
+2200937=[小慢] Liver cirrhosis==[小慢] 肝硬変症==9=MONDO:0005155
+2200938=[小慢] Portal hypertension=Banti syndrome=[小慢] 門脈圧亢進症==7=MONDO:0005080|MONDO:0021969
+2200939=[小慢] Congenital absence of portal vein=CAPV=[小慢] 先天性門脈欠損症==6=
+2200940=[小慢] Congenital hepatoportal arteriovenous fistula==[小慢] 門脈・肝動脈瘻==8=
+2200941=[小慢] Crigler-Najjar syndrome==[小慢] クリグラー・ナジャー症候群=Crigler-Najjar症候群=18=MONDO:0009044
+2200942=[小慢] Hereditary pancreatitis==[小慢] 遺伝性膵炎==31=MONDO:0008185
+2200943=[小慢] Autoimmune pancreatitis==[小慢] 自己免疫性膵炎==32=MONDO:0015175
+2200944=[小慢] Short bowel syndrome==[小慢] 短腸症==22=MONDO:0015183
+2200945=[小慢] Hirschsprung disease=Hirschsprung's disease=[小慢] ヒルシュスプルング病=Hirschsprung病=36=MONDO:0018309
+2200946=[小慢] Chronic idiopathic intestinal pseudo-obstruction=CIIP=[小慢] 慢性特発性偽性腸閉塞症==37=MONDO:0017574
+2200947=[小慢] Megacystis-microcolon-intestinal hypoperistalsis syndrome=MMIHS=[小慢] 巨大膀胱短小結腸腸管蠕動不全症==34=MONDO:0007960
+2200948=[小慢] Congenital Isolated Hypoganglionosis==[小慢] 腸管神経節細胞僅少症==35=MONDO:0018309|MONDO:0008738
+2200949=[小慢] Giant hepatic hemangiomas=Giant hepatic haemangiomas|Critical infantile hepatic haemangioma=[小慢] 肝巨大血管腫=乳幼児難治性肝血管腫=5=
+2200950=[小慢] Persistent cloaca==[小慢] 総排泄腔遺残==20=MONDO:0009774
+2200951=[小慢] Cloacal exstrophy==[小慢] 総排泄腔外反症==21=MONDO:0009774
+2200952=[小慢] Coffin-Lowry syndrome==[小慢] コフィン・ローリー症候群=Coffin-Lowry症候群=15=MONDO:0010561
+2200953=[小慢] Sotos syndrome==[小慢] ソトス症候群=Sotos症候群=23=MONDO:0019349
+2200954=[小慢] Smith-Magenis syndrome==[小慢] スミス・マギニス症候群=Smith-Magenis症候群=20=MONDO:0008434
+2200955=[小慢] Rubinstein-Taybi syndrome==[小慢] ルビンシュタイン・テイビ症候群=Rubinstein-Taybi症候群=34=MONDO:0019188
+2200956=[小慢] Kabuki syndrome==[小慢] 歌舞伎症候群==11=MONDO:0016512
+2200957=[小慢] Weaver syndrome==[小慢] ウィーバー症候群=Weaver症候群=9=MONDO:0010193
+2200958=[小慢] Cornelia de Lange syndrome==[小慢] コルネリア・デランゲ症候群=Cornelia de Lange症候群=16=MONDO:0016033
+2200959=[小慢] Beckwith-Wiedemann syndrome==[小慢] ベックウィズ・ヴィーデマン症候群=Beckwith-Wiedemann症候群=29=MONDO:0007534
+2200960=[小慢] Angelman syndrome==[小慢] アンジェルマン症候群=Angelman症候群=1=MONDO:0007113
+2200961=[小慢] 5p- syndrome=5p deletion syndrome=[小慢] 5p-症候群=5p欠失症候群=2=MONDO:0007404
+2200962=[小慢] 4p- Syndrome=4p deletion syndrome=[小慢] 4p-症候群=4p欠失症候群=6=MONDO:0008684
+2200963=[小慢] Trisomy 18=18 trisomy syndrome|Chromosome 18 duplication|Edwards syndrome=[小慢] 18トリソミー症候群==4=MONDO:0018071
+2200964=[小慢] Trisomy 13=13 trisomy syndrome|Patau syndrome=[小慢] 13トリソミー症候群==3=MONDO:0018068
+2200965=[小慢] Down syndrome=Trisomy 21=[小慢] ダウン症候群=Down症候群=5=MONDO:0008608
+2200966=[小慢] Other chromosomal abnormalities=Autosome=[小慢] 9から14までに掲げるもののほか、常染色体異常==7=
+2200967=[小慢] CFC Syndrome=Cardio-facio-cutaneuos syndrome=[小慢] CFC症候群=cardio-facio-cutaneous症候群|心臓・顔・皮膚症候群=17=MONDO:0015280
+2200968=[小慢] Marfan syndrome==[小慢] マルファン症候群=Marfan症候群=30=MONDO:0007947
+2200969=[小慢] Loeys-Dietz syndrome==[小慢] ロイス・ディーツ症候群==35=MONDO:0018954
+2200970=[小慢] Camurati-Engelmann disease==[小慢] カムラティ・エンゲルマン症候群==12=MONDO:0007542
+2200971=[小慢] Costello syndrome==[小慢] コステロ症候群=Costello症候群=13=MONDO:0009026
+2200972=[小慢] CHARGE syndrome==[小慢] チャージ症候群=CHARGE症候群=25=MONDO:0008965
+2200973=[小慢] Hallermann-Streiff syndrome=HSS|Hallermann-Streiff-Francois syndrome|Oculo-mandibulo-facial syndrome=[小慢] ハーラマン・ストライフ症候群=眼・下顎・顔症候群=26=MONDO:0009318
+2200974=[小慢] Incontinentia pigmenti=Bloch-Sulzberger syndrome=[小慢] 色素失調症==18=MONDO:0010631
+2200975=[小慢] Antley-Bixler syndrome=Antley-Bixler Syndrome Phenotype=[小慢] アントレー・ビクスラー症候群=Antley-Bixler症候群=8=MONDO:0008803
+2200976=[小慢] Pfeiffer syndrome==[小慢] ファイファー症候群=Pfeiffer症候群=28=MONDO:0005810|MONDO:0007043
+2200977=[小慢] Coffin-Siris syndrome==[小慢] コフィン・シリス症候群=Coffin-Siris症候群=14=MONDO:0015452
+2200978=[小慢] Simpson-Golabi-Behmel syndrome=SGS|SGBS=[小慢] シンプソン・ゴラビ・ベーメル症候群=Simpson-Golabi-Behmel症候群=19=MONDO:0010731
+2200979=[小慢] Smith-Lemli-Opitz syndrome==[小慢] スミス・レムリ・オピッツ症候群=Smith-Lemli-Opitz症候群=21=MONDO:0010035
+2200980=[小慢] Moebius syndrome=Möbius syndrome=[小慢] メビウス症候群=Moebius症候群=31=MONDO:0008006
+2200981=[小慢] Mowat-Wilson syndrome==[小慢] モワット・ウィルソン症候群=Mowat-Wilson症候群=32=MONDO:0009341
+2200982=[小慢] Young-Simpson syndrome==[小慢] ヤング・シンプソン症候群=Young-Simpson症候群=33=MONDO:0011365
+2200983=[小慢] VATER syndrome==[小慢] VATER症候群==27=MONDO:0008642
+2200984=[小慢] MECP2 duplication syndrome==[小慢] MECP２重複症候群==10=MONDO:0010283
+2200985=[小慢] Takenouchi-Kosaki syndrome==[小慢] 武内・小崎症候群==24=MONDO:0014757
+2200986=[小慢] Oculocutaneous albinism=OCA=[小慢] 眼皮膚白皮症=先天性白皮症=1=MONDO:0018910
+2200987=[小慢] Keratinopathic ichthyosis==[小慢] ケラチン症性魚鱗癬==5=MONDO:0017266
+2200991=[小慢] Autosomal recessive congenital ichthyosis==[小慢] 常染色体劣性遺伝性魚鱗癬==7=MONDO:0017265
+2200992=[小慢] Harlequin ichthyosis==[小慢] 道化師様魚鱗癬==8=MONDO:0009443
+2200993=[小慢] Netherton syndrome==[小慢] ネザートン症候群=Netherton症候群=9=MONDO:0009735
+2200994=[小慢] Sjögren-Larsson syndrome=Sjogren-Larsson syndrome=[小慢] シェーグレン・ラルソン症候群=Sjögren-Larsson症候群=6=MONDO:0010031
+2200995=[小慢] Other congenital ichthyoses==[小慢] 2から6までに掲げるもののほか、先天性魚鱗癬==10=
+2201000=[小慢] Epidermolysis bullosa==[小慢] 表皮水疱症==14=MONDO:0006541
+2201001=[小慢] Pustular psoriasis=Generalized pustular psoriasis|GPP=[小慢] 膿疱性乾癬（汎発型）==12=MONDO:0022205
+2201002=[小慢] Xeroderma pigmentosum=XP=[小慢] 色素性乾皮症==3=MONDO:0019600
+2201003=[小慢] von Recklinghausen's disease=Neurofibromatosis type 1=[小慢] レックリングハウゼン病=神経線維腫症I型|Recklinghausen病=16=MONDO:0018975|MONDO:0021061
+2201004=[小慢] Pachydermoperiostosis=PDP=[小慢] 肥厚性皮膚骨膜症==13=MONDO:0009799|MONDO:0016620
+2201005=[小慢] Anhidrotic ectodermal dysplasia==[小慢] 無汗性外胚葉形成不全==15=MONDO:0016535
+2201006=[小慢] Stevens-Johnson syndrome=Toxic epidermal necrolysis|SJS=[小慢] スティーヴンス・ジョンソン症候群=Stevens-Johnson症候群|皮膚粘膜眼症候群=4=MONDO:0018229
+2201008=[小慢] Thoracic insufficiency syndrome==[小慢] 胸郭不全症候群==1=MONDO:0015929
+2201009=[小慢] Achondroplasia==[小慢] 軟骨無形成症==14=MONDO:0007037
+2201010=[小慢] Hypochondroplasia==[小慢] 軟骨低形成症==13=MONDO:0007793
+2201011=[小慢] Osteogenesis imperfecta==[小慢] 骨形成不全症==3=MONDO:0019019
+2201012=[小慢] Hypophosphatasia==[小慢] 低ホスファターゼ症==9=MONDO:0018570
+2201013=[小慢] Osteopetrosis==[小慢] 大理石骨病==6=MONDO:0017198
+2201014=[小慢] Multiple cartilaginous exostosis=Hereditary multiple exostosis=[小慢] 多発性軟骨性外骨腫症==8=MONDO:0005508
+2201015=[小慢] Enchondromatosis=Ollier disease|Osteochondromatosis|Dyschondroplasia=[小慢] 内軟骨腫症==12=MONDO:0005508|MONDO:0008145
+2201016=[小慢] Type II collagenopathy==[小慢] 2型コラーゲン異常症関連疾患==15=MONDO:0015627|MONDO:0016068|MONDO:0022800
+2201017=[小慢] Chondrodysplasia punctata==[小慢] 点状軟骨異形成症==11=MONDO:0019701
+2201018=[小慢] Pseudoachondroplasia==[小慢] 偽性軟骨無形成症==2=MONDO:0008322
+2201019=[小慢] Larsen syndrome==[小慢] ラーセン症候群=Larsen症候群=17=MONDO:0007875
+2201020=[小慢] Fibrodysplasia ossificans progressiva=FOP=[小慢] 進行性骨化性線維異形成症==5=MONDO:0003964|MONDO:0007606
+2201021=[小慢] Transient receptor potential cation channel, vanilloid subfamily, member 4 -associated disorders=TRPV4-associated disorders=[小慢] ＴＲＰＶ４異常症==10=MONDO:0018240
+2201022=[小慢] Osteosclerotic diseases==[小慢] 骨硬化性疾患==4=MONDO:0002933
+2201026=[小慢] Beals syndrome=Congenital contractural arachnodactyly=[小慢] ビールズ症候群=Beals症候群|遠位型多発性関節拘縮症9型=16=MONDO:0007363
+2201027=[小慢] Blue rubber bleb nevus syndrome==[小慢] 青色ゴムまり様母斑症候群=Bean症候群=3=MONDO:0007203
+2201028=[小慢] Gigantic venous malformation=Huge venous malformation=[小慢] 巨大静脈奇形==4=
+2201029=[小慢] Huge arteriovenous malformation=Gigantic arteriovenous malformation=[小慢] 巨大動静脈奇形==5=
+2201030=[小慢] Klippel-Trenaunay-Weber syndrome=Klippel–Trénaunay syndrome=[小慢] クリッペル・トレノネー・ウェーバー症候群=Klippel-Trenanay-Weber症候群=6=MONDO:0007864
+2201031=[小慢] Primary lymphedema==[小慢] 原発性リンパ浮腫==7=MONDO:0019175
+2201032=[小慢] Lymphangioma==[小慢] リンパ管腫==8=MONDO:0002013
+2201033=[小慢] Lymphangiomatosis==[小慢] リンパ管腫症==9=MONDO:0015408
+2201034=[小慢] Hereditary hemorrhagic telangiectasia=HHT|Osler-Weber-Rendu disease|Hereditary haemorrhagic telangiectasia=[小慢] 遺伝性出血性末梢血管拡張症=オスラー病=1=MONDO:0019180
+2201035=[小慢] Kasabach-Merritt syndrome==[小慢] カサバッハ・メリット症候群 =Kasabach-Merritt症候群 =2=MONDO:0007708
+2201385=[小慢] Galloway-Mowat syndrome==[小慢] ギャロウェイ・モワト症候群=Galloway-Mowat症候群=22=MONDO:0009627
+2201386=[小慢] Autosomal dominant tubulointerstitial kidney disease=ADTKD=[小慢] 常染色体優性尿細管間質性腎疾患==5=MONDO:0008264
+2201391=[小慢] Branchio-oto-renal syndrome=BOR syndrome=[小慢] 鰓耳腎症候群=BOR症候群=7=MONDO:0007029|MONDO:0018878
+2201392=[小慢] Holt-Oram syndrome==[小慢] ホルト・オーラム症候群=Holt-Oram症候群|Heart-Hand症候群I型|心臓-手症候群I型=92=MONDO:0007732
+2201393=[小慢] CASK abnormality==[小慢] ＣＡＳＫ異常症==82=MONDO:0010417
+2201394=[小慢] Hemimegaloencephaly==[小慢] 片側巨脳症==88=MONDO:0020492
+2201395=[小慢] DDX3X-related neurodevelopmental disorder==[小慢] ＤＤＸ３Ｘ関連神経発達異常症==60=MONDO:0010497
+2201396=[小慢] Congenital disorders of glycosylation=CDG=[小慢] 先天性グリコシル化異常症==61=MONDO:0015286
+2201397=[小慢] Aicardi syndrome==[小慢] アイカルディ症候群=Aicardi症候群=63=MONDO:0010568
+2201398=[小慢] Ohtahara syndrome==[小慢] 大田原症候群==64=MONDO:0100062
+2201399=[小慢] Ring chromosome 20 syndrome==[小慢] 環状20番染色体症候群==65=MONDO:0015436
+2201400=[小慢] GRIN2B-related neurodevelopmental disorder==[小慢] ＧＲＩＮ２Ｂ関連神経発達異常症==66=MONDO:0014505|MONDO:0035122|MONDO:0013509
+2201401=[小慢] Hypothalamic hamartoma syndrome==[小慢] 視床下部過誤腫症候群==67=MONDO:0009436
+2201402=[小慢] Epileptic encephalopathy with continuous spike-and-wave during sleep==[小慢] 徐波睡眠期持続性棘徐波を示すてんかん性脳症==68=MONDO:0019123|MONDO:0022858
+2201403=[小慢] Early myoclonic encephalopathy==[小慢] 早期ミオクロニー脳症==69=MONDO:0016022
+2201404=[小慢] PCDH19-related syndrome==[小慢] ＰＣＤＨ19関連症候群==72=MONDO:0010246
+2201405=[小慢] PURA-related neurodevelopmental disorders==[小慢] ＰＵＲＡ関連神経発達異常症==73=MONDO:0018580
+2201406=[小慢] Epilepsy with myoclonic absence==[小慢] ミオクロニー欠神てんかん==74=MONDO:0019487
+2201407=[小慢] Epilepsy with myoclonic-atonic seizures==[小慢] ミオクロニー脱力発作を伴うてんかん==75=MONDO:0016025
+2201408=[小慢] Epilepsy of infancy with migrating focal seizures=EIMFS=[小慢] 遊走性焦点発作を伴う乳児てんかん==76=MONDO:0017385|MONDO:0100025
+2201409=[小慢] Vitamine B6-dependent epilepsy==[小慢] ビタミンＢ６依存性てんかん==94=MONDO:0009945
+2201413=[小慢] Bilirubin encephalopathy in preterm infants==[小慢] 早産児ビリルビン脳症==55=
+2201414=[小慢] WDR45 associated neurodegeneration=SENDA/BPAN=[小慢] ＷＤＲ45関連神経変性症==91=MONDO:0010476
+2201415=[小慢] ==[小慢] 染色体又は遺伝子異常を伴い特徴的な形態的異常の組み合わせを呈する症候群（厚生労働省健康局長の定めるものに限る。）==22=
+2201420=[小慢] Localized scleroderma/morphea==[小慢] 限局性強皮症==2=MONDO:0019562
+2201426=[小慢] Thanatophoric dysplasia==[小慢] タナトフォリック骨異形成症==7=MONDO:0017042

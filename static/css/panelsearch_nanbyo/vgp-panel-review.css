@@ -1,0 +1,300 @@
+#panel_review_div {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 800px;
+	max-height: 100%;
+	background-color: #FFF;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+	box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2), 0 -2px 4px rgba(0, 0, 0, 0.2);
+	display: none;
+	flex-direction: column;
+	overflow: hidden;
+	z-index: 100;
+}
+
+#panel_review_div_resizer {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 10px;
+	height: 100%;
+	cursor: ew-resize;
+	z-index: 101;
+}
+
+#panel_review_titleDiv {
+	background-color: #FFF;
+	color: #276749;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#panel_review_titleDiv .title {
+  color: #276749;
+  font-size: 1.3rem;
+  font-weight: 500;
+  user-select: none;
+  margin-left: 5px;
+}
+
+#panel_review_titleDiv .title span{
+	font-weight: bold;
+	vertical-align: sub;
+	margin-bottom: 1px;
+	margin-left: -4px;
+}
+
+#panel_review_titleDiv .buttons {
+	display: flex;
+	gap: 5px;
+}
+
+#panel_review_titleDiv .buttons span {
+	color: #276749;
+	border: 1px solid #276749;
+	font-weight: 400;
+	font-size: 18px;
+	border-radius: 50%;
+	padding: 6px;
+	cursor: pointer;
+}
+
+#panel_review_titleDiv button:hover {
+	background-color: #f1f1f1;
+}
+
+#panel_review_formContainer {
+	flex: 1;
+	padding: 15px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#panel_review_div.minimized {
+	width: 300px;
+	height: auto;
+	bottom: 0;
+	right: 0;
+	border-radius: 5px 5px 0 0;
+}
+
+#panel_review_div.minimized #panel_review_formContainer {
+	display: none;
+}
+
+#panel_review_div.minimized #panel_review_titleDiv {
+	justify-content: center;
+}
+
+#panel_review_div.minimized #panel_review_titleDiv .title {
+	flex: 1;
+	text-align: center;
+}
+
+
+#panel_review_form,#panel_review_form_input_wrapper,#panel_review_form_submit_wrapper{
+	width: 100%;
+}
+
+#panel_review_form_input_wrapper .input_subwrapper{flex: 1;}
+#panel_review_form_input_wrapper .input_subwrapper.left {margin-right: 5px;}
+#panel_review_form_input_wrapper .input_subwrapper.right {margin-left: 5px;}
+#panel_review_form_input_wrapper.Gene .input_subwrapper.left {margin-right: 0px;}
+#panel_review_form_input_wrapper.Gene .input_subwrapper.right{display: none;}
+
+
+
+
+#panel_review_form_input_wrapper .input_subwrapper .form-group {
+	margin-bottom: 0.5rem;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#panel_review_form_input_wrapper .input_subwrapper .form-group label{
+	margin: 0px;
+	display: block;
+	color: #276749;
+	font-size: 1.0rem;
+	font-weight:500;
+	user-select: none;
+}
+#panel_review_form_input_wrapper .input_subwrapper .form-group label mark{
+  color: #FF8900; 
+  background-color: #FFF;
+  display: inline-block;
+  height: 20px;
+}
+
+#panel_review_form_input_wrapper .input_subwrapper .form-group input::placeholder{color: #CCC;}
+
+.form-control{box-sizing: border-box;}
+
+.review-dropdown-wrapper {
+    display: block;
+	box-sizing: border-box;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.review-dropdown-wrapper.static {
+  padding-left: 10px;
+  align-content: center;
+  border: 0px;
+}
+.token-input-container.static{
+  border: 0px;
+}
+.review-dropdown-wrapper .review-dropdown-btn{
+	background-color: #FFF;
+	border: 0;
+	border-radius: 5px;
+	padding-left: 10px;
+	width: 100%;
+	height: 100%;
+	text-align:left;
+}
+
+.is-empty {
+	color: #CCC;
+}
+
+/*
+.input_subwrapper .form-group .form-control:focus,
+.input_subwrapper .form-group .token-input-container:focus,
+.review-dropdown-wrapper .review-dropdown-btn:focus{
+*/
+.form-control:focus,
+.token-input-container:focus,
+.review-dropdown-btn:focus{
+	outline: none;
+	border-color: #276749;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 93, 22, 0.6);
+}
+
+.review-dropdown-wrapper .review-dropdown-btn::after {
+	display: unset;
+	margin-left: unset;
+	vertical-align: unset;
+	position: absolute;
+	top: 45%;
+	right: 10px;
+	border-top: 0.4em solid #276749;
+}
+
+.review-dropdown-wrapper .dropdown-menu{
+	width: 100%;
+	padding: 0;
+	max-height: 500px;
+	overflow-y: auto;
+}
+
+.review-dropdown-wrapper .dropdown-menu .dropdown-item{
+	padding-left:1.0rem;
+	outline: none;
+}
+.review-dropdown-wrapper .dropdown-menu .dropdown-item.selected{
+	background-color: #276749; 
+	color: #FFF;
+}
+.review-dropdown-wrapper .dropdown-menu .dropdown-item:hover,
+.review-dropdown-wrapper .dropdown-menu .dropdown-item:focus{
+	background-color: #276749; 
+	color: #FFF;
+}
+
+
+#btn_phenotypemodal_trigger, #btn_phenotypemodal_trigger_definition{
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+	background-color: #FFF;
+	padding: 6px 1.0rem 6px 10px;
+	height: 100%;
+	width: 100%;
+	text-align:left;
+	display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#btn_phenotypemodal_trigger:focus{
+	border-color: #276749;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 93, 22, 0.6);
+}
+
+#input_review_comment{
+	resize: none;
+	height: 180px;
+}
+
+#input_definition_comment{
+	resize:        none;
+	overflow:      hidden;
+}
+
+#panel_review_form_submit_wrapper{
+	text-align:right;
+}
+
+#btn_vgp_review_submit {
+	font-size: 1.1rem;
+	background-color: #005D16;
+	color: #FFF;
+	padding: 3px 50px 3px 50px;
+	border-radius: 20px;
+	border: 1px solid #005D16;
+	margin-top: 0.5rem;
+}
+
+#btn_vgp_review_submit:hover{
+  background-color: #FFF;
+  color: #005D16;
+}
+
+/* modification for phenotype treeview in the input modal */
+.ztree li span.button.chk.checkbox_false_part {background-position:0 0 !important;}
+.ztree li span.button.chk.checkbox_true_part {background-position:-14px 0 !important; };
+
+
+#confirmationModal-list-group li.list-group-item span.list-group-item-title{
+	width:     170px;
+	min-width: 170px;
+	max-width: 170px;
+}
+
+.treeview-container .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 20px;
+  font-weight: 450;
+  cursor: pointer;
+}
+#tokenInput_inheritance_definition,#tokenInput_inheritance{padding-right: 20px;}
+#tokenInput_inheritance_definition::after,#tokenInput_inheritance::after{
+    display: unset;
+    margin-left: unset;
+    vertical-align: unset;
+content: "";
+  position: absolute;
+  top: 45%;
+  right: 10px;
+  border-top: 0.4em solid #276749;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}

@@ -1,0 +1,394 @@
+# Japanese translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid "base_title"
+msgstr "希少・遺伝性疾患検索システム : PubCaseFinder"
+
+msgid "base_description"
+msgstr "患者の症状を入力すると、約7000件の遺伝性疾患と約4000の希少疾患を関連性の高い順にランキングする希少・遺伝性疾患検索システム。疾患毎に過去の症例も合わせて検索できます。"
+
+msgid "Update"
+msgstr "最終更新日：2018年9月25日"
+
+msgid "About"
+msgstr "ヘルプ"
+
+msgid "Datasets"
+msgstr "データセット"
+
+msgid "History"
+msgstr "更新履歴"
+
+msgid "TermsOfService"
+msgstr "利用規約"
+
+msgid "Contact"
+msgstr "お問い合わせ"
+
+msgid "index_Q_tooltip"
+msgstr "患者の徴候・症状を入力"
+
+msgid "index_textbox_title"
+msgstr "患者の <b>徴候</b>・<b>症状</b> を入力"
+
+msgid "index_button_phenotouch"
+msgstr "ヒト3Dモデル"
+
+msgid "index_button_search"
+msgstr "疾患を検索"
+
+msgid "index_button_clear"
+msgstr "クリア"
+
+msgid "index_Sample"
+msgstr "<font size="4">小顎、尺骨低形成、短い指、上口唇裂、眼瞼裂</font>"
+
+msgid "index_Sample_1_id"
+msgstr "HP:0000347_ja"
+
+msgid "index_Sample_1_name"
+msgstr "小顎"
+
+msgid "index_Sample_2_id"
+msgstr "HP:0003022_ja"
+
+msgid "index_Sample_2_name"
+msgstr "尺骨低形成"
+
+msgid "index_Sample_3_id"
+msgstr "HP:0009381_ja"
+
+msgid "index_Sample_3_name"
+msgstr "短い指"
+
+msgid "index_Sample_4_id"
+msgstr "HP:0000204_ja"
+
+msgid "index_Sample_4_name"
+msgstr "上口唇裂"
+
+msgid "index_Sample_5_id"
+msgstr "HP:0000625_ja"
+
+msgid "index_Sample_5_name"
+msgstr "眼瞼裂"
+
+msgid "index_usage_title_sub"
+msgstr "「PubCaseFinder」は疾患情報および症例の検索に役立つ"
+
+msgid "index_usage_title"
+msgstr "稀少・遺伝性疾患検索システム"
+
+msgid "index_usage_1_title"
+msgstr "疾患を探す"
+
+msgid "index_usage_1_desc"
+msgstr "入力した症状と関連性の高い順に，疾患をランキング形式で提示します．"
+
+msgid "index_usage_2_title"
+msgstr "症例報告を探す"
+
+msgid "index_usage_2_desc"
+msgstr "日本語症例報告と英語症例報告を疾患ごとに検索できます．"
+
+msgid "index_usage_3_title"
+msgstr "公開症例を探す"
+
+msgid "index_usage_3_desc"
+msgstr "インターネット上で公開されている19,000件の症例を検索できます．"
+
+msgid "index_usage_4_title"
+msgstr "簡単な症状入力"
+
+msgid "index_usage_4_desc"
+msgstr "膨大な症状群から，適切な症状を探すために便利な検索機能を提供します．"
+
+msgid "index_usage_5_title"
+msgstr "診療録から入力"
+
+msgid "index_usage_5_desc"
+msgstr "日本語診療録から症状を自動抽出し，検索を実行する機能を提供します．"
+
+msgid "index_usage_6_title"
+msgstr "多言語対応"
+
+msgid "index_usage_6_desc"
+msgstr "日本語と英語に対応．今後，より多くの言語に対応する予定です．"
+
+msgid "index_photo_title_sub"
+msgstr "稀少・遺伝性疾患のチーム医療を推進する"
+
+msgid "index_photo_title"
+msgstr "医療者のための検索システム"
+
+msgid "index_photo_how"
+msgstr "使用方法"
+
+msgid "index_stat_genetic"
+msgstr "遺伝性疾患"
+
+msgid "index_stat_rare"
+msgstr "稀少疾患"
+
+msgid "index_stat_gene"
+msgstr "遺伝子"
+
+msgid "index_stat_cs"
+msgstr "症例報告"
+
+msgid "index_stat_udp"
+msgstr "症例"
+
+msgid "index_stat_list"
+msgstr "一覧"
+
+msgid "index_label_intro_title"
+msgstr "<b>希少疾患・症例を効率良く検索できる希少・遺伝性疾患検索システム</b>"
+
+msgid "index_label_citation"
+msgstr "When you use PubCaseFinder in your publications, please cite:"
+
+msgid "search_textbox_title_narrowdown"
+msgstr "結果を絞り込む"
+
+msgid "search_label_upload_hpo"
+msgstr "+ Upload File (HPO ID)"
+
+msgid "search_label_upload_gene"
+msgstr "+ Upload File (Gene Symbol or Entrez Gene ID or Ensembl Gene ID)"
+
+msgid "search_tab_Orphanet"
+msgstr "<div style="letter-spacing: 0.2em; line-height: 2em;"><span class="icon-orphanet"></span><b>希少疾患</b></div>"
+
+msgid "search_tab_OMIM"
+msgstr "<div style="letter-spacing: 0.2em; line-height: 2em;"><span class="icon-omim"></span><b>遺伝性疾患</b></div>"
+
+msgid "search_tab_gene"
+msgstr "<div style="letter-spacing: 0.2em; line-height: 2em;"><span class="icon-cause"></span><b>疾患原因遺伝子</b></div>"
+
+msgid "search_tab_case"
+msgstr "<div style="letter-spacing: 0.2em; line-height: 2em;"><span class="icon-users"></span><b>公開症例</b></div>"
+
+msgid "search_label_total"
+msgstr "合計"
+
+msgid "search_button_download_summary"
+msgstr "結果の要約をダウンロード"
+
+msgid "search_button_download_Orphanet"
+msgstr "希少疾患 ( Orphanet ) の結果をダウンロード"
+
+msgid "search_button_download_OMIM"
+msgstr "遺伝性疾患 ( OMIM ) の結果をダウンロード"
+
+msgid "search_button_download_gene"
+msgstr "疾患原因遺伝子の結果をダウンロード"
+
+msgid "search_button_download"
+msgstr "結果をダウンロード"
+
+msgid "search_label_disease"
+msgstr "件"
+
+msgid "search_label_case"
+msgstr "症例"
+
+msgid "search_label_perpage"
+msgstr "（表示件数）"
+
+msgid "search_label_MatchedPhenotype"
+msgstr "対応する徴候・症状"
+
+msgid "search_label_MatchedGene"
+msgstr "対応する遺伝子"
+
+msgid "search_label_CausativeGene"
+msgstr "疾患原因遺伝子"
+
+msgid "search_label_Inheritance"
+msgstr "遺伝形式"
+
+msgid "search_label_rank"
+msgstr "順位"
+
+msgid "search_label_similarity"
+msgstr "（類似度）"
+
+msgid "search_label_DiseaseName"
+msgstr "疾患名"
+
+msgid "search_label_Gene"
+msgstr "遺伝子"
+
+msgid "search_label_Case"
+msgstr "症例"
+
+msgid "search_label_DiseaseID"
+msgstr "（疾患ID）"
+
+msgid "search_label_translate_google"
+msgstr "翻訳 (Google)"
+
+msgid "search_label_related_casereport"
+msgstr "症例報告検索"
+
+msgid "search_label_search_image_google"
+msgstr "画像検索 (Google)"
+
+msgid "search_label_genetic_testing"
+msgstr "遺伝学的検査"
+
+msgid "search_button_share_download"
+msgstr "共有・ダウンロード"
+
+msgid "search_share_modal_title"
+msgstr "検索結果を共有・ダウンロード"
+
+msgid "search_share_modal_label_share"
+msgstr "共有"
+
+msgid "search_share_modal_label_download"
+msgstr "ダウンロード"
+
+msgid "search_share_modal_label_link"
+msgstr "共有リンク"
+
+msgid "search_share_modal_button_copy"
+msgstr "共有リンクをコピー"
+
+msgid "search_share_modal_button_mail"
+msgstr "共有リンクをメール"
+
+msgid "search_share_modal_button_close"
+msgstr "閉じる"
+
+msgid "disease_label_DiseaseDefinition"
+msgstr "疾患定義"
+
+msgid "disease_tab_CaseReport"
+msgstr "<font size="4">症例報告</font>"
+
+msgid "disease_tab_Phenotype"
+msgstr "<font size="4">徴候・症状</font>"
+
+msgid "disease_tab_CausativeGene"
+msgstr "<font size="4">疾患原因遺伝子</font>"
+
+msgid "disease_textbox_title_narrow_casereport"
+msgstr "症例報告を絞り込む"
+
+msgid "disease_button_search"
+msgstr "症例報告を検索"
+
+msgid "disease_label_paper"
+msgstr "（症例報告）"
+
+msgid "disease_label_gene"
+msgstr "遺伝子"
+
+msgid "disease_label_mutation"
+msgstr "変異"
+
+msgid "disease_label_mesh"
+msgstr "キーワード（MeSH）"
+
+msgid "disease_label_show_abstract"
+msgstr "抄録を表示"
+
+msgid "disease_label_hide_abstract"
+msgstr "抄録を非表示"
+
+msgid "disesase_TabPheno_label_orphanet"
+msgstr "徴候・症状リスト（Orphanetデータベースから取得）"
+
+msgid "disesase_TabPheno_label_casereport"
+msgstr "徴候・症状リスト（症例報告から取得）"
+
+msgid "disease_TabPheno_label_term"
+msgstr "徴候・症状"
+
+msgid "disease_TabPheno_label_freq"
+msgstr "頻度"
+
+msgid "disease_TabPheno_label_num_casereport"
+msgstr "症例報告数"
+
+msgid "disesase_TabGene_label_orphanet"
+msgstr "疾患原因遺伝子リスト（Orphanetデータベースから取得）"
+
+msgid "disease_TabGene_label_name"
+msgstr "遺伝子名"
+
+msgid "Autosomal_dominant_inheritance"
+msgstr "常染色体優性遺伝"
+
+msgid "Autosomal_recessive_inheritance"
+msgstr "常染色体劣性遺伝"
+
+msgid "X-linked_inheritance"
+msgstr "X連鎖遺伝"
+
+msgid "X-linked_recessive_inheritance"
+msgstr "X連鎖劣性遺伝"
+
+msgid "X-linked_dominant_inheritance"
+msgstr "X連鎖優性遺伝"
+
+msgid "Heterogeneous"
+msgstr "Heterogeneous"
+
+msgid "Multifactorial_inheritance"
+msgstr "多因子性遺伝"
+
+msgid "Mitochondrial_inheritance"
+msgstr "ミトコンドリア遺伝"
+
+msgid "Somatic_mutation"
+msgstr "体細胞突然変"
+
+msgid "Somatic_mosaicism"
+msgstr "体細胞モザイク"
+
+msgid "Autosomal_dominant_somatic_cell_mutation"
+msgstr "常染色体優性の体細胞突然変異"
+
+msgid "Y-linked_inheritance"
+msgstr "Yリンク型遺伝"
+
+msgid "Autosomal_dominant_contiguous_gene_syndrome"
+msgstr "常染色体優性連続遺伝子症候群"
+
+msgid "Contiguous_gene_syndrome"
+msgstr "連続遺伝子症候群"
+
+msgid "Sex-limited_autosomal_dominant"
+msgstr "性別限定常染色体優性"
+
+msgid "Familial_predisposition"
+msgstr "家族性素因"
+
+msgid "Male-limited_autosomal_dominant"
+msgstr "男性限定常染色体優性"
+
+msgid "Genetic_anticipation"
+msgstr "表現促進"
+
+msgid "Genetic_anticipation_with_paternal_anticipation_bias"
+msgstr "Genetic anticipation with paternal anticipation bias"
+
+msgid "Sporadic"
+msgstr "孤発性"
+
+msgid "Polygenic_inheritance"
+msgstr "ポリジーン遺伝"
+
+msgid "Digenic_inheritanec"
+msgstr "Digenic遺伝"
+
+msgid "Autosomal_dominant_inheritance_with_maternal_imprinting"
+msgstr "母体刷り込みを伴う常染色体優性遺伝"
+
+msgid "Autosomal_dominant_germline_de_novo_mutation"
+msgstr "常染色体優性生殖細胞突然変異"

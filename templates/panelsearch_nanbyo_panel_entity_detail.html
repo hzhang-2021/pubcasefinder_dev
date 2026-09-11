@@ -1,0 +1,163 @@
+{% extends "panelsearch_base.html" %}
+{% block css_block %}
+<link rel="stylesheet" href="/static/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/static/js/paginationjs-2.6.0/pagination.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-panel-entity-detail.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tokenTypeahead.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tippy.css" type="text/css">
+<link rel="stylesheet" href="/static/js/tippyjs-6.3.7/animations/scale.css" />
+<link rel="stylesheet" href="/static/js/tippyjs-6.3.7/animations/scale-extreme.css" />
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tokenTypeahead.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/tokenDropdownTreeview.css">
+{% if r_user_type_admin or r_user_panel_role_curator or r_user_panel_role_reviewer %}
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/treeviewInput.css">
+<link rel="stylesheet" href="/static/css/panelsearch_nanbyo/vgp-panel-review.css">
+{% endif %}
+{% endblock %}
+
+{% block title_block %}PanelSearch(nanbyo) : PubCaseFinder{% endblock %}
+
+{% block main_block %}
+<div class="vgp-main">
+  <div class="vgp-wrapper vgp-wrapper-upper">
+    <div class="vgp-content d-flex flex-column">
+      <div id="vgp-breadcrumblist-wrapper" class="mb-2">
+      </div>
+      <div class="vgp-gene-title-wrapper">
+        <h1 class="color-white" id="vgp-panel-gene-name"></h1>
+        <h5 class="color-white" id="vgp-panel-gene-fullname"></h5>
+      </div>
+      <div class="vgp-controll">
+        <button id="btn_show_more_info" class="mr-2">More Info</button>
+        <button id="btn_show_panels_with_this_gene" data-target="genePanelModal">Panels with this gene</button>
+      </div>
+    </div>
+  </div>
+  <div class="vgp-wrapper">
+    <div class="vgp-content d-flex flex-column">
+      <div class="vgp-panel-info">
+		<div class="mb-2 d-flex justify-content-between flex-nowrap">
+        	<div id="vgp-panel-gene-rating-wrapper"></div>
+			<div id="vgp-panel-gene-rating-time-wrapper"></div>
+		</div>
+        <div id="vgp-panel-entity-summary-wrapper" class="mb-2">
+          <table class="table" id="vgp-summary-table">
+			<tr><th>Sources:</th><td id="vgp-td-sources"></td></tr>
+            <tr><th>Mode of Inheritance:</th><td id="vgp-td-inheritance"></td></tr>
+            <tr><th>Publications:</th><td id="vgp-td-publications"></td></tr>
+            <tr><th>Phenotypes:</th><td id="vgp-td-phenotypes"></td></tr>
+            <tr><th>Comments:</th><td id="vgp-td-comments"></td></tr>
+          </table>
+        </div>
+      </div> <!-- end of panel info -->
+      <nav class="vgp-nav" style="margin-top: 30px; width:100%;">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active mr-2" id="nav-vgp-panel-gene-review-panel" data-toggle="tab" href="#vgp-panel-gene-review-panel" role="tab" aria-controls="vgp-panel-gene-review-panel" aria-selected="true">Reviews (0)</a>
+          <a class="nav-item nav-link mr-2" id="nav-vgp-history-panel" data-toggle="tab" href="#vgp-history-panel" role="tab" aria-controls="vgp-history-panel" aria-selected="false">History</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div id="vgp-panel-gene-review-panel" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-vgp-panel-gene-review-panel">
+          <div class="vgp-rating-tag-list-container mt-5">
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-definitive" class="vgp-rating-list-tag vgp-rating-definitive">0</span></div><div class="vgp-rotate45">Definitive</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-strong" class="vgp-rating-list-tag vgp-rating-strong">0</span></div><div class="vgp-rotate45">Strong</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-moderate" class="vgp-rating-list-tag vgp-rating-moderate">0</span></div><div class="vgp-rotate45">Moderate</div></div>
+            <div class="vgp-rating-tag-subcontainer vgp-rating-divide"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-supportive" class="vgp-rating-list-tag vgp-rating-supportive">0</span></div><div class="vgp-rotate45">Supportive</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-limited" class="vgp-rating-list-tag vgp-rating-limited">0</span></div><div class="vgp-rotate45">Limited</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-disputed" class="vgp-rating-list-tag vgp-rating-disputed">0</span></div><div class="vgp-rotate45">Disputed</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-refuted" class="vgp-rating-list-tag vgp-rating-refuted">0</span></div><div class="vgp-rotate45">Refuted</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-animal" class="vgp-rating-list-tag vgp-rating-animal">0</span></div><div class="vgp-rotate45">Animal</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-noknown" class="vgp-rating-list-tag vgp-rating-noknown">0</span></div><div class="vgp-rotate45">No known</div></div>
+            <div class="vgp-rating-tag-subcontainer"><div class="vgp-rating-tag-wrapper"><span id="vgp-rating-list-tag-norating" class="vgp-rating-list-tag vgp-rating-norating">0</span></div><div class="vgp-rotate45">No rating</div></div>
+          </div>
+          <div class="vgp-panel-entity-view-num-wrapper mt-2">
+            <span class="vgp-panel-entity-view-num" id="panel_entity_review_num">0</span> reviews
+{% if r_user_type_admin or r_user_panel_role_curator or r_user_panel_role_reviewer %}
+            <div class="ml-2" id="btn_add_review_wrapper"></div>
+{% endif %}
+          </div>
+        </div>
+        <div id="vgp-history-panel" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-vgp-history-panel">
+          <div class="vgp-version-comments-wrapper">
+                <ul class="sessions" id="ul_history">
+                </ul>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="genePanelModal" tabindex="-1" role="dialog" aria-labelledby="genePanelModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="padding-bottom:0;border-bottom:none;">
+        <h4 class="modal-title" id="genePanelModalLabel">Panels with this gene</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body vgp-panel-info">
+        <div id="vgp-panel-table-wrapper">
+          <div id="table-container"></div>
+          <div id="pagination-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js_block %}
+<script src="/static/js/paginationjs-2.6.0/pagination.min.js"></script>
+<script type="text/javascript" src="/static/js/popperjs-core-2.11.8/core/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/tippyjs/tippy-bundle.umd.js"></script>
+{% if r_user_type_admin or r_user_panel_role_curator or r_user_panel_role_reviewer %}
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="/static/zTree_v3/js/jquery.ztree.excheck.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.tokenTypeahead.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.tokenDropdown.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.tokenDropdownTreeview.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.treeview.js"></script>
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/jquery.review.js"></script>
+{% endif %}
+<script type="text/javascript" src="/static/js/panelsearch_nanbyo/vgp_panel_entity_detail.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+
+utils_attach_reload_with_scroll_event();
+
+{% if r_user_type_admin or r_user_panel_role_curator or r_user_panel_role_reviewer %}
+function _get_current_user_id(){
+	return {{ r_user_id }};        
+}
+
+function _is_current_user_curator(){
+    {% if r_user_type_admin or r_user_panel_role_curator %}
+    return true;
+    {% else %}
+    return false;
+    {% endif %}
+}
+{% endif %}
+
+$(document).ready(function(){
+	_vgp_attach_goToTopfunc();
+
+	_vgp_init(	"{{ r_panel_gene_id }}",
+				"{{ r_panel_gene_symbol }}",
+                "{{ r_panel_entity_name }}",
+                "{{ r_panel_entity_type_id }}",
+                "{{ r_panel_entity_rating }}",
+                "{{ r_panel_id }}",
+                "{{ r_nando_id }}",
+				"{{ r_panel_name }}",
+				"{{ r_panel_entity_review_id }}",
+				"{{ r_is_edit_definition }}",
+				"{{ r_selected_user_id }}",
+				"{{ r_selected_original_review_id }}",
+				"{{ r_selected_review_id }}"
+				);
+
+});
+</SCRIPT>
+{% endblock %}

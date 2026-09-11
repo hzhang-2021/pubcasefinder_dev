@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--json test-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaseSharing : PubCaseFinder</title>
+    <!--css-->
+    <!-- start bits-->
+    <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
+    <link rel="stylesheet" href="/static/bootstrap-4.6.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/hposearch/tippy.css">
+    <link rel="stylesheet" href="/static/css/hposearch/search-box-form.css">
+    <link rel="stylesheet" href="/static/css/hposearch/text-input.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/hposearch/magnific-popup.css">
+    <link rel="stylesheet" href="/static/css/hposearch/token-input-facebook.css">
+    <link rel="stylesheet" href="/static/css/hposearch/popup-hierarchy-hpo.css">
+    <link rel="stylesheet" href="/static/js/tippyjs-6.3.7/animations/scale.css" />
+    <link rel="stylesheet" href="/static/js/tippyjs-6.3.7/animations/scale-extreme.css" />
+    <!-- <link rel="stylesheet" href="/static/css/hposearch/modal_phenotype.css"> -->
+    <!-- end bits-->
+    <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
+    <link rel='stylesheet' href="/static/css/pcf/branc.css">
+    <link rel='stylesheet' href="/static/css/pcf/branc-ie7.css">
+    <link rel='stylesheet' href="/static/css/pcf/branc-ie7-codes.css">
+    <link rel='stylesheet' href="/static/css/pcf/branc-embedded.css">
+    <link rel='stylesheet' href="/static/record/css/branc.css">
+    <link rel='stylesheet' href="/static/record/css/branc-ie7.css">
+    <link rel='stylesheet' href="/static/record/css/branc-ie7-codes.css">
+    <link rel='stylesheet' href="/static/record/css/branc-embedded.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css" media="all" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="/static/css/pcf/remodal.css" rel="stylesheet">
+    <link href="/static/css/pcf/remodal-default-theme.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/record/images/case-favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/record/images/case-favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/record/images/case-favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/record/images/case-favicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/record/images/case-favicon/safari-pinned-tab.svg" color="#fc5d13">
+    <meta name="msapplication-TileColor" content="#fc5d13">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@12.3.1/dist/handsontable.full.min.js"></script>
+    <link type="text/css" rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/handsontable@12.3.1/dist/handsontable.full.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/yamljs@0.3.0/dist/yaml.min.js"></script>
+    <link rel="stylesheet" href="/static/css/pcf/style-togo.css">
+    <link rel="stylesheet" href="/static/record/css/record.css">
+    <link rel="stylesheet" href="/static/record/css/record_re.css">
+    <link rel="stylesheet" href="/static/css/common-nav.css">
+    <link rel="stylesheet" href="/static/css/hposearch/common-nav.css">
+    <link rel="stylesheet" href="/static/css/hposearch/casemini.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- <body> -->
+    {% with service="hposearch", show_info=True %}
+    {% include "common_header.html" %}
+    {% endwith %}
+    <main id="casemini-main">
+        <div class="w-100 d-flex justify-content-end mb-2">
+            <span id="update-date-label">更新日：2024/07/12</span>
+        </div>
+        <nav class="casemini-nav">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              {% if r_target == "hpo" %}
+              <a class="nav-item nav-link mr-2 active" data-toggle="tab" role="tab" aria-selected="true"
+              {% else %}
+              <a class="nav-item nav-link mr-2" data-toggle="tab" role="tab" aria-selected="false"
+              {% endif %}
+                 id="nav-casemini-hpo-panel" href="#casemini-hpo-panel" aria-controls="casemini-hpo-panel">臨床症状名(HPO)を検索</a>
+              {% if r_target == "icd_10" %}
+              <a class="nav-item nav-link mr-2 active" data-toggle="tab" role="tab" aria-selected="true"
+              {% else %}
+              <a class="nav-item nav-link mr-2" data-toggle="tab" role="tab" aria-selected="false"
+              {% endif %}
+                 id="nav-casemini-icd_10-panel" href="#casemini-icd_10-panel" aria-controls="casemini-icd_10-panel">疾患名(ICD-10)を検索</a>
+              {% if r_target == "omim_orpha" %}
+              <a class="nav-item nav-link mr-2 active" data-toggle="tab" role="tab" aria-selected="true"
+              {% else %}
+              <a class="nav-item nav-link mr-2" data-toggle="tab" role="tab" aria-selected="false"
+              {% endif %}
+                 id="nav-casemini-omim_orpha-panel" href="#casemini-omim_orpha-panel" aria-controls="casemini-omim_orpha-panel">疾患名(OMIM/Orphanet)を検索</a>
+              {% if r_target == "nanbyo" %}
+              <a class="nav-item nav-link active" data-toggle="tab" role="tab" aria-selected="true"
+              {% else %}
+              <a class="nav-item nav-link" data-toggle="tab" role="tab" aria-selected="false"
+              {% endif %}
+                 id="nav-casemini-nanbyo-panel" href="#casemini-nanbyo-panel" aria-controls="casemini-nanbyo-panel">疾患名(指定難病/小児慢性特定疾病)を検索</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div id="casemini-hpo-panel"        data-casemini-target="hpo"        class="tab-pane fade {% if r_target == "hpo" %}active show{% endif %}" role="tabpanel" aria-labelledby="nav-casemini-hpo-panel" ></div>
+            <div id="casemini-icd_10-panel"     data-casemini-target="icd_10"     class="tab-pane fade {% if r_target == "icd_10" %}active show{% endif %}"             role="tabpanel" aria-labelledby="nav-casemini-icd_10-panel" ></div>
+            <div id="casemini-omim_orpha-panel" data-casemini-target="omim_orpha" class="tab-pane fade {% if r_target == "omim_orpha" %}active show{% endif %}"             role="tabpanel" aria-labelledby="nav-casemini-omim_orpha-panel"></div>
+            <div id="casemini-nanbyo-panel"     data-casemini-target="nanbyo"     class="tab-pane fade {% if r_target == "nanbyo" %}active show{% endif %}"             role="tabpanel" aria-labelledby="nav-casemini-nanbyo-panel"></div>
+        </div>
+    </main>
+    <div class="casemini_action_wrapper" id="casemini_action_btn_wrapper"></div>
+    <div id="modal-karte" class="modal_box modal-karte">
+        <!--left-->
+        <div class="resize-handle"></div>
+        <div class="tab-wrap" id="tab-wrap"></div>
+        <button class="modal-close"><span class="material-symbols-outlined">close</span></button>
+        <div id="modal-karte-button">
+            <button class="modal-copy"><i class="material-symbols-outlined">file_copy</i><p>Copy</p></button>
+            <button class="modal-phenopackets"><img src="/static/images/PhenoPackets_Logo.png">
+                <p>Phenopackets (coming soon)</p>
+            </button>
+            <div id="phenotype_search_pcf"></div>
+        </div>
+    </div>
+    <div id="modal-info" class="modal_box modal-karte">
+        <div class="modal-karte-button-sub" id="modal-info-content">
+            <ul>
+                <li>
+                    <i class="material-symbols-outlined">computer</i>
+                    <span>
+                        <h4>How to use</h4>
+                        <p>Here is a brief description of how to use the service. This is a dummy text.This is a dummy text.</p>
+                    </span>
+                </li>
+                <li>
+                    <i class="material-symbols-outlined">subscriptions</i>
+                    <span>
+                        <h4>How to use</h4>
+                        <p>Here is a brief description of how to use the service. This is a dummy text.This is a dummy text.</p>
+                    </span>
+                </li>
+                <li>
+                    <i class="material-symbols-outlined">format_list_numbered</i>
+                    <span>
+                        <h4>How to use</h4>
+                        <p>Here is a brief description of how to use the service. This is a dummy text.This is a dummy text.</p>
+                    </span>
+                </li>
+                <li>
+                    <i class="material-symbols-outlined">sign_language</i>
+                    <span>
+                        <h4>How to use</h4>
+                        <p>Here is a brief description of how to use the service. This is a dummy text.This is a dummy text.</p>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script type="text/javascript"  src="https://dbcls.rois.ac.jp/DBCLS-common-header-footer/v2/script/common-header-and-footer.js"
+  data-show-footer="false" data-show-footer-license="false" data-show-footer-links="false" style="display: block"
+  id="common-header-and-footer__script" data-width="976" data-color="mono"></script>
+
+<!-- start bits-->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>  -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/static/bootstrap-4.6.2-dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/static/js/popperjs-core-2.11.8/core/dist/umd/popper.min.js"></script>
+
+<script type="text/javascript" src="/static/js/hposearch/translation.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/phenotype.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/common_modal.js"></script>
+
+<script type="text/javascript" src="/static/js/hposearch/tippyjs/tippy-bundle.umd.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/jquery.magnific_popup.min.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/magnific-popup-options.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/jquery.stellar.min.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/rater.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/jquery.tokeninput.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/popup-hierarchy-hpo.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/button-ripple-effect.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/jaconv/jaconv.min.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/jquery.multitextinput_hpo.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/jquery.search-box_form.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/jquery.casemini_panel.js"></script>
+<script type="text/javascript" src="/static/js/hposearch/casemini.js"></script>
+<script>
+$(document).ready(function() {
+    _init_casesharing_mini("{{ r_target }}");
+});
+</script>
+<!-- end bits-->
+
+</html>

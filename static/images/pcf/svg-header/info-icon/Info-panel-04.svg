@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <clipPath id="clip-Info-panel-04">
+      <rect width="400" height="400"/>
+    </clipPath>
+  </defs>
+  <g id="Info-panel-04" clip-path="url(#clip-Info-panel-04)">
+    <path id="多角形_45" data-name="多角形 45" d="M192,13.925A45.536,45.536,0,0,1,231.821,36.9l140,242.075A46,46,0,0,1,332,348H52a46,46,0,0,1-39.821-69.029l140-242.075A45.536,45.536,0,0,1,192,13.925ZM332,316a14,14,0,0,0,12.119-21.009l-140-242.075a14,14,0,0,0-24.239,0l-140,242.075A14,14,0,0,0,52,316Z" transform="translate(8 14)"/>
+    <circle id="楕円形_469" data-name="楕円形 469" cx="24.5" cy="24.5" r="24.5" transform="translate(225 304) rotate(180)"/>
+    <rect id="長方形_8887" data-name="長方形 8887" width="39" height="128" rx="19.5" transform="translate(220 236) rotate(180)"/>
+  </g>
+</svg>

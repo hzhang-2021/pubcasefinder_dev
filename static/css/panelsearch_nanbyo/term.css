@@ -1,0 +1,69 @@
+.utility_wrapper{max-width: unset;}
+.policy-title {
+  margin-top:    3em;
+  font-size:     26px;
+  font-weight:   600;
+  color:         #003537;
+  border-bottom: 3px solid #003537;
+  padding-bottom: 8px;
+}
+
+.policy-desc{
+  font-size: 16px;
+  font-weight: 500;
+  color: #1B2C1A;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  color:       #258800;
+  font-size:   23px;
+  font-weight: 600;
+  margin-top:  25px;
+}
+
+.card {
+  background: #F5F5F5;
+  padding: 15px 30px;
+  margin: 10px 0;
+  border-radius: 7px;
+}
+
+.card .title {
+  margin-top: 0;
+  font-size: 23px;
+  font-weight: 600;
+  color: black;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #E1E3E1;
+}
+
+.card .title .title-guide{
+  height: 100%;
+  width: 0;
+  margin-right: 15px;
+  border-left:2px solid #276749;
+  border-right:2px solid #276749;
+}
+
+.card .text-content {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #1b2c1a;
+}
+
+ol {
+padding-left: 20px;
+list-style: decimal;
+  margin-top: 15px;
+}
+
+.utility_wrapper li + li {
+  margin-top: 5px;
+}
+
+ol.privcy {
+  list-style: disc;
+}
