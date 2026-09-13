@@ -1,0 +1,258 @@
+# IDs and golden expectations must match your PSN environment.
+settings:
+  origin: http://pcf.bits.cc
+  lang: ja
+  test_result_path: test_result/ja
+  auth_states:
+    member: playwright/.auth/state.json
+    curator: playwright/.auth/curator.json
+    admin: playwright/.auth/state.json
+pages:
+  panel_list:
+    path: /panelsearch_nanbyo
+    role: anonymous
+    visible:
+    - '#vgp-filter'
+    - '#vgp-treeView'
+    - '#vgp-list-root-panel'
+    load_apis:
+    - /panelsearch_nanbyo_get_all_panel
+    - /panelsearch_nanbyo_get_treeview
+    tabs: []
+  panel_detail:
+    path: /panelsearch_nanbyo_panel_detail
+    role: anonymous
+    visible:
+    - '#vgp-panel-name'
+    - '#btn_download_panel'
+    - '#nav-tab'
+    load_apis:
+    - /panelsearch_nanbyo_get_panel_review
+    tabs:
+    - - '#nav-vgp-version-comments-panel'
+      - '#vgp-version-comments-panel'
+    - - '#nav-vgp-reviewers-panel'
+      - '#vgp-reviewers-panel'
+    - - '#nav-vgp-panel-genes-panel'
+      - '#vgp-panel-genes-panel'
+    query:
+      panel_id: 'NANDO:1200477'
+    required_query:
+    - panel_id
+  panel_entity_detail:
+    path: /panelsearch_nanbyo_panel_entity_detail
+    role: anonymous
+    visible:
+    - '#vgp-panel-gene-name'
+    - '#vgp-summary-table'
+    - '#nav-tab'
+    load_apis:
+    - /panelsearch_nanbyo_get_panel_entity_review
+    tabs:
+    - - '#nav-vgp-history-panel'
+      - '#vgp-history-panel'
+    - - '#nav-vgp-panel-gene-review-panel'
+      - '#vgp-panel-gene-review-panel'
+    query:
+      panel_id: 'NANDO:1200477'
+      nando_id: 'NANDO:1200477'
+      entity_type_id: '1'
+      entity_name: 'ACTA1'
+      gene_id: '58'
+      gene_symbol: 'ACTA1'
+    required_query:
+    - panel_id
+    - entity_name
+    - gene_id
+    - gene_symbol
+  ontology:
+    path: /panelsearch_nanbyo_ontology
+    role: anonymous
+    visible:
+    - '#ontology-list-table'
+    - '#btn_load_selected_ttl_db'
+    load_apis:
+    - /panelsearch_nanbyo_get_ontology_data
+    tabs: []
+  admin_user:
+    path: /panelsearch_nanbyo_admin_user
+    role: admin
+    visible:
+    - '#user-table'
+    - '#filter_letter'
+    - '#btn_filter_group'
+    - '#btn_filter_status'
+    load_apis:
+    - /panelsearch_nanbyo_admin_load_user
+    tabs: []
+  admin_group:
+    path: /panelsearch_nanbyo_admin_group
+    role: admin
+    visible:
+    - '#group_list_table'
+    - '#group_filter'
+    load_apis:
+    - /panelsearch_nanbyo_admin_group_load_data
+    tabs: []
+  admin_group_activity:
+    path: /panelsearch_nanbyo_admin_group_activity
+    role: admin
+    visible:
+    - '#activity_table'
+    - '#filter_letter'
+    - '#total_num'
+    load_apis:
+    - /panelsearch_nanbyo_admin_load_group_activity
+    tabs: []
+  admin_activity:
+    path: /panelsearch_nanbyo_admin_activity
+    role: member
+    visible:
+    - '#activity_table'
+    - '#btn_filter_panel'
+    - '#dateFrom'
+    - '#dateTo'
+    load_apis:
+    - /panelsearch_nanbyo_admin_load_activity
+    tabs: []
+  admin_authentication:
+    path: /panelsearch_nanbyo_admin_authentication
+    role: admin
+    visible:
+    - '#authlog_table'
+    - '#filter_letter'
+    - '#dateFrom'
+    - '#dateTo'
+    load_apis:
+    - /panelsearch_nanbyo_admin_load_authentication_log
+    tabs: []
+  admin_incharge:
+    path: /panelsearch_nanbyo_admin_incharge
+    role: admin
+    visible:
+    - '#activity_table'
+    - '#total_num'
+    load_apis:
+    - /panelsearch_nanbyo_admin_load_incharge_activity
+    - /panelsearch_nanbyo_admin_load_incharge_check_history
+    tabs: []
+  admin_profile:
+    path: /panelsearch_nanbyo_admin_profile
+    role: member
+    visible:
+    - '#vgp-user-input-table-wrapper'
+    - '#vgp-user-btn-edit'
+    load_apis: []
+    tabs: []
+  admin_review:
+    path: /panelsearch_nanbyo_admin_review
+    role: member
+    visible:
+    - '#main_content .wrapper.title'
+    load_apis:
+    - /panelsearch_nanbyo_get_user_review_and_comment
+    tabs: []
+    attached:
+    - '#panel_entity_review_list_wrapper'
+  admin_mail:
+    path: /panelsearch_nanbyo_admin_mail
+    role: admin
+    visible:
+    - '#email_table'
+    - '#btn_load_email'
+    load_apis: []
+    tabs:
+    - - '#nav-template-panel'
+      - '#template-panel'
+    - - '#nav-smtp-panel'
+      - '#smtp-panel'
+    - - '#nav-log-panel'
+      - '#log-panel'
+suites:
+  login_logout:
+    spec_id: PSN-AUTH-01/PSN-AUTH-02
+    role: admin
+    user_selector: '#nav-user'
+    login_selector: '#nav-login'
+    logout_selector: '#nav-user .logout button'
+    expected_user_name: ''
+    test_cases:
+    - id: panel_list
+      page: panel_list
+    - id: panel_detail
+      page: panel_detail
+    - id: admin_profile
+      page: admin_profile
+  panel_list:
+    spec_id: PSN-01
+    test_cases:
+    - id: visible
+      expected_text: {}
+    no_match_text: __PSN_E2E_NO_MATCH_7b924df1__
+    search_text: ''
+  panel_detail:
+    spec_id: PSN-02
+    test_cases:
+    - id: visible
+      expected_text: {}
+    download_contains: []
+  panel_entity_detail:
+    spec_id: PSN-03
+    test_cases:
+    - id: visible
+      expected_text: {}
+  ontology:
+    spec_id: PSN-04
+    test_cases:
+    - id: visible
+      expected_text: {}
+  admin_user:
+    spec_id: PSN-05
+    test_cases:
+    - id: visible
+      expected_text: {}
+    no_match_text: __PSN_E2E_NO_MATCH_7b924df1__
+  admin_group:
+    spec_id: PSN-06
+    test_cases:
+    - id: visible
+      expected_text: {}
+    no_match_text: __PSN_E2E_NO_MATCH_7b924df1__
+  admin_group_activity:
+    spec_id: PSN-07
+    test_cases:
+    - id: visible
+      expected_text: {}
+    no_match_text: __PSN_E2E_NO_MATCH_7b924df1__
+  admin_activity:
+    spec_id: PSN-08
+    test_cases:
+    - id: visible
+      expected_text: {}
+    from_date: '2000-01-01'
+  admin_authentication:
+    spec_id: PSN-09
+    test_cases:
+    - id: visible
+      expected_text: {}
+    no_match_text: __PSN_E2E_NO_MATCH_7b924df1__
+  admin_incharge:
+    spec_id: PSN-10
+    test_cases:
+    - id: visible
+      expected_text: {}
+  admin_profile:
+    spec_id: PSN-11
+    test_cases:
+    - id: visible
+      expected_text: {}
+  admin_review:
+    spec_id: PSN-12
+    test_cases:
+    - id: visible
+      expected_text: {}
+  admin_mail:
+    spec_id: PSN-13
+    test_cases:
+    - id: visible
+      expected_text: {}

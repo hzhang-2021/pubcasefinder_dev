@@ -1,0 +1,11 @@
+.venv/
+venv/
+cache/
+.cache/
+my_user_data*/
+*.py[cod]
+__pycache__/
+.pytest_cache/
+playwright/.auth/
+test_result/
+screenshot-on-failure/
