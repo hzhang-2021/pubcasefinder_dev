@@ -4,9 +4,9 @@ settings:
   lang: ja
   test_result_path: test_result/ja
   auth_states:
-    member: playwright/.auth/state.json
+    reviewer: playwright/.auth/member.json
     curator: playwright/.auth/curator.json
-    admin: playwright/.auth/state.json
+    admin: playwright/.auth/admin.json
 pages:
   panel_list:
     path: /panelsearch_nanbyo
@@ -87,7 +87,7 @@ pages:
     tabs: []
   admin_group:
     path: /panelsearch_nanbyo_admin_group
-    role: admin
+    role: curator
     visible:
     - '#group_list_table'
     - '#group_filter'
@@ -106,7 +106,7 @@ pages:
     tabs: []
   admin_activity:
     path: /panelsearch_nanbyo_admin_activity
-    role: member
+    role: admin
     visible:
     - '#activity_table'
     - '#btn_filter_panel'
@@ -128,7 +128,7 @@ pages:
     tabs: []
   admin_incharge:
     path: /panelsearch_nanbyo_admin_incharge
-    role: admin
+    role: curator
     visible:
     - '#activity_table'
     - '#total_num'
@@ -138,7 +138,7 @@ pages:
     tabs: []
   admin_profile:
     path: /panelsearch_nanbyo_admin_profile
-    role: member
+    role: reviewer
     visible:
     - '#vgp-user-input-table-wrapper'
     - '#vgp-user-btn-edit'
@@ -146,7 +146,7 @@ pages:
     tabs: []
   admin_review:
     path: /panelsearch_nanbyo_admin_review
-    role: member
+    role: reviewer
     visible:
     - '#main_content .wrapper.title'
     load_apis:
@@ -171,7 +171,7 @@ pages:
 suites:
   login_logout:
     spec_id: PSN-AUTH-01/PSN-AUTH-02
-    role: admin
+    role: reviewer
     user_selector: '#nav-user'
     login_selector: '#nav-login'
     logout_selector: '#nav-user .logout button'

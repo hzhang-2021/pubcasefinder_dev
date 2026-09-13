@@ -60,14 +60,18 @@ uv run playwright install chromium
 管理员界面部分路由固定日文，`en` 配置并不表示这些页面支持全英文。
 
 业务测试使用 Nanbyo 登录状态，不能假设普通 PanelSearch 的 session 可直接复用。
-分别用 member、curator、admin 账号手动登录 Nanbyo，再保存对应状态。例如：
+分别用 reviewer、curator、admin 账号手动登录 Nanbyo，再保存对应状态。`reviewer` 账号的状态文件名为 `member.json`，例如：
 
 ```powershell
-uv run playwright codegen --save-storage=playwright/.auth/admin.json https://staging-pubcasefinder.dbcls.jp/panelsearch_nanbyo
+uv run python login.py reviewer
+uv run python login.py curator
+uv run python login.py admin
 ```
 
-对另外两种角色分别保存为 `member.json`、`curator.json`。
-也可用 `PSN_MEMBER_STATE`、`PSN_CURATOR_STATE`、`PSN_ADMIN_STATE` 指定文件绝对路径。
+脚本会为每个角色使用独立的持久化浏览器目录，手动完成 Google 登录后在 Inspector 中点击 Resume，
+然后分别保存为 `playwright/.auth/member.json`、`curator.json`、`admin.json`。
+测试配置中的 member/admin 映射也使用这些角色文件。
+也可用 `PSN_REVIEWER_STATE`、`PSN_CURATOR_STATE`、`PSN_ADMIN_STATE` 指定文件绝对路径。
 这些文件含登录凭证，已经加入 `.gitignore`。
 测试不自动创建账号，也不自动执行 Google OAuth 登录。
 
