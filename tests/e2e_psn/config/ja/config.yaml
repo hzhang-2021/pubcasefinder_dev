@@ -190,6 +190,7 @@ suites:
       expected_text: {}
     no_match_text: __PSN_E2E_NO_MATCH_7b924df1__
     search_text: ''
+    gene_acta1_expected_panel: '先天性ミオパチー'
   panel_detail:
     spec_id: PSN-02
     test_cases:

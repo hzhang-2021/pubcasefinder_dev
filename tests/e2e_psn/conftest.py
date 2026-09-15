@@ -7,7 +7,7 @@ import os
 import pytest
 from playwright.sync_api import expect
 
-from psn_common import ROOT, load_config, assert_json_response, response_matches
+from psn_common import ROOT, load_config, assert_json_response, response_matches, screenshot_filename
 
 expect.set_options(timeout=30000)
 
@@ -65,7 +65,7 @@ def root_page(browser, psn_config, request):
             if getattr(request.node, 'rep_call', None) and request.node.rep_call.failed:
                 folder = ROOT / psn_config.settings['test_result_path'] / 'failures'
                 folder.mkdir(parents=True, exist_ok=True)
-                page.screenshot(path=str(folder / (request.node.name.replace(':', '_') + '.png')))
+                page.screenshot(path=str(folder / screenshot_filename(name, request.node.name)))
         finally:
             context.close()
 

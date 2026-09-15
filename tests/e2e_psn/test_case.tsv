@@ -1,31 +1,36 @@
-Spec ID	Page	Test function	Role	Status
-PSN-01	panel_list	test_panel_list_is_visible	anonymous	NOT RUN
-PSN-01	panel_list	test_panel_search_no_match	anonymous	NOT RUN
-PSN-01	panel_list	test_panel_search_existing_name	anonymous	NOT RUN
-PSN-02	panel_detail	test_panel_detail_is_visible	anonymous	NOT RUN
-PSN-02	panel_detail	test_panel_detail_tabs	anonymous	NOT RUN
-PSN-02	panel_detail	test_panel_detail_download	anonymous	NOT RUN
-PSN-03	panel_entity_detail	test_panel_entity_detail_is_visible	anonymous	NOT RUN
-PSN-03	panel_entity_detail	test_panel_entity_detail_tabs	anonymous	NOT RUN
-PSN-04	ontology	test_ontology_is_visible	anonymous	NOT RUN
-PSN-04	ontology	test_ontology_load_selected_version	anonymous	NOT RUN
-PSN-05	admin_user	test_admin_user_is_visible	admin	NOT RUN
-PSN-05	admin_user	test_admin_user_filter_no_match	admin	NOT RUN
-PSN-06	admin_group	test_admin_group_is_visible	curator	NOT RUN
-PSN-06	admin_group	test_group_filter_no_match	curator	NOT RUN
-PSN-07	admin_group_activity	test_admin_group_activity_is_visible	admin	NOT RUN
-PSN-07	admin_group_activity	test_admin_group_activity_filter_no_match	admin	NOT RUN
-PSN-08	admin_activity	test_admin_activity_is_visible	admin	NOT RUN
-PSN-08	admin_activity	test_activity_date_filter	admin	NOT RUN
-PSN-09	admin_authentication	test_admin_authentication_is_visible	admin	NOT RUN
-PSN-09	admin_authentication	test_admin_authentication_filter_no_match	admin	NOT RUN
-PSN-10	admin_incharge	test_admin_incharge_is_visible	curator	NOT RUN
-PSN-11	admin_profile	test_admin_profile_is_visible	reviewer	NOT RUN
-PSN-11	admin_profile	test_profile_edit_cancel	reviewer	NOT RUN
-PSN-12	admin_review	test_admin_review_is_visible	reviewer	NOT RUN
-PSN-13	admin_mail	test_admin_mail_is_visible	admin	NOT RUN
-PSN-13	admin_mail	test_admin_mail_tabs	admin	NOT RUN
-PSN-13	admin_mail	test_mail_log_load	admin	NOT RUN
-PSN-AUTH-01/PSN-AUTH-02	panel_list	test_login_logout[panel_list]	reviewer	NOT RUN
-PSN-AUTH-01/PSN-AUTH-02	panel_detail	test_login_logout[panel_detail]	reviewer	NOT RUN
-PSN-AUTH-01/PSN-AUTH-02	admin_profile	test_login_logout[admin_profile]	reviewer	NOT RUN
+仕様ID	ページ	テスト関数	ロール	実行結果
+PSN-01	panel_list	test_panel_list_is_visible	anonymous	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_no_match	anonymous	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_existing_name	anonymous	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_target_defaults_to_panel	anonymous	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_gene_no_match	anonymous	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_gene_acta1	anonymous	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_target_switch_preserves_filter[Panel-Gene]	anonymous	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_target_switch_preserves_filter[Gene-Panel]	anonymous	成功 (ja/en, 2026-09-15)
+PSN-02	panel_detail	test_panel_detail_is_visible	anonymous	未実行
+PSN-02	panel_detail	test_panel_detail_tabs	anonymous	未実行
+PSN-02	panel_detail	test_panel_detail_download	anonymous	未実行
+PSN-03	panel_entity_detail	test_panel_entity_detail_is_visible	anonymous	未実行
+PSN-03	panel_entity_detail	test_panel_entity_detail_tabs	anonymous	未実行
+PSN-04	ontology	test_ontology_is_visible	anonymous	未実行
+PSN-04	ontology	test_ontology_load_selected_version	anonymous	未実行
+PSN-05	admin_user	test_admin_user_is_visible	admin	未実行
+PSN-05	admin_user	test_admin_user_filter_no_match	admin	未実行
+PSN-06	admin_group	test_admin_group_is_visible	curator	未実行
+PSN-06	admin_group	test_group_filter_no_match	curator	未実行
+PSN-07	admin_group_activity	test_admin_group_activity_is_visible	admin	未実行
+PSN-07	admin_group_activity	test_admin_group_activity_filter_no_match	admin	未実行
+PSN-08	admin_activity	test_admin_activity_is_visible	admin	未実行
+PSN-08	admin_activity	test_activity_date_filter	admin	未実行
+PSN-09	admin_authentication	test_admin_authentication_is_visible	admin	未実行
+PSN-09	admin_authentication	test_admin_authentication_filter_no_match	admin	未実行
+PSN-10	admin_incharge	test_admin_incharge_is_visible	curator	未実行
+PSN-11	admin_profile	test_admin_profile_is_visible	reviewer	未実行
+PSN-11	admin_profile	test_profile_edit_cancel	reviewer	未実行
+PSN-12	admin_review	test_admin_review_is_visible	reviewer	未実行
+PSN-13	admin_mail	test_admin_mail_is_visible	admin	未実行
+PSN-13	admin_mail	test_admin_mail_tabs	admin	未実行
+PSN-13	admin_mail	test_mail_log_load	admin	未実行
+PSN-AUTH-01/PSN-AUTH-02	panel_list	test_login_logout[panel_list]	reviewer	未実行
+PSN-AUTH-01/PSN-AUTH-02	panel_detail	test_login_logout[panel_detail]	reviewer	未実行
+PSN-AUTH-01/PSN-AUTH-02	admin_profile	test_login_logout[admin_profile]	reviewer	未実行

@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 import pytest
 from playwright.sync_api import expect
 
-from psn_common import ROOT, load_config, take_screenshot
+from psn_common import ROOT, load_config, take_screenshot, screenshot_filename
 
 
 def pytest_generate_tests(metafunc):
@@ -46,7 +46,7 @@ def test_login_logout(browser, psn_config, request, auth_case):
         if suite.get('expected_user_name'):
             expect(user).to_contain_text(suite['expected_user_name'])
         expect(page.locator(suite['login_selector'])).not_to_be_visible()
-        take_screenshot(page, psn_config, 'PSN-AUTH-01_' + auth_case['id'])
+        take_screenshot(page, psn_config, 'PSN-AUTH-01', page_name=page_name)
 
         user.click()
         logout = page.locator(suite['logout_selector'])
@@ -58,11 +58,11 @@ def test_login_logout(browser, psn_config, request, auth_case):
         page.reload()
         expect(page.locator(suite['login_selector'])).to_be_visible()
         expect(page.locator(suite['user_selector'])).not_to_be_visible()
-        take_screenshot(page, psn_config, 'PSN-AUTH-02_' + auth_case['id'])
+        take_screenshot(page, psn_config, 'PSN-AUTH-02', page_name=page_name)
     except Exception:
         folder = ROOT / psn_config.settings['test_result_path'] / 'failures'
         folder.mkdir(parents=True, exist_ok=True)
-        page.screenshot(path=str(folder / ('login_logout_' + auth_case['id'] + '.png')))
+        page.screenshot(path=str(folder / screenshot_filename(page_name, 'login_logout')))
         raise
     finally:
         context.close()

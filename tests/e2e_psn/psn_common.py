@@ -58,13 +58,23 @@ def response_matches(response, path):
     return urlparse(response.url).path == path
 
 
-def take_screenshot(page, config, case_id):
+def screenshot_filename(page_name, case_id):
+    prefix = page_name + '_'
+    name = case_id if case_id.startswith(prefix) else prefix + case_id
+    return re.sub(r'[^\w.-]', '_', name) + '.png'
+
+
+def take_screenshot(page, config, case_id, *, page_name=None):
+    if page_name is None:
+        path = urlparse(page.url).path
+        page_name = next(name for name, settings in config.pages.items()
+                         if settings['path'] == path)
     for selector in ('#vgp-loader-whole', '#vgp-loader', '#fh5co-loader'):
         for loader in page.locator(selector).all():
             expect(loader).not_to_be_visible(timeout=60000)
     folder = ROOT / config.settings['test_result_path']
     folder.mkdir(parents=True, exist_ok=True)
-    page.screenshot(path=str(folder / (re.sub(r'[^\w.-]', '_', case_id) + '.png')))
+    page.screenshot(path=str(folder / screenshot_filename(page_name, case_id)))
 
 
 def assert_page(page, config, page_name):
