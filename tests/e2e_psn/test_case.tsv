@@ -10,6 +10,8 @@ PSN-01	panel_list	test_panel_search_target_switch_preserves_filter[Gene-Panel]	a
 PSN-02	panel_detail	test_panel_detail_is_visible	anonymous	未実行
 PSN-02	panel_detail	test_panel_detail_tabs	anonymous	未実行
 PSN-02	panel_detail	test_panel_detail_download	anonymous	未実行
+PSN-02	panel_detail	test_panel_detail_add_review_cancel	reviewer	成功 (ja/en, 2026-09-16)
+PSN-02	panel_detail	test_panel_detail_add_review_submit	reviewer	成功 (ja) / 失敗 (en: 登録後の詳細画面にコメントが表示されない、後処理成功), 2026-09-16
 PSN-03	panel_entity_detail	test_panel_entity_detail_is_visible	anonymous	未実行
 PSN-03	panel_entity_detail	test_panel_entity_detail_tabs	anonymous	未実行
 PSN-04	ontology	test_ontology_is_visible	anonymous	未実行

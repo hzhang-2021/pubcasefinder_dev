@@ -33,7 +33,7 @@ e2e_psn/
 | ページ | 使用ロール | 検証内容 |
 | --- | --- | --- |
 | panel_list | anonymous | 初期表示、既存のパネル名による検索、該当なし検索、既定の Panel 選択、ドロップダウンの開閉、Gene 検索、検索文字を保持した Panel/Gene の相互切り替えと再検索 |
-| panel_detail | anonymous | 詳細表示、バージョン履歴・コメント／Reviewers／Panel Genes タブの切り替え、TSV ダウンロード |
+| panel_detail | anonymous / reviewer | 詳細表示、バージョン履歴・コメント／Reviewers／Panel Genes タブの切り替え、TSV ダウンロード、Add Review の確認・キャンセルと登録 |
 | panel_entity_detail | anonymous | エンティティ概要、Review／History タブの切り替え |
 | ontology | anonymous | バージョン一覧、データベース内の既存バージョンの選択と読み込み |
 | admin_user | admin | ユーザー一覧、該当なしの絞り込み |
@@ -145,8 +145,31 @@ uv run pytest src/test_psn_login_logout.py -rs
 
 ## 検証範囲と制約
 
+### Add Review
+
+Panel Detail の Add Review テストは reviewer の認証状態を使用します。
+対象パネル（既定：`NANDO:1200477`）の ACTA1 に対するレビュー権限が必要です。
+Publications には `PMID: 18976909 DOI: 10.1016/j.nmd.2008.09.005` を入力します。
+確認ダイアログで PMID・DOI の表示を検証し、キャンセル時は入力保持、登録時は保存値の一致を確認します。
+既存の匿名テストは匿名のまま実行します。
+
+- `test_panel_detail_add_review_cancel`：ACTA1 の Add Review を開き、遺伝子・エンティティ型・新規登録状態を検証します。
+  コメントを入力して Submit を押し、確認ダイアログの内容、キャンセル後の入力保持、フォームを閉じる操作を検証します。
+- `test_panel_detail_add_review_submit`：一意の識別文字列をコメントに入力し、確認ダイアログから実際に登録します。
+  登録 API の成功とエンティティ詳細画面でのコメント表示を検証します。
+  終了時には同じ認証状態で削除 API を呼び出し、この実行で作成した Review だけを削除して一覧からの消失を確認します。
+  検証失敗時も後処理を試みます。登録・削除の活動ログは残ります。
+
+2026-09-16 の実行では、日本語の登録テストと日本語・英語のキャンセルテストが成功しました。
+英語の登録テストでは、登録後のエンティティ詳細画面が `Reviews (0)` のままで、
+追加したコメントの表示確認に失敗しています。作成したテスト Review の削除処理は成功しています。
+
+```powershell
+uv run pytest src/test_psn_panel_detail.py -k add_review -rs
+```
+
 ページ表示と閲覧操作を中心とする回帰テストです。
-Review の登録、定義の変更、コメントの追加・削除、Ontology の新規インポート、
+上記 Add Review テストとその後処理を除き、定義の変更、コメントの単独追加・削除、Ontology の新規インポート、
 グループ・ユーザー権限の変更、活動の確認、アカウント削除、メールテンプレートの変更、メール再送は実行しません。
 これらの更新操作に必要なテストデータの準備・削除処理も実装していません。
 メール画面は閲覧のみ、プロフィールは編集画面を開いてキャンセルするまで、Ontology は既存バージョンの読み込みのみです。

@@ -28,7 +28,7 @@ def psn_config(request):
 def root_page(browser, psn_config, request):
     name = request.module.PAGE
     settings = psn_config.pages[name]
-    role = settings.get('role', 'anonymous')
+    role = getattr(request, 'param', settings.get('role', 'anonymous'))
     options = dict(accept_downloads=True, viewport={'width': 1920, 'height': 1080},
                    permissions=['clipboard-read', 'clipboard-write'])
     if role != 'anonymous':

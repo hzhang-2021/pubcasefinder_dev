@@ -1,8 +1,111 @@
 """Browser tests for /panelsearch_nanbyo_panel_detail."""
+from uuid import uuid4
+
+import pytest
 from playwright.sync_api import expect
 from psn_common import assert_page, assert_tabs, assert_json_response, response_matches, take_screenshot
 
 PAGE = 'panel_detail'
+REVIEW_PUBLICATIONS = 'PMID: 18976909 DOI: 10.1016/j.nmd.2008.09.005'
+
+
+def open_add_review(page):
+    button = page.locator('.vgp-add-review-btn[data-gene_symbol="ACTA1"]').first
+    expect(button).to_be_visible(timeout=60000)
+    button.click()
+    expect(page.locator('#panel_review_form')).to_be_visible()
+    expect(page.locator('#panel_review_title_text')).to_contain_text('ADD REVIEW')
+    expect(page.locator('#input_review_review_id')).to_have_value('')
+    expect(page.locator('#input_review_gene_symbol')).to_have_value('58,ACTA1')
+    expect(page.locator('#input_review_entity_type_id')).to_have_value('1')
+    page.locator('#input_review_publications').fill(REVIEW_PUBLICATIONS)
+    return page.locator('#input_review_panel_id').input_value()
+
+
+def assert_review_publications(dialog):
+    expect(dialog).to_contain_text('18976909')
+    expect(dialog).to_contain_text('10.1016/j.nmd.2008.09.005')
+
+
+@pytest.mark.parametrize('root_page', ['reviewer'], indirect=True)
+def test_panel_detail_add_review_cancel(root_page, psn_config):
+    open_add_review(root_page)
+    root_page.locator('#input_review_comment').fill('E2E キャンセル確認')
+    root_page.locator('#btn_vgp_review_submit').click()
+    dialog = root_page.locator('#confirmationModal')
+    expect(dialog).to_be_visible()
+    expect(dialog).to_contain_text('ACTA1')
+    expect(dialog).to_contain_text('E2E キャンセル確認')
+    assert_review_publications(dialog)
+    take_screenshot(root_page, psn_config, 'add_review_confirmation')
+    dialog.get_by_role('button', name='Cancel', exact=True).click()
+    expect(dialog).not_to_be_visible()
+    expect(root_page.locator('#input_review_comment')).to_have_value('E2E キャンセル確認')
+    expect(root_page.locator('#input_review_publications')).to_have_value(REVIEW_PUBLICATIONS)
+    root_page.locator('#panel_review_div #closeBtn').click()
+    expect(root_page.locator('#panel_review_form')).not_to_be_visible()
+    take_screenshot(root_page, psn_config, 'add_review_cancel')
+
+
+@pytest.mark.parametrize('root_page', ['reviewer'], indirect=True)
+def test_panel_detail_add_review_submit(root_page, psn_config):
+    panel_id = open_add_review(root_page)
+    panel_name = root_page.locator('#input_review_panel_name').input_value()
+    marker = 'PSN-E2E-' + uuid4().hex
+    root_page.locator('#input_review_comment').fill(marker)
+    root_page.locator('#btn_vgp_review_submit').click()
+    dialog = root_page.locator('#confirmationModal')
+    expect(dialog).to_be_visible()
+    expect(dialog).to_contain_text(marker)
+    assert_review_publications(dialog)
+    take_screenshot(root_page, psn_config, 'add_review_submit_confirmation')
+    origin = psn_config.settings['origin'].rstrip('/')
+    params = {'panel_id': panel_id, 'entity_type_id': '1', 'entity_name': 'ACTA1'}
+    api = root_page.context.request
+
+    def read_records(endpoint):
+        response = api.get(origin + endpoint, params=params)
+        assert response.ok, f'{endpoint}: HTTP {response.status}'
+        records = response.json()
+        assert isinstance(records, list), f'{endpoint}: expected a list'
+        return records
+
+    reviews_path = '/panelsearch_nanbyo_get_panel_entity_review'
+    comments_path = '/panelsearch_nanbyo_get_panel_entity_review_comment'
+    # この実行で作成したコメントの識別子だけを使って後処理する。
+    try:
+        with root_page.expect_navigation(wait_until='domcontentloaded'):
+            with root_page.expect_response(lambda r: response_matches(
+                    r, '/panelsearch_nanbyo_regist_review')) as result:
+                root_page.locator('#btnConfirmAction').click()
+            # 保存直後の再読み込みで応答本文が破棄されるため、保存結果は画面と読み取り API で検証する。
+            assert result.value.ok, f'Review submission: HTTP {result.value.status}'
+        matches = [row for row in read_records(comments_path) if row.get('comment') == marker]
+        assert len(matches) == 1, 'Expected exactly one saved test comment'
+        saved_reviews = [row for row in read_records(reviews_path)
+                         if row['review_id'] == matches[0]['review_id']]
+        assert len(saved_reviews) == 1
+        assert saved_reviews[0]['publications'] == REVIEW_PUBLICATIONS
+        query = {**params, 'panel_name': panel_name, 'nando_id': panel_id,
+                 'gene_id': '58', 'gene_symbol': 'ACTA1'}
+        response = root_page.goto(psn_config.page_url('panel_entity_detail', query))
+        assert response and response.ok
+        expect(root_page.locator('#vgp-panel-gene-review-panel').get_by_text(marker, exact=True).first).to_be_visible(timeout=60000)
+        take_screenshot(root_page, psn_config, 'add_review_saved', page_name=PAGE)
+    finally:
+        comments = [row for row in read_records(comments_path) if row.get('comment') == marker]
+        reviews = read_records(reviews_path)
+        for comment in comments:
+            matches = [row for row in reviews
+                       if row['review_id'] == comment['review_id']
+                       and row['user_id'] == comment['user_id']]
+            assert len(matches) == 1, f'Cannot identify test Review for cleanup: {marker}'
+            review = matches[0]
+            response = api.post(origin + '/panelsearch_nanbyo_delete_panel_entity_review', data=review)
+            assert response.ok, f'Test Review cleanup failed: {marker}'
+            body = response.json()
+            assert not body.get('error') and body.get('suceed') == 'done', f'Test Review cleanup failed: {marker}'
+            assert all(row['review_id'] != review['review_id'] for row in read_records(reviews_path))
 
 
 def test_panel_detail_is_visible(root_page, psn_config):
