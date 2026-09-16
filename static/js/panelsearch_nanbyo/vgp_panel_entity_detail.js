@@ -234,7 +234,7 @@ function _vgp_init_ui_breadcrumblist(gene_id, panel_upstream_trace_data, panel_i
 	function travese(json_arr, path_panel_id_arr, path_nando_id_arr, path_name_arr){
 		for (let node of json_arr){
 			let path_nando_id = node.nando_id;
-			let path_name     = lang==='ja' ? node.panel_name_ja: panel_name_en;
+			let path_name     = lang==='ja' ? node.panel_name_ja: node.panel_name_en;
 			let path_panel_id = node.panel_id;
 			if(path_nando_id === nando_id){
 				title_name_arr.push([...path_name_arr, path_name]);
@@ -1051,5 +1051,4 @@ function _vgp_init(
 		});
 	});
 }
-
 
