@@ -1604,6 +1604,31 @@ def _get_newest_panel_review_info(original_review_id, dict_cursor):
     return dict_cursor.fetchone()
 
 
+def _can_delete_panel_review(cursor, user_id, review):
+    # user_id is the original author, preserved when a review is revised.
+    if user_id == review['user_id']:
+        return True
+
+    cursor.execute("SELECT user_type FROM user_info_psn WHERE id = %s", (user_id,))
+    user = cursor.fetchone()
+    if not user:
+        return False
+    if api_is_user_admin(user['user_type']):
+        return True
+
+    cursor.execute(
+        """
+        SELECT 1
+        FROM panelsearch_nando_group_user gu
+        JOIN panelsearch_nando_group_panel gp ON gp.group_id = gu.group_id
+        WHERE gu.user_id = %s AND gu.user_role = %s AND gp.panel_id = %s
+        LIMIT 1
+        """,
+        (user_id, GROUP_USER_ROLE_CURATOR, review['panel_id'])
+    )
+    return cursor.fetchone() is not None
+
+
 # delete review
 def api_psn_delete_panel_entity_review(user_id_change, data):
 
@@ -1622,6 +1647,9 @@ def api_psn_delete_panel_entity_review(user_id_change, data):
                 former_data = get_former_review(cur, review_id)
                 if not former_data:
                     return {"error": "The review to be deleted was not found or already deleted"}
+
+                if not _can_delete_panel_review(cur, user_id_change, former_data):
+                    return {"error": "You do not have permission to delete this review", "status_code": 403}
                                 
                 original_review_id = former_data['original_review_id']
                 user_id = former_data['user_id']

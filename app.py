@@ -3042,26 +3042,18 @@ def panelsearch_nanbyo_delete_panel_entity_review():
 
     uid, google_id, user_info = get_user_info_from_session(SERVICE_PANELSEARCH_NANBYO)
     if uid is None:
-        return jsonify({'error': 'please login first'})
+        return jsonify({'error': 'please login first'}), 401
 
     user_id = user_info["id"]
 
-    data = request.get_json()
-
-    required_params = ['user_id', 'panel_id', 'entity_type_id', 'entity_name', 'review_id']
-
-    missing_params = [param for param in required_params if param not in data]
-
-    if missing_params:
-        return jsonify({"error": f"Missing required JSON parameters: {', '.join(missing_params)}"}), 400
-
-    if data.get("user_id") != user_id:
-        return jsonify({"error": f"you cant delete other people's review"}), 400
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict) or not data.get('review_id'):
+        return jsonify({"error": "review_id is required"}), 400
 
     response = api_psn_delete_panel_entity_review(user_id, data)
     check_api_response_error(response, 'api_psn_delete_panel_entity_review')
 
-    return json.dumps(response, ensure_ascii=False, default=str)
+    return jsonify(response), response.get('status_code', 200)
 
 
 @app.route('/panelsearch_nanbyo_get_panel_entity_review_comment', methods=['GET'])
