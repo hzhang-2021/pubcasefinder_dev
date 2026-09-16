@@ -1375,6 +1375,10 @@ def api_psn_regist_review(user_id_change, data):
                     former_data = get_former_review(cursor, former_review_id)
                     if not former_data:
                         return {'error': 'the review to be modified was not found.'}
+                    if not _can_manage_panel_review(cursor, user_id_change, former_data):
+                        return {'error': 'You do not have permission to edit this review', 'status_code': 403}
+                    if str(panel_id) != str(former_data['panel_id']):
+                        return {'error': 'The review panel cannot be changed', 'status_code': 400}
                     base_fields["created_at"] = former_data["created_at"]
                     base_fields["original_review_id"] = former_data["original_review_id"]
                     original_review_id = former_data["original_review_id"]
@@ -1604,7 +1608,7 @@ def _get_newest_panel_review_info(original_review_id, dict_cursor):
     return dict_cursor.fetchone()
 
 
-def _can_delete_panel_review(cursor, user_id, review):
+def _can_manage_panel_review(cursor, user_id, review):
     # user_id is the original author, preserved when a review is revised.
     if user_id == review['user_id']:
         return True
@@ -1648,7 +1652,7 @@ def api_psn_delete_panel_entity_review(user_id_change, data):
                 if not former_data:
                     return {"error": "The review to be deleted was not found or already deleted"}
 
-                if not _can_delete_panel_review(cur, user_id_change, former_data):
+                if not _can_manage_panel_review(cur, user_id_change, former_data):
                     return {"error": "You do not have permission to delete this review", "status_code": 403}
                                 
                 original_review_id = former_data['original_review_id']

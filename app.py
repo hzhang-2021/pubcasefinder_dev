@@ -2890,7 +2890,9 @@ def panelsearch_nanbyo_RegistReview():
     user_id = user_info["id"]
     user_type = USER_TYPE_DEFAULT if user_info is None else user_info["user_type"]
 
-    data = request.get_json()
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify({'error': 'A JSON object is required'}), 400
     r_panel_id = data.get("input_review_panel_id")
 
     is_user_type_admin = api_is_user_admin(user_type)
@@ -2911,7 +2913,7 @@ def panelsearch_nanbyo_RegistReview():
     response = api_psn_regist_review(user_id, data)
     check_api_response_error(response, 'api_psn_regist_review')
 
-    return jsonify(response) 
+    return jsonify(response), response.get('status_code', 200)
 
 
 @app.route('/panelsearch_nanbyo_regist_entity_definition', methods=['POST'])

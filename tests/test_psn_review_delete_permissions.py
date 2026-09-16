@@ -45,7 +45,7 @@ class ReviewDeletePermissionsTest(unittest.TestCase):
             'USER_ACTIVITY_ACTION_DELETE': 'delete',
         }
         load_functions('utils/api_psn.py',
-                       {'_can_delete_panel_review', 'api_psn_delete_panel_entity_review'}, self.ns)
+                       {'_can_manage_panel_review', 'api_psn_delete_panel_entity_review'}, self.ns)
 
     def delete(self, actor, allowed):
         # Forged request ownership / panel must not determine authorization.
