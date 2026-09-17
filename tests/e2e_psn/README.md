@@ -14,7 +14,7 @@ e2e_psn/
   psn_common.py                設定、URL、JSON 応答の検証、スクリーンショットの共通処理
   config/{ja,en}/config.yaml   接続先、ページ、テストケースの設定
   src/test_psn_<page>.py       ページ別テストとログイン状態・ログアウトのテスト
-  test_case.tsv               テストケース一覧と実行結果
+  test_case.tsv               テストケース一覧、目的、成功条件、実行結果
   playwright/.auth/           ローカルの認証状態（コミット対象外）
   test_result/{ja,en}/         操作結果と失敗時のスクリーンショット（コミット対象外）
 ```
@@ -33,8 +33,8 @@ e2e_psn/
 | ページ | 使用ロール | 検証内容 |
 | --- | --- | --- |
 | panel_list | anonymous | 初期表示、既存のパネル名による検索、該当なし検索、既定の Panel 選択、ドロップダウンの開閉、Gene 検索、検索文字を保持した Panel/Gene の相互切り替えと再検索 |
-| panel_detail | anonymous / reviewer | 詳細表示、バージョン履歴・コメント／Reviewers／Panel Genes タブの切り替え、TSV ダウンロード、Add Review の確認・キャンセルと登録 |
-| panel_entity_detail | anonymous | エンティティ概要、Review／History タブの切り替え |
+| panel_detail | anonymous / reviewer | 詳細表示、バージョン履歴・コメント／Reviewers／Panel Genes タブの切り替え、Panel Genes の Papers・Reviewer ratings・Reference ratings の表示、TSV ダウンロード、Add Review の確認・キャンセルと登録 |
+| panel_entity_detail | anonymous / admin / curator | エンティティ概要、Review／History タブの切り替え、admin・curator で Entity Definition の編集画面表示とキャンセル |
 | ontology | anonymous | バージョン一覧、データベース内の既存バージョンの選択と読み込み |
 | admin_user | admin | ユーザー一覧、該当なしの絞り込み |
 | admin_group | curator | グループ一覧、該当なしの絞り込み |
@@ -105,6 +105,8 @@ Google ログインを手動で完了した後、Inspector の Resume をクリ�
 - `suites.panel_detail.download_contains`：ダウンロードした TSV に含まれるべき文字列。
 
 Ontology のテストには、読み込み可能な既存バージョンが少なくとも 1 件必要です。
+Panel Genes の表示テストには、対象パネル内に Papers、Reviewer ratings、Reference ratings がそれぞれ 1 件以上ある遺伝子と、各件数が 0 の遺伝子が必要です。件数が 1 件以上なら詳細表の展開・表示・折りたたみを確認します。Papers は Title・Journal・Date・Source とデータ行を、Reviewer ratings と Reference ratings は見出しと表示行数を確認します。件数が 0 ならクリックしても詳細表が開かないことを確認します。
+Entity Definition の編集表示テストは admin・curator の認証状態を使用し、Edit ボタン、編集表、Save ボタン、Cancel による概要表示への復帰を検証します。Save は押さず、定義は変更しません。
 
 ## 実行方法
 
@@ -130,6 +132,7 @@ JSON 応答では HTTP ステータスとアプリケーションのエラーを
 画像は目視確認用で、基準画像との自動比較は行いません。現在、トレース・動画は有効にしていません。
 
 `test_case.tsv` の「未実行」は実測前、「成功」は記載された言語・日付での実行成功を表します。
+「テスト目的」は各ケースで確認したい動作、「成功条件」は現在のテストコードが実際に検証する条件です。実行結果とは独立して記録します。
 
 ## ログイン状態とログアウトのテスト
 

@@ -1,38 +1,46 @@
-仕様ID	ページ	テスト関数	ロール	実行結果
-PSN-01	panel_list	test_panel_list_is_visible	anonymous	成功 (ja/en, 2026-09-15)
-PSN-01	panel_list	test_panel_search_no_match	anonymous	成功 (ja/en, 2026-09-15)
-PSN-01	panel_list	test_panel_search_existing_name	anonymous	成功 (ja/en, 2026-09-15)
-PSN-01	panel_list	test_panel_search_target_defaults_to_panel	anonymous	成功 (ja/en, 2026-09-15)
-PSN-01	panel_list	test_panel_search_gene_no_match	anonymous	成功 (ja/en, 2026-09-15)
-PSN-01	panel_list	test_panel_search_gene_acta1	anonymous	成功 (ja/en, 2026-09-15)
-PSN-01	panel_list	test_panel_search_target_switch_preserves_filter[Panel-Gene]	anonymous	成功 (ja/en, 2026-09-15)
-PSN-01	panel_list	test_panel_search_target_switch_preserves_filter[Gene-Panel]	anonymous	成功 (ja/en, 2026-09-15)
-PSN-02	panel_detail	test_panel_detail_is_visible	anonymous	未実行
-PSN-02	panel_detail	test_panel_detail_tabs	anonymous	未実行
-PSN-02	panel_detail	test_panel_detail_download	anonymous	未実行
-PSN-02	panel_detail	test_panel_detail_add_review_cancel	reviewer	成功 (ja/en, 2026-09-16)
-PSN-02	panel_detail	test_panel_detail_add_review_submit	reviewer	成功 (ja) / 失敗 (en: 登録後の詳細画面にコメントが表示されない、後処理成功), 2026-09-16
-PSN-03	panel_entity_detail	test_panel_entity_detail_is_visible	anonymous	未実行
-PSN-03	panel_entity_detail	test_panel_entity_detail_tabs	anonymous	未実行
-PSN-04	ontology	test_ontology_is_visible	anonymous	未実行
-PSN-04	ontology	test_ontology_load_selected_version	anonymous	未実行
-PSN-05	admin_user	test_admin_user_is_visible	admin	未実行
-PSN-05	admin_user	test_admin_user_filter_no_match	admin	未実行
-PSN-06	admin_group	test_admin_group_is_visible	curator	未実行
-PSN-06	admin_group	test_group_filter_no_match	curator	未実行
-PSN-07	admin_group_activity	test_admin_group_activity_is_visible	admin	未実行
-PSN-07	admin_group_activity	test_admin_group_activity_filter_no_match	admin	未実行
-PSN-08	admin_activity	test_admin_activity_is_visible	admin	未実行
-PSN-08	admin_activity	test_activity_date_filter	admin	未実行
-PSN-09	admin_authentication	test_admin_authentication_is_visible	admin	未実行
-PSN-09	admin_authentication	test_admin_authentication_filter_no_match	admin	未実行
-PSN-10	admin_incharge	test_admin_incharge_is_visible	curator	未実行
-PSN-11	admin_profile	test_admin_profile_is_visible	reviewer	未実行
-PSN-11	admin_profile	test_profile_edit_cancel	reviewer	未実行
-PSN-12	admin_review	test_admin_review_is_visible	reviewer	未実行
-PSN-13	admin_mail	test_admin_mail_is_visible	admin	未実行
-PSN-13	admin_mail	test_admin_mail_tabs	admin	未実行
-PSN-13	admin_mail	test_mail_log_load	admin	未実行
-PSN-AUTH-01/PSN-AUTH-02	panel_list	test_login_logout[panel_list]	reviewer	未実行
-PSN-AUTH-01/PSN-AUTH-02	panel_detail	test_login_logout[panel_detail]	reviewer	未実行
-PSN-AUTH-01/PSN-AUTH-02	admin_profile	test_login_logout[admin_profile]	reviewer	未実行
+仕様ID	ページ	テスト関数	ロール	テスト目的	成功条件	実行結果
+PSN-01	panel_list	test_panel_list_is_visible	anonymous	パネル一覧ページが正常に読み込まれることを確認する	検索欄・ツリー・パネル一覧が表示され、初期表示用のパネル API とツリー API が成功する	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_no_match	anonymous	パネル名検索で該当なしの状態を確認する	パネル名検索 API が成功し、結果件数が 0 と表示される	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_existing_name	anonymous	既存のパネル名で検索できることを確認する	検索 API が成功し、先頭の結果に入力したパネル名が含まれる	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_target_defaults_to_panel	anonymous	検索対象の初期値とドロップダウン操作を確認する	初期値が Panel で、メニューを開閉でき、Panel と Gene が表示される	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_gene_no_match	anonymous	遺伝子検索で該当なしの状態を確認する	Gene 検索 API が入力語を受け取って成功し、結果件数が 0 と表示される	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_gene_acta1	anonymous	ACTA1 の遺伝子検索で対象パネルが表示されることを確認する	Gene 検索 API が ACTA1 を受け取って成功し、期待するパネルが表示される	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_target_switch_preserves_filter[Panel-Gene]	anonymous	Panel から Gene への切り替えで検索語が保持されることを確認する	切り替え前後の API に同じ検索語が渡り、入力欄の値が保持され、結果件数が 0 になる	成功 (ja/en, 2026-09-15)
+PSN-01	panel_list	test_panel_search_target_switch_preserves_filter[Gene-Panel]	anonymous	Gene から Panel への切り替えで検索語が保持されることを確認する	切り替え前後の API に同じ検索語が渡り、入力欄の値が保持され、結果件数が 0 になる	成功 (ja/en, 2026-09-15)
+PSN-02	panel_detail	test_panel_detail_is_visible	anonymous	パネル詳細ページが正常に表示されることを確認する	パネル名・ダウンロードボタン・タブ領域が表示され、初期 Review API が成功する	未実行
+PSN-02	panel_detail	test_panel_detail_tabs	anonymous	パネル詳細ページのタブ切り替えを確認する	Version comments・Reviewers・Panel genes の各タブが選択され、対応する領域が表示される	未実行
+PSN-02	panel_detail	test_panel_detail_download	anonymous	パネルの TSV をダウンロードできることを確認する	ダウンロードが成功し、拡張子が .tsv で、内容が空でなく、設定した期待文字列を含む	未実行
+PSN-02	panel_detail	test_panel_detail_panel_genes_papers	anonymous	件数が 1 以上の Papers を展開・折りたたみできることを確認する	論文件数が 1 以上の行で、展開後に 4 列の見出しとデータ行が表示され、再クリックで非表示になる	成功 (ja/en, 2026-09-17; en 初回は 0 Entities で失敗、再実行成功)
+PSN-02	panel_detail	test_panel_detail_panel_genes_papers_zero	anonymous	件数が 0 の Papers を展開できないことを確認する	件数が 0 と表示され展開用コントロールがなく、クリック後も論文表が非表示のままである	成功 (ja/en, 2026-09-17)
+PSN-02	panel_detail	test_panel_detail_panel_genes_ratings[reviewer-Reviewer ratings-Reviewer]	anonymous	件数が 1 以上の Reviewer ratings を展開・折りたたみできることを確認する	展開後に表と見出しが表示され、データ行数が件数と一致し、再クリックで非表示になる	成功 (ja/en, 2026-09-17)
+PSN-02	panel_detail	test_panel_detail_panel_genes_ratings[reference-Reference ratings-Reference]	anonymous	件数が 1 以上の Reference ratings を展開・折りたたみできることを確認する	展開後に表と見出しが表示され、データ行数が件数と一致し、再クリックで非表示になる	成功 (ja/en, 2026-09-17)
+PSN-02	panel_detail	test_panel_detail_panel_genes_ratings_zero[reviewer]	anonymous	件数が 0 の Reviewer ratings を展開できないことを確認する	Show(0) と表示され、クリック後も展開状態にならず、詳細表が表示されない	成功 (ja/en, 2026-09-17)
+PSN-02	panel_detail	test_panel_detail_panel_genes_ratings_zero[reference]	anonymous	件数が 0 の Reference ratings を展開できないことを確認する	Show(0) と表示され、クリック後も展開状態にならず、詳細表が表示されない	成功 (ja/en, 2026-09-17)
+PSN-02	panel_detail	test_panel_detail_add_review_cancel	reviewer	Add Review の確認・キャンセル操作を確認する	ACTA1 のフォームと確認ダイアログに入力内容が表示され、キャンセル後も入力が保持され、閉じるとフォームが非表示になる	成功 (ja/en, 2026-09-16)
+PSN-02	panel_detail	test_panel_detail_add_review_submit	reviewer	Add Review の保存とエンティティ詳細への反映を確認する	登録 API が成功し、読み取り API の Review とコメントが一意で内容が一致し、詳細画面にコメントが表示され、テストデータの削除が成功する	成功 (ja) / 失敗 (en: 登録後の詳細画面にコメントが表示されない、後処理成功), 2026-09-16
+PSN-03	panel_entity_detail	test_panel_entity_detail_is_visible	anonymous	エンティティ詳細ページが正常に表示されることを確認する	エンティティ名・概要表・タブ領域が表示され、初期エンティティ Review API が成功する	未実行
+PSN-03	panel_entity_detail	test_panel_entity_detail_tabs	anonymous	エンティティ詳細ページのタブ切り替えを確認する	History と Reviews の各タブが選択され、対応する領域が表示される	未実行
+PSN-03	panel_entity_detail	test_panel_entity_definition_edit_visible[admin]	admin	admin がエンティティ定義の編集機能を表示できることを確認する	Edit ボタン・編集表・Save ボタンが表示され、対象エンティティの値が一致し、Cancel 後に概要表へ戻る	成功 (ja/en, 2026-09-17)
+PSN-03	panel_entity_detail	test_panel_entity_definition_edit_visible[curator]	curator	curator がエンティティ定義の編集機能を表示できることを確認する	Edit ボタン・編集表・Save ボタンが表示され、対象エンティティの値が一致し、Cancel 後に概要表へ戻る	成功 (ja/en, 2026-09-17)
+PSN-04	ontology	test_ontology_is_visible	anonymous	Ontology ページが正常に表示されることを確認する	バージョン一覧と読み込みボタンが表示され、初期 Ontology API が成功する	未実行
+PSN-04	ontology	test_ontology_load_selected_version	anonymous	既存の Ontology バージョンを読み込めることを確認する	バージョン行が選択され、読み込み API が成功し、ontology_json を含む	未実行
+PSN-05	admin_user	test_admin_user_is_visible	admin	ユーザー管理ページが正常に表示されることを確認する	ユーザー表と絞り込みコントロールが表示され、初期ユーザー API が成功する	未実行
+PSN-05	admin_user	test_admin_user_filter_no_match	admin	ユーザー一覧で該当なしの絞り込みを確認する	絞り込み API が成功し、合計件数が 0 と表示される	未実行
+PSN-06	admin_group	test_admin_group_is_visible	curator	グループ管理ページが正常に表示されることを確認する	グループ一覧と絞り込み欄が表示され、初期グループデータ API が成功する	未実行
+PSN-06	admin_group	test_group_filter_no_match	curator	グループ一覧で該当なしの絞り込みを確認する	該当しない語を入力すると、表示中のグループ行数が 0 になる	未実行
+PSN-07	admin_group_activity	test_admin_group_activity_is_visible	admin	グループ活動ページが正常に表示されることを確認する	活動表・絞り込み欄・合計件数が表示され、初期グループ活動 API が成功する	未実行
+PSN-07	admin_group_activity	test_admin_group_activity_filter_no_match	admin	グループ活動一覧で該当なしの絞り込みを確認する	絞り込み API が成功し、合計件数が 0 と表示される	未実行
+PSN-08	admin_activity	test_admin_activity_is_visible	admin	活動管理ページが正常に表示されることを確認する	活動表・パネル絞り込み・日付欄が表示され、初期活動 API が成功する	未実行
+PSN-08	admin_activity	test_activity_date_filter	admin	開始日を指定した活動検索を確認する	活動 API が成功し、入力した日付が保持され、活動表が表示される	未実行
+PSN-09	admin_authentication	test_admin_authentication_is_visible	admin	認証ログページが正常に表示されることを確認する	ログ表・絞り込み欄・日付欄が表示され、初期認証ログ API が成功する	未実行
+PSN-09	admin_authentication	test_admin_authentication_filter_no_match	admin	認証ログで該当なしの絞り込みを確認する	絞り込み API が成功し、合計件数が 0 と表示される	未実行
+PSN-10	admin_incharge	test_admin_incharge_is_visible	curator	担当活動ページが正常に表示されることを確認する	活動表と合計件数が表示され、担当活動 API と確認履歴 API が成功する	未実行
+PSN-11	admin_profile	test_admin_profile_is_visible	reviewer	プロフィールページが正常に表示されることを確認する	プロフィール表と Edit ボタンが表示される	未実行
+PSN-11	admin_profile	test_profile_edit_cancel	reviewer	プロフィール編集画面を開いてキャンセルできることを確認する	編集入力欄と Save ボタンが表示され、Cancel 後に入力欄が非表示となり、プロフィール表が表示される	未実行
+PSN-12	admin_review	test_admin_review_is_visible	reviewer	自分の Review ページが正常に表示されることを確認する	タイトルが表示され、Review の領域が生成され、Review とコメントの API が成功する	未実行
+PSN-13	admin_mail	test_admin_mail_is_visible	admin	メール管理ページが正常に表示されることを確認する	メール表と読み込みボタンが表示される	未実行
+PSN-13	admin_mail	test_admin_mail_tabs	admin	メール管理ページのタブ切り替えを確認する	Template・SMTP・Log の各タブが選択され、対応する領域が表示される	未実行
+PSN-13	admin_mail	test_mail_log_load	admin	メールログを読み込めることを確認する	メールログ API が成功し、メール表が表示される	未実行
+PSN-AUTH-01/PSN-AUTH-02	panel_list	test_login_logout[panel_list]	reviewer	パネル一覧ページでログイン状態とログアウトを確認する	ログイン中はユーザーメニューが表示されログインボタンが非表示となり、ログアウト後と再読み込み後は逆になる	未実行
+PSN-AUTH-01/PSN-AUTH-02	panel_detail	test_login_logout[panel_detail]	reviewer	パネル詳細ページでログイン状態とログアウトを確認する	ログイン中はユーザーメニューが表示されログインボタンが非表示となり、ログアウト後と再読み込み後は逆になる	未実行
+PSN-AUTH-01/PSN-AUTH-02	admin_profile	test_login_logout[admin_profile]	reviewer	プロフィールページでログイン状態とログアウトを確認する	ログイン中はユーザーメニューが表示されログインボタンが非表示となり、ログアウト後と再読み込み後は逆になる	未実行

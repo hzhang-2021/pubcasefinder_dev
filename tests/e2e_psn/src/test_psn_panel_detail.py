@@ -116,6 +116,87 @@ def test_panel_detail_tabs(root_page, psn_config):
     assert_tabs(root_page, psn_config, PAGE)
 
 
+def _panel_gene_with_content(page, controller_selector):
+    panel = page.locator('#vgp-panel-genes-panel')
+    expect(panel).to_be_visible()
+    rows = panel.locator('#vgp-panel-gene-table-tbody tr.vgp-table-datarow')
+    expect(rows.first).to_be_visible(timeout=60000)
+    gene_row = rows.filter(has=page.locator(controller_selector)).first
+    expect(gene_row).to_be_visible(timeout=60000)
+    expect(gene_row.locator('.vgp-panel-gene-name')).to_be_visible()
+    source_row = gene_row.locator('.row-wrapper').filter(has=page.locator(controller_selector)).first
+    expect(source_row).to_be_visible()
+    return source_row
+
+
+def test_panel_detail_panel_genes_papers(root_page, psn_config):
+    row = _panel_gene_with_content(root_page, '.vgp-summary-controll.paper')
+    controller = row.locator('.vgp-summary-controll.paper').first
+    count = controller.evaluate('element => Number(window.jQuery(element).data("cnt"))')
+    assert count > 0
+    wrapper_id = controller.evaluate('element => window.jQuery(element).data("table-id")')
+    wrapper = row.locator('#' + wrapper_id)
+    controller.click()
+    expect(wrapper).to_be_visible()
+    expect(wrapper.locator('thead')).to_contain_text('Title')
+    expect(wrapper.locator('thead')).to_contain_text('Journal')
+    expect(wrapper.locator('thead')).to_contain_text('Date')
+    expect(wrapper.locator('thead')).to_contain_text('Source')
+    expect(wrapper.locator('tbody tr').first).to_be_visible(timeout=60000)
+    take_screenshot(root_page, psn_config, 'panel_genes_papers')
+    controller.click()
+    expect(wrapper).not_to_be_visible()
+
+
+def test_panel_detail_panel_genes_papers_zero(root_page, psn_config):
+    row = _panel_gene_with_content(root_page, '.width-paper .related-paper-num.empty')
+    count = row.locator('.width-paper .related-paper-num.empty').first
+    expect(count).to_contain_text('0')
+    expect(row.locator('.width-paper .vgp-summary-controll.paper')).to_have_count(0)
+    wrapper = row.locator('.vgp-paper-table-wrapper').first
+    expect(wrapper).not_to_be_visible()
+    count.click()
+    expect(wrapper).not_to_be_visible()
+    take_screenshot(root_page, psn_config, 'panel_genes_papers_zero')
+
+
+@pytest.mark.parametrize('kind,title,last_column', [
+    ('reviewer', 'Reviewer ratings', 'Reviewer'),
+    ('reference', 'Reference ratings', 'Reference'),
+])
+def test_panel_detail_panel_genes_ratings(root_page, psn_config, kind, title, last_column):
+    row = _panel_gene_with_content(root_page, f'.vgp-summary-controll[id$="-{kind}"][data-cnt]:not([data-cnt="0"])')
+    controller = row.locator(f'.vgp-summary-controll[id$="-{kind}"]').first
+    count = int(controller.get_attribute('data-cnt'))
+    assert count > 0
+    wrapper = row.locator('#' + controller.get_attribute('data-table-id'))
+    controller.click()
+    expect(wrapper).to_be_visible()
+    expect(wrapper.locator('.title')).to_have_text(title)
+    for heading in ('Rating', 'Disease', 'Mode of inheritance', last_column):
+        expect(wrapper.locator('thead')).to_contain_text(heading)
+    expect(wrapper.locator('tbody tr').first).to_be_visible()
+    assert wrapper.locator('tbody tr').count() == count
+    take_screenshot(root_page, psn_config, f'panel_genes_{kind}_ratings')
+    controller.click()
+    expect(wrapper).not_to_be_visible()
+
+
+@pytest.mark.parametrize('kind', ['reviewer', 'reference'])
+def test_panel_detail_panel_genes_ratings_zero(root_page, psn_config, kind):
+    selector = f'.vgp-summary-controll[id$="-{kind}"][data-cnt="0"]'
+    row = _panel_gene_with_content(root_page, selector)
+    controller = row.locator(selector).first
+    expect(controller).to_contain_text('Show(0)')
+    wrapper = row.locator('#' + controller.get_attribute('data-table-id'))
+    expect(wrapper).to_have_count(0)
+    controller.click()
+    expect(controller).to_contain_text('Show(0)')
+    assert 'vgp-active' not in (controller.get_attribute('class') or '').split()
+    expect(wrapper).to_have_count(0)
+    take_screenshot(root_page, psn_config, f'panel_genes_{kind}_ratings_zero')
+
+
 def test_panel_detail_download(root_page, psn_config):
     from pathlib import Path
     with root_page.expect_download(timeout=60000) as result:
