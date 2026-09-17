@@ -175,6 +175,7 @@ from utils.api_psn import api_psn_add_panel_entity_review_comment
 from utils.api_psn import api_psn_get_user_review
 from utils.api_psn import api_psn_get_user_review_comment
 from utils.api_psn import api_psn_regist_panel_entity_definition
+from utils.api_psn import api_psn_delete_panel_entity_definition
 from utils.api_psn import api_psn_get_multi_panel_entity_definition
 from utils.api_psn import api_psn_get_panel_entity_definition
 from utils.api_psn import api_psn_group_add_group
@@ -2939,6 +2940,27 @@ def panelsearch_nanbyo_regist_entity_definition():
     check_api_response_error(response, 'api_psn_regist_panel_entity_definition')
 
     return jsonify(response)
+
+
+@app.route('/panelsearch_nanbyo_delete_entity_definition', methods=['POST'])
+def panelsearch_nanbyo_delete_entity_definition():
+    uid, google_id, user_info = get_user_info_from_session(SERVICE_PANELSEARCH_NANBYO)
+    if uid is None:
+        return jsonify({'error': 'please login first'}), 401
+
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify({'error': 'A JSON object is required'}), 400
+    try:
+        entity_id = int(data.get('entity_id'))
+        if entity_id <= 0:
+            raise ValueError
+    except (TypeError, ValueError):
+        return jsonify({'error': 'entity_id is required'}), 400
+
+    response = api_psn_delete_panel_entity_definition(user_info['id'], entity_id)
+    check_api_response_error(response, 'api_psn_delete_panel_entity_definition')
+    return jsonify(response), response.get('status_code', 200)
 
 
 @app.route('/panelsearch_nanbyo_get_all_panel_version')

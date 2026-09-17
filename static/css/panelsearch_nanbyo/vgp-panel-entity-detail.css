@@ -108,6 +108,11 @@
   margin-left: 15px;
 }
 #vgp-panel-entity-summary-wrapper .control button:hover{background-color: #f1f1f1;}
+#vgp-panel-entity-summary-wrapper .control #btn-definition-delete{
+  border-color: #c85b5b;
+  background-color: #f8dddd;
+  color: #9b3030;
+}
 #vgp-panel-entity-summary-wrapper .control button.edit{display: none;}
 #vgp-panel-entity-summary-wrapper #vgp-definition-table{display: none;}
 #vgp-panel-entity-summary-wrapper.edit #vgp-definition-table{display: table;}

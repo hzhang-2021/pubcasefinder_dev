@@ -123,8 +123,9 @@ function _vgp_init_entity_definition_edit_table(
 		[$.fn.panel_review.KEY_PHENOTYPE]           : `${nando_id}--${panel_name}`,
 		[$.fn.panel_review.KEY_PUBLICATION]         : '',
 		[$.fn.panel_review.KEY_MODE_OF_INHERITANCE] : '',
-		[$.fn.panel_review.KEY_COMMENT]             : '',
-		[$.fn.panel_review.KEY_PHENOTYPE_TREEVIEW_DATA]: phenotype_treeview_data
+			[$.fn.panel_review.KEY_COMMENT]             : '',
+			[$.fn.panel_review.KEY_PHENOTYPE_TREEVIEW_DATA]: phenotype_treeview_data,
+			has_current_definition: panel_entity_definition_arr && panel_entity_definition_arr.length > 0
 	}
 
 	let data_arr = 
@@ -182,6 +183,7 @@ function _vgp_init_entity_definition_edit_table(
 		URL_PANELSEARCH_NANBYO_MODIFY_PANEL_ENTITY_REVIEW_COMMENT = "/panelsearch_nanbyo_modify_panel_entity_review_comment",
 		URL_GENE_SYMBOL_DATA                                      = '/static/data/panelsearch_nanbyo/gene_symbol.txt',
 		URL_PANELSEARCH_NANBYO_REGIST_DEFINITION                  = "/panelsearch_nanbyo_regist_entity_definition",
+		URL_PANELSEARCH_NANBYO_DELETE_DEFINITION                  = "/panelsearch_nanbyo_delete_entity_definition",
 		URL_ADD_REVIEW_COMMENT                                    = "/panelsearch_nanbyo_add_panel_entity_review_comment";
 
 	const	
@@ -496,6 +498,7 @@ function _vgp_init_entity_definition_edit_table(
 			]
 		},
 		CONFIRM_TYPE_DELETE='delete', CONFIRM_TYPE_ADD='add', CONFIRM_TYPE_DEFINITION='definition',
+		CONFIRM_TYPE_DEFINITION_DELETE='definition_delete',
 		CONFIRM_DIALOG_TEXT = {
 			[CONFIRM_TYPE_DELETE]: {
 				'label_text': 'Confirm Deletion',
@@ -511,6 +514,11 @@ function _vgp_init_entity_definition_edit_table(
 				'label_text': 'Confirm Addition of Entity Definition',
 				'msg_text':   'Are you sure you want to add this entity definition? Please review the details carefully.',
 				'btn_text':   'Add Definition'
+			},
+			[CONFIRM_TYPE_DEFINITION_DELETE]: {
+				'label_text': 'Confirm Deletion of Entity Definition',
+				'msg_text':   'Are you sure you want to delete this entity definition? This action cannot be undone.',
+				'btn_text':   'Delete Definition'
 			}
 		},
 		CONFIRM_INPUT_IDS_DEFINITION = [
@@ -972,13 +980,13 @@ function _vgp_init_entity_definition_edit_table(
 				.data('review_data', review_data)
 				.removeClass('btn-primary')
 				.removeClass('btn-danger')
-				.addClass(confirm_type === CONFIRM_TYPE_DELETE ? 'btn-danger' : 'btn-primary');
+				.addClass([CONFIRM_TYPE_DELETE, CONFIRM_TYPE_DEFINITION_DELETE].includes(confirm_type) ? 'btn-danger' : 'btn-primary');
 		
 			let $wrapper = $('#confirmationModal-list-group');
 			$wrapper.empty();
 		
 			let confirm_item_arr = 
-				confirm_type === CONFIRM_TYPE_DEFINITION ? 
+				[CONFIRM_TYPE_DEFINITION, CONFIRM_TYPE_DEFINITION_DELETE].includes(confirm_type) ?
 				CONFIRM_INPUT_IDS_DEFINITION : 
 				CONFIRM_INPUT_IDS_BY_ENTITY_TYPE_HASH[entity_type_id];
 		
@@ -995,7 +1003,7 @@ function _vgp_init_entity_definition_edit_table(
 
 				let text = ''
 				if (confirm_item.id_review === 'gene_symbol'){
-					if(confirm_type === CONFIRM_TYPE_DELETE || confirm_type === CONFIRM_TYPE_DEFINITION){
+					if([CONFIRM_TYPE_DELETE, CONFIRM_TYPE_DEFINITION, CONFIRM_TYPE_DEFINITION_DELETE].includes(confirm_type)){
 						// delete from review_data
 						text = val;
 					}else{
@@ -1104,6 +1112,15 @@ function _vgp_init_entity_definition_edit_table(
 					_vgp_hide_loading();
 					$btn.prop('disabled', false);
 				});			
+			}else if(action_type === CONFIRM_TYPE_DEFINITION_DELETE){
+				_vgp_show_loading();
+				utils_run_submit(URL_PANELSEARCH_NANBYO_DELETE_DEFINITION,
+					{entity_id: $('#input_definition_review_id').val()}, function(){
+						location.reload();
+					}, function(){
+						_vgp_hide_loading();
+						$btn.prop('disabled', false);
+					});
 			}else if(action_type === CONFIRM_TYPE_DEFINITION){
 				let form = document.getElementById('panel_entity_definition_form');
 				let formData = new FormData(form);
@@ -1729,6 +1746,7 @@ function _vgp_init_entity_definition_edit_table(
 	</table>
 	<div class="control">
 		<button type="button" id="btn-definition-edit">Edit</button>
+		${input_definition_data.has_current_definition ? '<button type="button" id="btn-definition-delete">Delete</button>' : ''}
 		<button type="button" id="btn-definition-save" class="edit">Save</button>
 		<button type="button" id="btn-definition-cancel" class="edit">Cancel</button>
 	</div>
@@ -1792,6 +1810,10 @@ function _vgp_init_entity_definition_edit_table(
 			$('#btn-definition-edit').click(function(){
 				$('#vgp-panel-entity-summary-wrapper').addClass('edit');
 				autoGrow(textarea_comment_definition);
+			});
+			$('#btn-definition-delete').click(function(){
+				_vgp_panel_review_show_confirm_dialog(CONFIRM_TYPE_DEFINITION_DELETE,
+					$('#input_definition_entity_type_id').val(), null);
 			});
 			
 			$('#btn-definition-cancel').click(function(){

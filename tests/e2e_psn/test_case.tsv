@@ -20,8 +20,14 @@ PSN-02	panel_detail	test_panel_detail_add_review_cancel	reviewer	Add Review の�
 PSN-02	panel_detail	test_panel_detail_add_review_submit	reviewer	Add Review の保存とエンティティ詳細への反映を確認する	登録 API が成功し、読み取り API の Review とコメントが一意で内容が一致し、詳細画面にコメントが表示され、テストデータの削除が成功する	成功 (ja) / 失敗 (en: 登録後の詳細画面にコメントが表示されない、後処理成功), 2026-09-16
 PSN-03	panel_entity_detail	test_panel_entity_detail_is_visible	anonymous	エンティティ詳細ページが正常に表示されることを確認する	エンティティ名・概要表・タブ領域が表示され、初期エンティティ Review API が成功する	未実行
 PSN-03	panel_entity_detail	test_panel_entity_detail_tabs	anonymous	エンティティ詳細ページのタブ切り替えを確認する	History と Reviews の各タブが選択され、対応する領域が表示される	未実行
+PSN-03	panel_entity_detail	test_panel_entity_definition_delete_hidden_for_anonymous	anonymous	匿名ユーザーに定義の削除操作が表示されないことを確認する	概要領域が表示され、Delete ボタンが存在しない	成功 (ja/en, 2026-09-17)
 PSN-03	panel_entity_detail	test_panel_entity_definition_edit_visible[admin]	admin	admin がエンティティ定義の編集機能を表示できることを確認する	Edit ボタン・編集表・Save ボタンが表示され、対象エンティティの値が一致し、Cancel 後に概要表へ戻る	成功 (ja/en, 2026-09-17)
 PSN-03	panel_entity_detail	test_panel_entity_definition_edit_visible[curator]	curator	curator がエンティティ定義の編集機能を表示できることを確認する	Edit ボタン・編集表・Save ボタンが表示され、対象エンティティの値が一致し、Cancel 後に概要表へ戻る	成功 (ja/en, 2026-09-17)
+PSN-03	panel_entity_detail	test_panel_entity_definition_delete_cancel[admin]	admin	admin が定義の削除確認を開いてキャンセルできることを確認する	有効な定義がある場合に Delete ボタンと対象定義の確認画面が表示され、Cancel 後も Delete ボタンが表示される	未実行（新機能未デプロイ）
+PSN-03	panel_entity_detail	test_panel_entity_definition_delete_cancel[curator]	curator	curator が定義の削除確認を開いてキャンセルできることを確認する	有効な定義がある場合に Delete ボタンと対象定義の確認画面が表示され、Cancel 後も Delete ボタンが表示される	未実行（新機能未デプロイ）
+PSN-03	panel_entity_detail	test_panel_entity_definition_add_cancel[admin]	admin	admin が定義の追加確認を開いてキャンセルできることを確認する	確認画面に入力したコメントと Add Definition ボタンが表示され、Cancel 後も入力が保持され、定義が登録されない	未実行
+PSN-03	panel_entity_detail	test_panel_entity_definition_add_cancel[curator]	curator	curator が定義の追加確認を開いてキャンセルできることを確認する	確認画面に入力したコメントと Add Definition ボタンが表示され、Cancel 後も入力が保持され、定義が登録されない	未実行
+PSN-03	panel_entity_detail	test_panel_entity_definition_add_delete_submit[admin]	admin	専用エンティティに定義を追加し、その定義を削除できることを確認する	登録 API が成功し、一意のコメントを持つ有効な定義と Delete ボタンが表示された後、削除 API が成功して有効な定義と Delete ボタンが消える	未実行（専用データと環境変数が必要）
 PSN-04	ontology	test_ontology_is_visible	anonymous	Ontology ページが正常に表示されることを確認する	バージョン一覧と読み込みボタンが表示され、初期 Ontology API が成功する	未実行
 PSN-04	ontology	test_ontology_load_selected_version	anonymous	既存の Ontology バージョンを読み込めることを確認する	バージョン行が選択され、読み込み API が成功し、ontology_json を含む	未実行
 PSN-05	admin_user	test_admin_user_is_visible	admin	ユーザー管理ページが正常に表示されることを確認する	ユーザー表と絞り込みコントロールが表示され、初期ユーザー API が成功する	未実行

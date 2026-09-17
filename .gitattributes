@@ -5,6 +5,8 @@
 *.js text eol=lf
 *.html text eol=lf
 *.css text eol=lf
+app.py text eol=lf
+utils/api_psn.py text eol=lf
 
 # Windows 专用脚本保留 CRLF，否则可能无法运行
 *.bat text eol=crlf

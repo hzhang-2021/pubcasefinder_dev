@@ -836,6 +836,27 @@ def get_entity_by_id(cursor, entity_id):
     return cursor.fetchone()
 
 
+def _can_manage_panel_definition(cursor, user_id, panel_id):
+    cursor.execute("SELECT user_type FROM user_info_psn WHERE id = %s", (user_id,))
+    user = cursor.fetchone()
+    if not user:
+        return False
+    if api_is_user_admin(user['user_type']):
+        return True
+
+    cursor.execute(
+        """
+        SELECT 1
+        FROM panelsearch_nando_group_user gu
+        JOIN panelsearch_nando_group_panel gp ON gp.group_id = gu.group_id
+        WHERE gu.user_id = %s AND gu.user_role = %s AND gp.panel_id = %s
+        LIMIT 1
+        """,
+        (user_id, GROUP_USER_ROLE_CURATOR, panel_id)
+    )
+    return cursor.fetchone() is not None
+
+
 def record_entity_panel_version(entity_id, panel_version_info_arr, cur):
 
     sql= """
@@ -1005,6 +1026,54 @@ def api_psn_regist_panel_entity_definition(user_id_change, data):
             return {'error': f"Exception { str(e)}"}
 
 
+def api_psn_delete_panel_entity_definition(user_id_change, entity_id):
+    with get_mysql_connection() as conn:
+        try:
+            with conn.cursor(MySQLdb.cursors.DictCursor) as cursor:
+                former_data = get_entity_by_id(cursor, entity_id)
+                if not former_data or former_data['is_latest'] != ENUM_VAL_YES or former_data['is_deleted'] != ENUM_VAL_NO:
+                    return {'error': 'Entity definition not found or already deleted', 'status_code': 404}
+
+                panel_id = former_data['panel_id']
+                if not _can_manage_panel_definition(cursor, user_id_change, panel_id):
+                    return {'error': 'You do not have permission to delete this definition', 'status_code': 403}
+
+                check_result = _check_panel_validation(panel_id, cursor)
+                if 'error' in check_result:
+                    return check_result
+
+                cursor.execute(
+                    """
+                    UPDATE panelsearch_nando_entity
+                    SET is_latest = %s, is_deleted = %s, modified_at = NOW()
+                    WHERE entity_id = %s AND is_latest = %s AND is_deleted = %s
+                    """,
+                    (ENUM_VAL_NO, ENUM_VAL_YES, entity_id, ENUM_VAL_YES, ENUM_VAL_NO)
+                )
+                if cursor.rowcount != 1:
+                    conn.rollback()
+                    return {'error': 'Entity definition was changed before deletion', 'status_code': 409}
+
+                activity_id = add_user_activity_log(
+                    cursor, former_data['user_id'] or user_id_change,
+                    user_id_change, former_data, None,
+                    USER_ACTIVITY_TARGET_DEFINITION, USER_ACTIVITY_ACTION_DELETE
+                )
+                _psn_panel_version_minor_up(
+                    panel_id, user_id_change, PANEL_CHANGE_CATEGORY_ENTITY,
+                    PANEL_VERSION_UPDATE_TYPE_MINOR, activity_id,
+                    f"entity({former_data['entity_name']}) definition was deleted", cursor
+                )
+                panel_version_info_arr = _get_newest_panel_version(panel_id, cursor)
+                record_user_activity_panel_version(activity_id, panel_version_info_arr, cursor)
+                conn.commit()
+                return {'success': True}
+
+        except Exception as e:
+            conn.rollback()
+            return {'error': f"Exception { str(e)}"}
+
+
 def api_psn_get_multi_panel_entity_definition(nando_id_list,entity_type_id,entity_name):
 
     nando_ids = nando_id_list.split(',')
@@ -1017,13 +1086,13 @@ def api_psn_get_multi_panel_entity_definition(nando_id_list,entity_type_id,entit
         JOIN panelsearch_nando_entity_rating as B
             ON A.rating_id = B.rating_id
         WHERE 
-            A.is_latest = %s AND 
+            A.is_latest = %s AND A.is_deleted = %s AND
             A.entity_type_id = %s AND 
             A.entity_name = %s AND 
             A.panel_id IN ({placeholders})
     """
 
-    params = [ENUM_VAL_YES, entity_type_id, entity_name] + nando_ids
+    params = [ENUM_VAL_YES, ENUM_VAL_NO, entity_type_id, entity_name] + nando_ids
 
     return fetch_all(sql, params, dict_cursor=True)
 
@@ -1053,6 +1122,7 @@ def api_psn_get_panel_entity_definition(panel_id,entity_type_id,entity_name):
         e.comment,
 
         e.is_latest,
+        e.is_deleted,
         e.user_id,
         e.created_at,
 
@@ -1090,9 +1160,9 @@ def api_psn_get_panel_entity_definition(panel_id,entity_type_id,entity_name):
         INNER JOIN panelsearch_nando_panel_descendant pd
             ON pd.descendant_panel_id = e.panel_id AND pd.panel_id = %s
         WHERE
-            e.is_latest = %s 
+            e.is_latest = %s AND e.is_deleted = %s
         """
-        params.extend([panel_id,ENUM_VAL_YES])
+        params.extend([panel_id, ENUM_VAL_YES, ENUM_VAL_NO])
 
     sql += " ORDER BY e.created_at DESC"
 
@@ -2619,6 +2689,7 @@ def add_user_activity_log(cursor, user_id, user_id_change, former_data, data, ta
     # -------- 3. 特殊规则：definition + rating change → classify --------
     if (
         target == USER_ACTIVITY_TARGET_DEFINITION
+        and action == USER_ACTIVITY_ACTION_CHANGE
         and any("rating_id" in d for d in diff)
     ):
         payload["action"] = USER_ACTIVITY_ACTION_CLASSIFY

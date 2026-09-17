@@ -647,13 +647,16 @@ function _vgp_init_reviews(
 
 	let panel_entity_newest_review_arr   = _retrieve_newest_review(panel_entity_review_arr);
 	let panel_entity_review_comment_hash = _get_comment_hash_by_user_id(panel_entity_review_comment_arr);
+	let current_definition_arr = panel_entity_definition_arr.filter(item =>
+		item.is_latest === ENUM_VAL_YES && item.is_deleted !== ENUM_VAL_YES
+	);
 
 	_vgp_init_panel_entity_history(panel_gene_definitive_arr,panel_gene_autoreview_arr,panel_entity_review_arr,mode_of_inheritance_arr);
 
 	let total_data_arr = panel_entity_newest_review_arr.concat( panel_gene_definitive_arr, panel_gene_autoreview_arr);
 
 	_vgp_init_panel_entity_summary_tbl(
-		panel_gene_definitive_arr, panel_gene_autoreview_arr, panel_entity_gene_arr, panel_entity_definition_arr, 
+		panel_gene_definitive_arr, panel_gene_autoreview_arr, panel_entity_gene_arr, current_definition_arr,
 		panel_id, nando_id, panel_name, ncbi_gene_id, gene_symbol,entity_type_id, entity_name, 
 		panel_upstream_trace_data, is_from_user);
 
@@ -1051,4 +1054,3 @@ function _vgp_init(
 		});
 	});
 }
-
