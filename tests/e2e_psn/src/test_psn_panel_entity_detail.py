@@ -6,7 +6,7 @@ from uuid import uuid4
 import pytest
 
 from playwright.sync_api import expect
-from psn_common import assert_page, assert_tabs, assert_json_response, response_matches, take_screenshot
+from psn_common import assert_page, assert_json_response, response_matches, take_screenshot
 
 PAGE = 'panel_entity_detail'
 DEFINITION_API = '/panelsearch_nanbyo_get_panel_entity_definition'
@@ -28,7 +28,12 @@ def test_panel_entity_detail_is_visible(root_page, psn_config):
 
 
 def test_panel_entity_detail_tabs(root_page, psn_config):
-    assert_tabs(root_page, psn_config, PAGE)
+    for tab, panel in psn_config.pages[PAGE]['tabs']:
+        root_page.locator(tab).click()
+        expect(root_page.locator(tab)).to_have_attribute('aria-selected', 'true')
+        # 履歴が空の場合、タブが有効でも領域の高さが 0 になる。
+        expect(root_page.locator(panel + '.active.show')).to_have_count(1)
+        take_screenshot(root_page, psn_config, PAGE + '_' + tab.lstrip('#'))
 
 
 def test_panel_entity_definition_delete_hidden_for_anonymous(root_page):

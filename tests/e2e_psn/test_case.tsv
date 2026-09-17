@@ -19,7 +19,7 @@ PSN-02	panel_detail	test_panel_detail_panel_genes_ratings_zero[reference]	anonym
 PSN-02	panel_detail	test_panel_detail_add_review_cancel	reviewer	Add Review の確認・キャンセル操作を確認する	ACTA1 のフォームと確認ダイアログに入力内容が表示され、キャンセル後も入力が保持され、閉じるとフォームが非表示になる	成功 (ja/en, 2026-09-16)
 PSN-02	panel_detail	test_panel_detail_add_review_submit	reviewer	Add Review の保存とエンティティ詳細への反映を確認する	登録 API が成功し、読み取り API の Review とコメントが一意で内容が一致し、詳細画面にコメントが表示され、テストデータの削除が成功する	成功 (ja) / 失敗 (en: 登録後の詳細画面にコメントが表示されない、後処理成功), 2026-09-16
 PSN-03	panel_entity_detail	test_panel_entity_detail_is_visible	anonymous	エンティティ詳細ページが正常に表示されることを確認する	エンティティ名・概要表・タブ領域が表示され、初期エンティティ Review API が成功する	未実行
-PSN-03	panel_entity_detail	test_panel_entity_detail_tabs	anonymous	エンティティ詳細ページのタブ切り替えを確認する	History と Reviews の各タブが選択され、対応する領域が表示される	未実行
+PSN-03	panel_entity_detail	test_panel_entity_detail_tabs	anonymous	エンティティ詳細ページのタブ切り替えを確認する	History と Reviews の各タブが選択され、対応する領域に active・show が設定される	成功 (ja, 2026-09-17)
 PSN-03	panel_entity_detail	test_panel_entity_definition_delete_hidden_for_anonymous	anonymous	匿名ユーザーに定義の削除操作が表示されないことを確認する	概要領域が表示され、Delete ボタンが存在しない	成功 (ja/en, 2026-09-17)
 PSN-03	panel_entity_detail	test_panel_entity_definition_edit_visible[admin]	admin	admin がエンティティ定義の編集機能を表示できることを確認する	Edit ボタン・編集表・Save ボタンが表示され、対象エンティティの値が一致し、Cancel 後に概要表へ戻る	成功 (ja/en, 2026-09-17)
 PSN-03	panel_entity_detail	test_panel_entity_definition_edit_visible[curator]	curator	curator がエンティティ定義の編集機能を表示できることを確認する	Edit ボタン・編集表・Save ボタンが表示され、対象エンティティの値が一致し、Cancel 後に概要表へ戻る	成功 (ja/en, 2026-09-17)
