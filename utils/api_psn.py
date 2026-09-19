@@ -1880,7 +1880,8 @@ def api_psn_get_panel_entity_review_comment(panel_id,entity_type_id,entity_name)
 def _get_panel_entity_review_comment_info(review_comment_id,cur):
     cur.execute(
         """
-        SELECT review_comment_id, comment, created_at, user_id, user_id_change
+        SELECT review_comment_id, original_review_id, comment, created_at,
+               user_id, user_id_change
         FROM   panelsearch_nando_entity_review_comment
         WHERE  review_comment_id = %s AND is_latest = %s
         """,

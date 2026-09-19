@@ -122,5 +122,24 @@ class ReviewCommentApiAuthorizationTest(unittest.TestCase):
                 self.copy_review.assert_not_called()
 
 
+class ReviewCommentLookupTest(unittest.TestCase):
+    def test_lookup_returns_original_review_id_for_relation_check(self):
+        cursor = MagicMock()
+        cursor.fetchone.return_value = {'review_comment_id': 300}
+        namespace = {'ENUM_VAL_YES': 'YES'}
+        load_functions(
+            'utils/api_psn.py',
+            {'_get_panel_entity_review_comment_info'},
+            namespace,
+        )
+
+        result = namespace['_get_panel_entity_review_comment_info'](300, cursor)
+
+        sql, params = cursor.execute.call_args.args
+        self.assertIn('original_review_id', sql)
+        self.assertEqual(params, (300, 'YES'))
+        self.assertEqual(result, {'review_comment_id': 300})
+
+
 if __name__ == '__main__':
     unittest.main()

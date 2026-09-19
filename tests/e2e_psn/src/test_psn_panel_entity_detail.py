@@ -173,7 +173,7 @@ def test_panel_entity_review_comment_add_modify_delete(root_page, psn_config):
                 comment.locator(
                     '.vgp-review-comment-editor-control-panel button',
                     has_text='Save').click()
-            assert result.value.ok, f'Modify Review Comment: HTTP {result.value.status}'
+            assert_json_response(result.value)
 
         modified = matching_comments(modified_marker)
         assert len(modified) == 1, 'Expected exactly one modified Review Comment'
@@ -189,7 +189,7 @@ def test_panel_entity_review_comment_add_modify_delete(root_page, psn_config):
                     r, '/panelsearch_nanbyo_delete_panel_entity_review_comment')) as result:
                 comment.locator(
                     '.vgp-review-comment-control-btn-panel > span').first.click()
-            assert result.value.ok, f'Delete Review Comment: HTTP {result.value.status}'
+            assert_json_response(result.value)
 
         assert not matching_comments(modified_marker)
         expect(root_page.locator('.vgp-review-comment-text-content').filter(
