@@ -104,18 +104,82 @@ Google ログインを手動で完了した後、Inspector の Resume をクリ�
 - `suites.panel_list.gene_acta1_expected_panel`：ACTA1 検索で期待するパネル名。
 - `suites.panel_detail.download_contains`：ダウンロードした TSV に含まれるべき文字列。
 
-Ontology のテストには、読み込み可能な既存バージョンが少なくとも 1 件必要です。
-Panel List の Genes・Clinical features テストは、現在表示されているパネルから件数が 1 以上または 0 の行を選びます。件数が 1 以上なら展開・表示・折りたたみを確認し、件数が 0 なら詳細領域が開かずデータを読み込まないことを確認します。Genes はデータ URL を持つ表コンポーネントの生成を、Clinical features は API 応答、各分類表の見出し、全データ行数を検証します。条件に一致する行がない場合は該当ケースをスキップします。
-Panel Genes の表示テストには、対象パネル内に Papers、Reviewer ratings、Reference ratings がそれぞれ 1 件以上ある遺伝子と、各件数が 0 の遺伝子が必要です。件数が 1 件以上なら詳細表の展開・表示・折りたたみを確認します。Papers は Title・Journal・Date・Source とデータ行を、Reviewer ratings と Reference ratings は見出しと表示行数を確認します。件数が 0 ならクリックしても詳細表が開かないことを確認します。
-Version comments テストはタブを開き、画面に渡されたバージョン履歴と表示行数が一致することを確認します。各行の日付、コメント、表示されるバージョン番号を履歴データと照合します。
-Reviewers テストは Review API の結果をユーザー単位に集計し、タブと合計の reviewer 数、名前順の一覧、所属、Review 件数を照合します。Review がある場合は先頭 reviewer の件数をクリックし、詳細表の見出し、1ページ目の行数、Gene の並び、エンティティ詳細リンクを確認します。
-Version comparison テストは変更履歴 API の成功、直近2バージョンの初期選択、選択候補数を確認します。差分表の Entity 件数、Added・Removed・Rating changed の集計とサマリー表示を照合し、Entity 名による絞り込みと解除も検証します。
-Review と Comment の権限表示テストでは、reviewer は本人の Review と Comment だけに編集・削除操作が表示され、他人の Review と Comment には表示されないことを確認します。admin・curator は全 Review と全 Comment を編集・削除できる表示であることを確認します。また、ログインロールではすべての Review に Add Comment が表示されることを検証します。本人・他人の Review や Comment が揃わない場合は、該当ケースを理由付きでスキップします。
-Review Comment の変更・削除 API でも同じ権限を検証します。Comment の作成者、admin、対象 Panel に割り当てられた curator だけが実行でき、それ以外のユーザーには HTTP 403 を返します。Comment の所有者はリクエスト値ではなくデータベースから判定します。オフライン権限テストはリポジトリ直下で `uv run --project tests/e2e_psn pytest tests/test_psn_review_comment_permissions.py tests/test_psn_review_delete_permissions.py -q` を実行します。
-Review Comment の更新テストは admin の認証状態を使用し、既存 Review に一意のコメントを追加して、画面と読み取り API への反映を確認します。同じコメントを編集して新しい内容への置き換えを確認した後、画面から削除して消失を検証します。途中で失敗した場合も一意のコメントで残存データを特定して削除します。
-Entity Definition の編集表示テストは admin・curator の認証状態を使用し、Edit ボタン、編集表、Save ボタン、Cancel による概要表示への復帰を検証します。Save は押さず、定義は変更しません。
-追加確認テストは admin・curator の認証状態と、現在有効な定義がないエンティティを使用します。コメントを入力して Save を押し、確認画面を検証して Cancel で閉じます。入力値が保持され、定義が登録されないことを確認します。
-削除確認テストも admin・curator の認証状態を使用します。有効な定義がある場合に Delete ボタンと確認画面を検証し、Cancel で閉じます。新しい画面と API がデプロイされるまで実測結果は未実行として扱います。
+### テストデータと検証内容
+
+1. **Ontology**
+
+   読み込み可能な既存バージョンが少なくとも 1 件必要です。
+
+2. **Panel List：Genes・Clinical features**
+
+   現在表示されているパネルから、件数が 1 以上または 0 の行を選びます。
+   件数が 1 以上なら、展開・表示・折りたたみを確認します。
+   件数が 0 なら、詳細領域が開かずデータを読み込まないことを確認します。
+
+   Genes はデータ URL を持つ表コンポーネントの生成を確認します。
+   Clinical features は API 応答、各分類表の見出し、全データ行数を検証します。
+   条件に一致する行がない場合は、該当ケースを理由付きでスキップします。
+
+3. **Panel Genes：Papers・Reviewer ratings・Reference ratings**
+
+   対象パネル内に、各項目が 1 件以上ある遺伝子と、件数が 0 の遺伝子が必要です。
+
+   - 件数が 1 件以上：詳細表の展開・表示・折りたたみを確認します。
+   - Papers：Title・Journal・Date・Source とデータ行を確認します。
+   - Reviewer ratings・Reference ratings：見出しと表示行数を確認します。
+   - 件数が 0：クリックしても詳細表が開かないことを確認します。
+
+4. **Version comments**
+
+   タブを開き、画面に渡されたバージョン履歴と表示行数が一致することを確認します。
+   各行の日付、コメント、表示されるバージョン番号を履歴データと照合します。
+
+5. **Reviewers**
+
+   Review API の結果をユーザー単位に集計し、タブと合計の reviewer 数、名前順の一覧、所属、Review 件数を照合します。
+   Review がある場合は先頭 reviewer の件数をクリックし、詳細表の見出し、1 ページ目の行数、Gene の並び、エンティティ詳細リンクを確認します。
+
+6. **Version comparison**
+
+   変更履歴 API の成功、直近 2 バージョンの初期選択、選択候補数を確認します。
+   差分表の Entity 件数、Added・Removed・Rating changed の集計とサマリー表示を照合し、Entity 名による絞り込みと解除も検証します。
+
+7. **Review・Comment の権限表示**
+
+   - reviewer：本人の Review と Comment だけに編集・削除操作が表示され、他人の Review と Comment には表示されないことを確認します。
+   - admin・curator：すべての Review と Comment に編集・削除操作が表示されることを確認します。
+   - すべてのログインロール：すべての Review に Add Comment が表示されることを確認します。
+
+   本人・他人の Review や Comment が揃わない場合は、該当ケースを理由付きでスキップします。
+
+8. **Review Comment の変更・削除 API**
+
+   Comment の作成者、admin、対象 Panel に割り当てられた curator だけが変更・削除できることを確認します。
+   それ以外のユーザーには HTTP 403 を返します。
+   Comment の所有者は、リクエスト値ではなくデータベースから判定します。
+
+   オフライン権限テストは、リポジトリ直下で次のコマンドを実行します。
+
+   ```powershell
+   uv run --project tests/e2e_psn pytest tests/test_psn_review_comment_permissions.py tests/test_psn_review_delete_permissions.py -q
+   ```
+
+9. **Review Comment の追加・変更・削除**
+
+   admin の認証状態を使用し、既存 Review に一意の Comment を追加します。
+
+   - 画面と読み取り API への反映を確認します。
+   - 同じ Comment を編集し、新しい内容に置き換わることを確認します。
+   - 画面から削除し、Comment が消えることを確認します。
+   - 途中で失敗した場合も、一意の Comment から残存データを特定して削除します。
+
+10. **Entity Definition の編集・追加・削除確認**
+
+    admin・curator の認証状態を使用します。
+
+    - 編集表示：Edit ボタン、編集表、Save ボタン、Cancel による概要表示への復帰を確認します。Save は実行せず、定義を変更しません。
+    - 追加確認：現在有効な定義がないエンティティを使用します。Comment を入力して Save を押し、確認画面を検証して Cancel で閉じます。入力値が保持され、定義が登録されないことを確認します。
+    - 削除確認：有効な定義がある場合に Delete ボタンと確認画面を検証し、Cancel で閉じます。新しい画面と API がデプロイされるまで、実測結果は未実行として扱います。
 
 追加・削除の確定テストは、専用の admin 認証状態と、現在有効な定義がない使い捨てエンティティを用意してから `PSN_DEFINITION_MUTATION=1` を設定した場合だけ実行します。対象は `pages.panel_entity_detail.query` または `PSN_PANEL_ID`・`PSN_ENTITY_NAME`・`PSN_GENE_ID`・`PSN_GENE_SYMBOL` で指定します。テストは一意のコメントを付けて画面から登録し、読み取り API と画面で新しい定義を確認した後、画面から削除して消失を確認します。途中で失敗しても今回のコメントで識別した有効な定義の削除を試みます。登録・削除に伴うパネルのバージョンと活動履歴は残ります。
 
