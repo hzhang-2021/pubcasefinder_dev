@@ -33,7 +33,7 @@ e2e_psn/
 | ページ | 使用ロール | 検証内容 |
 | --- | --- | --- |
 | panel_list | anonymous | 初期表示、既存のパネル名による検索、該当なし検索、既定の Panel 選択、ドロップダウンの開閉、Gene 検索、検索文字を保持した Panel/Gene の相互切り替えと再検索、Genes・Clinical features の展開可否と表示内容 |
-| panel_detail | anonymous / reviewer | 詳細表示、バージョン履歴・コメント／Reviewers／Panel Genes タブの切り替え、Filter entities の絞り込みと解除、Panel Genes の Papers・Reviewer ratings・Reference ratings の表示、TSV ダウンロード、Add Entity の権限制御と確認・キャンセル、Add Review の確認・キャンセルと登録 |
+| panel_detail | anonymous / reviewer | 詳細表示、タブの切り替え、Version comments の履歴内容、Reviewers の一覧・件数・レビュー詳細、Version comparison の差分と絞り込み、Filter entities の絞り込みと解除、Panel Genes の Papers・Reviewer ratings・Reference ratings の表示、TSV ダウンロード、Add Entity の権限制御と確認・キャンセル、Add Review の確認・キャンセルと登録 |
 | panel_entity_detail | anonymous / admin / curator | エンティティ概要、Review／History タブの切り替え、admin・curator で Entity Definition の編集画面表示、追加・削除の確認とキャンセル、専用データでの追加・削除 |
 | ontology | anonymous | バージョン一覧、データベース内の既存バージョンの選択と読み込み |
 | admin_user | admin | ユーザー一覧、該当なしの絞り込み |
@@ -107,6 +107,9 @@ Google ログインを手動で完了した後、Inspector の Resume をクリ�
 Ontology のテストには、読み込み可能な既存バージョンが少なくとも 1 件必要です。
 Panel List の Genes・Clinical features テストは、現在表示されているパネルから件数が 1 以上または 0 の行を選びます。件数が 1 以上なら展開・表示・折りたたみを確認し、件数が 0 なら詳細領域が開かずデータを読み込まないことを確認します。Genes はデータ URL を持つ表コンポーネントの生成を、Clinical features は API 応答、各分類表の見出し、全データ行数を検証します。条件に一致する行がない場合は該当ケースをスキップします。
 Panel Genes の表示テストには、対象パネル内に Papers、Reviewer ratings、Reference ratings がそれぞれ 1 件以上ある遺伝子と、各件数が 0 の遺伝子が必要です。件数が 1 件以上なら詳細表の展開・表示・折りたたみを確認します。Papers は Title・Journal・Date・Source とデータ行を、Reviewer ratings と Reference ratings は見出しと表示行数を確認します。件数が 0 ならクリックしても詳細表が開かないことを確認します。
+Version comments テストはタブを開き、画面に渡されたバージョン履歴と表示行数が一致することを確認します。各行の日付、コメント、表示されるバージョン番号を履歴データと照合します。
+Reviewers テストは Review API の結果をユーザー単位に集計し、タブと合計の reviewer 数、名前順の一覧、所属、Review 件数を照合します。Review がある場合は先頭 reviewer の件数をクリックし、詳細表の見出し、1ページ目の行数、Gene の並び、エンティティ詳細リンクを確認します。
+Version comparison テストは変更履歴 API の成功、直近2バージョンの初期選択、選択候補数を確認します。差分表の Entity 件数、Added・Removed・Rating changed の集計とサマリー表示を照合し、Entity 名による絞り込みと解除も検証します。
 Entity Definition の編集表示テストは admin・curator の認証状態を使用し、Edit ボタン、編集表、Save ボタン、Cancel による概要表示への復帰を検証します。Save は押さず、定義は変更しません。
 追加確認テストは admin・curator の認証状態と、現在有効な定義がないエンティティを使用します。コメントを入力して Save を押し、確認画面を検証して Cancel で閉じます。入力値が保持され、定義が登録されないことを確認します。
 削除確認テストも admin・curator の認証状態を使用します。有効な定義がある場合に Delete ボタンと確認画面を検証し、Cancel で閉じます。新しい画面と API がデプロイされるまで実測結果は未実行として扱います。

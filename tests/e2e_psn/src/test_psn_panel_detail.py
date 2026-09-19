@@ -246,6 +246,154 @@ def test_panel_detail_tabs(root_page, psn_config):
     assert_tabs(root_page, psn_config, PAGE)
 
 
+def test_panel_detail_version_comments(root_page, psn_config):
+    version_info = root_page.evaluate('() => window.panel_version_info')
+    assert isinstance(version_info, list)
+    assert version_info, 'Version comments の検証に必要な履歴がありません'
+
+    tab = root_page.locator('#nav-vgp-version-comments-panel')
+    tab.click()
+    expect(tab).to_have_attribute('aria-selected', 'true')
+    panel = root_page.locator('#vgp-version-comments-panel')
+    expect(panel).to_be_visible()
+    rows = panel.locator('#ul-version-comments > li')
+    expect(rows).to_have_count(len(version_info))
+
+    for index, change in enumerate(version_info):
+        row = rows.nth(index)
+        expect(row.locator('.time')).not_to_have_text('')
+        expect(row.locator('p')).to_have_text(str(change.get('comment') or ''))
+        labels = row.locator('label')
+        if labels.count():
+            expected_versions = [f'Ver {version}'
+                                 for version in change.get('panel_versions', [])]
+            assert labels.all_inner_texts() == expected_versions
+
+    take_screenshot(root_page, psn_config, 'panel_detail_version_comments')
+
+
+def test_panel_detail_reviewers(root_page, psn_config):
+    panel_id = psn_config.pages[PAGE]['query']['panel_id']
+    response = root_page.context.request.get(
+        psn_config.settings['origin'].rstrip('/') +
+        '/panelsearch_nanbyo_get_panel_review',
+        params={'panel_id': panel_id},
+    )
+    reviews = assert_json_response(response)
+    assert isinstance(reviews, list)
+
+    reviews_by_user = {}
+    for review in reviews:
+        reviews_by_user.setdefault(str(review['user_id']), []).append(review)
+    reviewers = sorted(
+        reviews_by_user.items(),
+        key=lambda item: (
+            f"{item[1][0]['first_name_en']} {item[1][0]['last_name_en']}"),
+    )
+
+    tab = root_page.locator('#nav-vgp-reviewers-panel')
+    tab.click()
+    expect(tab).to_have_attribute('aria-selected', 'true')
+    panel = root_page.locator('#vgp-reviewers-panel')
+    expect(panel).to_be_visible()
+    expect(tab).to_have_text(f'Reviewers({len(reviewers)})')
+    expect(panel.locator('#reviewer_num')).to_have_text(str(len(reviewers)))
+
+    rows = panel.locator('#vgp-reviewer-table-tbody > tr.vgp-table-datarow')
+    expect(rows).to_have_count(len(reviewers))
+    for index, (user_id, user_reviews) in enumerate(reviewers):
+        reviewer = user_reviews[0]
+        name = f"{reviewer['first_name_en']} {reviewer['last_name_en']}"
+        cells = rows.nth(index).locator('td')
+        expect(cells.nth(0)).to_have_text(name)
+        expect(cells.nth(1)).to_have_text(str(reviewer.get('affiliation') or ''))
+        expect(cells.nth(2).locator(f'#btn-reviewer-reviews-{user_id}')).to_have_text(
+            f'{len(user_reviews)} reviews')
+
+    if reviewers:
+        user_id, user_reviews = reviewers[0]
+        button = panel.locator(f'#btn-reviewer-reviews-{user_id}')
+        button.click()
+        popup = root_page.locator(f'#popup-reviewer-reviews-{user_id}')
+        expect(popup).to_be_visible()
+        expect(popup).to_contain_text(f'Total {len(user_reviews)}')
+        for heading in ('Gene', 'Rating', 'Disease', 'Mode of inheritance',
+                        'Review date', 'view review'):
+            expect(popup.locator('thead')).to_contain_text(heading)
+        detail_rows = popup.locator('#reviewer-reviews-table-tbody > tr')
+        expect(detail_rows).to_have_count(min(5, len(user_reviews)))
+        expected_genes = sorted(
+            str(review.get('gene_symbol') or '') for review in user_reviews)[:5]
+        assert detail_rows.locator('td:first-child').all_inner_texts() == expected_genes
+        href = detail_rows.first.locator(
+            'a', has_text='View review').get_attribute('href')
+        assert href and 'panelsearch_nanbyo_panel_entity_detail?' in href
+
+    take_screenshot(root_page, psn_config, 'panel_detail_reviewers')
+
+
+def test_panel_detail_version_comparison(root_page, psn_config):
+    version_info = root_page.evaluate('() => window.panel_version_info')
+    assert isinstance(version_info, list)
+    assert version_info, 'Version comparison の検証に必要な履歴がありません'
+
+    tab = root_page.locator('#nav-vgp-compare-panel')
+    with root_page.expect_response(lambda r: response_matches(
+            r, '/panelsearch_nanbyo_get_panel_all_change_history')) as result:
+        tab.click()
+    assert_json_response(result.value)
+    expect(tab).to_have_attribute('aria-selected', 'true')
+
+    panel = root_page.locator('#vgp-compare-panel')
+    wrapper = panel.locator('#compare-wrapper')
+    expect(panel).to_be_visible()
+    expect(panel.locator('#compare-loader')).not_to_be_visible()
+    expect(panel.locator('#compare-content')).to_be_visible()
+    assert 'loaded' in (wrapper.get_attribute('class') or '').split()
+
+    expected_previous = version_info[1] if len(version_info) > 1 else version_info[0]
+    expected_latest = version_info[0]
+    selected_previous = panel.locator('#btn-version-selector-1').evaluate(
+        'element => window.jQuery(element).data("selected_panel_change_id")')
+    selected_latest = panel.locator('#btn-version-selector-2').evaluate(
+        'element => window.jQuery(element).data("selected_panel_change_id")')
+    assert selected_previous == expected_previous['panel_change_id']
+    assert selected_latest == expected_latest['panel_change_id']
+    expect(panel.locator('#dropdown-menu-version-selector-1 .dropdown-item')).to_have_count(
+        len(version_info))
+    expect(panel.locator('#dropdown-menu-version-selector-2 .dropdown-item')).to_have_count(
+        len(version_info))
+
+    rows = panel.locator('#compare-table-tbody > tr')
+    entity_count = int(panel.locator('.vgp-panel-genes-num-compare').inner_text())
+    expect(rows).to_have_count(entity_count)
+    expect(panel.locator('#vgp-panel-genes-filter-compare')).to_have_attribute(
+        'placeholder', f'Filter {entity_count} Entities')
+
+    statuses = rows.locator('td:last-child').all_inner_texts()
+    added = statuses.count('Added')
+    removed = statuses.count('Removed')
+    changed = statuses.count('Changed')
+    summary = panel.locator('#compare-summary')
+    expect(summary.locator('.rating-change-added')).to_have_text(f'Added({added})')
+    expect(summary.locator('.rating-change-removed')).to_have_text(f'Removed({removed})')
+    expect(summary.locator('.rating-change-changed')).to_have_text(
+        f'Rating changed({changed})')
+
+    if entity_count:
+        entity_name = rows.first.locator('.vgp-panel-gene-name').inner_text().strip()
+        entity_filter = panel.locator('#vgp-panel-genes-filter-compare')
+        entity_filter.fill(entity_name)
+        visible_rows = panel.locator('#compare-table-tbody > tr:not(.hidden)')
+        expect(visible_rows).to_have_count(1)
+        expect(visible_rows.first.locator('.vgp-panel-gene-name')).to_contain_text(
+            entity_name)
+        entity_filter.fill('')
+        expect(visible_rows).to_have_count(entity_count)
+
+    take_screenshot(root_page, psn_config, 'panel_detail_version_comparison')
+
+
 def panel_entity_filter_elements(page):
     panel = page.locator('#vgp-panel-genes-panel')
     expect(panel).to_be_visible()
