@@ -1,4 +1,5 @@
 """Browser tests for /panelsearch_nanbyo."""
+import re
 from urllib.parse import parse_qs, urlparse
 
 import pytest
@@ -11,6 +12,27 @@ SEARCH_APIS = {
     'Panel': '/panelsearch_nanbyo_get_panel_id_match_panel_name_synonym',
     'Gene': '/panelsearch_nanbyo_get_panel_id_match_gene_symbol_ncbiid',
 }
+
+COLLAPSE_ITEMS = [
+    pytest.param('Genes', 0, '/sparqlist/api/ps_get_gene_by_nando_id', id='genes'),
+    pytest.param('Clinical features', 1, '/sparqlist/api/pcf_get_hpo_data_by_nando_id',
+                 id='clinical-features'),
+]
+
+
+def panel_list_item_by_count(page, label, *, positive):
+    rows = page.locator('#vgp-list-root-panel .vgp-panel-row')
+    expect(rows.first).to_be_visible(timeout=60000)
+    for index in range(rows.count()):
+        row = rows.nth(index)
+        control = row.locator('.list-show a.ctl').filter(has_text=label)
+        if control.count() != 1:
+            continue
+        match = re.search(r'Show\((\d+)\)', control.inner_text())
+        if match and (int(match.group(1)) > 0) == positive:
+            return row, control, int(match.group(1))
+    state = '1 以上' if positive else '0'
+    pytest.skip(f'{label} の件数が {state} のパネルが現在の一覧にありません')
 
 
 def select_search_target(page, target):
@@ -87,6 +109,56 @@ def test_panel_search_target_switch_preserves_filter(root_page, psn_config, sour
     expect(search).to_have_value(term)
     expect(root_page.locator('#vgp-searched-panels-num')).to_have_text('0')
     take_screenshot(root_page, psn_config, 'panel_search_target_' + source + '_to_' + target)
+
+
+@pytest.mark.parametrize('label,panel_index,api_path', COLLAPSE_ITEMS)
+def test_panel_list_expand_item(root_page, psn_config, label, panel_index, api_path):
+    row, control, count = panel_list_item_by_count(root_page, label, positive=True)
+    panel = row.locator('.list-show-panel').nth(panel_index)
+    expect(panel).not_to_have_class(re.compile(r'\bvgp-active\b'))
+
+    if label == 'Clinical features':
+        with root_page.expect_response(lambda response: response_matches(response, api_path),
+                                       timeout=60000) as result:
+            control.click()
+        data = assert_json_response(result.value)
+        assert isinstance(data, list) and len(data) > 0
+        expect(panel).to_have_class(re.compile(r'\bvgp-data-loaded\b'), timeout=60000)
+        tables = panel.locator('table')
+        expect(tables.first).to_be_visible()
+        for index in range(tables.count()):
+            expect(tables.nth(index).locator('thead th')).to_have_text(
+                ['HPO ID', 'Label', 'Frequency', 'Search'])
+        expect(panel.locator('tbody tr')).to_have_count(len(data))
+    else:
+        control.click()
+        expect(panel).to_have_class(re.compile(r'\bvgp-data-loaded\b'))
+        table = panel.locator('togostanza-pagination-table')
+        expect(table).to_be_attached()
+        expect(table).to_have_attribute('data-url', re.compile(api_path))
+
+    expect(control).to_contain_text(f'Hide({count})')
+    expect(panel).to_have_class(re.compile(r'\bvgp-active\b'))
+    take_screenshot(root_page, psn_config,
+                    'panel_list_' + label.lower().replace(' ', '_') + '_expanded')
+    control.click()
+    expect(control).to_contain_text(f'Show({count})')
+    expect(panel).not_to_have_class(re.compile(r'\bvgp-active\b'))
+
+
+@pytest.mark.parametrize('label,panel_index,api_path', COLLAPSE_ITEMS)
+def test_panel_list_zero_item_cannot_expand(root_page, psn_config, label, panel_index, api_path):
+    row, control, count = panel_list_item_by_count(root_page, label, positive=False)
+    assert count == 0
+    panel = row.locator('.list-show-panel').nth(panel_index)
+    expect(control).to_contain_text('Show(0)')
+    control.click()
+    expect(control).to_contain_text('Show(0)')
+    expect(control).not_to_have_class(re.compile(r'\bvgp-active\b'))
+    expect(panel).not_to_have_class(re.compile(r'\bvgp-active\b'))
+    expect(panel).not_to_have_class(re.compile(r'\bvgp-data-loaded\b'))
+    take_screenshot(root_page, psn_config,
+                    'panel_list_' + label.lower().replace(' ', '_') + '_zero')
 
 
 def test_panel_list_is_visible(root_page, psn_config):
