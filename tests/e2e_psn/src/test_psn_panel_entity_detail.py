@@ -5,12 +5,24 @@ from uuid import uuid4
 
 import pytest
 
-from playwright.sync_api import expect
+from playwright.sync_api import Error as PlaywrightError, expect
 from psn_common import assert_page, assert_json_response, response_matches, take_screenshot
 
 PAGE = 'panel_entity_detail'
 DEFINITION_API = '/panelsearch_nanbyo_get_panel_entity_definition'
 COMMENT_API = '/panelsearch_nanbyo_get_panel_entity_review_comment'
+
+
+def assert_reload_response(response):
+    try:
+        return assert_json_response(response)
+    except PlaywrightError as exc:
+        # 成功直後の location.reload() により、旧ページの response body が
+        # Chromium から破棄される場合がある。エラー応答では reload されない。
+        assert 'No resource with given identifier found' in str(exc)
+        assert response.ok, (
+            f'{response.request.method} {response.url}: HTTP {response.status}')
+        return None
 
 
 def current_definitions(page, config):
@@ -173,7 +185,7 @@ def test_panel_entity_review_comment_add_modify_delete(root_page, psn_config):
                 comment.locator(
                     '.vgp-review-comment-editor-control-panel button',
                     has_text='Save').click()
-            assert_json_response(result.value)
+            assert_reload_response(result.value)
 
         modified = matching_comments(modified_marker)
         assert len(modified) == 1, 'Expected exactly one modified Review Comment'
@@ -189,7 +201,7 @@ def test_panel_entity_review_comment_add_modify_delete(root_page, psn_config):
                     r, '/panelsearch_nanbyo_delete_panel_entity_review_comment')) as result:
                 comment.locator(
                     '.vgp-review-comment-control-btn-panel > span').first.click()
-            assert_json_response(result.value)
+            assert_reload_response(result.value)
 
         assert not matching_comments(modified_marker)
         expect(root_page.locator('.vgp-review-comment-text-content').filter(

@@ -49,8 +49,10 @@ def assert_json_response(response):
     assert response.ok, f'{response.request.method} {response.url}: HTTP {response.status}'
     body = response.json()
     if isinstance(body, dict):
-        assert not body.get('error'), f'API error from {response.url}'
-        assert body.get('status') != 'error', f'API error from {response.url}'
+        assert not body.get('error'), (
+            f'API error from {response.url}: {body.get("error")}')
+        assert body.get('status') != 'error', (
+            f'API error from {response.url}: {body}')
     return body
 
 
