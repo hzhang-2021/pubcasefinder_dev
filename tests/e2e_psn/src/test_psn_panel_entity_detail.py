@@ -10,6 +10,7 @@ from psn_common import assert_page, assert_json_response, response_matches, take
 
 PAGE = 'panel_entity_detail'
 DEFINITION_API = '/panelsearch_nanbyo_get_panel_entity_definition'
+COMMENT_API = '/panelsearch_nanbyo_get_panel_entity_review_comment'
 
 
 def current_definitions(page, config):
@@ -23,6 +24,17 @@ def current_definitions(page, config):
             if row['is_latest'] == 'YES' and row.get('is_deleted') != 'YES']
 
 
+def current_review_comments(page, config):
+    query = parse_qs(urlparse(page.url).query)
+    response = page.context.request.get(
+        config.settings['origin'].rstrip('/') + COMMENT_API,
+        params={key: query[key][0]
+                for key in ('panel_id', 'entity_type_id', 'entity_name')})
+    comments = assert_json_response(response)
+    assert isinstance(comments, list)
+    return comments
+
+
 def test_panel_entity_detail_is_visible(root_page, psn_config):
     assert_page(root_page, psn_config, PAGE)
 
@@ -34,6 +46,170 @@ def test_panel_entity_detail_tabs(root_page, psn_config):
         # 履歴が空の場合、タブが有効でも領域の高さが 0 になる。
         expect(root_page.locator(panel + '.active.show')).to_have_count(1)
         take_screenshot(root_page, psn_config, PAGE + '_' + tab.lstrip('#'))
+
+
+@pytest.mark.parametrize('root_page', ['reviewer'], indirect=True)
+def test_panel_entity_review_permissions_for_reviewer(root_page, psn_config):
+    current_user_id = str(root_page.evaluate('() => _get_current_user_id()'))
+    reviews = root_page.locator(
+        '#vgp-panel-gene-review-panel .vgp-panel-entity-review-list-wrapper'
+        '[data-review_id]')
+    expect(reviews.first).to_be_visible(timeout=60000)
+    assert reviews.count() > 0
+
+    review_selector = (
+        '#vgp-panel-gene-review-panel .vgp-panel-entity-review-list-wrapper')
+    own_reviews = root_page.locator(
+        f'{review_selector}[data-review_id][data-user_id="{current_user_id}"]')
+    other_reviews = root_page.locator(
+        f'{review_selector}[data-review_id][data-user_id]'
+        f':not([data-user_id="{current_user_id}"])')
+    if own_reviews.count() == 0 or other_reviews.count() == 0:
+        pytest.skip('本人と他人の Review が両方必要です')
+
+    for review in own_reviews.all():
+        expect(review.locator(
+            '.vgp-review-control-subwrapper .vgp-review-control')).to_have_count(2)
+    for review in other_reviews.all():
+        expect(review.locator('.vgp-review-control-subwrapper')).to_have_count(0)
+    expect(reviews.locator('.add-review-comment-panel')).to_have_count(reviews.count())
+
+    comments = current_review_comments(root_page, psn_config)
+    checked_own = False
+    checked_other = False
+    for row in comments:
+        text = str(row.get('comment') or '')
+        if not text:
+            continue
+        matches = root_page.locator('.vgp-review-comment-text-content', has_text=text)
+        if matches.count() != 1:
+            continue
+        container = matches.first.locator('xpath=ancestor::div[contains(@class, "vgp-review-comment-container")]')
+        controls = container.locator('.vgp-review-comment-control-btn-panel > span')
+        if str(row.get('comment_user_id')) == current_user_id:
+            expect(controls).to_have_count(2)
+            checked_own = True
+        else:
+            expect(controls).to_have_count(0)
+            checked_other = True
+    if not checked_own or not checked_other:
+        pytest.skip('本人と他人の Comment が両方必要です')
+    take_screenshot(root_page, psn_config, 'review_permissions_reviewer')
+
+
+@pytest.mark.parametrize('root_page', ['admin', 'curator'], indirect=True)
+def test_panel_entity_review_permissions_for_manager(root_page, psn_config):
+    reviews = root_page.locator(
+        '#vgp-panel-gene-review-panel .vgp-panel-entity-review-list-wrapper'
+        '[data-review_id]')
+    expect(reviews.first).to_be_visible(timeout=60000)
+    assert reviews.count() > 0
+    for review in reviews.all():
+        expect(review.locator(
+            '.vgp-review-control-subwrapper .vgp-review-control')).to_have_count(2)
+        expect(review.locator('.add-review-comment-panel')).to_have_count(1)
+
+    comments = root_page.locator('.vgp-review-comment-container')
+    if comments.count() == 0:
+        pytest.skip('Comment の管理権限確認に必要な既存 Comment がありません')
+    for comment in comments.all():
+        expect(comment.locator(
+            '.vgp-review-comment-control-btn-panel > span')).to_have_count(2)
+    take_screenshot(root_page, psn_config, 'review_permissions_manager')
+
+
+@pytest.mark.skipif(
+    os.getenv('PSN_REVIEW_COMMENT_MUTATION') != '1',
+    reason='Review Comment の更新テストには PSN_REVIEW_COMMENT_MUTATION=1 が必要です',
+)
+@pytest.mark.parametrize('root_page', ['admin'], indirect=True)
+def test_panel_entity_review_comment_add_modify_delete(root_page, psn_config):
+    review = root_page.locator(
+        '#vgp-panel-gene-review-panel .vgp-panel-entity-review-list-wrapper'
+        '[data-review_id][data-original_review_id]').first
+    expect(review).to_be_visible(timeout=60000)
+    original_review_id = review.get_attribute('data-original_review_id')
+    assert review.get_attribute('data-review_id') and original_review_id
+
+    marker = 'PSN-E2E-COMMENT-' + uuid4().hex
+    modified_marker = marker + '-MODIFIED'
+    origin = psn_config.settings['origin'].rstrip('/')
+
+    def matching_comments(text):
+        return [row for row in current_review_comments(root_page, psn_config)
+                if row.get('comment') == text
+                and str(row.get('original_review_id')) == original_review_id]
+
+    try:
+        add_panel = review.locator('.add-review-comment-panel')
+        expect(add_panel.locator('.title')).to_contain_text('Add Comment')
+        add_panel.locator('.title').click()
+        assert 'onEdit' in (add_panel.get_attribute('class') or '').split()
+        add_panel.locator('textarea').fill(marker)
+        root_page.once('dialog', lambda dialog: dialog.accept())
+        with root_page.expect_navigation(wait_until='domcontentloaded'):
+            with root_page.expect_response(lambda r: response_matches(
+                    r, '/panelsearch_nanbyo_add_panel_entity_review_comment')) as result:
+                add_panel.locator('button.comment').click()
+            assert result.value.ok, f'Add Review Comment: HTTP {result.value.status}'
+
+        added = matching_comments(marker)
+        assert len(added) == 1, 'Expected exactly one added Review Comment'
+        comment = root_page.locator('.vgp-review-comment-container').filter(
+            has_text=marker).first
+        expect(comment.locator('.vgp-review-comment-text-content')).to_have_text(marker)
+        take_screenshot(root_page, psn_config, 'review_comment_added')
+
+        controls = comment.locator('.vgp-review-comment-control-btn-panel > span')
+        expect(controls).to_have_count(2)
+        controls.nth(1).click()
+        editor = comment.locator('.vgp-review-comment-text-editor')
+        expect(editor).to_be_visible()
+        editor.fill(modified_marker)
+        root_page.once('dialog', lambda dialog: dialog.accept())
+        with root_page.expect_navigation(wait_until='domcontentloaded'):
+            with root_page.expect_response(lambda r: response_matches(
+                    r, '/panelsearch_nanbyo_modify_panel_entity_review_comment')) as result:
+                comment.locator(
+                    '.vgp-review-comment-editor-control-panel button',
+                    has_text='Save').click()
+            assert result.value.ok, f'Modify Review Comment: HTTP {result.value.status}'
+
+        modified = matching_comments(modified_marker)
+        assert len(modified) == 1, 'Expected exactly one modified Review Comment'
+        comment = root_page.locator('.vgp-review-comment-container').filter(
+            has_text=modified_marker).first
+        expect(comment.locator('.vgp-review-comment-text-content')).to_have_text(
+            modified_marker)
+        take_screenshot(root_page, psn_config, 'review_comment_modified')
+
+        root_page.once('dialog', lambda dialog: dialog.accept())
+        with root_page.expect_navigation(wait_until='domcontentloaded'):
+            with root_page.expect_response(lambda r: response_matches(
+                    r, '/panelsearch_nanbyo_delete_panel_entity_review_comment')) as result:
+                comment.locator(
+                    '.vgp-review-comment-control-btn-panel > span').first.click()
+            assert result.value.ok, f'Delete Review Comment: HTTP {result.value.status}'
+
+        assert not matching_comments(modified_marker)
+        expect(root_page.locator('.vgp-review-comment-text-content').filter(
+            has_text=modified_marker)).to_have_count(0)
+        take_screenshot(root_page, psn_config, 'review_comment_deleted')
+    finally:
+        leftovers = [row for row in current_review_comments(root_page, psn_config)
+                     if row.get('comment') in (marker, modified_marker)
+                     and str(row.get('original_review_id')) == original_review_id]
+        for row in leftovers:
+            response = root_page.context.request.post(
+                origin + '/panelsearch_nanbyo_delete_panel_entity_review_comment',
+                data={
+                    'review_id': row['review_id'],
+                    'original_review_id': row['original_review_id'],
+                    'review_comment_id': row['review_comment_id'],
+                    'user_id': row['user_id'],
+                },
+            )
+            assert_json_response(response)
 
 
 def test_panel_entity_definition_delete_hidden_for_anonymous(root_page):

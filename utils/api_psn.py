@@ -1678,11 +1678,7 @@ def _get_newest_panel_review_info(original_review_id, dict_cursor):
     return dict_cursor.fetchone()
 
 
-def _can_manage_panel_review(cursor, user_id, review):
-    # user_id is the original author, preserved when a review is revised.
-    if user_id == review['user_id']:
-        return True
-
+def _is_admin_or_panel_curator(cursor, user_id, panel_id):
     cursor.execute("SELECT user_type FROM user_info_psn WHERE id = %s", (user_id,))
     user = cursor.fetchone()
     if not user:
@@ -1698,9 +1694,21 @@ def _can_manage_panel_review(cursor, user_id, review):
         WHERE gu.user_id = %s AND gu.user_role = %s AND gp.panel_id = %s
         LIMIT 1
         """,
-        (user_id, GROUP_USER_ROLE_CURATOR, review['panel_id'])
+        (user_id, GROUP_USER_ROLE_CURATOR, panel_id)
     )
     return cursor.fetchone() is not None
+
+
+def _can_manage_panel_review(cursor, user_id, review):
+    # user_id is the original author, preserved when a review is revised.
+    return (user_id == review['user_id'] or
+            _is_admin_or_panel_curator(cursor, user_id, review['panel_id']))
+
+
+def _can_manage_review_comment(cursor, user_id, review_comment, review):
+    # Comment ownership is read from the database, never from request data.
+    return (user_id == review_comment['user_id'] or
+            _is_admin_or_panel_curator(cursor, user_id, review['panel_id']))
 
 
 # delete review
@@ -1969,6 +1977,17 @@ def api_psn_modify_panel_entity_review_comment(user_id_change, review_id, origin
                 if not former_review_comment:
                     return {"error": f"the review comment(id:{review_comment_id}) to be modified was not found."}
 
+                review = get_former_review(cur, review_id)
+                if (not review or
+                        str(review['original_review_id']) != str(original_review_id) or
+                        str(former_review_comment['original_review_id']) != str(original_review_id)):
+                    return {'error': 'The Review Comment does not belong to the indicated Review',
+                            'status_code': 400}
+                if not _can_manage_review_comment(cur, user_id_change,
+                                                  former_review_comment, review):
+                    return {'error': 'You do not have permission to edit this Review Comment',
+                            'status_code': 403}
+
                 former_review, new_review = _copy_panel_entity_review(user_id_change, original_review_id, cur)
                 if not former_review or not new_review:
                     return {"error": f"the indicated review(id:{review_id},original_review_id:{original_review_id}) was not found"}
@@ -2030,6 +2049,17 @@ def api_psn_delete_panel_entity_review_comment(user_id_change, review_id, origin
                 former_review_comment = _get_panel_entity_review_comment_info(review_comment_id, cur)
                 if not former_review_comment:
                     return {"error": f"the review comment(id:{review_comment_id}) to be deleted was not found."}
+
+                review = get_former_review(cur, review_id)
+                if (not review or
+                        str(review['original_review_id']) != str(original_review_id) or
+                        str(former_review_comment['original_review_id']) != str(original_review_id)):
+                    return {'error': 'The Review Comment does not belong to the indicated Review',
+                            'status_code': 400}
+                if not _can_manage_review_comment(cur, user_id_change,
+                                                  former_review_comment, review):
+                    return {'error': 'You do not have permission to delete this Review Comment',
+                            'status_code': 403}
 
                 former_review, new_review = _copy_panel_entity_review(user_id_change, original_review_id, cur)
                 if not former_review or not new_review:

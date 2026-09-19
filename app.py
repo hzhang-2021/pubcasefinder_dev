@@ -3132,7 +3132,9 @@ def panelsearch_nanbyo_modify_panel_entity_review_comment():
 
     user_id = user_info["id"]
 
-    data = request.get_json()
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify({'error': 'Invalid JSON format'}), 400
 
     required_params = ['review_comment_id', 'comment', 'review_id', 'original_review_id']
     missing_params = [param for param in required_params if param not in data or not data.get(param)]
@@ -3147,7 +3149,7 @@ def panelsearch_nanbyo_modify_panel_entity_review_comment():
     response = api_psn_modify_panel_entity_review_comment(user_id, review_id, original_review_id, review_comment_id, comment)
     check_api_response_error(response, 'api_psn_modify_panel_entity_review_comment')
 
-    return jsonify(response)
+    return jsonify(response), response.get('status_code', 200)
 
 
 @app.route('/panelsearch_nanbyo_delete_panel_entity_review_comment', methods=['POST'])
@@ -3159,18 +3161,23 @@ def panelsearch_nanbyo_delete_panel_entity_review_comment():
 
     user_id = user_info["id"]
  
-    data = request.get_json()
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify({'error': 'Invalid JSON format'}), 400
+
+    required_params = ['review_comment_id', 'review_id', 'original_review_id']
+    missing_params = [param for param in required_params if not data.get(param)]
+    if missing_params:
+        return jsonify({"error": f"Missing required JSON parameters: {', '.join(missing_params)}"}), 400
+
     review_id          = data.get('review_id')
     original_review_id = data.get('original_review_id')
     review_comment_id  = data.get('review_comment_id')
-    
-    if user_id != data.get('user_id') and not api_is_user_admin(user_info["user_type"]):
-        return jsonify({"error": f"you can't delete other people's review comment"}), 400
  
     response = api_psn_delete_panel_entity_review_comment(user_id, review_id, original_review_id, review_comment_id)
     check_api_response_error(response, 'api_psn_delete_panel_entity_review_comment')
 
-    return jsonify(response)
+    return jsonify(response), response.get('status_code', 200)
 
 
 @app.route('/panelsearch_nanbyo_ontology', methods=['GET'])

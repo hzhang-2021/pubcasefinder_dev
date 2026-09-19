@@ -34,7 +34,7 @@ e2e_psn/
 | --- | --- | --- |
 | panel_list | anonymous | 初期表示、既存のパネル名による検索、該当なし検索、既定の Panel 選択、ドロップダウンの開閉、Gene 検索、検索文字を保持した Panel/Gene の相互切り替えと再検索、Genes・Clinical features の展開可否と表示内容 |
 | panel_detail | anonymous / reviewer | 詳細表示、タブの切り替え、Version comments の履歴内容、Reviewers の一覧・件数・レビュー詳細、Version comparison の差分と絞り込み、Filter entities の絞り込みと解除、Panel Genes の Papers・Reviewer ratings・Reference ratings の表示、TSV ダウンロード、Add Entity の権限制御と確認・キャンセル、Add Review の確認・キャンセルと登録 |
-| panel_entity_detail | anonymous / admin / curator | エンティティ概要、Review／History タブの切り替え、admin・curator で Entity Definition の編集画面表示、追加・削除の確認とキャンセル、専用データでの追加・削除 |
+| panel_entity_detail | anonymous / reviewer / admin / curator | エンティティ概要、Review／History タブの切り替え、Review Comment の追加・変更・削除、admin・curator で Entity Definition の編集画面表示、追加・削除の確認とキャンセル、専用データでの追加・削除 |
 | ontology | anonymous | バージョン一覧、データベース内の既存バージョンの選択と読み込み |
 | admin_user | admin | ユーザー一覧、該当なしの絞り込み |
 | admin_group | curator | グループ一覧、該当なしの絞り込み |
@@ -110,6 +110,9 @@ Panel Genes の表示テストには、対象パネル内に Papers、Reviewer r
 Version comments テストはタブを開き、画面に渡されたバージョン履歴と表示行数が一致することを確認します。各行の日付、コメント、表示されるバージョン番号を履歴データと照合します。
 Reviewers テストは Review API の結果をユーザー単位に集計し、タブと合計の reviewer 数、名前順の一覧、所属、Review 件数を照合します。Review がある場合は先頭 reviewer の件数をクリックし、詳細表の見出し、1ページ目の行数、Gene の並び、エンティティ詳細リンクを確認します。
 Version comparison テストは変更履歴 API の成功、直近2バージョンの初期選択、選択候補数を確認します。差分表の Entity 件数、Added・Removed・Rating changed の集計とサマリー表示を照合し、Entity 名による絞り込みと解除も検証します。
+Review と Comment の権限表示テストでは、reviewer は本人の Review と Comment だけに編集・削除操作が表示され、他人の Review と Comment には表示されないことを確認します。admin・curator は全 Review と全 Comment を編集・削除できる表示であることを確認します。また、ログインロールではすべての Review に Add Comment が表示されることを検証します。本人・他人の Review や Comment が揃わない場合は、該当ケースを理由付きでスキップします。
+Review Comment の変更・削除 API でも同じ権限を検証します。Comment の作成者、admin、対象 Panel に割り当てられた curator だけが実行でき、それ以外のユーザーには HTTP 403 を返します。Comment の所有者はリクエスト値ではなくデータベースから判定します。オフライン権限テストはリポジトリ直下で `uv run --project tests/e2e_psn pytest tests/test_psn_review_comment_permissions.py tests/test_psn_review_delete_permissions.py -q` を実行します。
+Review Comment の更新テストは admin の認証状態を使用し、既存 Review に一意のコメントを追加して、画面と読み取り API への反映を確認します。同じコメントを編集して新しい内容への置き換えを確認した後、画面から削除して消失を検証します。途中で失敗した場合も一意のコメントで残存データを特定して削除します。
 Entity Definition の編集表示テストは admin・curator の認証状態を使用し、Edit ボタン、編集表、Save ボタン、Cancel による概要表示への復帰を検証します。Save は押さず、定義は変更しません。
 追加確認テストは admin・curator の認証状態と、現在有効な定義がないエンティティを使用します。コメントを入力して Save を押し、確認画面を検証して Cancel で閉じます。入力値が保持され、定義が登録されないことを確認します。
 削除確認テストも admin・curator の認証状態を使用します。有効な定義がある場合に Delete ボタンと確認画面を検証し、Cancel で閉じます。新しい画面と API がデプロイされるまで実測結果は未実行として扱います。
@@ -137,6 +140,47 @@ uv run pytest src/test_psn_panel_list.py --browser=chromium
 # 認証ファイルの不足を失敗として扱う
 uv run pytest --browser=chromium --psn-require-auth
 ```
+
+### 特別な環境変数が必要なテスト
+
+通常実行では、デプロイ先のデータを更新する次のテストをスキップします。
+実行する場合は、対象テストに対応する環境変数へ文字列 `1` を設定してください。
+
+| 環境変数 | 対象テスト | 必要なロール | 前提条件 | テスト後の処理 |
+| --- | --- | --- | --- | --- |
+| `PSN_ADD_ENTITY_MUTATION=1` | `test_panel_detail_add_entity_submit` | reviewer | 対象パネルへ追加可能な未登録 Gene が候補一覧に存在する | 作成した Review を一意のコメントで特定して削除する |
+| `PSN_REVIEW_COMMENT_MUTATION=1` | `test_panel_entity_review_comment_add_modify_delete` | admin | 対象 Entity にコメント追加先となる Review が1件以上存在する | 追加したコメントを画面から削除し、失敗時も API による後処理を試みる |
+| `PSN_DEFINITION_MUTATION=1` | `test_panel_entity_definition_add_delete_submit` | admin | 現在有効な Definition がない使い捨て Entity を指定する | 追加した Definition を画面から削除し、失敗時も API による後処理を試みる |
+
+Add Entity の確定テスト：
+
+```powershell
+$env:PSN_ADD_ENTITY_MUTATION = '1'
+uv run pytest src/test_psn_panel_detail.py -k add_entity_submit --browser=chromium --psn-require-auth
+Remove-Item Env:PSN_ADD_ENTITY_MUTATION
+```
+
+Review Comment の追加・変更・削除テスト：
+
+```powershell
+$env:PSN_REVIEW_COMMENT_MUTATION = '1'
+uv run pytest src/test_psn_panel_entity_detail.py -k review_comment_add_modify_delete --browser=chromium --psn-require-auth
+Remove-Item Env:PSN_REVIEW_COMMENT_MUTATION
+```
+
+Entity Definition の追加・削除テスト：
+
+```powershell
+$env:PSN_DEFINITION_MUTATION = '1'
+uv run pytest src/test_psn_panel_entity_detail.py -k add_delete_submit --browser=chromium --psn-require-auth
+Remove-Item Env:PSN_DEFINITION_MUTATION
+```
+
+これらのテストは作成した現在データを削除しますが、登録・変更・削除によって生成されたパネルのバージョンと活動履歴は残ります。
+環境変数が未設定、空文字、または `1` 以外の場合、対応するテストはスキップされます。
+
+`PSN_BASE_URL`、`PSN_CONFIG_DIR`、`PSN_REVIEWER_STATE`、`PSN_CURATOR_STATE`、`PSN_ADMIN_STATE`、
+`PSN_PANEL_ID`、`PSN_ENTITY_NAME`、`PSN_GENE_ID`、`PSN_GENE_SYMBOL` は接続先、設定ファイル、認証状態、対象データを上書きする任意設定です。テストの更新操作を有効化する環境変数ではありません。
 
 各テストで新しいブラウザーコンテキストを作成し、終了時に閉じます。
 初期 API 応答の待機はページ遷移前に登録します。
