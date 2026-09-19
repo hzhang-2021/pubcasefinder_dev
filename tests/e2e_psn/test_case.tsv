@@ -13,6 +13,8 @@ PSN-01	panel_list	test_panel_list_zero_item_cannot_expand[genes]	anonymous	件�
 PSN-01	panel_list	test_panel_list_zero_item_cannot_expand[clinical-features]	anonymous	件数が 0 の Clinical features を展開できないことを確認する	Show(0) のままで操作状態とデータ読込状態が有効にならず、詳細領域が開かない	成功 (ja/en, 2026-09-19)
 PSN-02	panel_detail	test_panel_detail_is_visible	anonymous	パネル詳細ページが正常に表示されることを確認する	パネル名・ダウンロードボタン・タブ領域が表示され、初期 Review API が成功する	成功 (ja/en, 2026-09-18)
 PSN-02	panel_detail	test_panel_detail_tabs	anonymous	パネル詳細ページのタブ切り替えを確認する	Version comments・Reviewers・Panel genes の各タブが選択され、対応する領域が表示される	成功 (ja/en, 2026-09-18)
+PSN-02	panel_detail	test_panel_detail_filter_entities_existing	anonymous	Filter entities で既存の Entity を絞り込めることを確認する	ACTA1 を入力すると件数が 1 になり、ACTA1 の行だけが表示され、元の行数は維持される	成功 (ja/en, 2026-09-19)
+PSN-02	panel_detail	test_panel_detail_filter_entities_no_match_and_clear	anonymous	Filter entities の該当なし表示とフィルター解除を確認する	該当しない文字列では件数が 0 となり全行が非表示になり、入力を消すと元の件数と全行表示に戻る	成功 (ja/en, 2026-09-19)
 PSN-02	panel_detail	test_panel_detail_download	anonymous	パネルの TSV をダウンロードできることを確認する	ダウンロードが成功し、拡張子が .tsv で、内容が空でなく、設定した期待文字列を含む	成功 (ja/en, 2026-09-18)
 PSN-02	panel_detail	test_panel_detail_panel_genes_papers	anonymous	件数が 1 以上の Papers を展開・折りたたみできることを確認する	論文件数が 1 以上の行で、展開後に 4 列の見出しとデータ行が表示され、再クリックで非表示になる	成功 (ja/en, 2026-09-18)
 PSN-02	panel_detail	test_panel_detail_panel_genes_papers_zero	anonymous	件数が 0 の Papers を展開できないことを確認する	件数が 0 と表示され展開用コントロールがなく、クリック後も論文表が非表示のままである	成功 (ja/en, 2026-09-18)
@@ -20,6 +22,9 @@ PSN-02	panel_detail	test_panel_detail_panel_genes_ratings[reviewer-Reviewer rati
 PSN-02	panel_detail	test_panel_detail_panel_genes_ratings[reference-Reference ratings-Reference]	anonymous	件数が 1 以上の Reference ratings を展開・折りたたみできることを確認する	展開後に表と見出しが表示され、データ行数が件数と一致し、再クリックで非表示になる	成功 (ja/en, 2026-09-18)
 PSN-02	panel_detail	test_panel_detail_panel_genes_ratings_zero[reviewer]	anonymous	件数が 0 の Reviewer ratings を展開できないことを確認する	Show(0) と表示され、クリック後も展開状態にならず、詳細表が表示されない	成功 (ja/en, 2026-09-18)
 PSN-02	panel_detail	test_panel_detail_panel_genes_ratings_zero[reference]	anonymous	件数が 0 の Reference ratings を展開できないことを確認する	Show(0) と表示され、クリック後も展開状態にならず、詳細表が表示されない	成功 (ja/en, 2026-09-18)
+PSN-02	panel_detail	test_panel_detail_add_entity_hidden_for_anonymous	anonymous	匿名ユーザーに Add Entity が表示されないことを確認する	Add Entity の配置領域が DOM に存在せず、追加操作を開始できない	成功 (ja/en, 2026-09-19)
+PSN-02	panel_detail	test_panel_detail_add_entity_cancel	reviewer	Add Entity の入力・確認・キャンセル操作を確認する	パネルに未登録の Gene を候補から選択でき、確認画面に Gene とコメントが表示され、Cancel 後も入力値が保持される	成功 (ja/en, 2026-09-19)
+PSN-02	panel_detail	test_panel_detail_add_entity_submit	reviewer	Add Entity の保存と Panel genes への反映を確認する	登録 API が成功し、一覧と読み取り API に追加した Gene・Review・コメントが反映され、テストデータの削除が成功する	未実行（PSN_ADD_ENTITY_MUTATION=1 で実行）
 PSN-02	panel_detail	test_panel_detail_add_review_cancel	reviewer	Add Review の確認・キャンセル操作を確認する	ACTA1 のフォームと確認ダイアログに入力内容が表示され、キャンセル後も入力が保持され、閉じるとフォームが非表示になる	成功 (ja/en, 2026-09-18)
 PSN-02	panel_detail	test_panel_detail_add_review_submit	reviewer	Add Review の保存とエンティティ詳細への反映を確認する	登録 API が成功し、読み取り API の Review とコメントが一意で内容が一致し、詳細画面にコメントが表示され、テストデータの削除が成功する	成功 (ja/en, 2026-09-18)
 PSN-03	panel_entity_detail	test_panel_entity_detail_is_visible	anonymous	エンティティ詳細ページが正常に表示されることを確認する	エンティティ名・概要表・タブ領域が表示され、初期エンティティ Review API が成功する	成功 (ja/en, 2026-09-18)

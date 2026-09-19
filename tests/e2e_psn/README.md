@@ -33,7 +33,7 @@ e2e_psn/
 | ページ | 使用ロール | 検証内容 |
 | --- | --- | --- |
 | panel_list | anonymous | 初期表示、既存のパネル名による検索、該当なし検索、既定の Panel 選択、ドロップダウンの開閉、Gene 検索、検索文字を保持した Panel/Gene の相互切り替えと再検索、Genes・Clinical features の展開可否と表示内容 |
-| panel_detail | anonymous / reviewer | 詳細表示、バージョン履歴・コメント／Reviewers／Panel Genes タブの切り替え、Panel Genes の Papers・Reviewer ratings・Reference ratings の表示、TSV ダウンロード、Add Review の確認・キャンセルと登録 |
+| panel_detail | anonymous / reviewer | 詳細表示、バージョン履歴・コメント／Reviewers／Panel Genes タブの切り替え、Filter entities の絞り込みと解除、Panel Genes の Papers・Reviewer ratings・Reference ratings の表示、TSV ダウンロード、Add Entity の権限制御と確認・キャンセル、Add Review の確認・キャンセルと登録 |
 | panel_entity_detail | anonymous / admin / curator | エンティティ概要、Review／History タブの切り替え、admin・curator で Entity Definition の編集画面表示、追加・削除の確認とキャンセル、専用データでの追加・削除 |
 | ontology | anonymous | バージョン一覧、データベース内の既存バージョンの選択と読み込み |
 | admin_user | admin | ユーザー一覧、該当なしの絞り込み |
@@ -172,6 +172,22 @@ Publications には `PMID: 18976909 DOI: 10.1016/j.nmd.2008.09.005` を入力し
   登録 API の成功とエンティティ詳細画面でのコメント表示を検証します。
   終了時には同じ認証状態で削除 API を呼び出し、この実行で作成した Review だけを削除して一覧からの消失を確認します。
   検証失敗時も後処理を試みます。登録・削除の活動ログは残ります。
+
+### Add Entity
+
+Panel Detail の Add Entity テストは、匿名ユーザーにボタンが表示されないことを確認します。
+reviewer では Add Entity を開き、現在のパネルに含まれない Gene 候補を画面から選択します。
+新規 Review の状態、Gene 型、選択した Gene、確認ダイアログのコメントを検証し、Cancel 後も入力値が保持されることを確認します。
+確認ダイアログでは確定しないため、パネルの Entity や Review は変更しません。
+
+実際の登録テストは `PSN_ADD_ENTITY_MUTATION=1` を設定した場合だけ実行します。
+画面から未登録 Gene を追加し、登録 API、Panel genes の一覧、Review とコメントの読み取り API への反映を確認します。
+終了時には一意のコメントで今回作成した Review を特定して削除します。登録・削除の活動履歴は残ります。
+
+```powershell
+$env:PSN_ADD_ENTITY_MUTATION = '1'
+uv run pytest src/test_psn_panel_detail.py -k add_entity_submit --browser=chromium --psn-require-auth
+```
 
 2026-09-16 の実行では、日本語の登録テストと日本語・英語のキャンセルテストが成功しました。
 英語の登録テストでは、登録後のエンティティ詳細画面が `Reviews (0)` のままで、
