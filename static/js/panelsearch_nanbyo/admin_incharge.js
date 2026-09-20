@@ -142,9 +142,12 @@ function _init_incharge(mode_of_inheritance_arr,entity_type_arr,rating_type_arr)
 		let url = $btn.hasClass('docheck') ? URL_CHECK_USER_ACTIVITY : URL_UNCHECK_USER_ACTIVITY;
 
 		fetch(`${url}?activity_id=${activity_id}`)
-		.then(response => response.json())
+		.then(async response => {
+			const data = await response.json();
+			if (!response.ok) throw new Error(data.error || `HTTP ${response.status}`);
+			return data;
+		})
 		.then(data => {
-			$btn.prop('disabled', false);
 			if(data.error){
 				alert(data.error);
 				return;
@@ -164,6 +167,10 @@ function _init_incharge(mode_of_inheritance_arr,entity_type_arr,rating_type_arr)
 				}
 				$('#sidebar-ctl').removeClass('douncheck').addClass('docheck');
 			}
+		}).catch(error => {
+			alert(error.message);
+		}).finally(() => {
+			$btn.prop('disabled', false);
 		});
 	});
 
