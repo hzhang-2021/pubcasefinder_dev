@@ -1935,6 +1935,14 @@ def api_psn_add_panel_entity_review_comment(user_id_change, review_id, original_
         try:
             with conn.cursor(MySQLdb.cursors.DictCursor) as cur:
 
+                review = get_former_review(cur, review_id)
+                if not review:
+                    return {'error': 'Review not found', 'status_code': 404}
+                if str(review['original_review_id']) != str(original_review_id):
+                    return {'error': 'The original Review does not match the indicated Review',
+                            'status_code': 400}
+                original_review_id = review['original_review_id']
+
                 check_result = _check_panel_validation_by_review(review_id, cur)
                 if 'error' in check_result:
                     return check_result

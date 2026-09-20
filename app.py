@@ -3120,7 +3120,7 @@ def panelsearch_nanbyo_add_panel_entity_review_comment():
     response = api_psn_add_panel_entity_review_comment(user_id, review_id, original_review_id, comment)
     check_api_response_error(response, 'api_psn_add_panel_entity_review_comment')
 
-    return jsonify(response)
+    return jsonify(response), response.get('status_code', 200)
 
 
 @app.route('/panelsearch_nanbyo_modify_panel_entity_review_comment', methods=['POST'])
