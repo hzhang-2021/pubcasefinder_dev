@@ -938,8 +938,15 @@ def api_psn_regist_panel_entity_definition(user_id_change, data):
                 former_data = None
                 if former_entity_id:
                     former_data = get_entity_by_id(cursor, former_entity_id)
+                    if not former_data:
+                        return {'error': 'Entity definition not found', 'status_code': 404}
+                    if str(panel_id) != str(former_data['panel_id']):
+                        return {'error': 'The definition panel cannot be changed', 'status_code': 400}
                     if former_data['user_id']:
                         user_id = former_data['user_id']
+
+                if not _can_manage_panel_definition(cursor, user_id_change, panel_id):
+                    return {'error': 'You do not have permission to manage this definition', 'status_code': 403}
 
                 columns.append('user_id')
                 values.append(user_id)

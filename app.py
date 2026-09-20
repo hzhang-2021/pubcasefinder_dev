@@ -2939,7 +2939,7 @@ def panelsearch_nanbyo_regist_entity_definition():
     response = api_psn_regist_panel_entity_definition(user_id, data)
     check_api_response_error(response, 'api_psn_regist_panel_entity_definition')
 
-    return jsonify(response)
+    return jsonify(response), response.get('status_code', 200)
 
 
 @app.route('/panelsearch_nanbyo_delete_entity_definition', methods=['POST'])
