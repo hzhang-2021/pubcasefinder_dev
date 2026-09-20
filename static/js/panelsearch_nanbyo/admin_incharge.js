@@ -155,7 +155,6 @@ function _init_incharge(mode_of_inheritance_arr,entity_type_arr,rating_type_arr)
 				$('#sidebar-ctl').removeClass('docheck').addClass('douncheck');
 				$('tr.highlight').addClass('checked');
 				$('#sidebar_body').find('div.header').eq(0).addClass('checked');
-				activity_check_cache.append(activity_id);
 			}else{
 				$('#sidebar_body').find('div.header').eq(0).removeClass('checked');
 				$('tr.highlight').removeClass('checked');
