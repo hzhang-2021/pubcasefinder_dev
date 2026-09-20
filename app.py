@@ -4018,7 +4018,7 @@ def panelsearch_nanbyo_admin_check_user_activity():
     response = api_psn_check_user_activity(curator_user_id, activity_id)
     check_api_response_error(response, 'api_psn_check_user_activity')
 
-    return jsonify(response)
+    return jsonify(response), response.get('status_code', 200)
 
 
 @app.route('/panelsearch_nanbyo_admin_uncheck_user_activity', methods=['GET','POST'])
@@ -4037,7 +4037,7 @@ def panelsearch_nanbyo_admin_uncheck_user_activity():
     response = api_psn_uncheck_user_activity(curator_user_id, activity_id)
     check_api_response_error(response, 'api_psn_uncheck_user_activity')
 
-    return jsonify(response)
+    return jsonify(response), response.get('status_code', 200)
 
 
 @app.route('/panelsearch_nanbyo_admin_profile', methods=['GET'])

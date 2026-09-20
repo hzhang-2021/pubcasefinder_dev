@@ -2951,37 +2951,74 @@ def api_psn_load_incharge_user_activity_log(curator_user_id):
                 return []
 
 
+def _psn_set_user_activity_checked(user_id, activity_id, checked):
+    try:
+        activity_id = int(activity_id)
+        if activity_id <= 0:
+            raise ValueError
+    except (TypeError, ValueError):
+        return {'error': 'A positive activity_id is required', 'status_code': 400}
+
+    with get_mysql_connection() as conn:
+        try:
+            with conn.cursor(MySQLdb.cursors.DictCursor) as cursor:
+                cursor.execute(
+                    "SELECT panel_id FROM panelsearch_nando_user_activity WHERE activity_id = %s",
+                    (activity_id,)
+                )
+                activity = cursor.fetchone()
+                if not activity:
+                    return {'error': 'Activity not found', 'status_code': 404}
+
+                cursor.execute("SELECT user_type FROM user_info_psn WHERE id = %s", (user_id,))
+                user = cursor.fetchone()
+                if not user:
+                    return {'error': 'You do not have permission to check this activity', 'status_code': 403}
+                if not api_is_user_admin(user['user_type']):
+                    cursor.execute(
+                        """
+                        SELECT 1
+                        FROM panelsearch_nando_group_user gu
+                        JOIN panelsearch_nando_group g ON g.group_id = gu.group_id
+                        JOIN panelsearch_nando_group_panel gp ON gp.group_id = g.group_id
+                        WHERE gu.user_id = %s AND gu.user_role = %s
+                          AND g.isValid = %s AND gp.panel_id = %s
+                        LIMIT 1
+                        """,
+                        (user_id, GROUP_USER_ROLE_CURATOR, ENUM_VAL_YES, activity['panel_id'])
+                    )
+                    if not cursor.fetchone():
+                        return {'error': 'You do not have permission to check this activity', 'status_code': 403}
+
+                if checked:
+                    cursor.execute(
+                        """
+                        INSERT IGNORE INTO panelsearch_nando_curator_check_history
+                            (user_id, activity_id) VALUES (%s, %s)
+                        """,
+                        (user_id, activity_id)
+                    )
+                else:
+                    cursor.execute(
+                        """
+                        DELETE FROM panelsearch_nando_curator_check_history
+                        WHERE user_id = %s AND activity_id = %s
+                        """,
+                        (user_id, activity_id)
+                    )
+                conn.commit()
+                return {'suceed': 'done'}
+        except Exception as e:
+            conn.rollback()
+            return {'error': str(e)}
+
+
 def api_psn_check_user_activity(user_id, activity_id):
-    results = execute_sql(
-        """
-        INSERT IGNORE INTO panelsearch_nando_curator_check_history 
-            (user_id,activity_id) 
-        VALUES 
-            (%s,%s)
-        """,
-        (user_id,activity_id)
-    )
-
-    if isinstance(results, dict) and 'error' in results:
-        return results
-    
-    return {"suceed": 'done'}
-
+    return _psn_set_user_activity_checked(user_id, activity_id, True)
 
 
 def api_psn_uncheck_user_activity(user_id, activity_id):
-    results = execute_sql(
-        """
-        DELETE FROM panelsearch_nando_curator_check_history 
-        WHERE user_id = %s AND activity_id = %s
-        """,
-        (user_id,activity_id)
-    )
-
-    if isinstance(results, dict) and 'error' in results:
-        return results
-    
-    return {"suceed": 'done'}
+    return _psn_set_user_activity_checked(user_id, activity_id, False)
 
 
 def api_psn_load_curator_check_history(curator_user_id):
