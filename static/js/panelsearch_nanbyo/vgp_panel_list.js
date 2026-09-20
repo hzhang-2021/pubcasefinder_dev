@@ -110,6 +110,7 @@ function _vgp_init(){
 
 			_vgp_init_panel_list(specified_panel_id);
 
+			_vgp_saveUndoState();
 		}, 10);
 		
 		_vgp_hide_loading();

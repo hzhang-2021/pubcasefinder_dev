@@ -235,10 +235,6 @@ function _add_or_delete_group_panel(panel_id, url, callback){
     });
 }
 
-
-
-
-
 function _create_new_group(group_title){
     _vgp_show_loading();
     utils_run_submit(

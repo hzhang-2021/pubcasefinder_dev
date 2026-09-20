@@ -123,9 +123,9 @@ function _vgp_init_entity_definition_edit_table(
 		[$.fn.panel_review.KEY_PHENOTYPE]           : `${nando_id}--${panel_name}`,
 		[$.fn.panel_review.KEY_PUBLICATION]         : '',
 		[$.fn.panel_review.KEY_MODE_OF_INHERITANCE] : '',
-			[$.fn.panel_review.KEY_COMMENT]             : '',
-			[$.fn.panel_review.KEY_PHENOTYPE_TREEVIEW_DATA]: phenotype_treeview_data,
-			has_current_definition: panel_entity_definition_arr && panel_entity_definition_arr.length > 0
+		[$.fn.panel_review.KEY_COMMENT]             : '',
+		[$.fn.panel_review.KEY_PHENOTYPE_TREEVIEW_DATA]: phenotype_treeview_data,
+		has_current_definition: panel_entity_definition_arr && panel_entity_definition_arr.length > 0
 	}
 
 	let data_arr = 
@@ -1684,6 +1684,7 @@ function _vgp_init_entity_definition_edit_table(
 					$('#'+review_comment_container_id).removeClass('onEdit');
 					let $review_comment_text_content = $('#'+review_comment_container_id).find('.vgp-review-comment-text-content');
 					let $review_comment_text_editor  = $('#'+review_comment_container_id).find('.vgp-review-comment-text-editor');
+					//$review_comment_text_editor.val($review_comment_text_content.html().replace(/<br\s*\/?>/gi, '\n'));
 					$review_comment_text_editor.val($review_comment_text_content.text());
 				})
 				.appendTo($wrapper_control);

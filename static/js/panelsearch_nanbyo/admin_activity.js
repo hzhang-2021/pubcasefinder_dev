@@ -485,6 +485,8 @@ function get_action_title(activity_log){
 	}else if(activity_log.target === 'definition'){
 		if(activity_log.action === "classify"){
 			return 'Classified';
+		}else if(activity_log.action === "delete"){
+			return 'Deleted';
 		}else{
 			return 'Assessed';
 		}
@@ -527,6 +529,8 @@ function get_action_difference_text(activity_log){
     }else if(activity_log.target === 'definition'){
         if(activity_log.action === "classify"){
             return 'Rating Changed';
+        }else if(activity_log.action === "delete"){
+            return 'Entity Definition Deleted';
         }else{
             return diff_text;
         }
