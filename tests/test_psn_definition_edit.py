@@ -61,7 +61,13 @@ class DefinitionEditTest(unittest.TestCase):
 
     def test_admin_can_edit_and_original_owner_is_preserved(self):
         self.assertEqual(self.save(), {'success': True})
-        self.ns['set_entity_outdated'].assert_called_once_with(self.cursor, 17)
+        writes = [call for call in self.cursor.execute.call_args_list
+                  if not call.args[0].lstrip().upper().startswith('SELECT')]
+        self.assertEqual(len(writes), 2)
+        self.assertIn('UPDATE panelsearch_nando_entity', writes[0].args[0])
+        self.assertIn('AND is_latest = %s AND is_deleted = %s', writes[0].args[0])
+        self.assertEqual(writes[0].args[1], ('NO', 17, 'YES', 'NO'))
+        self.assertIn('INSERT INTO panelsearch_nando_entity', writes[1].args[0])
         self.assertEqual(self.ns['add_user_activity_log'].call_args.args[1:3], (3, 5))
         self.conn.commit.assert_called_once()
 
@@ -84,6 +90,65 @@ class DefinitionEditTest(unittest.TestCase):
         self.assertEqual(self.save()['status_code'], 403)
         self.assert_no_writes()
 
+    def test_stale_definition_is_rejected_without_writes(self):
+        self.definition['is_latest'] = 'NO'
+        self.assertEqual(self.save()['status_code'], 409)
+        self.assert_no_writes()
+
+    def test_deleted_definition_is_rejected_without_writes(self):
+        self.definition['is_deleted'] = 'YES'
+        self.assertEqual(self.save()['status_code'], 409)
+        self.assert_no_writes()
+
+    def test_concurrent_edit_or_delete_prevents_insert(self):
+        # The read saw a current entity, but another transaction claimed it first.
+        self.cursor.rowcount = 0
+        self.assertEqual(self.save()['status_code'], 409)
+        self.assertFalse(any('INSERT' in call.args[0]
+                             for call in self.cursor.execute.call_args_list))
+        self.ns['add_user_activity_log'].assert_not_called()
+        self.ns['_psn_panel_version_minor_up'].assert_not_called()
+        self.conn.rollback.assert_called_once()
+        self.conn.commit.assert_not_called()
+
+    def test_second_save_with_stale_snapshot_cannot_insert_another_version(self):
+        current = True
+        inserts = []
+
+        def execute(sql, params):
+            nonlocal current
+            if 'UPDATE panelsearch_nando_entity' in sql:
+                self.cursor.rowcount = int(current)
+                current = False
+            elif 'INSERT INTO panelsearch_nando_entity' in sql:
+                inserts.append(params)
+                self.cursor.rowcount = 1
+
+        self.cursor.execute.side_effect = execute
+        self.assertEqual(self.save(), {'success': True})
+        # Even when both reads see the original snapshot, the conditional write wins once.
+        self.assertEqual(self.save()['status_code'], 409)
+        self.assertEqual(len(inserts), 1)
+        self.conn.commit.assert_called_once()
+        self.conn.rollback.assert_called_once()
+
+    def test_insert_failure_rolls_back_claim(self):
+        def execute(sql, params):
+            if 'INSERT INTO panelsearch_nando_entity' in sql:
+                raise RuntimeError('insert failed')
+
+        self.cursor.execute.side_effect = execute
+        self.assertIn('insert failed', self.save()['error'])
+        self.conn.rollback.assert_called_once()
+        self.conn.commit.assert_not_called()
+        self.ns['add_user_activity_log'].assert_not_called()
+
+    def test_version_failure_rolls_back_claim_and_insert(self):
+        self.ns['_psn_panel_version_minor_up'].side_effect = RuntimeError('version failed')
+        self.assertIn('version failed', self.save()['error'])
+        self.conn.rollback.assert_called_once()
+        self.conn.commit.assert_not_called()
+
     def test_route_returns_api_error_status(self):
         path = definition_delete.ROOT / 'app.py'
         tree = ast.parse(path.read_text(encoding='utf-8'))
@@ -98,7 +163,7 @@ class DefinitionEditTest(unittest.TestCase):
         })
         self.ns['request'].get_json.return_value = self.data
         exec(compile(ast.Module(body=[node], type_ignores=[]), str(path), 'exec'), self.ns)
-        for status in [400, 403, 404]:
+        for status in [400, 403, 404, 409]:
             response = {'error': 'rejected', 'status_code': status}
             self.ns['api_psn_regist_panel_entity_definition'] = MagicMock(return_value=response)
             self.assertEqual(self.ns['panelsearch_nanbyo_regist_entity_definition'](),

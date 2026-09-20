@@ -948,6 +948,24 @@ def api_psn_regist_panel_entity_definition(user_id_change, data):
                 if not _can_manage_panel_definition(cursor, user_id_change, panel_id):
                     return {'error': 'You do not have permission to manage this definition', 'status_code': 403}
 
+                if former_entity_id:
+                    if former_data['is_latest'] != ENUM_VAL_YES or former_data['is_deleted'] != ENUM_VAL_NO:
+                        return {'error': 'Entity definition has changed or been deleted. Reload before editing.',
+                                'status_code': 409}
+                    # Claim the current version atomically before inserting its replacement.
+                    cursor.execute(
+                        """
+                        UPDATE panelsearch_nando_entity
+                        SET is_latest = %s, modified_at = NOW()
+                        WHERE entity_id = %s AND is_latest = %s AND is_deleted = %s
+                        """,
+                        (ENUM_VAL_NO, former_entity_id, ENUM_VAL_YES, ENUM_VAL_NO)
+                    )
+                    if cursor.rowcount != 1:
+                        conn.rollback()
+                        return {'error': 'Entity definition has changed or been deleted. Reload before editing.',
+                                'status_code': 409}
+
                 columns.append('user_id')
                 values.append(user_id)
 
@@ -971,9 +989,6 @@ def api_psn_regist_panel_entity_definition(user_id_change, data):
 
                 new_entity_id = cursor.lastrowid
  
-                # 2. delete old data
-                if former_entity_id:
-                    set_entity_outdated(cursor, former_entity_id)
 
                 # 3. 构造 new_data（用于 activity log）
                 new_data = dict(zip(columns, values))
