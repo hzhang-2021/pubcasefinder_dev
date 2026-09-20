@@ -1038,6 +1038,7 @@ function _vgp_init_entity_definition_edit_table(
 						}).join(', ');
 					}
 				}else if(confirm_item.type === "long-text"){
+					val = $('<div>').text(val).html();
 					if(val.length < 50 ){
 						text = val;
 					}else{
@@ -1683,7 +1684,7 @@ function _vgp_init_entity_definition_edit_table(
 					$('#'+review_comment_container_id).removeClass('onEdit');
 					let $review_comment_text_content = $('#'+review_comment_container_id).find('.vgp-review-comment-text-content');
 					let $review_comment_text_editor  = $('#'+review_comment_container_id).find('.vgp-review-comment-text-editor');
-					$review_comment_text_editor.val($review_comment_text_content.html().replace(/<br\s*\/?>/gi, '\n'));
+					$review_comment_text_editor.val($review_comment_text_content.text());
 				})
 				.appendTo($wrapper_control);
 		

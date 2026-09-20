@@ -842,7 +842,7 @@ function _vgp_init_reviews(
 					let $review_comment_editor_wrapper = $('<div>').addClass('vgp-review-comment-editor-container').appendTo($content_container);
 
 					$('<p>').addClass("vgp-review-comment-text-content")
-						.html(panel_entity_review_comment.comment.replaceAll('\n','<br>'))
+						.text(panel_entity_review_comment.comment).css('white-space', 'pre-wrap')
 						.appendTo($review_comment_editor_wrapper);
 				
 					let pv = (panel_entity_review_comment.panel_type === TYPE_SPECIFIED)? 
