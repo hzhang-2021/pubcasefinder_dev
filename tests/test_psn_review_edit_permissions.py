@@ -73,6 +73,26 @@ class ReviewEditPermissionsTest(unittest.TestCase):
     def test_new_review_creation_is_preserved(self):
         self.edit(3, review_id=None)
 
+    def test_stale_author_edit_is_rejected_without_writes(self):
+        self.review['review_id'] = 21
+        self.edit(1, 409, review_id=20)
+        self.ns['add_user_activity_log'].assert_not_called()
+        self.ns['record_review_panel_version'].assert_not_called()
+        self.ns['record_user_activity_panel_version'].assert_not_called()
+
+    def test_stale_admin_edit_is_rejected(self):
+        self.review['review_id'] = 21
+        self.cursor.fetchone.side_effect = [{'user_type': 'admin'}]
+        self.edit(3, 409, review_id=20)
+
+    def test_stale_assigned_curator_edit_is_rejected(self):
+        self.review['review_id'] = 21
+        self.cursor.fetchone.side_effect = [{'user_type': 'member'}, {'1': 1}]
+        self.edit(3, 409, review_id=20)
+
+    def test_current_review_id_as_string_is_accepted(self):
+        self.edit(1, review_id='20')
+
 
 if __name__ == '__main__':
     unittest.main()

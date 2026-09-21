@@ -353,3 +353,14 @@ Admin ログイン状態に加え、Panel Detail の2ケースは Reviewer ロ�
 ```powershell
 uv run pytest src/test_psn_admin_activity.py -k consistency --psn-require-auth
 ```
+
+
+### Incharge の範囲・データ整合性
+
+4ケースを追加しています。Admin は全 Activity API から Review/Definition ごとの最新記録を求めて比較します。Curator は Admin から取得した有効 Group のメンバー役割と Panel 関連から許可範囲を求め、範囲内の欠落・範囲外の混入をチェックします。両方とも全ページの行 ID と表示内容を検証します。Curator の範囲検証には担当内外の活動データが必要です。
+
+整合性の2ケースは Reviewer が Panel Detail で一意なコメント付き Review を投稿し、Admin / Curator の Incharge 一覧と側欄の活動履歴に同じ投稿が現れることを確認します。Curator ケースは一時 Group で対象 Panel の担当を設定します。終了時は既存の後片付けでテスト Review、Group の関連と Group を削除します。監査履歴は残ります。Admin / Reviewer、Curator ケースでは Curator の別アカウントと有効なログイン状態が必要です。確認・確認取消ボタンは変更しません。
+
+```powershell
+uv run pytest src/test_psn_admin_incharge.py --psn-require-auth
+```

@@ -220,7 +220,7 @@ def test_panel_detail_add_review_submit(root_page, psn_config, activity_check=No
         assert saved_reviews[0]['publications'] == REVIEW_PUBLICATIONS
         query = {**params, 'panel_name': panel_name, 'nando_id': panel_id,
                  'gene_id': '58', 'gene_symbol': 'ACTA1'}
-        response = root_page.goto(psn_config.page_url('panel_entity_detail', query))
+        response = root_page.goto(psn_config.page_url('panel_entity_detail', query), wait_until='domcontentloaded')
         assert response and response.ok
         expect(root_page.locator('#vgp-panel-gene-review-panel').get_by_text(marker, exact=True).first).to_be_visible(timeout=60000)
         take_screenshot(root_page, psn_config, 'add_review_saved', page_name=PAGE)

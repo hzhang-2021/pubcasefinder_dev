@@ -112,6 +112,10 @@ PSN-09	admin_authentication	test_admin_authentication_mail_filter	admin	メー�
 PSN-09	admin_authentication	test_admin_authentication_date_from_filter	admin	開始日による認証ログの絞り込み	開始日以降のログのみ返され、境界日のログが含まれることを確認する	未実行
 PSN-09	admin_authentication	test_admin_authentication_date_to_filter	admin	終了日による認証ログの絞り込み	終了日23:59:59が送信され、それ以前のログと境界日のログが含まれることを確認する	未実行
 PSN-10	admin_incharge	test_admin_incharge_is_visible	curator	担当活動ページが正常に表示されることを確認する	活動表と合計件数が表示され、担当活動 API と確認履歴 API が成功する	成功 (ja/en, 2026-09-18)
+PSN-10	admin_incharge	test_incharge_admin_all_panels	admin	全 Panel の最新活動と全ページの表示行が一致	API の独立した期待値と UI 表示・対象者・Entity・操作種別を照合する	未実行
+PSN-10	admin_incharge	test_incharge_curator_group_panel_scope	curator	Curator 担当 Group の関連 Panel の最新活動のみ表示	API の独立した期待値と UI 表示・対象者・Entity・操作種別を照合する	未実行
+PSN-10	admin_incharge	test_incharge_new_member_review_consistency[chromium-admin]	admin + reviewer	Review 新規投稿と Incharge 一覧・側栏履歴の一致	API の独立した期待値と UI 表示・対象者・Entity・操作種別を照合する	未実行
+PSN-10	admin_incharge	test_incharge_new_member_review_consistency[chromium-curator]	admin + curator + reviewer	担当 Panel の新規 Review と Incharge 一覧・側栏履歴の一致	API の独立した期待値と UI 表示・対象者・Entity・操作種別を照合する	未実行
 PSN-11	admin_profile	test_admin_profile_is_visible	reviewer	プロフィールページが正常に表示されることを確認する	プロフィール表と Edit ボタンが表示される	成功 (ja/en, 2026-09-18)
 PSN-11	admin_profile	test_profile_edit_cancel	reviewer	プロフィール編集画面を開いてキャンセルできることを確認する	編集入力欄と Save ボタンが表示され、Cancel 後に入力欄が非表示となり、プロフィール表が表示される	成功 (ja/en, 2026-09-18)
 PSN-12	admin_review	test_admin_review_is_visible	reviewer	自分の Review ページが正常に表示されることを確認する	タイトルが表示され、Review の領域が生成され、Review とコメントの API が成功する	成功 (ja/en, 2026-09-18)
