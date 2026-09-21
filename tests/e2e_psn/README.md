@@ -310,7 +310,7 @@ uv run pytest src/test_psn_panel_detail.py -k add_review -rs
 
 ページ表示と閲覧操作を中心とする回帰テストです。
 上記 Add Review テストと、明示的に有効化した Entity Definition の追加・削除テストを除き、定義の変更、コメントの単独追加・削除、Ontology の新規インポート、
-グループ・ユーザー権限の変更、活動の確認、アカウント削除、メールテンプレートの変更、メール再送は実行しません。
+既存 Group・ユーザー権限の変更、活動の確認、アカウント削除、メールテンプレートの変更、メール再送は実行しません。
 これらの更新操作に必要なテストデータの準備・削除処理も実装していません。
 メール画面は閲覧のみ、プロフィールは編集画面を開いてキャンセルするまで、Ontology は既存バージョンの読み込みのみです。
 
@@ -318,3 +318,18 @@ uv run pytest src/test_psn_panel_detail.py -k add_review -rs
 空の一覧を許容するテストもあるため、具体的なデータを検証する場合は期待値を設定してください。
 AJAX の失敗、認証状態の期限切れ、データベースの変更、外部 SPARQL サービスへの接続失敗でもテストは失敗します。
 テストの収集成功や過去のスクリーンショットを、実際の E2E テスト成功と混同しないでください。
+
+
+### Group 管理の更新・権限テスト
+
+`src/test_psn_admin_group.py` は追加の 13 ケースで、Admin の Group・メンバー・関連 Panel 操作、Curator の表示範囲と操作権限、Reviewer のアクセス拒否を検証します。
+
+```powershell
+uv run pytest src/test_psn_admin_group.py --browser=chromium --psn-require-auth
+```
+
+Admin のログイン状態を全追加ケースで使用します。Curator ケースでは Curator、メンバー操作と Reviewer 拒否ケースでは Reviewer のログイン状態も必要です。既存の `PSN_ADMIN_STATE`、`PSN_CURATOR_STATE`、`PSN_REVIEWER_STATE` または config の auth_states を使用します。各役割は別アカウントを設定してください。Reviewer はどの Group でも Curator を担当しないアカウントを使用してください。
+
+プロフィール画面のメールからアカウントを特定し、`PSN_E2E_GROUP_<UUID>` の一時 Group 内だけでメンバー役割を変更します。関連 Panel は config の `pages.panel_detail.query.panel_id` を使用します。準備と後片付けには Admin API、検証対象の更新操作にはブラウザ UI を使用し、再読込後の状態も確認します。Group の作成・削除不可は UI と直接 API の両方を確認します。
+
+終了時は失敗時も一時 Group のメンバー・Panel 関連を解除して Group を論理削除します。監査ログと論理削除された Group は残ります。プロセスの強制終了や接続障害では後片付けが完了しない場合があります。ログイン状態が不足すると skip、`--psn-require-auth` 指定時は fail になります。これらは実データを書き込むため、テスト環境で実行してください。

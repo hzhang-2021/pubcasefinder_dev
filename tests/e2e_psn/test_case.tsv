@@ -50,6 +50,19 @@ PSN-05	admin_user	test_admin_user_is_visible	admin	ユーザー管理ページ�
 PSN-05	admin_user	test_admin_user_filter_no_match	admin	ユーザー一覧で該当なしの絞り込みを確認する	絞り込み API が成功し、合計件数が 0 と表示される	成功 (ja/en, 2026-09-18)
 PSN-06	admin_group	test_admin_group_is_visible	curator	グループ管理ページが正常に表示されることを確認する	グループ一覧と絞り込み欄が表示され、初期グループデータ API が成功する	成功 (ja/en, 2026-09-18)
 PSN-06	admin_group	test_group_filter_no_match	curator	グループ一覧で該当なしの絞り込みを確認する	該当しない語を入力すると、表示中のグループ行数が 0 になる	成功 (ja/en, 2026-09-18)
+PSN-06	admin_group	test_admin_add_group	admin	Group を追加	一意な名前の Group が画面と API に保存される	未実行
+PSN-06	admin_group	test_admin_delete_group	admin	Group を削除	確認後、テスト Group が画面と有効 Group 一覧から消える	未実行
+PSN-06	admin_group	test_group_member_operations[chromium-add-admin]	admin	メンバー追加	一時 Group で操作し、再読込後の UI と API を検証する	未実行
+PSN-06	admin_group	test_group_member_operations[chromium-remove-admin]	admin	メンバー削除	一時 Group で操作し、再読込後の UI と API を検証する	未実行
+PSN-06	admin_group	test_group_member_operations[chromium-role-admin]	admin	メンバー役割変更	一時 Group で操作し、再読込後の UI と API を検証する	未実行
+PSN-06	admin_group	test_group_member_operations[chromium-add-curator]	curator	メンバー追加	一時 Group で操作し、再読込後の UI と API を検証する	未実行
+PSN-06	admin_group	test_group_member_operations[chromium-remove-curator]	curator	メンバー削除	一時 Group で操作し、再読込後の UI と API を検証する	未実行
+PSN-06	admin_group	test_group_member_operations[chromium-role-curator]	curator	メンバー役割変更	一時 Group で操作し、再読込後の UI と API を検証する	未実行
+PSN-06	admin_group	test_curator_only_sees_own_curator_groups	curator	担当 Group のみ表示	Curator 担当 Group の全件と一致し、Reviewer 所属・未所属 Group は非表示	未実行
+PSN-06	admin_group	test_curator_cannot_add_or_delete_group	curator	Group 追加・削除不可	操作 UI がなく、直接 API も拒否されデータが変化しない	未実行
+PSN-06	admin_group	test_admin_group_panel_operations[chromium-add]	admin	関連 Panel 追加	候補選択から追加し、再読込後も関連 Panel が表示される	未実行
+PSN-06	admin_group	test_admin_group_panel_operations[chromium-remove]	admin	関連 Panel 削除	確認後、再読込しても関連 Panel が表示されない	未実行
+PSN-06	admin_group	test_reviewer_cannot_access_group_page	reviewer	Group ページアクセス不可	権限エラーが表示され、Group 管理 UI は存在しない	未実行
 PSN-07	admin_group_activity	test_admin_group_activity_is_visible	admin	グループ活動ページが正常に表示されることを確認する	活動表・絞り込み欄・合計件数が表示され、初期グループ活動 API が成功する	成功 (ja/en, 2026-09-18)
 PSN-07	admin_group_activity	test_admin_group_activity_filter_no_match	admin	グループ活動一覧で該当なしの絞り込みを確認する	絞り込み API が成功し、合計件数が 0 と表示される	成功 (ja/en, 2026-09-18)
 PSN-08	admin_activity	test_admin_activity_is_visible	admin	活動管理ページが正常に表示されることを確認する	活動表・パネル絞り込み・日付欄が表示され、初期活動 API が成功する	成功 (ja/en, 2026-09-18)
