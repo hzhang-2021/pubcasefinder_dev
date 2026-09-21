@@ -399,9 +399,14 @@ def panel_entity_filter_elements(page):
     expect(panel).to_be_visible()
     rows = panel.locator('#vgp-panel-gene-table-tbody tr.vgp-table-datarow')
     expect(rows.first).to_be_visible(timeout=60000)
+    # Wait for initialization to finish before exercising the filter.
+    for selector in ('#vgp-loader-whole', '#vgp-loader', '#fh5co-loader'):
+        for loader in page.locator(selector).all():
+            expect(loader).not_to_be_visible(timeout=60000)
     entity_filter = panel.locator('#vgp-panel-genes-filter')
     total = int(panel.locator('.vgp-panel-genes-num').inner_text())
     assert total > 0
+    expect(rows).to_have_count(total)
     expect(entity_filter).to_have_attribute('placeholder', f'Filter {total} Entities')
     return panel, rows, entity_filter, total
 

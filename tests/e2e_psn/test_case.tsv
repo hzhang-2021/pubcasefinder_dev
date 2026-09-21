@@ -56,6 +56,10 @@ PSN-08	admin_activity	test_admin_activity_is_visible	admin	活動管理ページ
 PSN-08	admin_activity	test_activity_date_filter	admin	開始日を指定した活動検索を確認する	活動 API が成功し、入力した日付が保持され、活動表が表示される	成功 (ja/en, 2026-09-18)
 PSN-09	admin_authentication	test_admin_authentication_is_visible	admin	認証ログページが正常に表示されることを確認する	ログ表・絞り込み欄・日付欄が表示され、初期認証ログ API が成功する	成功 (ja/en, 2026-09-18)
 PSN-09	admin_authentication	test_admin_authentication_filter_no_match	admin	認証ログで該当なしの絞り込みを確認する	絞り込み API が成功し、合計件数が 0 と表示される	成功 (ja/en, 2026-09-18)
+PSN-09	admin_authentication	test_admin_authentication_user_name_filter	admin	ユーザー名による認証ログの絞り込み	実在するユーザー名で絞り込み、要求パラメータ・一致ログ・表示件数を確認する	未実行
+PSN-09	admin_authentication	test_admin_authentication_mail_filter	admin	メールアドレスによる認証ログの絞り込み	実在するメールで絞り込み、要求パラメータ・一致ログ・表示件数を確認する	未実行
+PSN-09	admin_authentication	test_admin_authentication_date_from_filter	admin	開始日による認証ログの絞り込み	開始日以降のログのみ返され、境界日のログが含まれることを確認する	未実行
+PSN-09	admin_authentication	test_admin_authentication_date_to_filter	admin	終了日による認証ログの絞り込み	終了日23:59:59が送信され、それ以前のログと境界日のログが含まれることを確認する	未実行
 PSN-10	admin_incharge	test_admin_incharge_is_visible	curator	担当活動ページが正常に表示されることを確認する	活動表と合計件数が表示され、担当活動 API と確認履歴 API が成功する	成功 (ja/en, 2026-09-18)
 PSN-11	admin_profile	test_admin_profile_is_visible	reviewer	プロフィールページが正常に表示されることを確認する	プロフィール表と Edit ボタンが表示される	成功 (ja/en, 2026-09-18)
 PSN-11	admin_profile	test_profile_edit_cancel	reviewer	プロフィール編集画面を開いてキャンセルできることを確認する	編集入力欄と Save ボタンが表示され、Cancel 後に入力欄が非表示となり、プロフィール表が表示される	成功 (ja/en, 2026-09-18)
