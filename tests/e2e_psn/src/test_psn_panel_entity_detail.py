@@ -135,7 +135,7 @@ def test_panel_entity_review_permissions_for_manager(root_page, psn_config):
     reason='Review Comment の更新テストには PSN_REVIEW_COMMENT_MUTATION=1 が必要です',
 )
 @pytest.mark.parametrize('root_page', ['admin'], indirect=True)
-def test_panel_entity_review_comment_add_modify_delete(root_page, psn_config):
+def test_panel_entity_review_comment_add_modify_delete(root_page, psn_config, activity_check=None):
     review = root_page.locator(
         '#vgp-panel-gene-review-panel .vgp-panel-entity-review-list-wrapper'
         '[data-review_id][data-original_review_id]').first
@@ -171,6 +171,10 @@ def test_panel_entity_review_comment_add_modify_delete(root_page, psn_config):
             has_text=marker).first
         expect(comment.locator('.vgp-review-comment-text-content')).to_have_text(marker)
         take_screenshot(root_page, psn_config, 'review_comment_added')
+        if activity_check:
+            query = parse_qs(urlparse(root_page.url).query)
+            activity_check('review_comment', 'add', marker,
+                           {key: query[key][0] for key in ('panel_id', 'entity_name')})
 
         controls = comment.locator('.vgp-review-comment-control-btn-panel > span')
         expect(controls).to_have_count(2)
@@ -194,6 +198,10 @@ def test_panel_entity_review_comment_add_modify_delete(root_page, psn_config):
         expect(comment.locator('.vgp-review-comment-text-content')).to_have_text(
             modified_marker)
         take_screenshot(root_page, psn_config, 'review_comment_modified')
+        if activity_check:
+            query = parse_qs(urlparse(root_page.url).query)
+            activity_check('review_comment', 'change', modified_marker,
+                           {key: query[key][0] for key in ('panel_id', 'entity_name')})
 
         root_page.once('dialog', lambda dialog: dialog.accept())
         with root_page.expect_navigation(wait_until='domcontentloaded'):
@@ -207,6 +215,10 @@ def test_panel_entity_review_comment_add_modify_delete(root_page, psn_config):
         expect(root_page.locator('.vgp-review-comment-text-content').filter(
             has_text=modified_marker)).to_have_count(0)
         take_screenshot(root_page, psn_config, 'review_comment_deleted')
+        if activity_check:
+            query = parse_qs(urlparse(root_page.url).query)
+            activity_check('review_comment', 'delete', modified_marker,
+                           {key: query[key][0] for key in ('panel_id', 'entity_name')})
     finally:
         leftovers = [row for row in current_review_comments(root_page, psn_config)
                      if row.get('comment') in (marker, modified_marker)
@@ -299,7 +311,7 @@ def test_panel_entity_definition_add_cancel(root_page, psn_config):
 
 
 @pytest.mark.parametrize('root_page', ['admin'], indirect=True)
-def test_panel_entity_definition_add_delete_submit(root_page, psn_config):
+def test_panel_entity_definition_add_delete_submit(root_page, psn_config, activity_check=None):
     if os.getenv('PSN_DEFINITION_MUTATION') != '1':
         pytest.skip('Set PSN_DEFINITION_MUTATION=1 for a disposable entity with no current definition')
     assert not current_definitions(root_page, psn_config), (
@@ -333,6 +345,10 @@ def test_panel_entity_definition_add_delete_submit(root_page, psn_config):
         delete = summary.locator('#btn-definition-delete')
         expect(delete).to_be_visible()
         take_screenshot(root_page, psn_config, 'entity_definition_add_saved')
+        if activity_check:
+            query = parse_qs(urlparse(root_page.url).query)
+            activity_check('definition', 'add', marker,
+                           {key: query[key][0] for key in ('panel_id', 'entity_name')})
 
         delete.click()
         expect(dialog).to_be_visible()
@@ -348,6 +364,10 @@ def test_panel_entity_definition_add_delete_submit(root_page, psn_config):
         assert not current_definitions(root_page, psn_config)
         expect(summary.locator('#btn-definition-delete')).to_have_count(0, timeout=60000)
         take_screenshot(root_page, psn_config, 'entity_definition_delete_saved')
+        if activity_check:
+            query = parse_qs(urlparse(root_page.url).query)
+            activity_check('definition', 'delete', marker,
+                           {key: query[key][0] for key in ('panel_id', 'entity_name')})
     finally:
         leftovers = [row for row in current_definitions(root_page, psn_config)
                      if row.get('comment') == marker]

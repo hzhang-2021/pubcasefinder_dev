@@ -81,7 +81,7 @@ def test_panel_detail_add_entity_cancel(root_page, psn_config):
     reason='Add Entity の確定テストには PSN_ADD_ENTITY_MUTATION=1 が必要です',
 )
 @pytest.mark.parametrize('root_page', ['reviewer'], indirect=True)
-def test_panel_detail_add_entity_submit(root_page, psn_config):
+def test_panel_detail_add_entity_submit(root_page, psn_config, activity_check=None):
     button = root_page.locator('#wrapper_panel_add_entity_btn').get_by_text(
         'ADD ENTITY', exact=False)
     expect(button).to_be_visible(timeout=60000)
@@ -137,6 +137,8 @@ def test_panel_detail_add_entity_submit(root_page, psn_config):
         expect(root_page.locator('.vgp-panel-gene-name').filter(
             has_text=gene_symbol).first).to_be_visible(timeout=60000)
         take_screenshot(root_page, psn_config, 'add_entity_saved')
+        if activity_check:
+            activity_check('review', 'add', marker, params)
     finally:
         comments = [row for row in read_records(comments_path)
                     if row.get('comment') == marker]
@@ -178,7 +180,7 @@ def test_panel_detail_add_review_cancel(root_page, psn_config):
 
 
 @pytest.mark.parametrize('root_page', ['reviewer'], indirect=True)
-def test_panel_detail_add_review_submit(root_page, psn_config):
+def test_panel_detail_add_review_submit(root_page, psn_config, activity_check=None):
     panel_id = open_add_review(root_page)
     panel_name = root_page.locator('#input_review_panel_name').input_value()
     marker = 'PSN-E2E-' + uuid4().hex
@@ -222,6 +224,8 @@ def test_panel_detail_add_review_submit(root_page, psn_config):
         assert response and response.ok
         expect(root_page.locator('#vgp-panel-gene-review-panel').get_by_text(marker, exact=True).first).to_be_visible(timeout=60000)
         take_screenshot(root_page, psn_config, 'add_review_saved', page_name=PAGE)
+        if activity_check:
+            activity_check('review', 'add', marker, params)
     finally:
         comments = [row for row in read_records(comments_path) if row.get('comment') == marker]
         reviews = read_records(reviews_path)

@@ -101,6 +101,10 @@ PSN-07	admin_group_activity	test_group_member_activity_consistency[chromium-prom
 PSN-07	admin_group_activity	test_group_member_activity_consistency[chromium-demote-curator]	curator	Group demote 操作と活動ログの整合性	Group 再読込後の状態と、新規ログ1件の Group・対象者・操作者・役割遷移・活動画面の表示を照合する	未実行
 PSN-08	admin_activity	test_admin_activity_is_visible	admin	活動管理ページが正常に表示されることを確認する	活動表・パネル絞り込み・日付欄が表示され、初期活動 API が成功する	成功 (ja/en, 2026-09-18)
 PSN-08	admin_activity	test_activity_date_filter	admin	開始日を指定した活動検索を確認する	活動 API が成功し、入力した日付が保持され、活動表が表示される	成功 (ja/en, 2026-09-18)
+PSN-08	admin_activity	test_panel_operations_activity_consistency[chromium-add-entity]	admin + reviewer	Panel Detail の Add Entity と Activity の整合性	一意なコメントでログを特定し Panel・Entity・操作種別・一覧表示と展開詳細を検証する	未実行
+PSN-08	admin_activity	test_panel_operations_activity_consistency[chromium-add-review]	admin + reviewer	Panel Detail の Add Review と Activity の整合性	一意なコメントでログを特定し Panel・Entity・操作種別・一覧表示と展開詳細を検証する	未実行
+PSN-08	admin_activity	test_panel_operations_activity_consistency[chromium-comment-add-edit-delete]	admin	Entity Detail の Comment 追加・変更・削除 と Activity の整合性	一意なコメントでログを特定し Panel・Entity・操作種別・一覧表示と展開詳細を検証する	未実行
+PSN-08	admin_activity	test_panel_operations_activity_consistency[chromium-definition-add-delete]	admin	Entity Detail の Definition 追加・削除 と Activity の整合性	一意なコメントでログを特定し Panel・Entity・操作種別・一覧表示と展開詳細を検証する	未実行
 PSN-09	admin_authentication	test_admin_authentication_is_visible	admin	認証ログページが正常に表示されることを確認する	ログ表・絞り込み欄・日付欄が表示され、初期認証ログ API が成功する	成功 (ja/en, 2026-09-18)
 PSN-09	admin_authentication	test_admin_authentication_filter_no_match	admin	認証ログで該当なしの絞り込みを確認する	絞り込み API が成功し、合計件数が 0 と表示される	成功 (ja/en, 2026-09-18)
 PSN-09	admin_authentication	test_admin_authentication_user_name_filter	admin	ユーザー名による認証ログの絞り込み	実在するユーザー名で絞り込み、要求パラメータ・一致ログ・表示件数を確認する	未実行

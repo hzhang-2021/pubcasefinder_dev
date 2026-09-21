@@ -342,3 +342,14 @@ Admin のログイン状態を全追加ケースで使用します。Curator ケ
 ```powershell
 uv run pytest src/test_psn_admin_group_activity.py -k consistency --psn-require-auth
 ```
+
+
+### Panel / Entity Detail と Admin Activity の整合性
+
+`test_panel_operations_activity_consistency` は4シナリオで7回の操作を検証します。Panel Detail の Add Entity / Add Review、Entity Detail の Comment 追加・変更・削除と Definition 追加・削除を既存の UI 操作・後片付け付きフローで実行し、各操作直後に別の Admin コンテキストで Activity 一覧と展開詳細を検証します。一意なコメントで今回のログを識別し、Panel・Entity・操作種別・コメント内容を照合します。Comment 操作は現行仕様の `review/change` ログとして扱い、変更前後のコメントも確認します。
+
+Admin ログイン状態に加え、Panel Detail の2ケースは Reviewer ログイン状態を使用します。既存と同じ `PSN_ADD_ENTITY_MUTATION=1`、`PSN_REVIEW_COMMENT_MUTATION=1`、`PSN_DEFINITION_MUTATION=1` の各フラグが対応ケースに適用されます。Definition は現在の定義がない使い捨て Entity を設定してください。Review の編集・削除を UI から行うケースはこの4シナリオには含みません（Review の削除は後片付け API のみ）。
+
+```powershell
+uv run pytest src/test_psn_admin_activity.py -k consistency --psn-require-auth
+```
