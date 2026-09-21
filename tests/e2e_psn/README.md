@@ -333,3 +333,12 @@ Admin のログイン状態を全追加ケースで使用します。Curator ケ
 プロフィール画面のメールからアカウントを特定し、`PSN_E2E_GROUP_<UUID>` の一時 Group 内だけでメンバー役割を変更します。関連 Panel は config の `pages.panel_detail.query.panel_id` を使用します。準備と後片付けには Admin API、検証対象の更新操作にはブラウザ UI を使用し、再読込後の状態も確認します。Group の作成・削除不可は UI と直接 API の両方を確認します。
 
 終了時は失敗時も一時 Group のメンバー・Panel 関連を解除して Group を論理削除します。監査ログと論理削除された Group は残ります。プロセスの強制終了や接続障害では後片付けが完了しない場合があります。ログイン状態が不足すると skip、`--psn-require-auth` 指定時は fail になります。これらは実データを書き込むため、テスト環境で実行してください。
+
+
+### Group と Group Activity の整合性
+
+`test_group_member_activity_consistency` は Admin / Curator によるメンバー追加・削除・Reviewer→Curator・Curator→Reviewer の 8 ケースです。Group 画面で操作し、再読込後の所属・役割、新規活動ログが正確に1件であること、Group・対象ユーザー・操作者・役割の変更前後を検証します。続いて Admin で Group Activity を開き、メール検索と必要なページ送りを行って該当行を照合します。既存の `group_lab` を利用し、3役割の別アカウントと Admin による一時 Group の準備・後片付けが必要です。現在の活動ログはメンバー操作のみを記録し、Group 自体や関連 Panel の追加・削除は記録しません。
+
+```powershell
+uv run pytest src/test_psn_admin_group_activity.py -k consistency --psn-require-auth
+```

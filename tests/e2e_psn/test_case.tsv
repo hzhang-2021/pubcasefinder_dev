@@ -91,6 +91,14 @@ PSN-07	admin_group_activity	test_group_activity_filter_matches[chromium-partial-
 PSN-07	admin_group_activity	test_group_activity_filter_matches[chromium-partial-mail]	admin	メールのpartial検索	要求パラメータ・該当ログ・表示件数・ハイライトを確認する	未実行
 PSN-07	admin_group_activity	test_group_activity_filter_trims_spaces	admin	前後の空白除去	空白を除いた検索語が送信され、該当ログとハイライトが表示される	未実行
 PSN-07	admin_group_activity	test_group_activity_filter_clear_restores_logs	admin	検索条件のクリア	該当なし検索後に入力を消すと元のログが再表示され、ハイライトが消える	未実行
+PSN-07	admin_group_activity	test_group_member_activity_consistency[chromium-add-admin]	admin	Group add 操作と活動ログの整合性	Group 再読込後の状態と、新規ログ1件の Group・対象者・操作者・役割遷移・活動画面の表示を照合する	未実行
+PSN-07	admin_group_activity	test_group_member_activity_consistency[chromium-remove-admin]	admin	Group remove 操作と活動ログの整合性	Group 再読込後の状態と、新規ログ1件の Group・対象者・操作者・役割遷移・活動画面の表示を照合する	未実行
+PSN-07	admin_group_activity	test_group_member_activity_consistency[chromium-promote-admin]	admin	Group promote 操作と活動ログの整合性	Group 再読込後の状態と、新規ログ1件の Group・対象者・操作者・役割遷移・活動画面の表示を照合する	未実行
+PSN-07	admin_group_activity	test_group_member_activity_consistency[chromium-demote-admin]	admin	Group demote 操作と活動ログの整合性	Group 再読込後の状態と、新規ログ1件の Group・対象者・操作者・役割遷移・活動画面の表示を照合する	未実行
+PSN-07	admin_group_activity	test_group_member_activity_consistency[chromium-add-curator]	curator	Group add 操作と活動ログの整合性	Group 再読込後の状態と、新規ログ1件の Group・対象者・操作者・役割遷移・活動画面の表示を照合する	未実行
+PSN-07	admin_group_activity	test_group_member_activity_consistency[chromium-remove-curator]	curator	Group remove 操作と活動ログの整合性	Group 再読込後の状態と、新規ログ1件の Group・対象者・操作者・役割遷移・活動画面の表示を照合する	未実行
+PSN-07	admin_group_activity	test_group_member_activity_consistency[chromium-promote-curator]	curator	Group promote 操作と活動ログの整合性	Group 再読込後の状態と、新規ログ1件の Group・対象者・操作者・役割遷移・活動画面の表示を照合する	未実行
+PSN-07	admin_group_activity	test_group_member_activity_consistency[chromium-demote-curator]	curator	Group demote 操作と活動ログの整合性	Group 再読込後の状態と、新規ログ1件の Group・対象者・操作者・役割遷移・活動画面の表示を照合する	未実行
 PSN-08	admin_activity	test_admin_activity_is_visible	admin	活動管理ページが正常に表示されることを確認する	活動表・パネル絞り込み・日付欄が表示され、初期活動 API が成功する	成功 (ja/en, 2026-09-18)
 PSN-08	admin_activity	test_activity_date_filter	admin	開始日を指定した活動検索を確認する	活動 API が成功し、入力した日付が保持され、活動表が表示される	成功 (ja/en, 2026-09-18)
 PSN-09	admin_authentication	test_admin_authentication_is_visible	admin	認証ログページが正常に表示されることを確認する	ログ表・絞り込み欄・日付欄が表示され、初期認証ログ API が成功する	成功 (ja/en, 2026-09-18)

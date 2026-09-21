@@ -296,8 +296,16 @@ def test_reviewer_cannot_access_group_page(group_lab, psn_config):
 
 
 
+def _filter_row_selector(table_selector):
+    # Admin's user table also contains an invitation action row without profile fields.
+    selector = table_selector + ' tbody tr'
+    if table_selector in ('#not_in_group_user_list_table', '#in_group_user_list_table'):
+        selector += ':has(input.row-check)'
+    return selector
+
+
 def _assert_local_filter(page, input_selector, table_selector, fields, term):
-    rows = page.locator(table_selector + ' tbody tr')
+    rows = page.locator(_filter_row_selector(table_selector))
     original = [[row.locator('.' + field).inner_text() for field in fields]
                 for row in rows.all()]
     keyword = ''.join(term.split()).casefold()
@@ -305,13 +313,13 @@ def _assert_local_filter(page, input_selector, table_selector, fields, term):
                 if any(keyword in value.casefold() for value in values)]
     assert expected, 'The selected search term must match at least one row'
     page.locator(input_selector).fill(term)
-    expect(page.locator(table_selector + ' tbody tr:visible')).to_have_count(len(expected))
+    expect(page.locator(_filter_row_selector(table_selector) + ':visible')).to_have_count(len(expected))
     for i, row in enumerate(rows.all()):
         if i in expected:
             expect(row).to_be_visible()
         else:
             expect(row).not_to_be_visible()
-    marks = page.locator(table_selector + ' tbody tr:visible mark')
+    marks = page.locator(_filter_row_selector(table_selector) + ':visible mark')
     expect(marks.first).to_be_visible()
     assert all(text.casefold() == keyword for text in marks.all_inner_texts())
     # Filtering must preserve names, addresses, affiliations, and row controls.
@@ -321,7 +329,7 @@ def _assert_local_filter(page, input_selector, table_selector, fields, term):
 
 def _assert_clear_filter(page, input_selector, table_selector, total):
     page.locator(input_selector).fill('')
-    expect(page.locator(table_selector + ' tbody tr:visible')).to_have_count(total)
+    expect(page.locator(_filter_row_selector(table_selector) + ':visible')).to_have_count(total)
     expect(page.locator(table_selector + ' tbody mark')).to_have_count(0)
 
 
@@ -362,7 +370,7 @@ def _user_filter_table(page, config, side, field):
             continue
         _select(page, config, group_id)
         table = '#' + side + '_user_list_table'
-        rows = page.locator(table + ' tbody tr')
+        rows = page.locator(_filter_row_selector(table))
         expect(rows.first).to_be_visible()
         if field == 'no_match':
             return table, rows, None
@@ -382,10 +390,10 @@ def test_group_user_filters(root_page, psn_config, side, field):
     total = rows.count()
     input_selector = '#' + side + '_user_filter'
     other = '#in_group_user_list_table' if side == 'not_in_group' else '#not_in_group_user_list_table'
-    other_total = root_page.locator(other + ' tbody tr:visible').count()
+    other_total = root_page.locator(_filter_row_selector(other) + ':visible').count()
     if field == 'no_match':
         root_page.locator(input_selector).fill(psn_config.cases[PAGE]['no_match_text'])
-        expect(root_page.locator(table + ' tbody tr:visible')).to_have_count(0)
+        expect(root_page.locator(_filter_row_selector(table) + ':visible')).to_have_count(0)
         if side == 'not_in_group':
             expect(root_page.locator('#invite_wrapper')).to_be_visible()
             expect(root_page.locator('#invite_user_name')).to_have_text(
@@ -393,7 +401,7 @@ def test_group_user_filters(root_page, psn_config, side, field):
     else:
         _assert_local_filter(root_page, input_selector, table,
                              ['name', 'email', 'affiliation'], term)
-    expect(root_page.locator(other + ' tbody tr:visible')).to_have_count(other_total)
+    expect(root_page.locator(_filter_row_selector(other) + ':visible')).to_have_count(other_total)
     _assert_clear_filter(root_page, input_selector, table, total)
     if side == 'not_in_group':
         expect(root_page.locator('#invite_wrapper')).not_to_be_visible()
