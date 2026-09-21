@@ -175,7 +175,7 @@ function attach_admin_event(){
         let group_id = $btn.data("group_id");
         let $tr = $btn.closest('tr');
         let group_title = $tr.find("td:first-child").text();
-        html=`<div>${group_title}</div>`;
+        let html = $('<div>').text(group_title).prop('outerHTML');
         _show_confirm_dialog('このグループを削除しますか?', html, function(){
             _delete_group(group_id, $tr)
         }, null);

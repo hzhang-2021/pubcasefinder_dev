@@ -7,6 +7,12 @@ const URL_GET_GROUP_DISEASE      = "/panelsearch_nanbyo_get_group_panel";
 
 
 
+// Escape profile values used in HTML text and quoted attributes.
+function _escape_group_profile_html(value) {
+    const entities = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'};
+    return String(value ?? '').replace(/[&<>"']/g, character => entities[character]);
+}
+
 // textarea in the new group popup
 function autoResizeTextarea(textarea) {
 	textarea.style.height = 'auto'; // 先重置高度
@@ -84,8 +90,8 @@ function _trigger_remove_user_from_group(selected_user_list){
 	for(let user_id of selected_user_list){
 		let user_info = _get_user_info_by_id(user_id);
 		html += `<tr>
-				   <td class="text-nowrap pr-3">${user_info.last_name_nl} ${user_info.first_name_nl}</td>
-				   <td>${user_info.affiliation}</td>	
+				   <td class="text-nowrap pr-3">${_escape_group_profile_html(user_info.last_name_nl)} ${_escape_group_profile_html(user_info.first_name_nl)}</td>
+				   <td>${_escape_group_profile_html(user_info.affiliation)}</td>
 				</tr>`;
 	}
 	html += '</tbody></table>';
@@ -678,14 +684,14 @@ function _add_data_to_not_in_group_user_list_table(group_id){
 			  </td>
 			  <td >
 			    <div class="d-flex flex-column">
-			      <span class="name">${user_info.last_name_nl}${user_info.first_name_nl}</span>
-				  <span title="${user_info.email}" class="email ellipsis-cell">${user_info.email}</span>
+			      <span class="name">${_escape_group_profile_html(user_info.last_name_nl)}${_escape_group_profile_html(user_info.first_name_nl)}</span>
+				  <span title="${_escape_group_profile_html(user_info.email)}" class="email ellipsis-cell">${_escape_group_profile_html(user_info.email)}</span>
 				</div>
 			  </td>
 			  <td>
                 <div class="d-flex flex-column pr-1">
-                  <span class="affiliation ellipsis-cell" title="${user_info.affiliation}">${user_info.affiliation}</span>
-                  <span>${user_info.job_title}</span>
+                  <span class="affiliation ellipsis-cell" title="${_escape_group_profile_html(user_info.affiliation)}">${_escape_group_profile_html(user_info.affiliation)}</span>
+                  <span>${_escape_group_profile_html(user_info.job_title)}</span>
                 </div>
               </td>
 			</tr>
@@ -761,8 +767,8 @@ function _add_data_to_in_group_user_list_table(group_id){
               </td>
               <td >
                 <div class="d-flex flex-column">
-                  <span class="name">${user_info.last_name_nl}${user_info.first_name_nl}</span>
-                  <span title="${user_info.email}" class="email ellipsis-cell">${user_info.email}</span>
+                  <span class="name">${_escape_group_profile_html(user_info.last_name_nl)}${_escape_group_profile_html(user_info.first_name_nl)}</span>
+                  <span title="${_escape_group_profile_html(user_info.email)}" class="email ellipsis-cell">${_escape_group_profile_html(user_info.email)}</span>
                 </div>
               </td>
               <td class="pr-2">
@@ -773,8 +779,8 @@ function _add_data_to_in_group_user_list_table(group_id){
 			  </td>
               <td>
                 <div class="d-flex flex-column pr-1">
-                  <span class="affiliation ellipsis-cell" title="${user_info.affiliation}">${user_info.affiliation}</span>
-                  <span>${user_info.job_title}</span>
+                  <span class="affiliation ellipsis-cell" title="${_escape_group_profile_html(user_info.affiliation)}">${_escape_group_profile_html(user_info.affiliation)}</span>
+                  <span>${_escape_group_profile_html(user_info.job_title)}</span>
                 </div>
               </td>
             </tr>
