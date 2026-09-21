@@ -63,8 +63,34 @@ PSN-06	admin_group	test_curator_cannot_add_or_delete_group	curator	Group 追加�
 PSN-06	admin_group	test_admin_group_panel_operations[chromium-add]	admin	関連 Panel 追加	候補選択から追加し、再読込後も関連 Panel が表示される	未実行
 PSN-06	admin_group	test_admin_group_panel_operations[chromium-remove]	admin	関連 Panel 削除	確認後、再読込しても関連 Panel が表示されない	未実行
 PSN-06	admin_group	test_reviewer_cannot_access_group_page	reviewer	Group ページアクセス不可	権限エラーが表示され、Group 管理 UI は存在しない	未実行
+PSN-06	admin_group	test_group_title_filter_match_and_clear[chromium-admin]	admin	Group 名の部分一致とハイライト、クリア後の復元	表示行・非表示行・ハイライト解除を確認する	未実行
+PSN-06	admin_group	test_group_title_filter_no_match_and_clear[chromium-admin]	admin	Group 名の該当なし検索とクリア後の復元	表示行・非表示行・ハイライト解除を確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-name-not_in_group-admin]	admin	not_in_group の name フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-email-not_in_group-admin]	admin	not_in_group の email フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-affiliation-not_in_group-admin]	admin	not_in_group の affiliation フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-no_match-not_in_group-admin]	admin	not_in_group の no_match フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-name-in_group-admin]	admin	in_group の name フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-email-in_group-admin]	admin	in_group の email フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-affiliation-in_group-admin]	admin	in_group の affiliation フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-no_match-in_group-admin]	admin	in_group の no_match フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_title_filter_match_and_clear[chromium-curator]	curator	Group 名の部分一致とハイライト、クリア後の復元	表示行・非表示行・ハイライト解除を確認する	未実行
+PSN-06	admin_group	test_group_title_filter_no_match_and_clear[chromium-curator]	curator	Group 名の該当なし検索とクリア後の復元	表示行・非表示行・ハイライト解除を確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-name-not_in_group-curator]	curator	not_in_group の name フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-email-not_in_group-curator]	curator	not_in_group の email フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-affiliation-not_in_group-curator]	curator	not_in_group の affiliation フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-no_match-not_in_group-curator]	curator	not_in_group の no_match フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-name-in_group-curator]	curator	in_group の name フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-email-in_group-curator]	curator	in_group の email フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-affiliation-in_group-curator]	curator	in_group の affiliation フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
+PSN-06	admin_group	test_group_user_filters[chromium-no_match-in_group-curator]	curator	in_group の no_match フィルター	一致行・ハイライト・反対側一覧への非干渉・クリア復元を確認。未所属の該当なしでは招待表示も確認する	未実行
 PSN-07	admin_group_activity	test_admin_group_activity_is_visible	admin	グループ活動ページが正常に表示されることを確認する	活動表・絞り込み欄・合計件数が表示され、初期グループ活動 API が成功する	成功 (ja/en, 2026-09-18)
 PSN-07	admin_group_activity	test_admin_group_activity_filter_no_match	admin	グループ活動一覧で該当なしの絞り込みを確認する	絞り込み API が成功し、合計件数が 0 と表示される	成功 (ja/en, 2026-09-18)
+PSN-07	admin_group_activity	test_group_activity_filter_matches[chromium-full-user-name]	admin	名前のfull検索	要求パラメータ・該当ログ・表示件数・ハイライトを確認する	未実行
+PSN-07	admin_group_activity	test_group_activity_filter_matches[chromium-full-mail]	admin	メールのfull検索	要求パラメータ・該当ログ・表示件数・ハイライトを確認する	未実行
+PSN-07	admin_group_activity	test_group_activity_filter_matches[chromium-partial-user-name]	admin	名前のpartial検索	要求パラメータ・該当ログ・表示件数・ハイライトを確認する	未実行
+PSN-07	admin_group_activity	test_group_activity_filter_matches[chromium-partial-mail]	admin	メールのpartial検索	要求パラメータ・該当ログ・表示件数・ハイライトを確認する	未実行
+PSN-07	admin_group_activity	test_group_activity_filter_trims_spaces	admin	前後の空白除去	空白を除いた検索語が送信され、該当ログとハイライトが表示される	未実行
+PSN-07	admin_group_activity	test_group_activity_filter_clear_restores_logs	admin	検索条件のクリア	該当なし検索後に入力を消すと元のログが再表示され、ハイライトが消える	未実行
 PSN-08	admin_activity	test_admin_activity_is_visible	admin	活動管理ページが正常に表示されることを確認する	活動表・パネル絞り込み・日付欄が表示され、初期活動 API が成功する	成功 (ja/en, 2026-09-18)
 PSN-08	admin_activity	test_activity_date_filter	admin	開始日を指定した活動検索を確認する	活動 API が成功し、入力した日付が保持され、活動表が表示される	成功 (ja/en, 2026-09-18)
 PSN-09	admin_authentication	test_admin_authentication_is_visible	admin	認証ログページが正常に表示されることを確認する	ログ表・絞り込み欄・日付欄が表示され、初期認証ログ API が成功する	成功 (ja/en, 2026-09-18)

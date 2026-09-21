@@ -293,3 +293,108 @@ def test_reviewer_cannot_access_group_page(group_lab, psn_config):
     expect(page.locator('.alert-danger')).to_contain_text('not enough privilege to access this page')
     expect(page.locator('#group_list_table')).to_have_count(0)
     expect(page.locator('#addGroupToggle')).to_have_count(0)
+
+
+
+def _assert_local_filter(page, input_selector, table_selector, fields, term):
+    rows = page.locator(table_selector + ' tbody tr')
+    original = [[row.locator('.' + field).inner_text() for field in fields]
+                for row in rows.all()]
+    keyword = ''.join(term.split()).casefold()
+    expected = [i for i, values in enumerate(original)
+                if any(keyword in value.casefold() for value in values)]
+    assert expected, 'The selected search term must match at least one row'
+    page.locator(input_selector).fill(term)
+    expect(page.locator(table_selector + ' tbody tr:visible')).to_have_count(len(expected))
+    for i, row in enumerate(rows.all()):
+        if i in expected:
+            expect(row).to_be_visible()
+        else:
+            expect(row).not_to_be_visible()
+    marks = page.locator(table_selector + ' tbody tr:visible mark')
+    expect(marks.first).to_be_visible()
+    assert all(text.casefold() == keyword for text in marks.all_inner_texts())
+    # Filtering must preserve names, addresses, affiliations, and row controls.
+    assert [[row.locator('.' + field).inner_text() for field in fields]
+            for row in rows.all()] == original
+
+
+def _assert_clear_filter(page, input_selector, table_selector, total):
+    page.locator(input_selector).fill('')
+    expect(page.locator(table_selector + ' tbody tr:visible')).to_have_count(total)
+    expect(page.locator(table_selector + ' tbody mark')).to_have_count(0)
+
+
+@pytest.mark.parametrize('root_page', ['admin', 'curator'], indirect=True)
+def test_group_title_filter_match_and_clear(root_page, psn_config):
+    _ready(root_page)
+    rows = root_page.locator('#group_list_table_tbody tr')
+    if not rows.count():
+        pytest.skip('Group title filter requires at least one accessible group')
+    title = rows.first.locator('.group-title').inner_text().strip()
+    assert title
+    term = title.split()[0][:8]
+    _assert_local_filter(root_page, '#group_filter', '#group_list_table', ['group-title'], term)
+    _assert_clear_filter(root_page, '#group_filter', '#group_list_table', rows.count())
+    take_screenshot(root_page, psn_config, 'group_title_filter_clear')
+
+
+@pytest.mark.parametrize('root_page', ['admin', 'curator'], indirect=True)
+def test_group_title_filter_no_match_and_clear(root_page, psn_config):
+    _ready(root_page)
+    total = root_page.locator('#group_list_table_tbody tr').count()
+    if not total:
+        pytest.skip('Group title filter requires at least one accessible group')
+    root_page.locator('#group_filter').fill(psn_config.cases[PAGE]['no_match_text'])
+    expect(root_page.locator('#group_list_table_tbody tr:visible')).to_have_count(0)
+    _assert_clear_filter(root_page, '#group_filter', '#group_list_table', total)
+
+
+def _user_filter_table(page, config, side, field):
+    data = _data(page, config)
+    users = {str(u['id']): u for u in data['user_list_arr']}
+    for group in data['group_list_arr']:
+        group_id = str(group['group_id'])
+        members = data['group_user_hash'].get(group_id, {})
+        candidates = [u for uid, u in users.items() if (uid in members) == (side == 'in_group')]
+        key = {'name': 'last_name_nl', 'email': 'email', 'affiliation': 'affiliation'}.get(field, 'email')
+        if not any(str(u.get(key) or '').strip() for u in candidates):
+            continue
+        _select(page, config, group_id)
+        table = '#' + side + '_user_list_table'
+        rows = page.locator(table + ' tbody tr')
+        expect(rows.first).to_be_visible()
+        if field == 'no_match':
+            return table, rows, None
+        for row in rows.all():
+            value = row.locator('.' + field).inner_text().strip()
+            if value:
+                return table, rows, value.split()[0][:8]
+    pytest.skip(f'Accessible groups need {side} users with a non-empty {field}')
+
+
+@pytest.mark.parametrize('root_page', ['admin', 'curator'], indirect=True)
+@pytest.mark.parametrize('side', ['not_in_group', 'in_group'])
+@pytest.mark.parametrize('field', ['name', 'email', 'affiliation', 'no_match'])
+def test_group_user_filters(root_page, psn_config, side, field):
+    _ready(root_page)
+    table, rows, term = _user_filter_table(root_page, psn_config, side, field)
+    total = rows.count()
+    input_selector = '#' + side + '_user_filter'
+    other = '#in_group_user_list_table' if side == 'not_in_group' else '#not_in_group_user_list_table'
+    other_total = root_page.locator(other + ' tbody tr:visible').count()
+    if field == 'no_match':
+        root_page.locator(input_selector).fill(psn_config.cases[PAGE]['no_match_text'])
+        expect(root_page.locator(table + ' tbody tr:visible')).to_have_count(0)
+        if side == 'not_in_group':
+            expect(root_page.locator('#invite_wrapper')).to_be_visible()
+            expect(root_page.locator('#invite_user_name')).to_have_text(
+                psn_config.cases[PAGE]['no_match_text'].lower())
+    else:
+        _assert_local_filter(root_page, input_selector, table,
+                             ['name', 'email', 'affiliation'], term)
+    expect(root_page.locator(other + ' tbody tr:visible')).to_have_count(other_total)
+    _assert_clear_filter(root_page, input_selector, table, total)
+    if side == 'not_in_group':
+        expect(root_page.locator('#invite_wrapper')).not_to_be_visible()
+    take_screenshot(root_page, psn_config, f'group_{side}_{field}_filter_clear')
