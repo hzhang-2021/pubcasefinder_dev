@@ -52,7 +52,7 @@ class ReviewEditPermissionsTest(unittest.TestCase):
     def test_assigned_group_curator_can_edit(self):
         self.cursor.fetchone.side_effect = [{'user_type': 'member'}, {'1': 1}]
         self.edit(3)
-        self.assertEqual(self.cursor.execute.call_args.args[1], (3, 'curator', 'actual-panel'))
+        self.assertEqual(self.cursor.execute.call_args.args[1], (3, 'curator', 'actual-panel', 'YES'))
 
     def test_unrelated_curator_or_reviewer_is_denied(self):
         self.cursor.fetchone.side_effect = [{'user_type': 'member'}, None]
@@ -65,7 +65,7 @@ class ReviewEditPermissionsTest(unittest.TestCase):
     def test_forged_panel_does_not_grant_permission(self):
         self.cursor.fetchone.side_effect = [{'user_type': 'member'}, None]
         self.edit(3, 403, panel='curators-other-panel')
-        self.assertEqual(self.cursor.execute.call_args.args[1], (3, 'curator', 'actual-panel'))
+        self.assertEqual(self.cursor.execute.call_args.args[1], (3, 'curator', 'actual-panel', 'YES'))
 
     def test_author_cannot_move_review_to_another_panel(self):
         self.edit(1, 400, panel='other-panel')

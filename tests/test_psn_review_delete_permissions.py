@@ -29,7 +29,7 @@ class ReviewDeletePermissionsTest(unittest.TestCase):
                        'user_id': 1, 'user_id_change': 2, 'panel_id': 'actual-panel'}
         self.ns = {
             'api_is_user_admin': lambda role: role == 'admin',
-            'GROUP_USER_ROLE_CURATOR': 'curator',
+            'GROUP_USER_ROLE_CURATOR': 'curator', 'ENUM_VAL_YES': 'YES',
             'get_mysql_connection': lambda: self.conn,
             'MySQLdb': SimpleNamespace(cursors=SimpleNamespace(DictCursor=object),
                                        IntegrityError=RuntimeError),
@@ -76,7 +76,7 @@ class ReviewDeletePermissionsTest(unittest.TestCase):
         self.cursor.fetchone.side_effect = [{'user_type': 'member'}, {'1': 1}]
         self.delete(3, True)
         sql, params = self.cursor.execute.call_args.args
-        self.assertEqual(params, (3, 'curator', 'actual-panel'))
+        self.assertEqual(params, (3, 'curator', 'actual-panel', 'YES'))
         self.assertIn('gp.group_id = gu.group_id', sql)
         self.assertIn('gu.user_role = %s', sql)
         self.assertIn('gp.panel_id = %s', sql)

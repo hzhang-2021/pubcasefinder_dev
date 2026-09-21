@@ -75,7 +75,7 @@ class DefinitionEditTest(unittest.TestCase):
         self.cursor.fetchone.side_effect = [{'user_type': 'member'}, {'1': 1}]
         self.assertEqual(self.save(), {'success': True})
         self.assertEqual(self.cursor.execute.call_args_list[1].args[1],
-                         (5, 'curator', 'actual-panel'))
+                         (5, 'curator', 'actual-panel', 'YES'))
         self.conn.commit.assert_called_once()
 
     def test_authorized_creation_still_works(self):

@@ -849,10 +849,12 @@ def _can_manage_panel_definition(cursor, user_id, panel_id):
         SELECT 1
         FROM panelsearch_nando_group_user gu
         JOIN panelsearch_nando_group_panel gp ON gp.group_id = gu.group_id
+        JOIN panelsearch_nando_group g ON g.group_id = gu.group_id
         WHERE gu.user_id = %s AND gu.user_role = %s AND gp.panel_id = %s
+          AND g.isValid = %s
         LIMIT 1
         """,
-        (user_id, GROUP_USER_ROLE_CURATOR, panel_id)
+        (user_id, GROUP_USER_ROLE_CURATOR, panel_id, ENUM_VAL_YES)
     )
     return cursor.fetchone() is not None
 
@@ -1713,10 +1715,12 @@ def _is_admin_or_panel_curator(cursor, user_id, panel_id):
         SELECT 1
         FROM panelsearch_nando_group_user gu
         JOIN panelsearch_nando_group_panel gp ON gp.group_id = gu.group_id
+        JOIN panelsearch_nando_group g ON g.group_id = gu.group_id
         WHERE gu.user_id = %s AND gu.user_role = %s AND gp.panel_id = %s
+          AND g.isValid = %s
         LIMIT 1
         """,
-        (user_id, GROUP_USER_ROLE_CURATOR, panel_id)
+        (user_id, GROUP_USER_ROLE_CURATOR, panel_id, ENUM_VAL_YES)
     )
     return cursor.fetchone() is not None
 
@@ -2590,12 +2594,14 @@ def api_psn_group_get_user_role_of_panel(user_id,panel_id):
             panelsearch_nando_group_user as gu
         JOIN
             panelsearch_nando_group_panel as gp ON gu.group_id=gp.group_id AND gp.panel_id=%s
+        JOIN
+            panelsearch_nando_group as g ON g.group_id = gu.group_id
         WHERE
-            gu.user_id = %s
+            gu.user_id = %s AND g.isValid = %s
         ORDER BY
             gu.user_role DESC
     """
-    return fetch_one(sql, (panel_id,user_id), dict_cursor=True)
+    return fetch_one(sql, (panel_id,user_id,ENUM_VAL_YES), dict_cursor=True)
 
 
 ######

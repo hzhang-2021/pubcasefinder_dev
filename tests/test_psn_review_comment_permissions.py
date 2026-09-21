@@ -23,7 +23,7 @@ class ReviewCommentPermissionsTest(unittest.TestCase):
         self.comment = {'user_id': 20}
         self.ns = {
             'api_is_user_admin': lambda role: role == 'admin',
-            'GROUP_USER_ROLE_CURATOR': 'curator',
+            'GROUP_USER_ROLE_CURATOR': 'curator', 'ENUM_VAL_YES': 'YES',
         }
         load_functions(
             'utils/api_psn.py',
@@ -51,7 +51,7 @@ class ReviewCommentPermissionsTest(unittest.TestCase):
         self.cursor.fetchone.side_effect = [{'user_type': 'member'}, {'1': 1}]
         self.assertTrue(self.can_manage(30))
         sql, params = self.cursor.execute.call_args.args
-        self.assertEqual(params, (30, 'curator', 'NANDO:1200477'))
+        self.assertEqual(params, (30, 'curator', 'NANDO:1200477', 'YES'))
         self.assertIn('gp.panel_id = %s', sql)
 
     def test_unrelated_logged_in_user_cannot_manage_comment(self):

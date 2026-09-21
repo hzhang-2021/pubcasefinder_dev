@@ -74,7 +74,7 @@ class DefinitionDeleteTest(unittest.TestCase):
         self.assertEqual(result, {'success': True})
         sql, params = self.cursor.execute.call_args_list[1].args
         self.assertIn('gp.group_id = gu.group_id', sql)
-        self.assertEqual(params, (5, 'curator', 'actual-panel'))
+        self.assertEqual(params, (5, 'curator', 'actual-panel', 'YES'))
 
     def test_imported_definition_uses_actor_for_activity_owner(self):
         self.definition['user_id'] = None
