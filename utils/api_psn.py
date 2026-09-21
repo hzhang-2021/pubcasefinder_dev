@@ -1311,10 +1311,11 @@ def set_review_outdated(cursor, review_id):
         SET 
             is_latest=%s, modified_at=NOW() 
         WHERE
-            review_id=%s
+            review_id=%s AND is_latest=%s AND is_deleted=%s
         """,
-        (ENUM_VAL_NO, review_id)
+        (ENUM_VAL_NO, review_id, ENUM_VAL_YES, ENUM_VAL_NO)
     )
+    return cursor.rowcount == 1
 
 
 #
@@ -1482,11 +1483,12 @@ def api_psn_regist_review(user_id_change, data):
 
                 base_fields["user_id"] = user_id
 
-                new_review_id = insert_entity_review(cursor, base_fields)
                 if former_review_id and former_data:
-                    # for modify review, set the former review
-                    set_review_outdated(cursor, former_data["review_id"])
-                else:
+                    if not set_review_outdated(cursor, former_data["review_id"]):
+                        conn.rollback()
+                        return {'error': 'Review has changed or been deleted. Reload before editing.','status_code': 409}
+                new_review_id = insert_entity_review(cursor, base_fields)
+                if not former_review_id:
                     # for add new review, set the original_review_id column with the new review id
                     set_original_review_id(cursor, new_review_id)
                     original_review_id = new_review_id
@@ -1922,14 +1924,15 @@ def _copy_panel_entity_review(user_id_change, original_review_id, cur):
     if not former_review:
         return None,None
 
+    if not set_review_outdated(cur, former_review['review_id']):
+        return former_review, None
+
     new_review = copy.copy(former_review)
     new_review['user_id_change'] = user_id_change
     del new_review['review_id']
     del new_review['modified_at']
 
     new_review['review_id'] = insert_entity_review(cur, new_review)
-
-    set_review_outdated(cur, former_review['review_id'])
 
     return former_review, new_review
 
@@ -1952,6 +1955,10 @@ def api_psn_add_panel_entity_review_comment(user_id_change, review_id, original_
                     return check_result
                 
                 former_review, new_review = _copy_panel_entity_review(user_id_change, original_review_id, cur)
+                if former_review and not new_review:
+                    conn.rollback()
+                    return {'error': 'Review has changed or been deleted. Reload before commenting.',
+                            'status_code': 409}
                 if not former_review or not new_review:
                     return {"error": f"the indicated review(id:{review_id},oid:{original_review_id}) was not found"}
 
@@ -2024,6 +2031,10 @@ def api_psn_modify_panel_entity_review_comment(user_id_change, review_id, origin
                             'status_code': 403}
 
                 former_review, new_review = _copy_panel_entity_review(user_id_change, original_review_id, cur)
+                if former_review and not new_review:
+                    conn.rollback()
+                    return {'error': 'Review has changed or been deleted. Reload before commenting.',
+                            'status_code': 409}
                 if not former_review or not new_review:
                     return {"error": f"the indicated review(id:{review_id},original_review_id:{original_review_id}) was not found"}
 
@@ -2097,6 +2108,10 @@ def api_psn_delete_panel_entity_review_comment(user_id_change, review_id, origin
                             'status_code': 403}
 
                 former_review, new_review = _copy_panel_entity_review(user_id_change, original_review_id, cur)
+                if former_review and not new_review:
+                    conn.rollback()
+                    return {'error': 'Review has changed or been deleted. Reload before commenting.',
+                            'status_code': 409}
                 if not former_review or not new_review:
                     return {"error": f"the indicated review(id:{review_id},oid:{original_review_id}) was not found"}
 
