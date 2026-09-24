@@ -1,0 +1,74 @@
+{
+  "CASES": [
+    {
+      "PCFNo": "P202607070000001aaaaa",
+      "share_id": null,
+      "case_id": "C9000001",
+      "case_family_id": "F9000001",
+      "case_relationship": "proband_individual",
+      "case_group": "Merge sample disorder A",
+      "case_age": "24Y",
+      "case_sex": "female",
+      "case_note": "Merge sample record A.",
+      "medical_chief_complaint": "Sample A",
+      "medical_process": "Sample A process",
+      "phenotype_hpo_id": ["HP:0000545"],
+      "phenotype_hpo_label": [
+        {
+          "name_en": "Myopia",
+          "name_ja": "Myopia"
+        }
+      ],
+      "phenotype_medical_current_history": ["yes"],
+      "phenotype_medical_previous_history": ["no"],
+      "phenotype_process": ["yes"],
+      "phenotype_family_history": ["yes"],
+      "phenotype_excluded": ["no"],
+      "phenotype_clinical_relevance": ["distinctive"],
+      "phenotype_severity": ["moderate"],
+      "phenotype_age_onset": ["10Y"],
+      "phenotype_temporal_pattern": ["chronic"],
+      "phenotype_pace_progression": ["Slowly progressive"],
+      "phenotype_resolution": [""],
+      "phenotype_comments": [""],
+      "case_created_at": "2026/7/7 00:00:01",
+      "case_updated_at": "2026/7/7 00:00:01"
+    },
+    {
+      "PCFNo": "P202607070000002bbbbb",
+      "share_id": null,
+      "case_id": "C9000002",
+      "case_family_id": "F9000002",
+      "case_relationship": "mother",
+      "case_group": "Merge sample disorder B",
+      "case_age": "48Y",
+      "case_sex": "female",
+      "case_note": "Merge sample record B.",
+      "medical_chief_complaint": "Sample B",
+      "medical_process": "Sample B process",
+      "phenotype_hpo_id": ["HP:0001083"],
+      "phenotype_hpo_label": [
+        {
+          "name_en": "Ectopia lentis",
+          "name_ja": "Ectopia lentis"
+        }
+      ],
+      "phenotype_medical_current_history": ["yes"],
+      "phenotype_medical_previous_history": ["no"],
+      "phenotype_process": ["yes"],
+      "phenotype_family_history": ["yes"],
+      "phenotype_excluded": ["no"],
+      "phenotype_clinical_relevance": ["distinctive"],
+      "phenotype_severity": ["mild"],
+      "phenotype_age_onset": ["16Y"],
+      "phenotype_temporal_pattern": ["chronic"],
+      "phenotype_pace_progression": ["Slowly progressive"],
+      "phenotype_resolution": [""],
+      "phenotype_comments": [""],
+      "case_created_at": "2026/7/7 00:00:02",
+      "case_updated_at": "2026/7/7 00:00:02"
+    }
+  ],
+  "caseCount": 2,
+  "keyName": {}
+}

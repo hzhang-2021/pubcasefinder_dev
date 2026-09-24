@@ -42,6 +42,7 @@
   font-size: 16px;
   font-weight: 600;
   color: #1B2C1A;
+  line-break: anywhere;
 }
 
 #activity_table td .admin_user_name{

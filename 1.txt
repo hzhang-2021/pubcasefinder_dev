@@ -1,0 +1,17 @@
+添加 panelsearch_nanbyo_admin_group页面的测试项目
+当admin访问时: 
+   1.添加group，
+   2.删除group，
+   3.group中追加成员，
+   4.group中删除成员，
+   5.修改group中成员的身份，
+   6.添加group 关联的panel
+   7.删除group 关联的panel
+当curator访问时：
+ 1. 只能看到自己担任curator的group
+ 2. 无法追加，无法删除group
+ 3. group中追加成员，
+ 4. group中删除成员，
+ 5. 修改group中成员的身份，
+
+reviewer无法访问此页面

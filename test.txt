@@ -1,0 +1,57 @@
+这是我的 PanelSearch Nanbyo Flask 项目。
+
+现在请只读取和分析项目，不要修改任何文件。
+
+禁止：
+- 创建文件
+- 修改文件
+- 删除文件
+- 修改数据库
+- 启动/停止 Docker
+- 执行会改变项目状态的命令
+
+请先理解整个项目。
+
+重点分析：
+
+1. 项目目录结构
+2. Flask application 入口
+3. Blueprint
+4. 所有主要 routes
+5. authentication / authorization
+6. Google OAuth 登录流程
+7. MySQL 数据库连接方式
+8. 数据库，数据库table定义在sql路径下。
+9. transaction / commit / rollback
+10. templates
+11. static JavaScript
+12. AJAX/API
+13. Panel Search Nanbyo业务流程
+17. Ontology Upload / Review
+18. Admin 功能
+19. User management
+
+特别指出：
+
+- 哪些功能需要登录
+- 哪些功能需要 admin
+- 哪些操作会修改数据库
+- 前端调用哪些 API
+- 哪些页面有 AJAX
+- 哪些页面适合 Playwright E2E
+- 哪些功能需要准备测试数据
+- Google OAuth 如何处理
+- 哪些地方可能影响 E2E 测试稳定性
+
+最后给出：
+
+A. Project architecture
+B. Main user flows
+C. Authentication architecture
+D. Database architecture
+E. E2E testing candidates
+F. E2E testing risks
+G. 推荐的 E2E 测试优先级
+E. 在tests路径下生成pytest 项目文件
+
+这一轮绝对不要修改项目。

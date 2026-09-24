@@ -1,0 +1,736 @@
+# =============================================================================
+# PubCaseFinder E2E test configuration (English UI)
+# =============================================================================
+
+# Shared target, locale, and output settings for all tests.
+settings:
+  # Base URL of the site under test. A trailing slash is optional.
+  # Before pointing this at production, confirm that the tests are read-only.
+  origin: https://staging-pubcasefinder.dbcls.jp
+  # Locale added to every page URL as the `lang` query parameter.
+  lang: en
+  # Directory used for screenshots and other test artifacts.
+  # This path is relative to the tests/e2e working directory.
+  test_result_path: ./test_result/en
+  # File used to load/save the authenticated browser session.
+  # Treat it carefully because it may contain authentication information.
+  auth_state_path: ./playwright/.auth/state.json
+
+# URL components for pages used by the tests.
+# The final URL is `settings.origin` + `path` + `query` + `lang=en`.
+pages:
+  # Home page. This key is referenced by `page` entries below; do not rename it.
+  top_page:
+    # `/` means the root of the configured origin.
+    path: /
+  # Case Sharing page.
+  casesharing:
+    path: /casesharing
+  # gene panel search page.
+  panel_search:
+    path: /panelsearch
+  # Disease result page. Its query values establish the initial search state.
+  disease_search_result:
+    path: /result
+    query:
+      # Disease database targeted by the search. Current assertions expect OMIM.
+      target: omim
+      # HPO identifiers used as the initial phenotype search criteria.
+      # Unlike the Japanese configuration, English IDs do not use the `_ja` suffix.
+      phenotype:
+        - HP:0000347
+        - HP:0003022
+        - HP:0009381
+        - HP:0000204
+        - HP:0000625
+      # Initial basic filter, advanced filter, and Virtual Gene Panel values.
+      # These tests start without filters, so preserve the empty strings.
+      filter: ""
+      filter_simple: ""
+      vgp: ""
+      # Results per page. Empty means the application's default.
+      size: ""
+      # Result layout. The assertions expect the detailed `full` view.
+      display_format: full
+
+# Test data grouped by feature.
+# `page` refers to a key under `pages`. Names under `tests` are consumed by the
+# Python suite, so keep existing keys and edit their values unless code changes too.
+suites:
+  # AUTH-01 (login) and AUTH-02 (logout), repeated on several pages.
+  login_logout:
+    # Requirement IDs from tests/e2e/test.tsv.
+    spec_id: AUTH-01/AUTH-02
+
+    # Text on the logout action inside the signed-in user menu.
+    # Keep the actual UI text even if the English UI currently shows Japanese here.
+    logout_button: ログアウト
+    # Text shown where the login button was before authentication.
+    # As of July 2026 this may be "My Page" or the signed-in user's name.
+    # Update it to match the account used to create the authentication state.
+    expected_user_name: My Page
+
+    # Pages on which the same login/logout flow is verified.
+    test_cases:
+      # `id` distinguishes test artifacts; `page` references the `pages` section.
+      - id: top_page
+        page: top_page
+      - id: casesharing
+        page: casesharing
+      - id: panelsearch
+        page: panel_search
+
+  # Disease search tests based on patient phenotypes.
+  disease_search:
+    # Tests that enter search criteria on the home page.
+    top_page:
+      # Use `pages.top_page` as the starting URL.
+      page: top_page
+      tests:
+        # Verify that the main phenotype input appears after page load.
+        top_page_is_visible:
+          test_cases:
+            - id: visible
+              # Visible text used to locate the search field.
+              expected: Type in patient's signs and symptoms
+              # Maximum wait in milliseconds; 30,000 ms is 30 seconds.
+              timeout_ms: 30000
+
+        # DS-01: Verify a symptom candidate, synonym, description, and superclass.
+        disease_search_candidate_symptoms:
+          spec_id: DS-01
+          test_cases:
+            - id: anemia
+              # Primary symptom: enter `name`, then select the candidate with `id`.
+              symptom:
+                id: HP:0001903
+                name: Anemia
+              # Synonym expected in the same candidate information.
+              synonym:
+                id: HP:0025716
+                name: Fetal anemia
+              # Values expected in the candidate details.
+              expected:
+                # HPO definition text.
+                definition: A reduction in erythrocytes volume or hemoglobin concentration.
+                # HPO explanatory comment.
+                comment: Anemia is not a specific entity but can result from many underlying pathologic processes.
+                # Display name of the parent HPO term.
+                superclass: Abnormal erythrocyte morphology
+
+        # DS-02: Verify symptoms extracted from free-form clinical text.
+        disease_search_candidate_symptoms_from_text:
+          spec_id: DS-02
+          test_cases:
+            - id: anemia_text
+              # `|` starts a multiline value and preserves line breaks.
+              input: |
+                Headache associated with anemia
+              # Symptom names expected to be extracted from the text.
+              expected:
+                - Anemia
+                - Headache
+
+        # DS-03: Search with multiple symptoms and verify a matching disease.
+        disease_search_results_are_visible:
+          spec_id: DS-03
+          test_cases:
+            - id: adult_hypophosphatasia
+              # Search symptoms. Each `name` is entered and its `id` selects the
+              # intended autocomplete candidate.
+              input:
+                - id: HP:0000670
+                  name: Dental caries
+                - id: HP:0000934
+                  name: Chondrocalcinosis
+              # Disease label and OMIM ID expected in the result.
+              expected:
+                label_en: adult hypophosphatasia
+                omim_id: OMIM:146300
+
+        # DS-05: Replace the selected symptom with its superclass.
+        disease_search_replace_with_superclass:
+          spec_id: DS-05
+          test_cases:
+            - id: anemia_to_superclass
+              # Action label shown in the symptom detail menu.
+              relation: Superclass
+              # Symptom before replacement.
+              input:
+                id: HP:0001903
+                name: Anemia
+              # Parent term expected after replacement.
+              expected:
+                id: HP:0001877
+                name: Abnormal erythrocyte morphology
+
+        # DS-06: Replace the selected symptom with one of its subclasses.
+        disease_search_replace_with_subclass:
+          spec_id: DS-06
+          test_cases:
+            - id: anemia_to_subclass
+              relation: Subclass
+              # Symptom before replacement.
+              input:
+                id: HP:0001903
+                name: Anemia
+              # Child term expected after replacement.
+              expected:
+                id: HP:0033074
+                name: Steroid-responsive anemia
+    # Tests using a result page preloaded with `pages.disease_search_result`.
+    result_page:
+      # Obtain the starting URL and initial criteria from that page entry.
+      page: disease_search_result
+      tests:
+        # DS-04: Switch to the Genetic Disease tab and verify a representative result.
+        disease_search_result_switch_genetic_disease_tab:
+          spec_id: DS-04
+          test_cases:
+            - id: postaxial_acrofacial_dysostosis
+              expected:
+                # Result name used to open the detail view.
+                name: Postaxial acrofacial dysostosis
+                # Every string below must appear in the details. They cover IDs,
+                # names, phenotype, gene, description, and external database IDs.
+                labels:
+                  - OMIM:263750
+                  - Postaxial acrofacial dysostosis
+                  - postaxial acrofacial dysostosis
+                  - Micrognathia
+                  - DHODH
+                  - Postaxial acrofacial dysostosis (POADS) is a type of acrofacial dysostosis characterized by mandibular and malar hypoplasia
+                  - MONDO:0009903
+                  - GTR:C0265257
+        # DS-04: Verify a result and its details on the Rare Disease tab.
+        disease_search_result_switch_rare_disease_tab:
+          spec_id: DS-04
+          test_cases:
+            - id: nager_acrofacial_dysostosis
+              expected:
+                # Rare disease result used to open the details.
+                name: Nager acrofacial dysostosis
+                # ORPHA ID, name, phenotype, inheritance, gene, and linked IDs.
+                labels:
+                  - ORPHA:245
+                  - Nager acrofacial dysostosis
+                  - Micrognathia
+                  - Autosomal dominant inheritance
+                  - SF3B4
+                  - Nager syndrome
+                  - MONDO:0007943
+                  - GTR:C0265245
+        # DS-04: Verify a result and its details on the Gene tab.
+        disease_search_result_switch_gene_tab:
+          spec_id: DS-04
+          test_cases:
+            - id: dhodh
+              expected:
+                # Heading of the gene result used to open the details.
+                name: DHODH - dihydroorotate dehydrogenase (quinone)
+                # Alias, Gene ID, symbol, phenotype, and related disease text.
+                labels:
+                  - 'Also known as: URA1'
+                  - GENE ID:1723
+                  - DHODH
+                  - Micrognathia
+                  - Postaxial acrofacial dysostosis
+        # DS-04: Verify a result and its details on the Case tab.
+        disease_search_result_switch_case_tab:
+          spec_id: DS-04
+          test_cases:
+            - id: decipher_276525
+              expected:
+                # Case identifier and phenotype expected in the details.
+                name: DECIPHER:276525
+                labels:
+                  - Hypoplasia of the radius
+        # DS-07: Verify the checkbox-based basic filters.
+        disease_search_result_basic_filter:
+          spec_id: DS-07
+          test_cases:
+            # `filter_condition` is OR, AND, or NOT. `checklist` contains UI
+            # options to select; `expected` contains disease names that must remain.
+            - id: or_nanbyo
+              filter_condition: OR
+              checklist:
+                - Syndromic
+              expected:
+                - Baller-Gerold syndrome
+                - Baller-Gerold syndrome
+            - id: or_disease_area
+              filter_condition: OR
+              checklist:
+                - Nervous system
+                - Dermatologic
+              expected:
+                - Bartsocas-Papas syndrome 1
+            - id: or_inheritance
+              filter_condition: OR
+              checklist:
+                - X-linked recessive
+                - Mitochondrial
+              expected:
+                - Aarskog-Scott syndrome
+                - Aarskog-Scott syndrome, X-linked
+            - id: and_area_age
+              filter_condition: AND
+              checklist:
+                - Digestive
+                - Childhood
+              expected:
+                - variegate porphyria, childhood-onset
+            - id: and_area_inheritance
+              filter_condition: AND
+              checklist:
+                - Metabolic
+                - Autosomal dominant
+              expected:
+                - Andersen-Tawil syndrome
+            - id: not_disease_area
+              filter_condition: NOT
+              checklist:
+                - Neoplasm
+              expected:
+                - postaxial acrofacial dysostosis
+            - id: not_age
+              filter_condition: NOT
+              checklist:
+                - Adult
+              expected:
+                - postaxial acrofacial dysostosis
+        # DS-08: Select diseases, inheritance modes, or genes in the advanced filter.
+        disease_search_result_advanced_filter:
+          spec_id: DS-08
+          # Placeholder used to locate the advanced-filter input.
+          placeholder: Type in disease names, modes of inheritance, and causative genes
+          test_cases:
+            - id: gene_esco2
+              # Enter `name`, then choose the autocomplete candidate with `id`.
+              input:
+                name: ESCO2
+                id: GENEID:157570
+              expected:
+                # Token text shown after selection.
+                token: ESCO2
+                # Disease names that must be visible after filtering.
+                results:
+                  - Roberts-SC phocomelia syndrome
+            - id: disease_nager
+              input:
+                name: Nager
+                id: MONDO:0007943
+              expected:
+                # The autocomplete currently offers only this Japanese token even
+                # when lang=en; update it if the English candidate data changes.
+                # `|` characters are part of one displayed token.
+                token: Nager型四肢顔面異骨症|ネイガー型四肢顔面骨形成不全|AFD
+                results:
+                  - Nager acrofacial dysostosis
+        # DS-09: Build a Virtual Gene Panel and use it to filter results.
+        disease_search_result_virtual_gene_panel:
+          spec_id: DS-09
+          # Placeholder used to locate the Virtual Gene Panel input.
+          placeholder: Type in disease names, genes, and panel names (PanelApp, PanelApp Australia)
+          test_cases:
+            - id: mondo_postaxial_acrofacial_dysostosis
+              input:
+                # Search text and MONDO ID of the autocomplete candidate to select.
+                name: postaxial acrofacial dysostosis
+                id: MONDO:0009903
+              expected:
+                # Selected-token text.
+                token: postaxial acrofacial dysostosis
+                # Search button text, including the selected panel count.
+                button_label: Virtual Gene Panel(1)
+                # VGP identifier expected in the generated share URL.
+                share_query:
+                  vgp: MONDO:0009903
+                # Disease and gene text expected after the VGP search.
+                results:
+                  - postaxial acrofacial dysostosis
+                  - DHODH
+        # DS-10: Generate a share link and reproduce the result in another page.
+        disease_search_result_share:
+          spec_id: DS-10
+          test_cases:
+            - id: share_link
+              expected:
+                # Exact generated URL, including origin, HPO IDs, result size,
+                # display format, language, and parameter order.
+                url: https://staging-pubcasefinder.dbcls.jp/result?target=omim&phenotype=HP:0000347,HP:0003022,HP:0009381,HP:0000204,HP:0000625&filter=&filter_simple=&vgp=&size=10&display_format=full&lang=en
+                # Values expected after opening the share URL.
+                results:
+                  - Postaxial acrofacial dysostosis
+                  - OMIM:263750
+        # DS-11: Download all currently shown results as TSV and JSON.
+        disease_search_result_download:
+          spec_id: DS-11
+          test_cases:
+            - id: all_shown
+              # Internal value identifying the download scope.
+              selection: all_shown
+              # Expected filename suffix and required file contents by format.
+              formats:
+                - format: tsv
+                  expected:
+                    filename_suffix: .tsv
+                    contains:
+                      - "Rank\tScore\tOMIM_ID"
+                      - OMIM:263750
+                      - postaxial acrofacial dysostosis
+                - format: json
+                  expected:
+                    filename_suffix: .json
+                    contains:
+                      - OMIM:263750
+                      - postaxial acrofacial dysostosis
+  # Tests for creating, editing, importing, exporting, and visualizing case data.
+  casesharing:
+    # Use `pages.casesharing` as the starting URL.
+    page: casesharing
+    # Maps logical JSON field names to internal UI element names.
+    # Change these only when the UI implementation changes.
+    field_aliases:
+      detail:
+        case_id: case_id
+        group: case_group
+        birth_place: case_state_of_birth
+        facility_name: case_name_of_facility
+        phenotype_input: token-input-tokeninput_hpo
+    tests:
+      # CS-01: Open a JSON file, then verify its case count and a sample record.
+      casesharing_file_upload:
+        spec_id: CS-01
+        test_cases:
+          - id: sample_json
+            # Upload fixture path relative to tests/e2e.
+            upload_file_path: ./src/data_sample/casesharing_sample_20260608.json
+            # Full confirmation-dialog message shown before existing input is lost.
+            dialog_message: When the file is opened, the entered data will be lost. Are you sure you want to open the file?
+            # Number of cases expected after loading the file.
+            case_count: 8
+            # Representative rows to verify. Keys are case JSON field names.
+            expected:
+              - case_id: C0000007
+                sex: Male
+      # CS-02: Add one blank case.
+      casesharing_add_case:
+        spec_id: CS-02
+        test_cases:
+          - id: blank_case
+      # CS-02: Delete the last case in the list.
+      casesharing_delete_case:
+        spec_id: CS-02
+        test_cases:
+          - id: last_case
+      # CS-03: Duplicate the first case in the list.
+      casesharing_copy_case:
+        spec_id: CS-03
+        test_cases:
+          - id: first_case
+      # CS-04: Edit fields with several input types across all detail tabs.
+      casesharing_edit_detail_info:
+        spec_id: CS-04
+        test_cases:
+          - id: basic_info_and_phenotype
+            input_fields:
+              # `tab` is the main section and `field_tab` is its subsection.
+              # `type` controls the interaction: list, button, text, or phenotype.
+              # `field_name` is the UI label; `input` is the value entered/selected.
+              - tab: Case Info
+                fields:
+                  - field_tab: Basic Info
+                    type: list
+                    field_name: Relationship
+                    input: Mother
+              - tab: Medical
+                fields:
+                  - field_tab: Diagnosis
+                    type: button
+                    field_name: Case Solved
+                    input: COMPLETED
+              - tab: Phenotype
+                fields:
+                  - type: phenotype
+                    # Phenotypes additionally need the input placeholder, search
+                    # text, and HPO ID of the intended autocomplete candidate.
+                    placeholder: Type in patient's signs and symptoms
+                    input: Anemia
+                    hpo_id: HP:0001903
+              - tab: Genotype
+                fields:
+                  - field_tab: About testing
+                    type: text
+                    field_name: Genetic Analysis
+                    input: test GLA testing identified a pathogenic missense variant.
+              - tab: Family
+                fields:
+                  - field_tab: Relatives (Cancer & Lifestyle Disease)
+                    type: list
+                    field_name: Relative Name
+                    input: Grandparents (maternal)
+              - tab: Sample/Test
+                fields:
+                  - field_tab: Sample Collection
+                    type: text
+                    field_name: Sample ID
+                    input: S-P2026681548398083qztnxxx
+              - tab: Registration
+                fields:
+                  - field_tab: Consent and Ascent
+                    type: button
+                    field_name: Consent form type
+                    input: Initial consent
+      # CS-05: Directly edit a cell in the case table.
+      casesharing_list_edit:
+        spec_id: CS-05
+        test_cases:
+          - id: case_id_cell
+            # Column heading to edit and its replacement value.
+            header: Case ID
+            new_value: C0000100
+      # CS-06: Save edited data as JSON and verify it after reloading.
+      casesharing_save_and_reload:
+        spec_id: CS-06
+        test_cases:
+          - id: json_roundtrip
+            input_fields:
+              # Tab to edit and `field_name: value` pairs applied before saving.
+              - tab: Case Info
+                fields:
+                  case_id: C0000100
+      # CS-07: Merge another JSON file into the cases currently being edited.
+      casesharing_merge_case:
+        spec_id: CS-07
+        test_cases:
+          - id: merge_two_records
+            # Full irreversible-operation confirmation message.
+            dialog_message: The uploaded data will be merged with the data currently being edited. This operation cannot be undone. Do you want to merge data?
+            # Fixture path and number of cases contributed by that fixture.
+            merge_file_path: ./src/data_sample/casesharing_merge_2records.json
+            merge_case_count: 2
+      # CS-08: Select an HPO symptom and add it to the phenotype list.
+      casesharing_phenotype:
+        spec_id: CS-08
+        test_cases:
+          - id: fatigue
+            input_fields:
+              # Target tab, input/button labels, search text, and selected HPO ID.
+              tab: Phenotype
+              placeholder: Type in patient's signs and symptoms
+              input_button: Add to list
+              input: Fatigue
+              hpo_id: HP:0012378
+      # CS-09: Verify a case in the pedigree and all download-format controls.
+      casesharing_pedigree_is_visible:
+        spec_id: CS-09
+        test_cases:
+          - id: sample_pedigree
+            # Tab containing the pedigree and a representative case ID in the graph.
+            tab: Family
+            expected_id: C0000001
+            # Text displayed on each download-format control.
+            download_type:
+              - JSON
+              - SVG
+              - PNG
+              - PDF
+      # CS-10: Verify statistic cards and chart titles/counts.
+      casesharing_stats_charts_are_visible:
+        spec_id: CS-10
+        test_cases:
+          - id: sample_stats
+            expected:
+              # Summary cards. `most_*` applies only to cards with a most-common item.
+              count_cards:
+                - title: Number of cases
+                  value: 8
+                - title: Number of families
+                  value: 5
+                  most_title: The most common family
+                  most_value: F0000001
+                - title: Number of groups
+                  value: 5
+                  most_title: The most common group
+                  most_value: Connective tissue disorder
+              # Expected chart titles and counts for each visible label.
+              # Recalculate these when the uploaded fixture data changes.
+              charts:
+                sex:
+                  title: Sex
+                  values:
+                    Male: 5
+                    Female: 3
+                    Other: 0
+                    Unknown: 0
+                group:
+                  title: Group
+                  values:
+                    Connective tissue disorder: 4
+                    Undiagnosed metabolic and neurologic disorder: 1
+                    Undiagnosed cardiac disorder: 1
+                    Cardiomyopathy: 1
+                    Lysosomal disorder: 1
+  # Tests for searching and manipulating gene panels by disease or gene.
+  panel_search:
+    # Use `pages.panel_search` as the starting URL.
+    page: panel_search
+    tests:
+      # PS-01: Search by panel name.
+      panel_search_by_panel_name:
+        spec_id: PS-01
+        test_cases:
+          - id: amp_panel_name
+            # Text entered in the panel search field.
+            input: Adenosine monophosphate
+            expected:
+              # Panel name that must appear in the result list.
+              result_text: Adenosine monophosphate deaminase deficiency
+
+      # PS-02: Search for panels related to a gene symbol.
+      panel_search_by_gene:
+        spec_id: PS-02
+        test_cases:
+          - id: ampd1_gene
+            # Preserve the gene symbol's official capitalization.
+            input: AMPD1
+            expected:
+              result_text: Adenosine monophosphate deaminase deficiency
+      # PS-03: Filter panels using the category tree.
+      panel_search_by_tree:
+        spec_id: PS-03
+        test_cases:
+          - id: acute_disease
+            # Visible name of the tree node to click.
+            tree_node: Acute disease
+            # Full panel-count text after selection, including its unit.
+            expected_panel_count: 403 Panels
+
+      # PS-04: Expand a search result and verify its gene list.
+      panel_search_result_gene_list_is_visible:
+        spec_id: PS-04
+        test_cases:
+          - id: amp_gene_list
+            input: Adenosine monophosphate
+            expected:
+              # Official panel label used to locate the result row.
+              label: Adenosine monophosphate deaminase deficiency
+              # Minimum accepted gene count; allows the source data to gain genes.
+              min_gene_count: 2
+
+      # PS-05: Open panel details and download the individual panel file.
+      panel_search_detail_panel_download:
+        spec_id: PS-05
+        test_cases:
+          - id: amp_panel_download
+            input: Adenosine monophosphate
+            expected:
+              # `label` locates the result; `known_as` identifies the detail title.
+              label: Adenosine monophosphate deaminase deficiency
+              min_gene_count: 2
+              known_as: Adenosine monophosphate deaminase deficiency
+              download:
+                # Exact filename and gene symbols required in the downloaded file.
+                filename: panel-0013028.txt
+                contains:
+                  - AMPD1
+                  - AMPD3
+      # PS-06: Download all panels as TSV and verify representative contents.
+      panel_search_all_panel_download:
+        spec_id: PS-06
+        test_cases:
+          - id: all_panels
+            expected:
+              download:
+                # Exact filename of the all-panel export.
+                filename: all_panel.tsv
+                # Required header and representative panel values.
+                contains:
+                  - "panel_name\tpanel_name_synonym\tpanel_name_ja\tmondo_id\tgene_count\tgene_symbol_list"
+                  - adenosine monophosphate deaminase deficiency
+                  - MONDO:0013028
+                  - AMPD1 | AMPD3
+      # PS-07: Copy panel information and verify the clipboard text.
+      panel_search_panel_info_copy:
+        spec_id: PS-07
+        test_cases:
+          - id: amp_panel_copy
+            input: Adenosine monophosphate
+            expected:
+              # Result row to operate on.
+              label: Adenosine monophosphate deaminase deficiency
+              # Every value below must occur in the copied text.
+              contains:
+                - Adenosine monophosphate (AMP)
+                - MONDO:0013028
+      # PS-08: Verify the related category tree for the selected panel.
+      panel_search_related_category_tree_is_visible:
+        spec_id: PS-08
+        test_cases:
+          - id: amp_related_tree
+            input: Adenosine monophosphate
+            expected:
+              # Result label and MONDO ID expected to be selected in the tree.
+              label: Adenosine monophosphate deaminase deficiency
+              panel_id: MONDO:0013028
+      # PS-09: Restore two searches with the history back/forward controls.
+      panel_search_display_history_undo_redo:
+        spec_id: PS-09
+        test_cases:
+          - id: amp_to_marfan_history
+            # Ordered searches; the current Python test expects exactly two.
+            searches:
+              - id: first_tree
+                # Search text and expected panel label/MONDO ID for this step.
+                input: Adenosine monophosphate
+                expected:
+                  label: Adenosine monophosphate deaminase deficiency
+                  panel_id: MONDO:0013028
+              - id: second_tree
+                input: Marfan
+                expected:
+                  label: Marfan syndrome
+                  panel_id: MONDO:0007947
+      # PS-10: Copy a link to the panel detail page.
+      panel_search_detail_copy_link:
+        spec_id: PS-10
+        test_cases:
+          - id: amp_detail_copy_link
+            input: Adenosine monophosphate
+            expected:
+              # Values used to identify the detail page and verify the copied URL.
+              label: Adenosine monophosphate deaminase deficiency
+              min_gene_count: 2
+              known_as: Adenosine monophosphate deaminase deficiency
+              panel_id: MONDO:0013028
+      # PS-11: Add multiple panels to a custom panel and show them together.
+      panel_search_custom_panel_see_all:
+        spec_id: PS-11
+        test_cases:
+          - id: amp_and_marfan
+            # Panels to add. The number of entries is also the expected UI count.
+            panels:
+              - input: Adenosine monophosphate
+                expected:
+                  # Result label, custom-panel label, and MONDO ID.
+                  label: Adenosine monophosphate deaminase deficiency
+                  custom_panel_label: Adenosine monophosphate deaminase deficiency
+                  panel_id: MONDO:0013028
+              - input: Marfan
+                expected:
+                  label: Marfan syndrome
+                  custom_panel_label: Marfan syndrome
+                  panel_id: MONDO:0007947
+      # PS-04: Verify the panel-description area and its gene list.
+      # The existing key includes `test_` because Python references it directly.
+      test_panel_search_panel_describe_visible:
+        spec_id: PS-04
+        test_cases:
+          - id: amp_panel_detail
+            input: Adenosine monophosphate
+            expected:
+              # Target row, minimum gene count, and title shown in the details.
+              label: Adenosine monophosphate deaminase deficiency
+              min_gene_count: 2
+              known_as: Adenosine monophosphate deaminase deficiency

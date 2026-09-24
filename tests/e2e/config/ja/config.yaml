@@ -1,0 +1,758 @@
+# =============================================================================
+# PubCaseFinder E2Eテスト設定（日本語画面用）
+# =============================================================================
+
+settings:
+  # テスト対象サイトのURLです。末尾の `/` は付けても付けなくても構いません。
+  # 本番環境へ向ける場合は、テストがデータを変更しないか事前に確認してください。
+  origin: https://staging-pubcasefinder.dbcls.jp
+  # URLの `lang` クエリに付与する言語コードです。日本語画面では `ja` にします。
+  lang: ja
+  # スクリーンショットなどのテスト結果を保存するディレクトリです。
+  # tests/e2e ディレクトリを基準にした相対パスです。
+  test_result_path: ./test_result/ja
+  # ログイン済みブラウザー情報を保存・読み込みするファイルです。
+  # 認証情報を含む可能性があるため、共有やコミット時の扱いに注意してください。
+  auth_state_path: ./playwright/.auth/state.json
+
+# テスト対象ページのURL部品です。
+# 実際のURLは `settings.origin` + `path` + `query` + `lang=ja` で組み立てられます。
+pages:
+  # トップページ。キー名は後述の `page` から参照されるため変更しないでください。
+  top_page:
+    # origin直下を表すパスです。
+    path: /
+  # 症例共有ページ。
+  casesharing:
+    path: /casesharing
+  # 遺伝子パネル検索ページ。
+  panel_search:
+    path: /panelsearch
+  # 疾患検索結果ページ。以下のqueryは、各結果ページテストの初期検索条件です。
+  disease_search_result:
+    path: /result
+    query:
+      # 検索対象データベース。現在のテストはOMIM疾患を前提としています。
+      target: omim
+      # 検索条件に使うHPO IDの一覧です。
+      # 日本語検索では、URL仕様に合わせて各ID末尾に `_ja` を付けます。
+      phenotype:
+        - HP:0000347_ja
+        - HP:0003022_ja
+        - HP:0009381_ja
+        - HP:0000204_ja
+        - HP:0000625_ja
+      # 基本フィルター、詳細フィルター、Virtual Gene Panelの初期値です。
+      # 空の状態から操作するテストなので、空文字のまま残してください。
+      filter: ""
+      filter_simple: ""
+      vgp: ""
+      # 1ページの表示件数。空文字の場合はアプリの既定値を使います。
+      size: ""
+      # 結果表示形式。テストは詳細表示 `full` を前提としています。
+      display_format: full
+
+# 機能別のテストデータです。
+# `page` は上の `pages` のキーを指定し、`tests` 以下の名前はPythonのテストコード
+# から参照されます。既存キー名は変更せず、主にその配下の値を編集してください。
+suites:
+  # AUTH-01（ログイン）とAUTH-02（ログアウト）を複数ページで確認します。
+  login_logout:
+    # tests/e2e/test.tsv に記載された仕様IDです。
+    spec_id: AUTH-01/AUTH-02
+
+    # ログイン後、ユーザーメニュー内に表示されるログアウトボタンの文言です。
+    logout_button: ログアウト
+    # ログイン前のボタン位置に表示される、ログイン済みユーザーを示す文言です。
+    # 2026/07時点では「My Page」の場合とログインユーザー名の場合があります。
+    # テストに使用するアカウントで実際に表示される文言へ書き換えてください。
+    expected_user_name: many Page
+
+    # 同じログイン・ログアウト操作を確認するページの一覧です。
+    test_cases:
+      # 各 `id` はテスト結果を区別する名前、`page` は上のpagesへの参照です。
+      - id: top_page
+        page: top_page
+      - id: casesharing
+        page: casesharing
+      - id: panelsearch
+        page: panel_search
+
+  # 患者の表現型から疾患を探す「疾患検索」機能のテストです。
+  disease_search:
+    # トップページ上で検索条件を入力するテスト群です。
+    top_page:
+      # `pages.top_page` をテスト開始URLとして使用します。
+      page: top_page
+      tests:
+        # ページ読み込み後、検索入力欄が表示されることを確認します。
+        top_page_is_visible:
+          test_cases:
+            - id: visible
+              # 検索入力欄を特定するための表示文言です。
+              expected: 患者の兆候または症状を入力
+              # 表示を待つ最大時間（ミリ秒）。30,000ミリ秒は30秒です。
+              timeout_ms: 30000
+
+        # DS-01: 症状候補の名称、同義語、説明、上位概念を確認します。
+        disease_search_candidate_symptoms:
+          spec_id: DS-01
+          test_cases:
+            - id: anemia
+              # 検索する基準の症状です。`name`を入力し、`id`を持つ候補を選びます。
+              symptom:
+                id: HP:0001903
+                name: 貧血
+              # 同じ候補一覧に表示されることを確認する同義語です。
+              synonym:
+                id: HP:0001017
+                name: 貧血性蒼白
+              # 候補の詳細欄に表示される期待値です。
+              expected:
+                # HPOの定義文。日本語画面でも英語表示される箇所です。
+                definition: A reduction in erythrocytes volume or hemoglobin concentration.
+                # HPOの注記文。
+                comment: Anemia is not a specific entity but can result from many underlying pathologic processes.
+                # 上位概念として表示される日本語名です。
+                superclass: 赤血球の異常
+
+        # DS-02: 自由文から抽出される症状を確認します。
+        disease_search_candidate_symptoms_from_text:
+          spec_id: DS-02
+          test_cases:
+            - id: anemia_text
+              # `|` は改行を保持する複数行文字列です。自然文をこの下へ記載します。
+              input: |
+                貧血による頭痛
+              # 自由文から抽出され、候補として表示される症状名の一覧です。
+              expected:
+                - 貧血
+                - 頭痛
+
+        # DS-03: 複数の症状を選択して検索し、対象疾患が表示されることを確認します。
+        disease_search_results_are_visible:
+          spec_id: DS-03
+          test_cases:
+            - id: adult_hypophosphatasia
+              # 検索に使用する症状です。各`name`を入力し、対応する`id`を選択します。
+              input:
+                - id: HP:0000670
+                  name: 齲歯
+                - id: HP:0000934
+                  name: 軟骨石灰化症
+              # 検索結果に表示される疾患名とOMIM IDです。
+              expected:
+                label_ja: 成人低ホスファターゼ症
+                label_en: adult hypophosphatasia
+                omim_id: OMIM:146300
+
+        # DS-05: 選択した症状を上位概念へ置き換えられることを確認します。
+        disease_search_replace_with_superclass:
+          spec_id: DS-05
+          test_cases:
+            - id: anemia_to_superclass
+              # 症状の詳細メニューに表示される操作名です。
+              relation: 上位概念
+              # 置き換え前の症状です。
+              input:
+                id: HP:0001903
+                name: 貧血
+              # 置き換え後に選択状態となる上位概念です。
+              expected:
+                id: HP:0001877
+                name: 赤血球の異常
+
+        # DS-06: 選択した症状を下位概念へ置き換えられることを確認します。
+        disease_search_replace_with_subclass:
+          spec_id: DS-06
+          test_cases:
+            - id: anemia_to_subclass
+              relation: 下位概念
+              # 置き換え前の症状です。
+              input:
+                id: HP:0001903
+                name: 貧血
+              # 置き換え後に選択状態となる下位概念です。
+              expected:
+                id: HP:0033074
+                name: ステロイド反応性貧血
+    # あらかじめ`pages.disease_search_result`の条件で検索済みの結果ページを使うテスト群です。
+    result_page:
+      # `pages.disease_search_result`から開始URLと初期検索条件を取得します。
+      page: disease_search_result
+      tests:
+        # DS-04: 「遺伝性疾患」タブへ切り替え、代表的な結果の詳細を確認します。
+        disease_search_result_switch_genetic_disease_tab:
+          spec_id: DS-04
+          test_cases:
+            - id: postaxial_acrofacial_dysostosis
+              expected:
+                # 詳細を開く検索結果の表示名です。
+                name: 軸後性四肢顔面骨形成不全症
+                # 詳細欄にすべて表示されるべき文字列です。
+                # ID、日英疾患名、表現型、遺伝子、説明文、外部DB IDを含みます。
+                labels:
+                  - OMIM:263750
+                  - 軸後性四肢顔面骨形成不全症
+                  - postaxial acrofacial dysostosis
+                  - 小顎
+                  - DHODH
+                  - Postaxial acrofacial dysostosis (POADS) is a type of acrofacial dysostosis characterized by mandibular and malar hypoplasia
+                  - MONDO:0009903
+                  - GTR:C0265257
+        # DS-04: 「希少疾患」タブの結果と詳細表示を確認します。
+        disease_search_result_switch_rare_disease_tab:
+          spec_id: DS-04
+          test_cases:
+            - id: nager_acrofacial_dysostosis
+              expected:
+                # 詳細を開く希少疾患名です。
+                name: ネイガー型四肢顔面骨形成不全症
+                # 詳細欄で確認するORPHA ID、疾患名、表現型、遺伝形式などです。
+                labels:
+                  - ORPHA:245
+                  - Nager acrofacial dysostosis
+                  - 小顎
+                  - 常染色体顕性遺伝
+                  - SF3B4
+                  - Nager syndrome
+                  - MONDO:0007943
+                  - GTR:C0265245
+        # DS-04: 「遺伝子」タブの結果と詳細表示を確認します。
+        disease_search_result_switch_gene_tab:
+          spec_id: DS-04
+          test_cases:
+            - id: dhodh
+              expected:
+                # 詳細を開く遺伝子結果の見出しです。
+                name: DHODH - dihydroorotate dehydrogenase (quinone)
+                # 別名、Gene ID、遺伝子記号、関連表現型・疾患の期待値です。
+                labels:
+                  - 'Also known as: URA1'
+                  - GENE ID:1723
+                  - DHODH
+                  - 小顎
+                  - 軸後性四肢顔面骨形成不全症
+        # DS-04: 「症例」タブの結果と詳細表示を確認します。
+        disease_search_result_switch_case_tab:
+          spec_id: DS-04
+          test_cases:
+            - id: decipher_276525
+              expected:
+                # 詳細を開く症例IDと、詳細欄で確認する表現型です。
+                name: DECIPHER:276525
+                labels:
+                  - 橈骨低形成
+
+        # DS-07: チェックボックス式の基本フィルターを確認します。
+        disease_search_result_basic_filter:
+          spec_id: DS-07
+          test_cases:
+            # `filter_condition`はOR/AND/NOTのいずれかです。
+            # `checklist`は画面で選ぶ項目、`expected`は絞り込み後に表示される
+            # 疾患名です。日本語名と英語名の両方がある場合は両方を記載します。
+            - id: or_nanbyo
+              filter_condition: OR
+              checklist:
+                - 指定難病
+              expected:
+                - バラー・ゲロルト症候群
+                - Baller-Gerold syndrome
+            - id: or_disease_area
+              filter_condition: OR
+              checklist:
+                - 神経系障害
+                - 皮膚障害
+              expected:
+                - Bartsocas-Papas症候群1
+                - Bartsocas-Papas syndrome 1
+            - id: or_inheritance
+              filter_condition: OR
+              checklist:
+                - X連鎖潜性遺伝
+                - ミトコンドリア遺伝
+              expected:
+                - Aarskog-Scott症候群
+                - Aarskog-Scott syndrome, X-linked
+            - id: and_nanbyo_inheritance
+              filter_condition: AND
+              checklist:
+                - 小児慢性特定疾病
+                - 常染色体潜性遺伝
+              expected:
+                - コーエン症候群
+                - Cohen syndrome
+            - id: and_area_age
+              filter_condition: AND
+              checklist:
+                - 消化器系障害
+                - 小児期
+              expected:
+                - variegate porphyria, childhood-onset
+                - 異型ポルフィリン症, 小児期発症
+            - id: and_area_inheritance
+              filter_condition: AND
+              checklist:
+                - 代謝疾患
+                - 常染色体顕性遺伝
+              expected:
+                - アンデルセン・タウィル症候群
+                - Andersen-Tawil syndrome
+            - id: not_disease_area
+              filter_condition: NOT
+              checklist:
+                - 新生物
+              expected:
+                - 軸後性四肢顔面骨形成不全症
+                - postaxial acrofacial dysostosis
+            - id: not_age
+              filter_condition: NOT
+              checklist:
+                - 成人
+              expected:
+                - 軸後性四肢顔面骨形成不全症
+                - postaxial acrofacial dysostosis
+        # DS-08: 疾患名・遺伝形式・原因遺伝子を候補から選ぶ詳細フィルターです。
+        disease_search_result_advanced_filter:
+          spec_id: DS-08
+          # 詳細フィルター入力欄を特定するプレースホルダーです。
+          placeholder: 疾患名・遺伝形式・疾患原因遺伝子を入力
+          test_cases:
+            - id: gene_esco2
+              # `name`を入力し、候補内の`id`で正しい項目を選択します。
+              input:
+                name: ESCO2
+                id: GENEID:157570
+              expected:
+                # 選択後の入力欄に表示されるトークン文字列です。
+                token: ESCO2
+                # フィルター適用後に表示されるべき疾患名です。
+                results:
+                  - Roberts-SCあざらし肢症候群
+                  - Roberts-SC phocomelia syndrome
+            - id: disease_nager
+              input:
+                name: ネイガー
+                id: MONDO:0007943
+              expected:
+                # `|`は区切り文字を含む1つの表示トークンであり、YAMLの記号ではありません。
+                token: Nager型四肢顔面異骨症|ネイガー型四肢顔面骨形成不全|AFD
+                results:
+                  - ネイガー型四肢顔面骨形成不全症
+                  - Nager acrofacial dysostosis
+        # DS-09: 疾患などからVirtual Gene Panelを作成して結果を絞り込みます。
+        disease_search_result_virtual_gene_panel:
+          spec_id: DS-09
+          # Virtual Gene Panel入力欄を特定するプレースホルダーです。
+          placeholder: 疾患名・遺伝子・パネル名 (PanelApp, PanelApp Australia) を入力
+          test_cases:
+            - id: mondo_postaxial_acrofacial_dysostosis
+              input:
+                # 候補検索に入力する名称と、選択するMONDO IDです。
+                name: postaxial acrofacial dysostosis
+                id: MONDO:0009903
+              expected:
+                # 選択済みトークンの表示文言です。
+                token: postaxial acrofacial dysostosis
+                # 選択件数を含む検索ボタンの表示文言です。
+                button_label: Virtual Gene Panel(1)
+                # 共有URLのクエリに設定されるべきVGP識別子です。
+                share_query:
+                  vgp: MONDO:0009903
+                # VGP検索後に表示される疾患名・遺伝子です。
+                results:
+                  - 軸後性四肢顔面骨形成不全症
+                  - postaxial acrofacial dysostosis
+                  - DHODH
+        # DS-10: 共有リンクを取得し、別ページでも同じ結果を再現できるか確認します。
+        disease_search_result_share:
+          spec_id: DS-10
+          test_cases:
+            - id: share_link
+              expected:
+                # 共有機能が生成する完全なURLです。origin、HPO ID、表示件数、
+                # 表示形式、langを含め、クエリの順序も実際の生成結果に合わせます。
+                url: https://staging-pubcasefinder.dbcls.jp/result?target=omim&phenotype=HP:0000347_ja,HP:0003022_ja,HP:0009381_ja,HP:0000204_ja,HP:0000625_ja&filter=&filter_simple=&vgp=&size=10&display_format=full&lang=ja
+                # 共有URLを開いたページに表示されるべき値です。
+                results:
+                  - 軸後性四肢顔面骨形成不全症
+                  - OMIM:263750
+        # DS-11: 現在表示中の全結果をTSV/JSONでダウンロードして内容を確認します。
+        disease_search_result_download:
+          spec_id: DS-11
+          test_cases:
+            - id: all_shown
+              # ダウンロード対象の選択肢を示す内部値です。
+              selection: all_shown
+              # 形式ごとの期待値です。形式を増やす場合はテストコードの対応も確認します。
+              formats:
+                - format: tsv
+                  expected:
+                    # ダウンロードファイル名の末尾と、ファイル内の必須文字列です。
+                    filename_suffix: .tsv
+                    contains:
+                      - "Rank\tScore\tOMIM_ID"
+                      - OMIM:263750
+                      - postaxial acrofacial dysostosis
+                - format: json
+                  expected:
+                    filename_suffix: .json
+                    contains:
+                      - OMIM:263750
+                      - postaxial acrofacial dysostosis
+  # 症例データの作成・編集・入出力・可視化を確認するテスト群です。
+  casesharing:
+    # `pages.casesharing`を開始URLとして使用します。
+    page: casesharing
+    # 症例JSON内の論理名と、画面要素の内部名を対応付けます。
+    # UI実装が変わった場合にだけ変更し、通常のテストデータ更新では触りません。
+    field_aliases:
+      detail:
+        case_id: case_id
+        group: case_group
+        birth_place: case_state_of_birth
+        facility_name: case_name_of_facility
+        phenotype_input: token-input-tokeninput_hpo
+    tests:
+      # CS-01: JSONファイルを開き、件数と代表レコードを確認します。
+      casesharing_file_upload:
+        spec_id: CS-01
+        test_cases:
+          - id: sample_json
+            # tests/e2eを基準とするアップロード用JSONの相対パスです。
+            upload_file_path: ./src/data_sample/casesharing_sample_20260608.json
+            # 既存入力が失われることを知らせる確認ダイアログの全文です。
+            dialog_message: ファイルを開くと、入力されたデータが失われます。ファイルを開きますか？
+            # ファイル読み込み後に画面へ表示される症例数です。
+            case_count: 8
+            # 表内で確認する代表症例です。キーは症例JSONのフィールド名です。
+            expected:
+              - case_id: C0000007
+                sex: 男性
+      # CS-02: 空の症例を1件追加できることを確認します。
+      casesharing_add_case:
+        spec_id: CS-02
+        test_cases:
+          - id: blank_case
+      # CS-02: 一覧の末尾にある症例を削除できることを確認します。
+      casesharing_delete_case:
+        spec_id: CS-02
+        test_cases:
+          - id: last_case
+      # CS-03: 一覧の先頭症例を複製できることを確認します。
+      casesharing_copy_case:
+        spec_id: CS-03
+        test_cases:
+          - id: first_case
+      # CS-04: 各詳細タブで、異なる入力形式の項目を編集します。
+      casesharing_edit_detail_info:
+        spec_id: CS-04
+        test_cases:
+          - id: basic_info_and_phenotype
+            input_fields:
+              # `tab`: 大分類タブ、`field_tab`: タブ内の小分類です。
+              # `type`: 入力方法（list=選択肢、button=ボタン、text=文字入力、
+              # phenotype=HPO候補選択）です。
+              # `field_name`: 画面の項目名、`input`: 入力または選択する表示値です。
+              - tab: 症例基本情報
+                fields:
+                  - field_tab: 基本情報
+                    type: list
+                    field_name: 続柄
+                    input: 母
+              - tab: 診療
+                fields:
+                  - field_tab: 診断
+                    type: button
+                    field_name: 診断状況
+                    input: 完了
+              - tab: 表現型
+                fields:
+                  - type: phenotype
+                    # phenotypeでは入力欄文言、検索語、選択候補のHPO IDを指定します。
+                    placeholder: 患者の兆候または症状を入力
+                    input: 貧血
+                    hpo_id: HP:0001903
+              - tab: 遺伝型
+                fields:
+                  - field_tab: 検査について
+                    type: text
+                    field_name: 遺伝子解析
+                    input: test GLA testing identified a pathogenic missense variant.
+              - tab: 家系
+                fields:
+                  - field_tab: 親族（がん・生活習慣病）
+                    type: list
+                    field_name: 親族名称
+                    input: 祖父母（母方）
+              - tab: 検体・検査
+                fields:
+                  - field_tab: 検体採取
+                    type: text
+                    field_name: 検体識別ID
+                    input: S-P2026681548398083qztnxxx
+              - tab: 登録
+                fields:
+                  - field_tab: 同意書・アセント
+                    type: button
+                    field_name: 同意書の種別
+                    input: 初回同意
+      # CS-05: 症例一覧のセルを直接編集します。
+      casesharing_list_edit:
+        spec_id: CS-05
+        test_cases:
+          - id: case_id_cell
+            # `header`は編集する列見出し、`new_value`は入力後の値です。
+            header: 症例ID
+            new_value: C0000100
+
+      # CS-06: 編集した症例をJSON保存し、再読込後も値が維持されるか確認します。
+      casesharing_save_and_reload:
+        spec_id: CS-06
+        test_cases:
+          - id: json_roundtrip
+            input_fields:
+              # 保存前に編集するタブと、`フィールド名: 値`の組です。
+              - tab: 症例基本情報
+                fields:
+                  case_id: C0000100
+
+      # CS-07: 別のJSONを現在の症例データへマージします。
+      casesharing_merge_case:
+        spec_id: CS-07
+        test_cases:
+          - id: merge_two_records
+            # 元に戻せない操作であることを知らせる確認ダイアログの全文です。
+            dialog_message: アップロードしたデータは、現在編集中のデータにマージされます。この操作は元に戻せません。データをマージしますか？
+            # マージするJSONの相対パスと、そのファイルから追加される症例数です。
+            merge_file_path: ./src/data_sample/casesharing_merge_2records.json
+            merge_case_count: 2
+
+      # CS-08: 表現型タブでHPO症状を候補から選んで一覧へ追加します。
+      casesharing_phenotype:
+        spec_id: CS-08
+        test_cases:
+          - id: fatigue
+            input_fields:
+              # 対象タブ、入力欄と追加ボタンの文言、検索語、選択候補IDです。
+              tab: 表現型
+              placeholder: 患者の兆候または症状を入力
+              input_button: 一覧に追加
+              input: 疲労
+              hpo_id: HP:0012378
+      # CS-09: 家系図に対象症例が表示され、各形式を選択できることを確認します。
+      casesharing_pedigree_is_visible:
+        spec_id: CS-09
+        test_cases:
+          - id: sample_pedigree
+            # 家系図を表示するタブと、図内に表示される代表症例IDです。
+            tab: 家系
+            expected_id: C0000001
+            # ダウンロード形式のボタンに表示される文言です。
+            download_type:
+              - JSON
+              - SVG
+              - PNG
+              - PDF
+      # CS-10: 統計カードとグラフのタイトル・集計値を確認します。
+      casesharing_stats_charts_are_visible:
+        spec_id: CS-10
+        test_cases:
+          - id: sample_stats
+            expected:
+              # 上部の集計カード。`most_*`は最多項目があるカードだけに指定します。
+              count_cards:
+                - title: 症例数
+                  value: 8
+                - title: 家系数
+                  value: 5
+                  most_title: 一番多い家系
+                  most_value: F0000001
+                - title: グループ数
+                  value: 5
+                  most_title: 一番多いグループ
+                  most_value: Connective tissue disorder
+              # グラフごとのタイトルと、ラベル別の期待件数です。
+              # アップロード用サンプルJSONを変更した場合は同時に再集計してください。
+              charts:
+                sex:
+                  title: 性別
+                  values:
+                    男性: 5
+                    女性: 3
+                    その他: 0
+                    不明: 0
+                group:
+                  title: グループ名
+                  values:
+                    Connective tissue disorder: 4
+                    Undiagnosed metabolic and neurologic disorder: 1
+                    Undiagnosed cardiac disorder: 1
+                    Cardiomyopathy: 1
+                    Lysosomal disorder: 1
+  # 疾患名や遺伝子から遺伝子パネルを検索・操作するテスト群です。
+  panel_search:
+    # `pages.panel_search`を開始URLとして使用します。
+    page: panel_search
+    tests:
+      # PS-01: パネル名（日本語名の一部）で検索します。
+      panel_search_by_panel_name:
+        spec_id: PS-01
+        test_cases:
+          - id: amp_panel_name
+            # 検索欄に入力する語句です。
+            input: アデノシン一リン酸
+            expected:
+              # 検索結果一覧に表示されるべきパネル名です。
+              result_text: アデノシン一リン酸デアミナーゼ欠損症
+
+      # PS-02: 遺伝子記号で関連パネルを検索します。
+      panel_search_by_gene:
+        spec_id: PS-02
+        test_cases:
+          - id: ampd1_gene
+            # 遺伝子記号は正しい大文字・小文字で記載します。
+            input: AMPD1
+            expected:
+              result_text: アデノシン一リン酸デアミナーゼ欠損症
+
+      # PS-03: 左側のカテゴリーツリーからパネルを絞り込みます。
+      panel_search_by_tree:
+        spec_id: PS-03
+        test_cases:
+          - id: acute_disease
+            # クリックするツリーノードの画面表示名です。
+            tree_node: 急性疾患
+            # 選択後の総パネル数表示です。数字だけでなく単位も含めます。
+            expected_panel_count: 403 Panels
+
+      # PS-04: 検索結果を展開し、遺伝子一覧が表示されることを確認します。
+      panel_search_result_gene_list_is_visible:
+        spec_id: PS-04
+        test_cases:
+          - id: amp_gene_list
+            input: アデノシン一リン酸
+            expected:
+              # 対象行を特定する正式な英語パネル名です。
+              label: Adenosine monophosphate deaminase deficiency
+              # 表示される遺伝子数の最低値です。データ追加による増加を許容します。
+              min_gene_count: 2
+
+      # PS-05: パネル詳細を開き、詳細内容と個別パネルのダウンロードを確認します。
+      panel_search_detail_panel_download:
+        spec_id: PS-05
+        test_cases:
+          - id: amp_panel_download
+            input: アデノシン一リン酸
+            expected:
+              # `label`は検索結果行、`known_as`は詳細画面の別名表示に使います。
+              label: Adenosine monophosphate deaminase deficiency
+              min_gene_count: 2
+              known_as: アデノシン一リン酸デアミナーゼ欠損症
+              download:
+                # 期待する完全なファイル名と、ファイル内に必要な遺伝子記号です。
+                filename: panel-0013028.txt
+                contains:
+                  - AMPD1
+                  - AMPD3
+      # PS-06: 全パネルTSVをダウンロードし、ファイル名と代表内容を確認します。
+      panel_search_all_panel_download:
+        spec_id: PS-06
+        test_cases:
+          - id: all_panels
+            expected:
+              download:
+                # 全パネルファイルの完全なファイル名です。
+                filename: all_panel.tsv
+                # ヘッダーと代表パネルの必須文字列です。
+                contains:
+                  # 2026/07時点では開発中のため、仕様変更時は実ファイルのヘッダーを確認します。
+                  - "panel_name\tpanel_name_synonym\tpanel_name_ja\tmondo_id\tgene_count\tgene_symbol_list"
+                  - adenosine monophosphate deaminase deficiency
+                  - MONDO:0013028
+                  - AMPD1 | AMPD3
+      # PS-07: パネル情報をクリップボードへコピーし、内容を確認します。
+      panel_search_panel_info_copy:
+        spec_id: PS-07
+        test_cases:
+          - id: amp_panel_copy
+            input: アデノシン一リン酸
+            expected:
+              # 対象結果行のパネル名です。
+              label: Adenosine monophosphate deaminase deficiency
+              # コピーされた文字列にすべて含まれるべき値です。
+              contains:
+                - adenosine monophosphate deaminase deficiency
+                - アデノシン一リン酸デアミナーゼ欠損症
+                - MONDO:0013028
+      # PS-08: 対象パネルを選んだとき、関連カテゴリーツリーを確認します。
+      panel_search_related_category_tree_is_visible:
+        spec_id: PS-08
+        test_cases:
+          - id: amp_related_tree
+            input: アデノシン一リン酸
+            expected:
+              # 対象行の表示名と、ツリーで選択状態になるMONDO IDです。
+              label: Adenosine monophosphate deaminase deficiency
+              panel_id: MONDO:0013028
+
+      # PS-09: 2回の検索後、履歴の「戻る」「進む」で表示を復元できるか確認します。
+      panel_search_display_history_undo_redo:
+        spec_id: PS-09
+        test_cases:
+          - id: amp_to_marfan_history
+            # 検索順に並べます。現在のテストコードは2件を前提としています。
+            searches:
+              - id: first_tree
+                # 各検索の入力語と、選択後に期待するパネル名・MONDO IDです。
+                input: アデノシン一リン酸
+                expected:
+                  label: Adenosine monophosphate deaminase deficiency
+                  panel_id: MONDO:0013028
+              - id: second_tree
+                input: マルファン
+                expected:
+                  label: Marfan syndrome
+                  panel_id: MONDO:0007947
+      # PS-10: パネル詳細へのリンクをコピーできることを確認します。
+      panel_search_detail_copy_link:
+        spec_id: PS-10
+        test_cases:
+          - id: amp_detail_copy_link
+            input: アデノシン一リン酸
+            expected:
+              # 詳細画面の特定・内容確認・URL確認に使う期待値です。
+              label: Adenosine monophosphate deaminase deficiency
+              min_gene_count: 2
+              known_as: アデノシン一リン酸デアミナーゼ欠損症
+              panel_id: MONDO:0013028
+      # PS-11: 複数パネルをカスタムパネルへ追加し、一括表示を確認します。
+      panel_search_custom_panel_see_all:
+        spec_id: PS-11
+        test_cases:
+          - id: amp_and_marfan
+            # 追加するパネルの一覧です。項目数が画面の選択件数にも使われます。
+            panels:
+              - input: アデノシン一リン酸
+                expected:
+                  # 検索結果名、カスタムパネル内の表示名、MONDO IDです。
+                  label: Adenosine monophosphate deaminase deficiency
+                  custom_panel_label: アデノシン一リン酸デアミナーゼ欠損症
+                  panel_id: MONDO:0013028
+              - input: マルファン
+                expected:
+                  label: Marfan syndrome
+                  custom_panel_label: マルファン症候群
+                  panel_id: MONDO:0007947
+      # PS-04: パネル詳細の説明領域と遺伝子一覧を確認します。
+      # キー名には既に`test_`が含まれていますが、Python側の参照名なので変更しません。
+      test_panel_search_panel_describe_visible:
+        spec_id: PS-04
+        test_cases:
+          - id: amp_panel_detail
+            input: アデノシン一リン酸
+            expected:
+              # 対象行、最低遺伝子数、詳細画面に表示される別名です。
+              label: Adenosine monophosphate deaminase deficiency
+              min_gene_count: 2
+              known_as: アデノシン一リン酸デアミナーゼ欠損症

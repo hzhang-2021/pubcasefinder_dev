@@ -177,6 +177,8 @@
   padding-left: 10px;
   padding-right: 20px;
 }
+.group-table > tbody > tr > td:first-child{ line-break: anywhere; }
+
 .group-table > thead > tr > th input[type="checkbox"]{
   appearance: none;
   -webkit-appearance: none;

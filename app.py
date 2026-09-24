@@ -3160,7 +3160,7 @@ def panelsearch_nanbyo_delete_panel_entity_review_comment():
         return jsonify({'error': 'cannot find user_id in session. please login first'})
 
     user_id = user_info["id"]
- 
+
     data = request.get_json(silent=True)
     if not isinstance(data, dict):
         return jsonify({'error': 'Invalid JSON format'}), 400
@@ -3677,7 +3677,7 @@ def panelsearch_nanbyo_get_group_panel():
 def panelsearch_nanbyo_add_group_panel():
 
     uid, google_id, user_info = get_user_info_from_session(SERVICE_PANELSEARCH_NANBYO_ADMIN)
-    if uid is None:
+    if uid is None or not user_info:
         return  jsonify({'error': "session not opened"}), 400
 
     if not api_is_user_admin(user_info["user_type"]):
@@ -3718,7 +3718,7 @@ def panelsearch_nanbyo_delete_group_panel():
         return jsonify({'error': 'parameter group_id or panel_id not found'})
 
     uid, google_id, user_info = get_user_info_from_session(SERVICE_PANELSEARCH_NANBYO_ADMIN)    
-    if uid is None:
+    if uid is None or not user_info:
         return  jsonify({'error': "session not opened"}), 400    
 
     user_id = user_info["id"]
@@ -4267,7 +4267,7 @@ def googleSignupRegistUser():
     if "authentication_code" not in response:
         msg = response["message"]
         app.logger.warning(f"Error occured when regist new user: {msg}")
- 
+
         m = re.search(r"Duplicate entry '([^']+)' for key 'email'", msg)
         if m:
             affiliation_email = m.group(1)
@@ -4284,7 +4284,7 @@ def googleSignupRegistUser():
 
     # send verification request mail.
     url_base = url_for("googleSignupAuthenticate", _external=True)
-    
+
     mail_resp = sendmail(url_base, auth_type, MAIL_TEMPLATE_AUTH, None, uid, MAIL_TARGET_BY_UID)
     if mail_resp["status"] == "error":
         message = "Error occured when sending verification request mail to UID:[%s] GOOGLE:[%s] MSG[%s]", uid , google_id,  mail_resp["error"]
@@ -4512,7 +4512,7 @@ def googleLogin():
     if request.args.get('service') is not None:
         r_service = request.args.get('service')
     else:
-        if session['service'] is not None:
+        if session.get('service') is not None:
             r_service = session['service']
 
     if request.referrer:
@@ -4864,7 +4864,6 @@ def google_user_modify():
     auth_type = get_auth_type_by_service(service)
 
     response = api_google_user_modify(auth_type, data)
-
     if not check_api_response_error(response, 'api_google_user_modify'):
         changed_user_info = api_google_auth_get_user_info_by_google_account(auth_type, google_id)
         if not check_api_response_error(changed_user_info, 'api_google_auth_get_user_info_by_google_account'):
@@ -4919,7 +4918,6 @@ def google_user_delete():
         )
 
     return jsonify({"succeed": "user was successfully cancelled"})
-
 
 
 

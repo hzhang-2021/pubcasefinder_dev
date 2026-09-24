@@ -1,0 +1,3441 @@
+{
+    "CASES": [
+        {
+            "PCFNo": "P202668154839801l2aov",
+            "share_id": null,
+            "case_id": "C0000001",
+            "case_family_id": "F0000001",
+            "case_relationship": "proband_individual",
+            "case_parent_id": null,
+            "case_spouse_id": null,
+            "case_group": "Connective tissue disorder",
+            "case_presence_or_absence_of_onset": "onset",
+            "case_life_status": "alive",
+            "case_birth": "2001/04",
+            "case_death": null,
+            "case_examination_day": "2025/10/12",
+            "case_age": "24Y",
+            "case_sex": "female",
+            "case_note": "Family 1 proband. Family-based CaseSharing demo case.",
+            "case_sympton": null,
+            "medical_chief_complaint": "Progressive myopia and aortic root dilatation",
+            "medical_case_solved": "SOLVED",
+            "medical_age_onset": "12Y",
+            "medical_current_history": "Tall stature became evident in late elementary school, and myopia progressed during adolescence. Ectopia lentis was identified at age 18, and echocardiography at age 23 showed aortic root dilatation.",
+            "medical_previous_history": "Pectus excavatum was noted in childhood.",
+            "medical_prenatal_perinatal_history": null,
+            "medical_early_developmental_and_schooling_history": null,
+            "medical_process": "Genetic testing identified a pathogenic FBN1 variant, confirming Marfan syndrome.",
+            "medical_medications": null,
+            "medical_allergies": null,
+            "medical_social_history": null,
+            "medical_drinking": null,
+            "medical_travel_history": null,
+            "medical_vaccination_history": null,
+            "medical_physical_findings": "Tall stature, arachnodactyly, pectus excavatum, and positive thumb sign.",
+            "medical_examination_findings": "Laboratory tests: CRP 0.03 mg/dL, BNP 18 pg/mL. Ophthalmologic examination showed ectopia lentis, and echocardiography demonstrated a sinus of Valsalva diameter of 43 mm.",
+            "phenotype_hpo_id": [
+                "HP:0000545",
+                "HP:0001083",
+                "HP:0001166",
+                "HP:0002616"
+            ],
+            "phenotype_hpo_label": [
+                {
+                    "name_en": "Myopia",
+                    "name_ja": "Myopia"
+                },
+                {
+                    "name_en": "Ectopia lentis",
+                    "name_ja": "Ectopia lentis"
+                },
+                {
+                    "name_en": "Arachnodactyly",
+                    "name_ja": "Arachnodactyly"
+                },
+                {
+                    "name_en": "Aortic root aneurysm",
+                    "name_ja": "Aortic root aneurysm"
+                }
+            ],
+            "phenotype_medical_current_history": [
+                "yes",
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_medical_previous_history": [
+                "no",
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_process": [
+                "yes",
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_family_history": [
+                "yes",
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_excluded": [
+                "no",
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_clinical_relevance": [
+                "distinctive",
+                "distinctive",
+                "distinctive",
+                "distinctive"
+            ],
+            "phenotype_severity": [
+                "moderate",
+                "moderate",
+                "moderate",
+                "severe"
+            ],
+            "phenotype_age_onset": [
+                "10Y",
+                "16Y",
+                "12Y",
+                "23Y"
+            ],
+            "phenotype_temporal_pattern": [
+                "chronic",
+                "chronic",
+                "chronic",
+                "chronic"
+            ],
+            "phenotype_pace_progression": [
+                "Slowly progressive",
+                "Slowly progressive",
+                "Nonprogressive",
+                "Progressive"
+            ],
+            "phenotype_resolution": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "phenotype_comments": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "genotype_analysis": "A connective tissue disorder gene panel identified a heterozygous pathogenic FBN1 variant.",
+            "genotype_gene": [
+                "FBN1"
+            ],
+            "genotype_status": [
+                "Pathogenic variant detected"
+            ],
+            "genotype_cdna_change": [
+                "c.7583G>A"
+            ],
+            "genotype_pathogenicity": [
+                "Pathogenic"
+            ],
+            "genotype_allelic_state": [
+                "heterozygous"
+            ],
+            "genotype_reference": [],
+            "genotype_chr_position": [],
+            "genotype_transcript": [
+                "NM_000138.5"
+            ],
+            "genotype_protein_charge": [
+                "p.Cys2528Tyr"
+            ],
+            "genotype_annotation": [],
+            "genotype_inheritance": [
+                "autosomal dominant - Inherited mutation"
+            ],
+            "genotype_comments": [],
+            "family_history": "The mother has a history of ectopia lentis and ascending aortic dilatation.",
+            "family_mode_inheritance": "Autosomal dominant inheritance",
+            "family_other_affected_relatives": "present",
+            "family_consanguinity": "absent",
+            "family_paternal_ethnicity": null,
+            "family_maternal_ethnicity": null,
+            "case_participation_of_relatives_in_this_study": "not_applicable",
+            "case_sex_details": "",
+            "case_age_on_examination": "24Y",
+            "case_cause_of_death": null,
+            "case_cause_of_death_details": null,
+            "case_icd_11_code_of_cause_of_death": null,
+            "case_last_date_of_confirmation_of_survival": "2025/10/12",
+            "case_ethnicity_group": null,
+            "case_free_comment_about_ethnicity_group": null,
+            "case_country_of_birth": null,
+            "case_state_of_birth": null,
+            "case_city_of_birth": null,
+            "case_free_comment_about_birth": null,
+            "case_presence_of_prenatal_abnormalities": "unknown",
+            "case_presence_of_abnormalities_at_birth": "unknown",
+            "case_presence_of_medical_assistance_at_birth": "unknown",
+            "case_gestational_age_at_birth": null,
+            "case_age_of_mother_at_birth": null,
+            "case_age_of_father_at_birth": null,
+            "case_presence_of_assisted_reproductive_technology": "unknown",
+            "case_type_of_assisted_reproductive_technology": [],
+            "case_date_of_survey": null,
+            "case_name_of_facility": null,
+            "case_code_of_facility": null,
+            "case_family_name_of_doctor_in_charge": null,
+            "case_first_name_of_doctor_in_charge": null,
+            "case_family_name_of_inputter": null,
+            "case_first_name_of_inputter": null,
+            "case_created_at": "2026/6/8 16:10:00",
+            "case_updated_at": "2026/6/8 16:32:32",
+            "medical_presence_of_previous_history": "present",
+            "medical_disease_of_previous_history_id": [
+                null
+            ],
+            "medical_disease_of_previous_history_name": [
+                null
+            ],
+            "medical_note_of_previous_history": null,
+            "medical_presence_of_complications": "unknown",
+            "medical_complication_history_id": [
+                null
+            ],
+            "medical_complication_history_name": [
+                null
+            ],
+            "medical_note_of_complications": null,
+            "medical_complications_history": null,
+            "medical_presence_of_pregnancy": "unknown",
+            "medical_number_of_pregnancy": "",
+            "medical_presence_of_childbirth": "unknown",
+            "medical_number_of_childbirth": "",
+            "medical_presence_of_miscarriage_or_stillbirth": "unknown",
+            "medical_number_of_stillbirth": "",
+            "medical_number_of_miscarriage": "",
+            "medical_number_of_artificial_abortion": "",
+            "medical_presence_of_employment": "unknown",
+            "medical_occupational_classification": [],
+            "medical_occupational_classification_other_details": null,
+            "medical_body_height_at_birth": null,
+            "medical_body_weight_at_birth": null,
+            "medical_head_circumference_at_birth": null,
+            "medical_body_height_at_registration": null,
+            "medical_body_weight_at_registration": null,
+            "medical_head_circumference_at_registration": null,
+            "medical_age_at_measurement": null,
+            "medical_body_info_date_at_examination": [
+                "2025/10/12"
+            ],
+            "medical_body_height_at_examination": [
+                "179"
+            ],
+            "medical_body_weight_at_examination": [
+                "56"
+            ],
+            "medical_head_circumference_at_examination": [
+                "55"
+            ],
+            "medical_presence_of_drinking_habits": "unknown",
+            "medical_presence_of_smoking_habits": "unknown",
+            "medical_number_of_smoking": null,
+            "medical_years_of_smoking": null,
+            "medical_suspected_disease_id": [
+                {
+                    "OMIM": "OMIM:154700",
+                    "Orphanet": "Orphanet:284963|Orphanet:558"
+                }
+            ],
+            "medical_suspected_disease_name": [
+                "Marfan syndrome"
+            ],
+            "medical_suspection_of_genetic_disease": "present",
+            "medical_presence_of_familiality": "present",
+            "medical_symptoms_related_within_family_lineage": null,
+            "presence_of_multisystem_disorder": "unknown",
+            "medical_disease_area": [],
+            "medical_disease_area_details": null,
+            "medical_confirmation_of_clinical_diagnosis": "unknown",
+            "medical_clinical_diagnosis_id": [
+                {
+                    "OMIM": "OMIM:154700",
+                    "Orphanet": "Orphanet:284963|Orphanet:558"
+                }
+            ],
+            "medical_clinical_diagnosis_name": [
+                "Marfan syndrome"
+            ],
+            "medical_clinical_diagnosis_date": [
+                "2025/10"
+            ],
+            "medical_final_diagnosis_id": [
+                {
+                    "OMIM": "OMIM:154700",
+                    "Orphanet": "Orphanet:284963|Orphanet:558"
+                }
+            ],
+            "medical_final_diagnosis_name": [
+                "Marfan syndrome"
+            ],
+            "medical_final_diagnosis_date": [
+                "2025/11"
+            ],
+            "medical_presence_of_designated_intractable_disease_certification": "other",
+            "medical_applied_intractable_disease_id": [
+                null
+            ],
+            "medical_applied_intractable_disease_name": [
+                null
+            ],
+            "medical_presence_of_pediatric_chronic_specific_disease_certification": "other",
+            "medical_applied_pediatric_disease_id": [
+                null
+            ],
+            "medical_applied_pediatric_disease_name": [
+                null
+            ],
+            "genotype_presence_of_genetic_testing": "present",
+            "genotype_presence_of_abnormalities_in_genetic_testing": "present",
+            "genotype_date_of_testing": [
+                "2025/10/12"
+            ],
+            "genotype_testing_company_name": [
+                ""
+            ],
+            "genotype_testing_company_name_other_details": [],
+            "genotype_type_of_testing": [],
+            "genotype_testing_other_details": [],
+            "genotype_result_of_testing": [
+                "unknown"
+            ],
+            "genotype_ncbi_gene_id": [
+                "2200"
+            ],
+            "genotype_ensembl_id": [
+                "ENSG00000166147"
+            ],
+            "family_presence_of_onset_in_family": "present",
+            "family_presence_of_miscarriage_or_stillbirth_of_mother": "absent",
+            "family_number_of_stillbirth_of_mother": null,
+            "family_number_of_miscarriage_of_mother": null,
+            "family_number_of_artificial_abortion_of_mother": null,
+            "family_relative_name": [
+                null
+            ],
+            "family_generation_number_of_relative": [
+                null
+            ],
+            "family_presence_of_genetic_cancer_testing": [
+                "unknown"
+            ],
+            "family_genetic_cancer_testing_result_file": [
+                null
+            ],
+            "family_presence_of_cancer_history": [
+                "unknown"
+            ],
+            "family_cancer_history_cancer_type": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_cancer_type_other_details": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_age_of_onset": [
+                [
+                    "unknown"
+                ]
+            ],
+            "family_presence_of_lifestyle_disease_history": [
+                "unknown"
+            ],
+            "family_lifestyle_disease_history": [
+                []
+            ],
+            "family_lifestyle_disease_history_other_details": [
+                null
+            ],
+            "family_consanguinity_of_parents": "unknown",
+            "family_family_tree_pdf": null,
+            "family_date_of_family_tree": null,
+            "family_generation_number_of_proband": null,
+            "sample_sampling_date": "2025/10/12",
+            "sample_id": "S-P202668154839801l2aov",
+            "sample_presense_of_treatment_drug_at_sampling": "unknown",
+            "sample_type": [
+                "blood"
+            ],
+            "sample_type_other_detail": null,
+            "sample_prescription": [
+                null
+            ],
+            "sample_route_of_administration": [
+                null
+            ],
+            "sample_yj_code": [
+                null
+            ],
+            "sample_test_date": "2025/10/12",
+            "sample_wbc": null,
+            "sample_rbc": null,
+            "sample_hemoglobin": null,
+            "sample_hematocrit": null,
+            "sample_plt": null,
+            "sample_tp": null,
+            "sample_alb": null,
+            "sample_t_bil": null,
+            "sample_alp": null,
+            "sample_ast_got": null,
+            "sample_alt_gpt": null,
+            "sample_ldh": null,
+            "sample_ck": null,
+            "sample_gamma_gtp": null,
+            "sample_cre": null,
+            "sample_ua": null,
+            "sample_bun": null,
+            "sample_amy": null,
+            "sample_t_cho": null,
+            "sample_tg": null,
+            "sample_ldl_cho": null,
+            "sample_hdl_cho": null,
+            "sample_na": null,
+            "sample_k": null,
+            "sample_ip": null,
+            "sample_cl": null,
+            "sample_ca": null,
+            "sample_crp": "0.03",
+            "sample_glu": null,
+            "sample_hba1c": null,
+            "sample_test_item": [
+                "BNP"
+            ],
+            "sample_test_value": [
+                "18"
+            ],
+            "sample_test_unit": [
+                "pg/mL"
+            ],
+            "registration_disease_name": "Marfan syndrome",
+            "registration_diagnosis_status": "diagnosed",
+            "registration_age_group": "adult",
+            "registration_genetic_status": "genetic",
+            "registration_affection": "affected",
+            "registration_note": "Family 1 proband. Family-based CaseSharing demo case.",
+            "registration_consent_form_type": "not_applicable",
+            "registration_consent_acquirer": "not_applicable",
+            "registration_proxy_relation": null,
+            "registration_proxy_relation_other": null,
+            "registration_consent_form_version": null,
+            "registration_ascent": "unknown",
+            "registration_ascent_version": null,
+            "registration_consent_acquisition_date": null,
+            "registration_consent_withdrawal": "unknown",
+            "registration_consent_withdrawer": "not_applicable",
+            "registration_proxy_relation_withdrawer": null,
+            "registration_proxy_relation_withdrawer_other_details": null,
+            "registration_consent_withdrawal_version": null,
+            "registration_ascent_withdrawer": "unknown",
+            "registration_ascent_withdrawal_version": null,
+            "registration_consent_withdrawal_date": null
+        },
+        {
+            "PCFNo": "P2026681548398027vkmq",
+            "share_id": null,
+            "case_id": "C0000002",
+            "case_family_id": "F0000001",
+            "case_relationship": "mother",
+            "case_parent_id": null,
+            "case_spouse_id": null,
+            "case_group": "Connective tissue disorder",
+            "case_presence_or_absence_of_onset": "onset",
+            "case_life_status": "alive",
+            "case_birth": "1977/02",
+            "case_death": null,
+            "case_examination_day": "2025/10/12",
+            "case_age": "48Y",
+            "case_sex": "female",
+            "case_note": "Family 1 mother. Affected relative.",
+            "case_sympton": null,
+            "medical_chief_complaint": "Follow-up for aortic dilatation",
+            "medical_case_solved": "SOLVED",
+            "medical_age_onset": "16Y",
+            "medical_current_history": "Myopia and tall stature were present from adolescence, and ascending aortic dilatation was noted in her thirties.",
+            "medical_previous_history": null,
+            "medical_prenatal_perinatal_history": null,
+            "medical_early_developmental_and_schooling_history": null,
+            "medical_process": "Cascade testing after the proband's diagnosis confirmed the same familial FBN1 variant.",
+            "medical_medications": null,
+            "medical_allergies": null,
+            "medical_social_history": null,
+            "medical_drinking": null,
+            "medical_travel_history": null,
+            "medical_vaccination_history": null,
+            "medical_physical_findings": "Arachnodactyly, long limbs, and mild chest wall deformity.",
+            "medical_examination_findings": "Laboratory tests: BNP 22 pg/mL. Echocardiography showed an aortic root diameter of 41 mm.",
+            "phenotype_hpo_id": [
+                "HP:0001083",
+                "HP:0001166",
+                "HP:0002616"
+            ],
+            "phenotype_hpo_label": [
+                {
+                    "name_en": "Ectopia lentis",
+                    "name_ja": "Ectopia lentis"
+                },
+                {
+                    "name_en": "Arachnodactyly",
+                    "name_ja": "Arachnodactyly"
+                },
+                {
+                    "name_en": "Aortic root aneurysm",
+                    "name_ja": "Aortic root aneurysm"
+                }
+            ],
+            "phenotype_medical_current_history": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_medical_previous_history": [
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_process": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_family_history": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_excluded": [
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_clinical_relevance": [
+                "distinctive",
+                "distinctive",
+                "distinctive"
+            ],
+            "phenotype_severity": [
+                "moderate",
+                "mild",
+                "moderate"
+            ],
+            "phenotype_age_onset": [
+                "16Y",
+                "12Y",
+                "35Y"
+            ],
+            "phenotype_temporal_pattern": [
+                "chronic",
+                "chronic",
+                "chronic"
+            ],
+            "phenotype_pace_progression": [
+                "Slowly progressive",
+                "Nonprogressive",
+                "Slowly progressive"
+            ],
+            "phenotype_resolution": [
+                "",
+                "",
+                ""
+            ],
+            "phenotype_comments": [
+                "",
+                "",
+                ""
+            ],
+            "genotype_analysis": "Familial testing confirmed the same pathogenic FBN1 variant.",
+            "genotype_gene": [
+                "FBN1"
+            ],
+            "genotype_status": [
+                "Pathogenic variant detected"
+            ],
+            "genotype_cdna_change": [
+                "c.7583G>A"
+            ],
+            "genotype_pathogenicity": [
+                "Pathogenic"
+            ],
+            "genotype_allelic_state": [
+                "heterozygous"
+            ],
+            "genotype_reference": [],
+            "genotype_chr_position": [],
+            "genotype_transcript": [
+                "NM_000138.5"
+            ],
+            "genotype_protein_charge": [
+                "p.Cys2528Tyr"
+            ],
+            "genotype_annotation": [],
+            "genotype_inheritance": [
+                "autosomal dominant - Inherited mutation"
+            ],
+            "genotype_comments": [],
+            "family_history": "Her daughter shows similar body habitus abnormalities and aortic root dilatation.",
+            "family_mode_inheritance": "Autosomal dominant inheritance",
+            "family_other_affected_relatives": "present",
+            "family_consanguinity": "absent",
+            "family_paternal_ethnicity": null,
+            "family_maternal_ethnicity": null,
+            "case_participation_of_relatives_in_this_study": "not_applicable",
+            "case_sex_details": "",
+            "case_age_on_examination": "48Y",
+            "case_cause_of_death": null,
+            "case_cause_of_death_details": null,
+            "case_icd_11_code_of_cause_of_death": null,
+            "case_last_date_of_confirmation_of_survival": "2025/10/12",
+            "case_ethnicity_group": null,
+            "case_free_comment_about_ethnicity_group": null,
+            "case_country_of_birth": null,
+            "case_state_of_birth": null,
+            "case_city_of_birth": null,
+            "case_free_comment_about_birth": null,
+            "case_presence_of_prenatal_abnormalities": "unknown",
+            "case_presence_of_abnormalities_at_birth": "unknown",
+            "case_presence_of_medical_assistance_at_birth": "unknown",
+            "case_gestational_age_at_birth": null,
+            "case_age_of_mother_at_birth": null,
+            "case_age_of_father_at_birth": null,
+            "case_presence_of_assisted_reproductive_technology": "unknown",
+            "case_type_of_assisted_reproductive_technology": [],
+            "case_date_of_survey": null,
+            "case_name_of_facility": null,
+            "case_code_of_facility": null,
+            "case_family_name_of_doctor_in_charge": null,
+            "case_first_name_of_doctor_in_charge": null,
+            "case_family_name_of_inputter": null,
+            "case_first_name_of_inputter": null,
+            "case_created_at": "2026/6/8 16:10:00",
+            "case_updated_at": "2026/6/8 16:32:58",
+            "medical_presence_of_previous_history": "absent",
+            "medical_disease_of_previous_history_id": [
+                null
+            ],
+            "medical_disease_of_previous_history_name": [
+                null
+            ],
+            "medical_note_of_previous_history": null,
+            "medical_presence_of_complications": "unknown",
+            "medical_complication_history_id": [
+                null
+            ],
+            "medical_complication_history_name": [
+                null
+            ],
+            "medical_note_of_complications": null,
+            "medical_complications_history": null,
+            "medical_presence_of_pregnancy": "unknown",
+            "medical_number_of_pregnancy": "",
+            "medical_presence_of_childbirth": "unknown",
+            "medical_number_of_childbirth": "",
+            "medical_presence_of_miscarriage_or_stillbirth": "unknown",
+            "medical_number_of_stillbirth": "",
+            "medical_number_of_miscarriage": "",
+            "medical_number_of_artificial_abortion": "",
+            "medical_presence_of_employment": "unknown",
+            "medical_occupational_classification": [],
+            "medical_occupational_classification_other_details": null,
+            "medical_body_height_at_birth": null,
+            "medical_body_weight_at_birth": null,
+            "medical_head_circumference_at_birth": null,
+            "medical_body_height_at_registration": null,
+            "medical_body_weight_at_registration": null,
+            "medical_head_circumference_at_registration": null,
+            "medical_age_at_measurement": null,
+            "medical_body_info_date_at_examination": [
+                "2025/10/12"
+            ],
+            "medical_body_height_at_examination": [
+                "176"
+            ],
+            "medical_body_weight_at_examination": [
+                "60"
+            ],
+            "medical_head_circumference_at_examination": [
+                "55"
+            ],
+            "medical_presence_of_drinking_habits": "unknown",
+            "medical_presence_of_smoking_habits": "unknown",
+            "medical_number_of_smoking": null,
+            "medical_years_of_smoking": null,
+            "medical_suspected_disease_id": [
+                {
+                    "OMIM": "OMIM:154700",
+                    "Orphanet": "Orphanet:284963|Orphanet:558"
+                }
+            ],
+            "medical_suspected_disease_name": [
+                "Marfan syndrome"
+            ],
+            "medical_suspection_of_genetic_disease": "present",
+            "medical_presence_of_familiality": "present",
+            "medical_symptoms_related_within_family_lineage": null,
+            "presence_of_multisystem_disorder": "unknown",
+            "medical_disease_area": [],
+            "medical_disease_area_details": null,
+            "medical_confirmation_of_clinical_diagnosis": "unknown",
+            "medical_clinical_diagnosis_id": [
+                {
+                    "OMIM": "OMIM:154700",
+                    "Orphanet": "Orphanet:284963|Orphanet:558"
+                }
+            ],
+            "medical_clinical_diagnosis_name": [
+                "Marfan syndrome"
+            ],
+            "medical_clinical_diagnosis_date": [
+                "2012/05"
+            ],
+            "medical_final_diagnosis_id": [
+                {
+                    "OMIM": "OMIM:154700",
+                    "Orphanet": "Orphanet:284963|Orphanet:558"
+                }
+            ],
+            "medical_final_diagnosis_name": [
+                "Marfan syndrome"
+            ],
+            "medical_final_diagnosis_date": [
+                "2012/06"
+            ],
+            "medical_presence_of_designated_intractable_disease_certification": "other",
+            "medical_applied_intractable_disease_id": [
+                null
+            ],
+            "medical_applied_intractable_disease_name": [
+                null
+            ],
+            "medical_presence_of_pediatric_chronic_specific_disease_certification": "other",
+            "medical_applied_pediatric_disease_id": [
+                null
+            ],
+            "medical_applied_pediatric_disease_name": [
+                null
+            ],
+            "genotype_presence_of_genetic_testing": "present",
+            "genotype_presence_of_abnormalities_in_genetic_testing": "present",
+            "genotype_date_of_testing": [
+                "2025/10/12"
+            ],
+            "genotype_testing_company_name": [
+                ""
+            ],
+            "genotype_testing_company_name_other_details": [],
+            "genotype_type_of_testing": [],
+            "genotype_testing_other_details": [],
+            "genotype_result_of_testing": [
+                "unknown"
+            ],
+            "genotype_ncbi_gene_id": [
+                "2200"
+            ],
+            "genotype_ensembl_id": [
+                "ENSG00000166147"
+            ],
+            "family_presence_of_onset_in_family": "present",
+            "family_presence_of_miscarriage_or_stillbirth_of_mother": "absent",
+            "family_number_of_stillbirth_of_mother": null,
+            "family_number_of_miscarriage_of_mother": null,
+            "family_number_of_artificial_abortion_of_mother": null,
+            "family_relative_name": [
+                null
+            ],
+            "family_generation_number_of_relative": [
+                null
+            ],
+            "family_presence_of_genetic_cancer_testing": [
+                "unknown"
+            ],
+            "family_genetic_cancer_testing_result_file": [
+                null
+            ],
+            "family_presence_of_cancer_history": [
+                "unknown"
+            ],
+            "family_cancer_history_cancer_type": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_cancer_type_other_details": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_age_of_onset": [
+                [
+                    null
+                ]
+            ],
+            "family_presence_of_lifestyle_disease_history": [
+                "unknown"
+            ],
+            "family_lifestyle_disease_history": [
+                []
+            ],
+            "family_lifestyle_disease_history_other_details": [
+                null
+            ],
+            "family_consanguinity_of_parents": "unknown",
+            "family_family_tree_pdf": null,
+            "family_date_of_family_tree": null,
+            "family_generation_number_of_proband": null,
+            "sample_sampling_date": "2025/10/12",
+            "sample_id": "S-P2026681548398027vkmq",
+            "sample_presense_of_treatment_drug_at_sampling": "unknown",
+            "sample_type": [
+                "blood"
+            ],
+            "sample_type_other_detail": null,
+            "sample_prescription": [
+                null
+            ],
+            "sample_route_of_administration": [
+                null
+            ],
+            "sample_yj_code": [
+                null
+            ],
+            "sample_test_date": "2025/10/12",
+            "sample_wbc": null,
+            "sample_rbc": null,
+            "sample_hemoglobin": null,
+            "sample_hematocrit": null,
+            "sample_plt": null,
+            "sample_tp": null,
+            "sample_alb": null,
+            "sample_t_bil": null,
+            "sample_alp": null,
+            "sample_ast_got": null,
+            "sample_alt_gpt": null,
+            "sample_ldh": null,
+            "sample_ck": null,
+            "sample_gamma_gtp": null,
+            "sample_cre": null,
+            "sample_ua": null,
+            "sample_bun": null,
+            "sample_amy": null,
+            "sample_t_cho": null,
+            "sample_tg": null,
+            "sample_ldl_cho": null,
+            "sample_hdl_cho": null,
+            "sample_na": null,
+            "sample_k": null,
+            "sample_ip": null,
+            "sample_cl": null,
+            "sample_ca": null,
+            "sample_crp": null,
+            "sample_glu": null,
+            "sample_hba1c": null,
+            "sample_test_item": [
+                "BNP"
+            ],
+            "sample_test_value": [
+                "22"
+            ],
+            "sample_test_unit": [
+                "pg/mL"
+            ],
+            "registration_disease_name": "Marfan syndrome",
+            "registration_diagnosis_status": "diagnosed",
+            "registration_age_group": "adult",
+            "registration_genetic_status": "genetic",
+            "registration_affection": "affected",
+            "registration_note": "Family 1 mother. Affected relative.",
+            "registration_consent_form_type": "not_applicable",
+            "registration_consent_acquirer": "not_applicable",
+            "registration_proxy_relation": null,
+            "registration_proxy_relation_other": null,
+            "registration_consent_form_version": null,
+            "registration_ascent": "unknown",
+            "registration_ascent_version": null,
+            "registration_consent_acquisition_date": null,
+            "registration_consent_withdrawal": "unknown",
+            "registration_consent_withdrawer": "not_applicable",
+            "registration_proxy_relation_withdrawer": null,
+            "registration_proxy_relation_withdrawer_other_details": null,
+            "registration_consent_withdrawal_version": null,
+            "registration_ascent_withdrawer": "unknown",
+            "registration_ascent_withdrawal_version": null,
+            "registration_consent_withdrawal_date": null
+        },
+        {
+            "PCFNo": "P2026681548398038nrxp",
+            "share_id": null,
+            "case_id": "C0000003",
+            "case_family_id": "F0000001",
+            "case_relationship": "father",
+            "case_parent_id": null,
+            "case_spouse_id": null,
+            "case_group": "Connective tissue disorder",
+            "case_presence_or_absence_of_onset": "asymptomatic",
+            "case_life_status": "alive",
+            "case_birth": "1974/09",
+            "case_death": null,
+            "case_examination_day": "2025/10/12",
+            "case_age": "51Y",
+            "case_sex": "male",
+            "case_note": "Family 1 father. Unaffected relative.",
+            "case_sympton": null,
+            "medical_chief_complaint": "Evaluation because of family history",
+            "medical_case_solved": "COMPLETED",
+            "medical_age_onset": null,
+            "medical_current_history": "He had no abnormal body habitus or ocular symptoms and was evaluated because of the family history.",
+            "medical_previous_history": null,
+            "medical_prenatal_perinatal_history": null,
+            "medical_early_developmental_and_schooling_history": null,
+            "medical_process": "No significant abnormalities were detected on echocardiography or ophthalmologic examination.",
+            "medical_medications": null,
+            "medical_allergies": null,
+            "medical_social_history": null,
+            "medical_drinking": null,
+            "medical_travel_history": null,
+            "medical_vaccination_history": null,
+            "medical_physical_findings": "No remarkable abnormalities.",
+            "medical_examination_findings": "Laboratory tests: BNP 9 pg/mL. No abnormalities were seen on echocardiography.",
+            "phenotype_hpo_id": [],
+            "phenotype_hpo_label": [],
+            "phenotype_medical_current_history": [],
+            "phenotype_medical_previous_history": [],
+            "phenotype_process": [],
+            "phenotype_family_history": [],
+            "phenotype_excluded": [],
+            "phenotype_clinical_relevance": [],
+            "phenotype_severity": [],
+            "phenotype_age_onset": [],
+            "phenotype_temporal_pattern": [],
+            "phenotype_pace_progression": [],
+            "phenotype_resolution": [],
+            "phenotype_comments": [],
+            "genotype_analysis": "",
+            "genotype_gene": [
+                null
+            ],
+            "genotype_status": [
+                null
+            ],
+            "genotype_cdna_change": [
+                null
+            ],
+            "genotype_pathogenicity": [
+                null
+            ],
+            "genotype_allelic_state": [
+                null
+            ],
+            "genotype_reference": [
+                null
+            ],
+            "genotype_chr_position": [
+                null
+            ],
+            "genotype_transcript": [
+                null
+            ],
+            "genotype_protein_charge": [
+                null
+            ],
+            "genotype_annotation": [
+                null
+            ],
+            "genotype_inheritance": [
+                null
+            ],
+            "genotype_comments": [
+                null
+            ],
+            "family_history": "His wife and daughter are affected.",
+            "family_mode_inheritance": "Autosomal dominant inheritance",
+            "family_other_affected_relatives": "present",
+            "family_consanguinity": "absent",
+            "family_paternal_ethnicity": null,
+            "family_maternal_ethnicity": null,
+            "case_participation_of_relatives_in_this_study": "not_applicable",
+            "case_sex_details": "",
+            "case_age_on_examination": "51Y",
+            "case_cause_of_death": null,
+            "case_cause_of_death_details": null,
+            "case_icd_11_code_of_cause_of_death": null,
+            "case_last_date_of_confirmation_of_survival": "2025/10/12",
+            "case_ethnicity_group": null,
+            "case_free_comment_about_ethnicity_group": null,
+            "case_country_of_birth": null,
+            "case_state_of_birth": null,
+            "case_city_of_birth": null,
+            "case_free_comment_about_birth": null,
+            "case_presence_of_prenatal_abnormalities": "unknown",
+            "case_presence_of_abnormalities_at_birth": "unknown",
+            "case_presence_of_medical_assistance_at_birth": "unknown",
+            "case_gestational_age_at_birth": null,
+            "case_age_of_mother_at_birth": null,
+            "case_age_of_father_at_birth": null,
+            "case_presence_of_assisted_reproductive_technology": "unknown",
+            "case_type_of_assisted_reproductive_technology": [],
+            "case_date_of_survey": null,
+            "case_name_of_facility": null,
+            "case_code_of_facility": null,
+            "case_family_name_of_doctor_in_charge": null,
+            "case_first_name_of_doctor_in_charge": null,
+            "case_family_name_of_inputter": null,
+            "case_first_name_of_inputter": null,
+            "case_created_at": "2026/6/8 16:10:00",
+            "case_updated_at": "2026/6/8 16:33:09",
+            "medical_presence_of_previous_history": "absent",
+            "medical_disease_of_previous_history_id": [
+                null
+            ],
+            "medical_disease_of_previous_history_name": [
+                null
+            ],
+            "medical_note_of_previous_history": null,
+            "medical_presence_of_complications": "unknown",
+            "medical_complication_history_id": [
+                null
+            ],
+            "medical_complication_history_name": [
+                null
+            ],
+            "medical_note_of_complications": null,
+            "medical_complications_history": null,
+            "medical_presence_of_pregnancy": "unknown",
+            "medical_number_of_pregnancy": "",
+            "medical_presence_of_childbirth": "unknown",
+            "medical_number_of_childbirth": "",
+            "medical_presence_of_miscarriage_or_stillbirth": "unknown",
+            "medical_number_of_stillbirth": "",
+            "medical_number_of_miscarriage": "",
+            "medical_number_of_artificial_abortion": "",
+            "medical_presence_of_employment": "unknown",
+            "medical_occupational_classification": [],
+            "medical_occupational_classification_other_details": null,
+            "medical_body_height_at_birth": null,
+            "medical_body_weight_at_birth": null,
+            "medical_head_circumference_at_birth": null,
+            "medical_body_height_at_registration": null,
+            "medical_body_weight_at_registration": null,
+            "medical_head_circumference_at_registration": null,
+            "medical_age_at_measurement": null,
+            "medical_body_info_date_at_examination": [
+                "2025/10/12"
+            ],
+            "medical_body_height_at_examination": [
+                "171"
+            ],
+            "medical_body_weight_at_examination": [
+                "69"
+            ],
+            "medical_head_circumference_at_examination": [
+                "56"
+            ],
+            "medical_presence_of_drinking_habits": "unknown",
+            "medical_presence_of_smoking_habits": "unknown",
+            "medical_number_of_smoking": null,
+            "medical_years_of_smoking": null,
+            "medical_suspected_disease_id": [
+                null
+            ],
+            "medical_suspected_disease_name": [
+                null
+            ],
+            "medical_suspection_of_genetic_disease": "unknown",
+            "medical_presence_of_familiality": "present",
+            "medical_symptoms_related_within_family_lineage": null,
+            "presence_of_multisystem_disorder": "unknown",
+            "medical_disease_area": [],
+            "medical_disease_area_details": null,
+            "medical_confirmation_of_clinical_diagnosis": "unknown",
+            "medical_clinical_diagnosis_id": [
+                null
+            ],
+            "medical_clinical_diagnosis_name": [
+                null
+            ],
+            "medical_clinical_diagnosis_date": [
+                null
+            ],
+            "medical_final_diagnosis_id": [
+                null
+            ],
+            "medical_final_diagnosis_name": [
+                null
+            ],
+            "medical_final_diagnosis_date": [
+                null
+            ],
+            "medical_presence_of_designated_intractable_disease_certification": "other",
+            "medical_applied_intractable_disease_id": [
+                null
+            ],
+            "medical_applied_intractable_disease_name": [
+                null
+            ],
+            "medical_presence_of_pediatric_chronic_specific_disease_certification": "other",
+            "medical_applied_pediatric_disease_id": [
+                null
+            ],
+            "medical_applied_pediatric_disease_name": [
+                null
+            ],
+            "genotype_presence_of_genetic_testing": "absent",
+            "genotype_presence_of_abnormalities_in_genetic_testing": "absent",
+            "genotype_date_of_testing": [
+                null
+            ],
+            "genotype_testing_company_name": [
+                ""
+            ],
+            "genotype_testing_company_name_other_details": [
+                null
+            ],
+            "genotype_type_of_testing": [
+                null
+            ],
+            "genotype_testing_other_details": [
+                null
+            ],
+            "genotype_result_of_testing": [
+                "unknown"
+            ],
+            "genotype_ncbi_gene_id": [
+                null
+            ],
+            "genotype_ensembl_id": [
+                null
+            ],
+            "family_presence_of_onset_in_family": "present",
+            "family_presence_of_miscarriage_or_stillbirth_of_mother": "absent",
+            "family_number_of_stillbirth_of_mother": null,
+            "family_number_of_miscarriage_of_mother": null,
+            "family_number_of_artificial_abortion_of_mother": null,
+            "family_relative_name": [
+                null
+            ],
+            "family_generation_number_of_relative": [
+                null
+            ],
+            "family_presence_of_genetic_cancer_testing": [
+                "unknown"
+            ],
+            "family_genetic_cancer_testing_result_file": [
+                null
+            ],
+            "family_presence_of_cancer_history": [
+                "unknown"
+            ],
+            "family_cancer_history_cancer_type": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_cancer_type_other_details": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_age_of_onset": [
+                [
+                    null
+                ]
+            ],
+            "family_presence_of_lifestyle_disease_history": [
+                "unknown"
+            ],
+            "family_lifestyle_disease_history": [
+                []
+            ],
+            "family_lifestyle_disease_history_other_details": [
+                null
+            ],
+            "family_consanguinity_of_parents": "unknown",
+            "family_family_tree_pdf": null,
+            "family_date_of_family_tree": null,
+            "family_generation_number_of_proband": null,
+            "sample_sampling_date": "2025/10/12",
+            "sample_id": "S-P2026681548398038nrxp",
+            "sample_presense_of_treatment_drug_at_sampling": "unknown",
+            "sample_type": [
+                "blood"
+            ],
+            "sample_type_other_detail": null,
+            "sample_prescription": [
+                null
+            ],
+            "sample_route_of_administration": [
+                null
+            ],
+            "sample_yj_code": [
+                null
+            ],
+            "sample_test_date": "2025/10/12",
+            "sample_wbc": null,
+            "sample_rbc": null,
+            "sample_hemoglobin": null,
+            "sample_hematocrit": null,
+            "sample_plt": null,
+            "sample_tp": null,
+            "sample_alb": null,
+            "sample_t_bil": null,
+            "sample_alp": null,
+            "sample_ast_got": null,
+            "sample_alt_gpt": null,
+            "sample_ldh": null,
+            "sample_ck": null,
+            "sample_gamma_gtp": null,
+            "sample_cre": null,
+            "sample_ua": null,
+            "sample_bun": null,
+            "sample_amy": null,
+            "sample_t_cho": null,
+            "sample_tg": null,
+            "sample_ldl_cho": null,
+            "sample_hdl_cho": null,
+            "sample_na": null,
+            "sample_k": null,
+            "sample_ip": null,
+            "sample_cl": null,
+            "sample_ca": null,
+            "sample_crp": null,
+            "sample_glu": null,
+            "sample_hba1c": null,
+            "sample_test_item": [
+                "BNP"
+            ],
+            "sample_test_value": [
+                "9"
+            ],
+            "sample_test_unit": [
+                "pg/mL"
+            ],
+            "registration_disease_name": "Family history evaluation",
+            "registration_diagnosis_status": "non_affected",
+            "registration_age_group": "adult",
+            "registration_genetic_status": "not_applicable",
+            "registration_affection": "not_affected",
+            "registration_note": "Family 1 father. Unaffected relative.",
+            "registration_consent_form_type": "not_applicable",
+            "registration_consent_acquirer": "not_applicable",
+            "registration_proxy_relation": null,
+            "registration_proxy_relation_other": null,
+            "registration_consent_form_version": null,
+            "registration_ascent": "unknown",
+            "registration_ascent_version": null,
+            "registration_consent_acquisition_date": null,
+            "registration_consent_withdrawal": "unknown",
+            "registration_consent_withdrawer": "not_applicable",
+            "registration_proxy_relation_withdrawer": null,
+            "registration_proxy_relation_withdrawer_other_details": null,
+            "registration_consent_withdrawal_version": null,
+            "registration_ascent_withdrawer": "unknown",
+            "registration_ascent_withdrawal_version": null,
+            "registration_consent_withdrawal_date": null
+        },
+        {
+            "PCFNo": "P2026681548398045cjde",
+            "share_id": null,
+            "case_id": "C0000004",
+            "case_family_id": "F0000001",
+            "case_relationship": "sibling",
+            "case_parent_id": null,
+            "case_spouse_id": null,
+            "case_group": "Connective tissue disorder",
+            "case_presence_or_absence_of_onset": "onset",
+            "case_life_status": "alive",
+            "case_birth": "2004/08",
+            "case_death": null,
+            "case_examination_day": "2025/10/12",
+            "case_age": "21Y",
+            "case_sex": "male",
+            "case_note": "Family 1 younger brother. Affected sibling.",
+            "case_sympton": null,
+            "medical_chief_complaint": "Tall stature, myopia, and chest wall deformity",
+            "medical_case_solved": "SOLVED",
+            "medical_age_onset": "14Y",
+            "medical_current_history": "Tall stature became evident during junior high school, and myopia progressed from around age 16. A school health examination also identified chest wall deformity.",
+            "medical_previous_history": null,
+            "medical_prenatal_perinatal_history": null,
+            "medical_early_developmental_and_schooling_history": null,
+            "medical_process": "Familial testing after the proband's diagnosis confirmed the same FBN1 pathogenic variant, leading to a diagnosis of Marfan syndrome.",
+            "medical_medications": null,
+            "medical_allergies": null,
+            "medical_social_history": null,
+            "medical_drinking": null,
+            "medical_travel_history": null,
+            "medical_vaccination_history": null,
+            "medical_physical_findings": "Tall stature, arachnodactyly, and mild pectus excavatum.",
+            "medical_examination_findings": "Laboratory tests: BNP 14 pg/mL. Ophthalmologic examination showed high myopia, and echocardiography showed a sinus of Valsalva diameter of 38 mm.",
+            "phenotype_hpo_id": [
+                "HP:0000545",
+                "HP:0001166",
+                "HP:0002616"
+            ],
+            "phenotype_hpo_label": [
+                {
+                    "name_en": "Myopia",
+                    "name_ja": "Myopia"
+                },
+                {
+                    "name_en": "Arachnodactyly",
+                    "name_ja": "Arachnodactyly"
+                },
+                {
+                    "name_en": "Aortic root aneurysm",
+                    "name_ja": "Aortic root aneurysm"
+                }
+            ],
+            "phenotype_medical_current_history": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_medical_previous_history": [
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_process": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_family_history": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_excluded": [
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_clinical_relevance": [
+                "distinctive",
+                "distinctive",
+                "distinctive"
+            ],
+            "phenotype_severity": [
+                "moderate",
+                "moderate",
+                "moderate"
+            ],
+            "phenotype_age_onset": [
+                "16Y",
+                "14Y",
+                "21Y"
+            ],
+            "phenotype_temporal_pattern": [
+                "chronic",
+                "chronic",
+                "chronic"
+            ],
+            "phenotype_pace_progression": [
+                "Slowly progressive",
+                "Nonprogressive",
+                "Slowly progressive"
+            ],
+            "phenotype_resolution": [
+                "",
+                "",
+                ""
+            ],
+            "phenotype_comments": [
+                "",
+                "",
+                ""
+            ],
+            "genotype_analysis": "Familial testing confirmed the same pathogenic FBN1 variant.",
+            "genotype_gene": [
+                "FBN1"
+            ],
+            "genotype_status": [
+                "Pathogenic variant detected"
+            ],
+            "genotype_cdna_change": [
+                "c.7583G>A"
+            ],
+            "genotype_pathogenicity": [
+                "Pathogenic"
+            ],
+            "genotype_allelic_state": [
+                "heterozygous"
+            ],
+            "genotype_reference": [],
+            "genotype_chr_position": [],
+            "genotype_transcript": [
+                "NM_000138.5"
+            ],
+            "genotype_protein_charge": [
+                "p.Cys2528Tyr"
+            ],
+            "genotype_annotation": [],
+            "genotype_inheritance": [
+                "autosomal dominant - Inherited mutation"
+            ],
+            "genotype_comments": [],
+            "family_history": "Shared body habitus abnormalities are present in the mother, older sister, and patient.",
+            "family_mode_inheritance": "Autosomal dominant inheritance",
+            "family_other_affected_relatives": "present",
+            "family_consanguinity": "absent",
+            "family_paternal_ethnicity": null,
+            "family_maternal_ethnicity": null,
+            "case_participation_of_relatives_in_this_study": "not_applicable",
+            "case_sex_details": "",
+            "case_age_on_examination": "21Y",
+            "case_cause_of_death": null,
+            "case_cause_of_death_details": null,
+            "case_icd_11_code_of_cause_of_death": null,
+            "case_last_date_of_confirmation_of_survival": "2025/10/12",
+            "case_ethnicity_group": null,
+            "case_free_comment_about_ethnicity_group": null,
+            "case_country_of_birth": null,
+            "case_state_of_birth": null,
+            "case_city_of_birth": null,
+            "case_free_comment_about_birth": null,
+            "case_presence_of_prenatal_abnormalities": "unknown",
+            "case_presence_of_abnormalities_at_birth": "unknown",
+            "case_presence_of_medical_assistance_at_birth": "unknown",
+            "case_gestational_age_at_birth": null,
+            "case_age_of_mother_at_birth": null,
+            "case_age_of_father_at_birth": null,
+            "case_presence_of_assisted_reproductive_technology": "unknown",
+            "case_type_of_assisted_reproductive_technology": [],
+            "case_date_of_survey": null,
+            "case_name_of_facility": null,
+            "case_code_of_facility": null,
+            "case_family_name_of_doctor_in_charge": null,
+            "case_first_name_of_doctor_in_charge": null,
+            "case_family_name_of_inputter": null,
+            "case_first_name_of_inputter": null,
+            "case_created_at": "2026/6/8 16:10:00",
+            "case_updated_at": "2026/6/8 16:33:24",
+            "medical_presence_of_previous_history": "absent",
+            "medical_disease_of_previous_history_id": [
+                null
+            ],
+            "medical_disease_of_previous_history_name": [
+                null
+            ],
+            "medical_note_of_previous_history": null,
+            "medical_presence_of_complications": "unknown",
+            "medical_complication_history_id": [
+                null
+            ],
+            "medical_complication_history_name": [
+                null
+            ],
+            "medical_note_of_complications": null,
+            "medical_complications_history": null,
+            "medical_presence_of_pregnancy": "unknown",
+            "medical_number_of_pregnancy": "",
+            "medical_presence_of_childbirth": "unknown",
+            "medical_number_of_childbirth": "",
+            "medical_presence_of_miscarriage_or_stillbirth": "unknown",
+            "medical_number_of_stillbirth": "",
+            "medical_number_of_miscarriage": "",
+            "medical_number_of_artificial_abortion": "",
+            "medical_presence_of_employment": "unknown",
+            "medical_occupational_classification": [],
+            "medical_occupational_classification_other_details": null,
+            "medical_body_height_at_birth": null,
+            "medical_body_weight_at_birth": null,
+            "medical_head_circumference_at_birth": null,
+            "medical_body_height_at_registration": null,
+            "medical_body_weight_at_registration": null,
+            "medical_head_circumference_at_registration": null,
+            "medical_age_at_measurement": null,
+            "medical_body_info_date_at_examination": [
+                "2025/10/12"
+            ],
+            "medical_body_height_at_examination": [
+                "186"
+            ],
+            "medical_body_weight_at_examination": [
+                "68"
+            ],
+            "medical_head_circumference_at_examination": [
+                "56"
+            ],
+            "medical_presence_of_drinking_habits": "unknown",
+            "medical_presence_of_smoking_habits": "unknown",
+            "medical_number_of_smoking": null,
+            "medical_years_of_smoking": null,
+            "medical_suspected_disease_id": [
+                {
+                    "OMIM": "OMIM:154700",
+                    "Orphanet": "Orphanet:284963|Orphanet:558"
+                }
+            ],
+            "medical_suspected_disease_name": [
+                "Marfan syndrome"
+            ],
+            "medical_suspection_of_genetic_disease": "present",
+            "medical_presence_of_familiality": "present",
+            "medical_symptoms_related_within_family_lineage": null,
+            "presence_of_multisystem_disorder": "unknown",
+            "medical_disease_area": [],
+            "medical_disease_area_details": null,
+            "medical_confirmation_of_clinical_diagnosis": "unknown",
+            "medical_clinical_diagnosis_id": [
+                {
+                    "OMIM": "OMIM:154700",
+                    "Orphanet": "Orphanet:284963|Orphanet:558"
+                }
+            ],
+            "medical_clinical_diagnosis_name": [
+                "Marfan syndrome"
+            ],
+            "medical_clinical_diagnosis_date": [
+                "2025/10"
+            ],
+            "medical_final_diagnosis_id": [
+                {
+                    "OMIM": "OMIM:154700",
+                    "Orphanet": "Orphanet:284963|Orphanet:558"
+                }
+            ],
+            "medical_final_diagnosis_name": [
+                "Marfan syndrome"
+            ],
+            "medical_final_diagnosis_date": [
+                "2025/11"
+            ],
+            "medical_presence_of_designated_intractable_disease_certification": "other",
+            "medical_applied_intractable_disease_id": [
+                null
+            ],
+            "medical_applied_intractable_disease_name": [
+                null
+            ],
+            "medical_presence_of_pediatric_chronic_specific_disease_certification": "other",
+            "medical_applied_pediatric_disease_id": [
+                null
+            ],
+            "medical_applied_pediatric_disease_name": [
+                null
+            ],
+            "genotype_presence_of_genetic_testing": "present",
+            "genotype_presence_of_abnormalities_in_genetic_testing": "present",
+            "genotype_date_of_testing": [
+                "2025/10/12"
+            ],
+            "genotype_testing_company_name": [
+                ""
+            ],
+            "genotype_testing_company_name_other_details": [],
+            "genotype_type_of_testing": [],
+            "genotype_testing_other_details": [],
+            "genotype_result_of_testing": [
+                "unknown"
+            ],
+            "genotype_ncbi_gene_id": [
+                "2200"
+            ],
+            "genotype_ensembl_id": [
+                "ENSG00000166147"
+            ],
+            "family_presence_of_onset_in_family": "present",
+            "family_presence_of_miscarriage_or_stillbirth_of_mother": "absent",
+            "family_number_of_stillbirth_of_mother": null,
+            "family_number_of_miscarriage_of_mother": null,
+            "family_number_of_artificial_abortion_of_mother": null,
+            "family_relative_name": [
+                null
+            ],
+            "family_generation_number_of_relative": [
+                null
+            ],
+            "family_presence_of_genetic_cancer_testing": [
+                "unknown"
+            ],
+            "family_genetic_cancer_testing_result_file": [
+                null
+            ],
+            "family_presence_of_cancer_history": [
+                "unknown"
+            ],
+            "family_cancer_history_cancer_type": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_cancer_type_other_details": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_age_of_onset": [
+                [
+                    null
+                ]
+            ],
+            "family_presence_of_lifestyle_disease_history": [
+                "unknown"
+            ],
+            "family_lifestyle_disease_history": [
+                []
+            ],
+            "family_lifestyle_disease_history_other_details": [
+                null
+            ],
+            "family_consanguinity_of_parents": "unknown",
+            "family_family_tree_pdf": null,
+            "family_date_of_family_tree": null,
+            "family_generation_number_of_proband": null,
+            "sample_sampling_date": "2025/10/12",
+            "sample_id": "S-P2026681548398045cjde",
+            "sample_presense_of_treatment_drug_at_sampling": "unknown",
+            "sample_type": [
+                "blood"
+            ],
+            "sample_type_other_detail": null,
+            "sample_prescription": [
+                null
+            ],
+            "sample_route_of_administration": [
+                null
+            ],
+            "sample_yj_code": [
+                null
+            ],
+            "sample_test_date": "2025/10/12",
+            "sample_wbc": null,
+            "sample_rbc": null,
+            "sample_hemoglobin": null,
+            "sample_hematocrit": null,
+            "sample_plt": null,
+            "sample_tp": null,
+            "sample_alb": null,
+            "sample_t_bil": null,
+            "sample_alp": null,
+            "sample_ast_got": null,
+            "sample_alt_gpt": null,
+            "sample_ldh": null,
+            "sample_ck": null,
+            "sample_gamma_gtp": null,
+            "sample_cre": null,
+            "sample_ua": null,
+            "sample_bun": null,
+            "sample_amy": null,
+            "sample_t_cho": null,
+            "sample_tg": null,
+            "sample_ldl_cho": null,
+            "sample_hdl_cho": null,
+            "sample_na": null,
+            "sample_k": null,
+            "sample_ip": null,
+            "sample_cl": null,
+            "sample_ca": null,
+            "sample_crp": null,
+            "sample_glu": null,
+            "sample_hba1c": null,
+            "sample_test_item": [
+                "BNP"
+            ],
+            "sample_test_value": [
+                "14"
+            ],
+            "sample_test_unit": [
+                "pg/mL"
+            ],
+            "registration_disease_name": "Marfan syndrome",
+            "registration_diagnosis_status": "diagnosed",
+            "registration_age_group": "adult",
+            "registration_genetic_status": "genetic",
+            "registration_affection": "affected",
+            "registration_note": "Family 1 younger brother. Affected sibling.",
+            "registration_consent_form_type": "not_applicable",
+            "registration_consent_acquirer": "not_applicable",
+            "registration_proxy_relation": null,
+            "registration_proxy_relation_other": null,
+            "registration_consent_form_version": null,
+            "registration_ascent": "unknown",
+            "registration_ascent_version": null,
+            "registration_consent_acquisition_date": null,
+            "registration_consent_withdrawal": "unknown",
+            "registration_consent_withdrawer": "not_applicable",
+            "registration_proxy_relation_withdrawer": null,
+            "registration_proxy_relation_withdrawer_other_details": null,
+            "registration_consent_withdrawal_version": null,
+            "registration_ascent_withdrawer": "unknown",
+            "registration_ascent_withdrawal_version": null,
+            "registration_consent_withdrawal_date": null
+        },
+        {
+            "PCFNo": "P2026681548398051ubhf",
+            "share_id": null,
+            "case_id": "C0000005",
+            "case_family_id": "F0000002",
+            "case_relationship": "proband_individual",
+            "case_parent_id": null,
+            "case_spouse_id": null,
+            "case_group": "Undiagnosed metabolic and neurologic disorder",
+            "case_presence_or_absence_of_onset": "onset",
+            "case_life_status": "alive",
+            "case_birth": "2012/09",
+            "case_death": null,
+            "case_examination_day": "2025/11/05",
+            "case_age": "13Y",
+            "case_sex": "female",
+            "case_note": "Undiagnosed sharing-oriented case. Wilson disease-like phenotype with ATP7B as a candidate gene.",
+            "case_sympton": null,
+            "medical_chief_complaint": "Tremor, dysarthria, and liver dysfunction",
+            "medical_case_solved": "UNSOLVED",
+            "medical_age_onset": "10Y",
+            "medical_current_history": "Hand tremor and difficulty speaking began around age 10, and liver enzyme elevation has recurred in recent years.",
+            "medical_previous_history": null,
+            "medical_prenatal_perinatal_history": null,
+            "medical_early_developmental_and_schooling_history": null,
+            "medical_process": "This remains an undiagnosed Wilson disease-like case. ATP7B is a candidate gene, and additional validation plus comparison with external cases are needed.",
+            "medical_medications": null,
+            "medical_allergies": null,
+            "medical_social_history": null,
+            "medical_drinking": null,
+            "medical_travel_history": null,
+            "medical_vaccination_history": null,
+            "medical_physical_findings": "Hand tremor and mild dysarthria.",
+            "medical_examination_findings": "Laboratory tests: AST 78 U/L, ALT 96 U/L, ceruloplasmin 17 mg/dL. Twenty-four-hour urinary copper was borderline.",
+            "phenotype_hpo_id": [
+                "HP:0001337",
+                "HP:0001260",
+                "HP:0002910"
+            ],
+            "phenotype_hpo_label": [
+                {
+                    "name_en": "Tremor",
+                    "name_ja": "Tremor"
+                },
+                {
+                    "name_en": "Dysarthria",
+                    "name_ja": "Dysarthria"
+                },
+                {
+                    "name_en": "Elevated hepatic transaminase",
+                    "name_ja": "Elevated hepatic transaminase"
+                }
+            ],
+            "phenotype_medical_current_history": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_medical_previous_history": [
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_process": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_family_history": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_excluded": [
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_clinical_relevance": [
+                "distinctive",
+                "distinctive",
+                "distinctive"
+            ],
+            "phenotype_severity": [
+                "moderate",
+                "mild",
+                "moderate"
+            ],
+            "phenotype_age_onset": [
+                "10Y",
+                "11Y",
+                "10Y"
+            ],
+            "phenotype_temporal_pattern": [
+                "chronic",
+                "chronic",
+                "chronic"
+            ],
+            "phenotype_pace_progression": [
+                "Slowly progressive",
+                "Slowly progressive",
+                "Slowly progressive"
+            ],
+            "phenotype_resolution": [
+                "",
+                "",
+                ""
+            ],
+            "phenotype_comments": [
+                "",
+                "",
+                ""
+            ],
+            "genotype_analysis": "Exome sequencing identified ATP7B as a candidate gene, but the case remains unsolved at present.",
+            "genotype_gene": [
+                "ATP7B"
+            ],
+            "genotype_status": [
+                "Candidate variant"
+            ],
+            "genotype_cdna_change": [
+                ""
+            ],
+            "genotype_pathogenicity": [
+                "VUS"
+            ],
+            "genotype_allelic_state": [
+                "heterozygous"
+            ],
+            "genotype_reference": [],
+            "genotype_chr_position": [],
+            "genotype_transcript": [
+                ""
+            ],
+            "genotype_protein_charge": [
+                ""
+            ],
+            "genotype_annotation": [],
+            "genotype_inheritance": [
+                "unknown"
+            ],
+            "genotype_comments": [],
+            "family_history": "A younger brother has similar symptoms.",
+            "family_mode_inheritance": "Autosomal recessive inheritance",
+            "family_other_affected_relatives": "present",
+            "family_consanguinity": "unknown",
+            "family_paternal_ethnicity": null,
+            "family_maternal_ethnicity": null,
+            "case_participation_of_relatives_in_this_study": "not_applicable",
+            "case_sex_details": "",
+            "case_age_on_examination": "13Y",
+            "case_cause_of_death": null,
+            "case_cause_of_death_details": null,
+            "case_icd_11_code_of_cause_of_death": null,
+            "case_last_date_of_confirmation_of_survival": "2025/11/05",
+            "case_ethnicity_group": null,
+            "case_free_comment_about_ethnicity_group": null,
+            "case_country_of_birth": null,
+            "case_state_of_birth": null,
+            "case_city_of_birth": null,
+            "case_free_comment_about_birth": null,
+            "case_presence_of_prenatal_abnormalities": "unknown",
+            "case_presence_of_abnormalities_at_birth": "unknown",
+            "case_presence_of_medical_assistance_at_birth": "unknown",
+            "case_gestational_age_at_birth": null,
+            "case_age_of_mother_at_birth": null,
+            "case_age_of_father_at_birth": null,
+            "case_presence_of_assisted_reproductive_technology": "unknown",
+            "case_type_of_assisted_reproductive_technology": [],
+            "case_date_of_survey": null,
+            "case_name_of_facility": null,
+            "case_code_of_facility": null,
+            "case_family_name_of_doctor_in_charge": null,
+            "case_first_name_of_doctor_in_charge": null,
+            "case_family_name_of_inputter": null,
+            "case_first_name_of_inputter": null,
+            "case_created_at": "2026/6/8 16:10:00",
+            "case_updated_at": "2026/6/8 16:33:45",
+            "medical_presence_of_previous_history": "absent",
+            "medical_disease_of_previous_history_id": [
+                null
+            ],
+            "medical_disease_of_previous_history_name": [
+                null
+            ],
+            "medical_note_of_previous_history": null,
+            "medical_presence_of_complications": "unknown",
+            "medical_complication_history_id": [
+                null
+            ],
+            "medical_complication_history_name": [
+                null
+            ],
+            "medical_note_of_complications": null,
+            "medical_complications_history": null,
+            "medical_presence_of_pregnancy": "unknown",
+            "medical_number_of_pregnancy": "",
+            "medical_presence_of_childbirth": "unknown",
+            "medical_number_of_childbirth": "",
+            "medical_presence_of_miscarriage_or_stillbirth": "unknown",
+            "medical_number_of_stillbirth": "",
+            "medical_number_of_miscarriage": "",
+            "medical_number_of_artificial_abortion": "",
+            "medical_presence_of_employment": "unknown",
+            "medical_occupational_classification": [],
+            "medical_occupational_classification_other_details": null,
+            "medical_body_height_at_birth": null,
+            "medical_body_weight_at_birth": null,
+            "medical_head_circumference_at_birth": null,
+            "medical_body_height_at_registration": null,
+            "medical_body_weight_at_registration": null,
+            "medical_head_circumference_at_registration": null,
+            "medical_age_at_measurement": null,
+            "medical_body_info_date_at_examination": [
+                "2025/11/05"
+            ],
+            "medical_body_height_at_examination": [
+                "154"
+            ],
+            "medical_body_weight_at_examination": [
+                "44"
+            ],
+            "medical_head_circumference_at_examination": [
+                "54"
+            ],
+            "medical_presence_of_drinking_habits": "unknown",
+            "medical_presence_of_smoking_habits": "unknown",
+            "medical_number_of_smoking": null,
+            "medical_years_of_smoking": null,
+            "medical_suspected_disease_id": [
+                {
+                    "OMIM": "OMIM:277900",
+                    "Orphanet": "Orphanet:905"
+                }
+            ],
+            "medical_suspected_disease_name": [
+                "Wilson disease"
+            ],
+            "medical_suspection_of_genetic_disease": "present",
+            "medical_presence_of_familiality": "present",
+            "medical_symptoms_related_within_family_lineage": null,
+            "presence_of_multisystem_disorder": "unknown",
+            "medical_disease_area": [],
+            "medical_disease_area_details": null,
+            "medical_confirmation_of_clinical_diagnosis": "unknown",
+            "medical_clinical_diagnosis_id": [
+                null
+            ],
+            "medical_clinical_diagnosis_name": [
+                null
+            ],
+            "medical_clinical_diagnosis_date": [
+                null
+            ],
+            "medical_final_diagnosis_id": [
+                null
+            ],
+            "medical_final_diagnosis_name": [
+                null
+            ],
+            "medical_final_diagnosis_date": [
+                null
+            ],
+            "medical_presence_of_designated_intractable_disease_certification": "other",
+            "medical_applied_intractable_disease_id": [
+                null
+            ],
+            "medical_applied_intractable_disease_name": [
+                null
+            ],
+            "medical_presence_of_pediatric_chronic_specific_disease_certification": "other",
+            "medical_applied_pediatric_disease_id": [
+                null
+            ],
+            "medical_applied_pediatric_disease_name": [
+                null
+            ],
+            "genotype_presence_of_genetic_testing": "present",
+            "genotype_presence_of_abnormalities_in_genetic_testing": "present",
+            "genotype_date_of_testing": [
+                "2025/11/05"
+            ],
+            "genotype_testing_company_name": [
+                ""
+            ],
+            "genotype_testing_company_name_other_details": [],
+            "genotype_type_of_testing": [],
+            "genotype_testing_other_details": [],
+            "genotype_result_of_testing": [
+                "unknown"
+            ],
+            "genotype_ncbi_gene_id": [
+                "540"
+            ],
+            "genotype_ensembl_id": [
+                "ENSG00000123191"
+            ],
+            "family_presence_of_onset_in_family": "present",
+            "family_presence_of_miscarriage_or_stillbirth_of_mother": "absent",
+            "family_number_of_stillbirth_of_mother": null,
+            "family_number_of_miscarriage_of_mother": null,
+            "family_number_of_artificial_abortion_of_mother": null,
+            "family_relative_name": [
+                null
+            ],
+            "family_generation_number_of_relative": [
+                null
+            ],
+            "family_presence_of_genetic_cancer_testing": [
+                "unknown"
+            ],
+            "family_genetic_cancer_testing_result_file": [
+                null
+            ],
+            "family_presence_of_cancer_history": [
+                "unknown"
+            ],
+            "family_cancer_history_cancer_type": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_cancer_type_other_details": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_age_of_onset": [
+                [
+                    "unknown"
+                ]
+            ],
+            "family_presence_of_lifestyle_disease_history": [
+                "unknown"
+            ],
+            "family_lifestyle_disease_history": [
+                []
+            ],
+            "family_lifestyle_disease_history_other_details": [
+                null
+            ],
+            "family_consanguinity_of_parents": "unknown",
+            "family_family_tree_pdf": null,
+            "family_date_of_family_tree": null,
+            "family_generation_number_of_proband": null,
+            "sample_sampling_date": "2025/11/05",
+            "sample_id": "S-P2026681548398051ubhf",
+            "sample_presense_of_treatment_drug_at_sampling": "unknown",
+            "sample_type": [
+                "blood"
+            ],
+            "sample_type_other_detail": null,
+            "sample_prescription": [
+                null
+            ],
+            "sample_route_of_administration": [
+                null
+            ],
+            "sample_yj_code": [
+                null
+            ],
+            "sample_test_date": "2025/11/05",
+            "sample_wbc": null,
+            "sample_rbc": null,
+            "sample_hemoglobin": null,
+            "sample_hematocrit": null,
+            "sample_plt": null,
+            "sample_tp": null,
+            "sample_alb": null,
+            "sample_t_bil": null,
+            "sample_alp": null,
+            "sample_ast_got": "78",
+            "sample_alt_gpt": "96",
+            "sample_ldh": null,
+            "sample_ck": null,
+            "sample_gamma_gtp": null,
+            "sample_cre": null,
+            "sample_ua": null,
+            "sample_bun": null,
+            "sample_amy": null,
+            "sample_t_cho": null,
+            "sample_tg": null,
+            "sample_ldl_cho": null,
+            "sample_hdl_cho": null,
+            "sample_na": null,
+            "sample_k": null,
+            "sample_ip": null,
+            "sample_cl": null,
+            "sample_ca": null,
+            "sample_crp": null,
+            "sample_glu": null,
+            "sample_hba1c": null,
+            "sample_test_item": [
+                "Ceruloplasmin"
+            ],
+            "sample_test_value": [
+                "17"
+            ],
+            "sample_test_unit": [
+                "mg/dL"
+            ],
+            "registration_disease_name": "Wilson disease-like disorder",
+            "registration_diagnosis_status": "undiagnosed",
+            "registration_age_group": "child",
+            "registration_genetic_status": "genetic",
+            "registration_affection": "affected",
+            "registration_note": "Undiagnosed sharing-oriented case. Wilson disease-like phenotype with ATP7B as a candidate gene.",
+            "registration_consent_form_type": "not_applicable",
+            "registration_consent_acquirer": "not_applicable",
+            "registration_proxy_relation": null,
+            "registration_proxy_relation_other": null,
+            "registration_consent_form_version": null,
+            "registration_ascent": "unknown",
+            "registration_ascent_version": null,
+            "registration_consent_acquisition_date": null,
+            "registration_consent_withdrawal": "unknown",
+            "registration_consent_withdrawer": "not_applicable",
+            "registration_proxy_relation_withdrawer": null,
+            "registration_proxy_relation_withdrawer_other_details": null,
+            "registration_consent_withdrawal_version": null,
+            "registration_ascent_withdrawer": "unknown",
+            "registration_ascent_withdrawal_version": null,
+            "registration_consent_withdrawal_date": null
+        },
+        {
+            "PCFNo": "P2026681548398064sjla",
+            "share_id": null,
+            "case_id": "C0000006",
+            "case_family_id": "F0000003",
+            "case_relationship": "proband_individual",
+            "case_parent_id": null,
+            "case_spouse_id": null,
+            "case_group": "Undiagnosed cardiac disorder",
+            "case_presence_or_absence_of_onset": "onset",
+            "case_life_status": "alive",
+            "case_birth": "2000/01",
+            "case_death": null,
+            "case_examination_day": "2025/12/02",
+            "case_age": "25Y",
+            "case_sex": "male",
+            "case_note": "Undiagnosed sharing-oriented case. Familial cardiomyopathy candidate case.",
+            "case_sympton": null,
+            "medical_chief_complaint": "Syncope and septal hypertrophy",
+            "medical_case_solved": "UNSOLVED",
+            "medical_age_onset": "19Y",
+            "medical_current_history": "Recurrent exertional syncope started after university entrance, and echocardiography revealed septal hypertrophy, but no definitive diagnosis has been reached.",
+            "medical_previous_history": null,
+            "medical_prenatal_perinatal_history": null,
+            "medical_early_developmental_and_schooling_history": null,
+            "medical_process": "This remains an undiagnosed hereditary cardiomyopathy case. MYH7 is a strong candidate, and family information plus comparison with similar cases may be informative.",
+            "medical_medications": null,
+            "medical_allergies": null,
+            "medical_social_history": null,
+            "medical_drinking": null,
+            "medical_travel_history": null,
+            "medical_vaccination_history": null,
+            "medical_physical_findings": "Systolic murmur present.",
+            "medical_examination_findings": "Laboratory tests: BNP 188 pg/mL, high-sensitivity troponin I 32 pg/mL. Echocardiography showed interventricular septal thickness of 17 mm.",
+            "phenotype_hpo_id": [
+                "HP:0001279",
+                "HP:0001712",
+                "HP:0002875"
+            ],
+            "phenotype_hpo_label": [
+                {
+                    "name_en": "Syncope",
+                    "name_ja": "Syncope"
+                },
+                {
+                    "name_en": "Left ventricular hypertrophy",
+                    "name_ja": "Left ventricular hypertrophy"
+                },
+                {
+                    "name_en": "Exertional dyspnea",
+                    "name_ja": "Exertional dyspnea"
+                }
+            ],
+            "phenotype_medical_current_history": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_medical_previous_history": [
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_process": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_family_history": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_excluded": [
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_clinical_relevance": [
+                "distinctive",
+                "distinctive",
+                "distinctive"
+            ],
+            "phenotype_severity": [
+                "moderate",
+                "moderate",
+                "moderate"
+            ],
+            "phenotype_age_onset": [
+                "19Y",
+                "24Y",
+                "20Y"
+            ],
+            "phenotype_temporal_pattern": [
+                "recurrent",
+                "chronic",
+                "chronic"
+            ],
+            "phenotype_pace_progression": [
+                "Progressive",
+                "Slowly progressive",
+                "Slowly progressive"
+            ],
+            "phenotype_resolution": [
+                "",
+                "",
+                ""
+            ],
+            "phenotype_comments": [
+                "",
+                "",
+                ""
+            ],
+            "genotype_analysis": "A hereditary cardiomyopathy panel prioritized MYH7 as the leading candidate, but the case remains unsolved at present.",
+            "genotype_gene": [
+                "MYH7"
+            ],
+            "genotype_status": [
+                "Candidate variant"
+            ],
+            "genotype_cdna_change": [
+                ""
+            ],
+            "genotype_pathogenicity": [
+                "VUS"
+            ],
+            "genotype_allelic_state": [
+                "heterozygous"
+            ],
+            "genotype_reference": [],
+            "genotype_chr_position": [],
+            "genotype_transcript": [
+                ""
+            ],
+            "genotype_protein_charge": [
+                ""
+            ],
+            "genotype_annotation": [],
+            "genotype_inheritance": [
+                "autosomal dominant - Inherited mutation"
+            ],
+            "genotype_comments": [],
+            "family_history": "A younger sister also has syncopal episodes.",
+            "family_mode_inheritance": "Autosomal dominant inheritance",
+            "family_other_affected_relatives": "present",
+            "family_consanguinity": "absent",
+            "family_paternal_ethnicity": null,
+            "family_maternal_ethnicity": null,
+            "case_participation_of_relatives_in_this_study": "not_applicable",
+            "case_sex_details": "",
+            "case_age_on_examination": "25Y",
+            "case_cause_of_death": null,
+            "case_cause_of_death_details": null,
+            "case_icd_11_code_of_cause_of_death": null,
+            "case_last_date_of_confirmation_of_survival": "2025/12/02",
+            "case_ethnicity_group": null,
+            "case_free_comment_about_ethnicity_group": null,
+            "case_country_of_birth": null,
+            "case_state_of_birth": null,
+            "case_city_of_birth": null,
+            "case_free_comment_about_birth": null,
+            "case_presence_of_prenatal_abnormalities": "unknown",
+            "case_presence_of_abnormalities_at_birth": "unknown",
+            "case_presence_of_medical_assistance_at_birth": "unknown",
+            "case_gestational_age_at_birth": null,
+            "case_age_of_mother_at_birth": null,
+            "case_age_of_father_at_birth": null,
+            "case_presence_of_assisted_reproductive_technology": "unknown",
+            "case_type_of_assisted_reproductive_technology": [],
+            "case_date_of_survey": null,
+            "case_name_of_facility": null,
+            "case_code_of_facility": null,
+            "case_family_name_of_doctor_in_charge": null,
+            "case_first_name_of_doctor_in_charge": null,
+            "case_family_name_of_inputter": null,
+            "case_first_name_of_inputter": null,
+            "case_created_at": "2026/6/8 16:10:00",
+            "case_updated_at": "2026/6/8 16:34:03",
+            "medical_presence_of_previous_history": "absent",
+            "medical_disease_of_previous_history_id": [
+                null
+            ],
+            "medical_disease_of_previous_history_name": [
+                null
+            ],
+            "medical_note_of_previous_history": null,
+            "medical_presence_of_complications": "unknown",
+            "medical_complication_history_id": [
+                null
+            ],
+            "medical_complication_history_name": [
+                null
+            ],
+            "medical_note_of_complications": null,
+            "medical_complications_history": null,
+            "medical_presence_of_pregnancy": "unknown",
+            "medical_number_of_pregnancy": "",
+            "medical_presence_of_childbirth": "unknown",
+            "medical_number_of_childbirth": "",
+            "medical_presence_of_miscarriage_or_stillbirth": "unknown",
+            "medical_number_of_stillbirth": "",
+            "medical_number_of_miscarriage": "",
+            "medical_number_of_artificial_abortion": "",
+            "medical_presence_of_employment": "unknown",
+            "medical_occupational_classification": [],
+            "medical_occupational_classification_other_details": null,
+            "medical_body_height_at_birth": null,
+            "medical_body_weight_at_birth": null,
+            "medical_head_circumference_at_birth": null,
+            "medical_body_height_at_registration": null,
+            "medical_body_weight_at_registration": null,
+            "medical_head_circumference_at_registration": null,
+            "medical_age_at_measurement": null,
+            "medical_body_info_date_at_examination": [
+                "2025/12/02"
+            ],
+            "medical_body_height_at_examination": [
+                "172"
+            ],
+            "medical_body_weight_at_examination": [
+                "67"
+            ],
+            "medical_head_circumference_at_examination": [
+                "56"
+            ],
+            "medical_presence_of_drinking_habits": "unknown",
+            "medical_presence_of_smoking_habits": "unknown",
+            "medical_number_of_smoking": null,
+            "medical_years_of_smoking": null,
+            "medical_suspected_disease_id": [
+                {
+                    "Orphanet": "Orphanet:217569"
+                }
+            ],
+            "medical_suspected_disease_name": [
+                "hypertrophic cardiomyopathy"
+            ],
+            "medical_suspection_of_genetic_disease": "present",
+            "medical_presence_of_familiality": "present",
+            "medical_symptoms_related_within_family_lineage": null,
+            "presence_of_multisystem_disorder": "unknown",
+            "medical_disease_area": [],
+            "medical_disease_area_details": null,
+            "medical_confirmation_of_clinical_diagnosis": "unknown",
+            "medical_clinical_diagnosis_id": [
+                null
+            ],
+            "medical_clinical_diagnosis_name": [
+                null
+            ],
+            "medical_clinical_diagnosis_date": [
+                null
+            ],
+            "medical_final_diagnosis_id": [
+                null
+            ],
+            "medical_final_diagnosis_name": [
+                null
+            ],
+            "medical_final_diagnosis_date": [
+                null
+            ],
+            "medical_presence_of_designated_intractable_disease_certification": "other",
+            "medical_applied_intractable_disease_id": [
+                null
+            ],
+            "medical_applied_intractable_disease_name": [
+                null
+            ],
+            "medical_presence_of_pediatric_chronic_specific_disease_certification": "other",
+            "medical_applied_pediatric_disease_id": [
+                null
+            ],
+            "medical_applied_pediatric_disease_name": [
+                null
+            ],
+            "genotype_presence_of_genetic_testing": "present",
+            "genotype_presence_of_abnormalities_in_genetic_testing": "present",
+            "genotype_date_of_testing": [
+                "2025/12/02"
+            ],
+            "genotype_testing_company_name": [
+                ""
+            ],
+            "genotype_testing_company_name_other_details": [],
+            "genotype_type_of_testing": [],
+            "genotype_testing_other_details": [],
+            "genotype_result_of_testing": [
+                "unknown"
+            ],
+            "genotype_ncbi_gene_id": [
+                "4625"
+            ],
+            "genotype_ensembl_id": [
+                "ENSG00000092054"
+            ],
+            "family_presence_of_onset_in_family": "present",
+            "family_presence_of_miscarriage_or_stillbirth_of_mother": "absent",
+            "family_number_of_stillbirth_of_mother": null,
+            "family_number_of_miscarriage_of_mother": null,
+            "family_number_of_artificial_abortion_of_mother": null,
+            "family_relative_name": [
+                null
+            ],
+            "family_generation_number_of_relative": [
+                null
+            ],
+            "family_presence_of_genetic_cancer_testing": [
+                "unknown"
+            ],
+            "family_genetic_cancer_testing_result_file": [
+                null
+            ],
+            "family_presence_of_cancer_history": [
+                "unknown"
+            ],
+            "family_cancer_history_cancer_type": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_cancer_type_other_details": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_age_of_onset": [
+                [
+                    "unknown"
+                ]
+            ],
+            "family_presence_of_lifestyle_disease_history": [
+                "unknown"
+            ],
+            "family_lifestyle_disease_history": [
+                []
+            ],
+            "family_lifestyle_disease_history_other_details": [
+                null
+            ],
+            "family_consanguinity_of_parents": "unknown",
+            "family_family_tree_pdf": null,
+            "family_date_of_family_tree": null,
+            "family_generation_number_of_proband": null,
+            "sample_sampling_date": "2025/12/02",
+            "sample_id": "S-P2026681548398064sjla",
+            "sample_presense_of_treatment_drug_at_sampling": "unknown",
+            "sample_type": [
+                "blood"
+            ],
+            "sample_type_other_detail": null,
+            "sample_prescription": [
+                null
+            ],
+            "sample_route_of_administration": [
+                null
+            ],
+            "sample_yj_code": [
+                null
+            ],
+            "sample_test_date": "2025/12/02",
+            "sample_wbc": null,
+            "sample_rbc": null,
+            "sample_hemoglobin": null,
+            "sample_hematocrit": null,
+            "sample_plt": null,
+            "sample_tp": null,
+            "sample_alb": null,
+            "sample_t_bil": null,
+            "sample_alp": null,
+            "sample_ast_got": null,
+            "sample_alt_gpt": null,
+            "sample_ldh": null,
+            "sample_ck": null,
+            "sample_gamma_gtp": null,
+            "sample_cre": null,
+            "sample_ua": null,
+            "sample_bun": null,
+            "sample_amy": null,
+            "sample_t_cho": null,
+            "sample_tg": null,
+            "sample_ldl_cho": null,
+            "sample_hdl_cho": null,
+            "sample_na": null,
+            "sample_k": null,
+            "sample_ip": null,
+            "sample_cl": null,
+            "sample_ca": null,
+            "sample_crp": null,
+            "sample_glu": null,
+            "sample_hba1c": null,
+            "sample_test_item": [
+                "BNP",
+                "High-sensitivity troponin I"
+            ],
+            "sample_test_value": [
+                "188",
+                "32"
+            ],
+            "sample_test_unit": [
+                "pg/mL",
+                "pg/mL"
+            ],
+            "registration_disease_name": "Familial cardiomyopathy",
+            "registration_diagnosis_status": "undiagnosed",
+            "registration_age_group": "adult",
+            "registration_genetic_status": "genetic",
+            "registration_affection": "affected",
+            "registration_note": "Undiagnosed sharing-oriented case. Familial cardiomyopathy candidate case.",
+            "registration_consent_form_type": "not_applicable",
+            "registration_consent_acquirer": "not_applicable",
+            "registration_proxy_relation": null,
+            "registration_proxy_relation_other": null,
+            "registration_consent_form_version": null,
+            "registration_ascent": "unknown",
+            "registration_ascent_version": null,
+            "registration_consent_acquisition_date": null,
+            "registration_consent_withdrawal": "unknown",
+            "registration_consent_withdrawer": "not_applicable",
+            "registration_proxy_relation_withdrawer": null,
+            "registration_proxy_relation_withdrawer_other_details": null,
+            "registration_consent_withdrawal_version": null,
+            "registration_ascent_withdrawer": "unknown",
+            "registration_ascent_withdrawal_version": null,
+            "registration_consent_withdrawal_date": null
+        },
+        {
+            "PCFNo": "P2026681548398079mkye",
+            "share_id": null,
+            "case_id": "C0000007",
+            "case_family_id": "F0000004",
+            "case_relationship": "proband_individual",
+            "case_parent_id": null,
+            "case_spouse_id": null,
+            "case_group": "Cardiomyopathy",
+            "case_presence_or_absence_of_onset": "onset",
+            "case_life_status": "alive",
+            "case_birth": "1988/01",
+            "case_death": null,
+            "case_examination_day": "2025/07/22",
+            "case_age": "37Y",
+            "case_sex": "male",
+            "case_note": "Sharing-oriented diagnosed case. Pathogenic MYH7 hypertrophic cardiomyopathy case.",
+            "case_sympton": null,
+            "medical_chief_complaint": "Syncope and exertional dyspnea",
+            "medical_case_solved": "SOLVED",
+            "medical_age_onset": "22Y",
+            "medical_current_history": "Exertional shortness of breath and presyncope recurred from the early twenties, and nonsustained ventricular tachycardia was documented in the thirties.",
+            "medical_previous_history": null,
+            "medical_prenatal_perinatal_history": null,
+            "medical_early_developmental_and_schooling_history": null,
+            "medical_process": "A cardiomyopathy gene panel identified a pathogenic MYH7 variant, and hypertrophic cardiomyopathy was diagnosed.",
+            "medical_medications": null,
+            "medical_allergies": null,
+            "medical_social_history": null,
+            "medical_drinking": null,
+            "medical_travel_history": null,
+            "medical_vaccination_history": null,
+            "medical_physical_findings": "Systolic murmur present.",
+            "medical_examination_findings": "Laboratory tests: BNP 235 pg/mL, high-sensitivity troponin I 54 pg/mL. Echocardiography showed septal thickness of 20 mm.",
+            "phenotype_hpo_id": [
+                "HP:0001279",
+                "HP:0001712",
+                "HP:0002875"
+            ],
+            "phenotype_hpo_label": [
+                {
+                    "name_en": "Syncope",
+                    "name_ja": "Syncope"
+                },
+                {
+                    "name_en": "Left ventricular hypertrophy",
+                    "name_ja": "Left ventricular hypertrophy"
+                },
+                {
+                    "name_en": "Exertional dyspnea",
+                    "name_ja": "Exertional dyspnea"
+                }
+            ],
+            "phenotype_medical_current_history": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_medical_previous_history": [
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_process": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_family_history": [
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_excluded": [
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_clinical_relevance": [
+                "distinctive",
+                "distinctive",
+                "distinctive"
+            ],
+            "phenotype_severity": [
+                "moderate",
+                "severe",
+                "moderate"
+            ],
+            "phenotype_age_onset": [
+                "26Y",
+                "30Y",
+                "22Y"
+            ],
+            "phenotype_temporal_pattern": [
+                "recurrent",
+                "chronic",
+                "chronic"
+            ],
+            "phenotype_pace_progression": [
+                "Progressive",
+                "Slowly progressive",
+                "Slowly progressive"
+            ],
+            "phenotype_resolution": [
+                "",
+                "",
+                ""
+            ],
+            "phenotype_comments": [
+                "",
+                "",
+                ""
+            ],
+            "genotype_analysis": "A cardiomyopathy panel identified a pathogenic MYH7 variant.",
+            "genotype_gene": [
+                "MYH7"
+            ],
+            "genotype_status": [
+                "Pathogenic variant detected"
+            ],
+            "genotype_cdna_change": [
+                "c.1508G>A"
+            ],
+            "genotype_pathogenicity": [
+                "Pathogenic"
+            ],
+            "genotype_allelic_state": [
+                "heterozygous"
+            ],
+            "genotype_reference": [],
+            "genotype_chr_position": [],
+            "genotype_transcript": [
+                "NM_000257.4"
+            ],
+            "genotype_protein_charge": [
+                "p.Arg503Gln"
+            ],
+            "genotype_annotation": [],
+            "genotype_inheritance": [
+                "autosomal dominant - Inherited mutation"
+            ],
+            "genotype_comments": [],
+            "family_history": "The father died suddenly at a young age.",
+            "family_mode_inheritance": "Autosomal dominant inheritance",
+            "family_other_affected_relatives": "present",
+            "family_consanguinity": "absent",
+            "family_paternal_ethnicity": null,
+            "family_maternal_ethnicity": null,
+            "case_participation_of_relatives_in_this_study": "not_applicable",
+            "case_sex_details": "",
+            "case_age_on_examination": "37Y",
+            "case_cause_of_death": null,
+            "case_cause_of_death_details": null,
+            "case_icd_11_code_of_cause_of_death": null,
+            "case_last_date_of_confirmation_of_survival": "2025/07/22",
+            "case_ethnicity_group": null,
+            "case_free_comment_about_ethnicity_group": null,
+            "case_country_of_birth": null,
+            "case_state_of_birth": null,
+            "case_city_of_birth": null,
+            "case_free_comment_about_birth": null,
+            "case_presence_of_prenatal_abnormalities": "unknown",
+            "case_presence_of_abnormalities_at_birth": "unknown",
+            "case_presence_of_medical_assistance_at_birth": "unknown",
+            "case_gestational_age_at_birth": null,
+            "case_age_of_mother_at_birth": null,
+            "case_age_of_father_at_birth": null,
+            "case_presence_of_assisted_reproductive_technology": "unknown",
+            "case_type_of_assisted_reproductive_technology": [],
+            "case_date_of_survey": null,
+            "case_name_of_facility": null,
+            "case_code_of_facility": null,
+            "case_family_name_of_doctor_in_charge": null,
+            "case_first_name_of_doctor_in_charge": null,
+            "case_family_name_of_inputter": null,
+            "case_first_name_of_inputter": null,
+            "case_created_at": "2026/6/8 16:10:00",
+            "case_updated_at": "2026/6/8 16:34:21",
+            "medical_presence_of_previous_history": "absent",
+            "medical_disease_of_previous_history_id": [
+                null
+            ],
+            "medical_disease_of_previous_history_name": [
+                null
+            ],
+            "medical_note_of_previous_history": null,
+            "medical_presence_of_complications": "unknown",
+            "medical_complication_history_id": [
+                null
+            ],
+            "medical_complication_history_name": [
+                null
+            ],
+            "medical_note_of_complications": null,
+            "medical_complications_history": null,
+            "medical_presence_of_pregnancy": "unknown",
+            "medical_number_of_pregnancy": "",
+            "medical_presence_of_childbirth": "unknown",
+            "medical_number_of_childbirth": "",
+            "medical_presence_of_miscarriage_or_stillbirth": "unknown",
+            "medical_number_of_stillbirth": "",
+            "medical_number_of_miscarriage": "",
+            "medical_number_of_artificial_abortion": "",
+            "medical_presence_of_employment": "unknown",
+            "medical_occupational_classification": [],
+            "medical_occupational_classification_other_details": null,
+            "medical_body_height_at_birth": null,
+            "medical_body_weight_at_birth": null,
+            "medical_head_circumference_at_birth": null,
+            "medical_body_height_at_registration": null,
+            "medical_body_weight_at_registration": null,
+            "medical_head_circumference_at_registration": null,
+            "medical_age_at_measurement": null,
+            "medical_body_info_date_at_examination": [
+                "2025/07/22"
+            ],
+            "medical_body_height_at_examination": [
+                "175"
+            ],
+            "medical_body_weight_at_examination": [
+                "73"
+            ],
+            "medical_head_circumference_at_examination": [
+                "57"
+            ],
+            "medical_presence_of_drinking_habits": "unknown",
+            "medical_presence_of_smoking_habits": "unknown",
+            "medical_number_of_smoking": null,
+            "medical_years_of_smoking": null,
+            "medical_suspected_disease_id": [
+                {
+                    "Orphanet": "Orphanet:217569"
+                }
+            ],
+            "medical_suspected_disease_name": [
+                "hypertrophic cardiomyopathy"
+            ],
+            "medical_suspection_of_genetic_disease": "present",
+            "medical_presence_of_familiality": "present",
+            "medical_symptoms_related_within_family_lineage": null,
+            "presence_of_multisystem_disorder": "unknown",
+            "medical_disease_area": [],
+            "medical_disease_area_details": null,
+            "medical_confirmation_of_clinical_diagnosis": "unknown",
+            "medical_clinical_diagnosis_id": [
+                {
+                    "Orphanet": "Orphanet:217569"
+                }
+            ],
+            "medical_clinical_diagnosis_name": [
+                "hypertrophic cardiomyopathy"
+            ],
+            "medical_clinical_diagnosis_date": [
+                "2025/07"
+            ],
+            "medical_final_diagnosis_id": [
+                {
+                    "Orphanet": "Orphanet:217569"
+                }
+            ],
+            "medical_final_diagnosis_name": [
+                "hypertrophic cardiomyopathy"
+            ],
+            "medical_final_diagnosis_date": [
+                "2025/07"
+            ],
+            "medical_presence_of_designated_intractable_disease_certification": "not_applicable",
+            "medical_applied_intractable_disease_id": [],
+            "medical_applied_intractable_disease_name": [],
+            "medical_presence_of_pediatric_chronic_specific_disease_certification": "not_applicable",
+            "medical_applied_pediatric_disease_id": [],
+            "medical_applied_pediatric_disease_name": [],
+            "genotype_presence_of_genetic_testing": "present",
+            "genotype_presence_of_abnormalities_in_genetic_testing": "present",
+            "genotype_date_of_testing": [
+                "2025/07/22"
+            ],
+            "genotype_testing_company_name": [
+                ""
+            ],
+            "genotype_testing_company_name_other_details": [],
+            "genotype_type_of_testing": [],
+            "genotype_testing_other_details": [],
+            "genotype_result_of_testing": [
+                "unknown"
+            ],
+            "genotype_ncbi_gene_id": [
+                "4625"
+            ],
+            "genotype_ensembl_id": [
+                "ENSG00000092054"
+            ],
+            "family_presence_of_onset_in_family": "present",
+            "family_presence_of_miscarriage_or_stillbirth_of_mother": "absent",
+            "family_number_of_stillbirth_of_mother": null,
+            "family_number_of_miscarriage_of_mother": null,
+            "family_number_of_artificial_abortion_of_mother": null,
+            "family_relative_name": [
+                null
+            ],
+            "family_generation_number_of_relative": [
+                null
+            ],
+            "family_presence_of_genetic_cancer_testing": [
+                "unknown"
+            ],
+            "family_genetic_cancer_testing_result_file": [
+                null
+            ],
+            "family_presence_of_cancer_history": [
+                "unknown"
+            ],
+            "family_cancer_history_cancer_type": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_cancer_type_other_details": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_age_of_onset": [
+                [
+                    null
+                ]
+            ],
+            "family_presence_of_lifestyle_disease_history": [
+                "unknown"
+            ],
+            "family_lifestyle_disease_history": [
+                []
+            ],
+            "family_lifestyle_disease_history_other_details": [
+                null
+            ],
+            "family_consanguinity_of_parents": "unknown",
+            "family_family_tree_pdf": null,
+            "family_date_of_family_tree": null,
+            "family_generation_number_of_proband": null,
+            "sample_sampling_date": "2025/07/22",
+            "sample_id": "S-P2026681548398079mkye",
+            "sample_presense_of_treatment_drug_at_sampling": "unknown",
+            "sample_type": [
+                "blood"
+            ],
+            "sample_type_other_detail": null,
+            "sample_prescription": [
+                null
+            ],
+            "sample_route_of_administration": [
+                null
+            ],
+            "sample_yj_code": [
+                null
+            ],
+            "sample_test_date": "2025/07/22",
+            "sample_wbc": null,
+            "sample_rbc": null,
+            "sample_hemoglobin": null,
+            "sample_hematocrit": null,
+            "sample_plt": null,
+            "sample_tp": null,
+            "sample_alb": null,
+            "sample_t_bil": null,
+            "sample_alp": null,
+            "sample_ast_got": null,
+            "sample_alt_gpt": null,
+            "sample_ldh": null,
+            "sample_ck": null,
+            "sample_gamma_gtp": null,
+            "sample_cre": null,
+            "sample_ua": null,
+            "sample_bun": null,
+            "sample_amy": null,
+            "sample_t_cho": null,
+            "sample_tg": null,
+            "sample_ldl_cho": null,
+            "sample_hdl_cho": null,
+            "sample_na": null,
+            "sample_k": null,
+            "sample_ip": null,
+            "sample_cl": null,
+            "sample_ca": null,
+            "sample_crp": null,
+            "sample_glu": null,
+            "sample_hba1c": null,
+            "sample_test_item": [
+                "BNP",
+                "High-sensitivity troponin I"
+            ],
+            "sample_test_value": [
+                "235",
+                "54"
+            ],
+            "sample_test_unit": [
+                "pg/mL",
+                "pg/mL"
+            ],
+            "registration_disease_name": "Hypertrophic cardiomyopathy",
+            "registration_diagnosis_status": "diagnosed",
+            "registration_age_group": "adult",
+            "registration_genetic_status": "genetic",
+            "registration_affection": "affected",
+            "registration_note": "Sharing-oriented diagnosed case. Pathogenic MYH7 hypertrophic cardiomyopathy case.",
+            "registration_consent_form_type": "not_applicable",
+            "registration_consent_acquirer": "not_applicable",
+            "registration_proxy_relation": null,
+            "registration_proxy_relation_other": null,
+            "registration_consent_form_version": null,
+            "registration_ascent": "unknown",
+            "registration_ascent_version": null,
+            "registration_consent_acquisition_date": null,
+            "registration_consent_withdrawal": "unknown",
+            "registration_consent_withdrawer": "not_applicable",
+            "registration_proxy_relation_withdrawer": null,
+            "registration_proxy_relation_withdrawer_other_details": null,
+            "registration_consent_withdrawal_version": null,
+            "registration_ascent_withdrawer": "unknown",
+            "registration_ascent_withdrawal_version": null,
+            "registration_consent_withdrawal_date": null
+        },
+        {
+            "PCFNo": "P2026681548398083qztn",
+            "share_id": null,
+            "case_id": "C0000008",
+            "case_family_id": "F0000005",
+            "case_relationship": "proband_individual",
+            "case_parent_id": null,
+            "case_spouse_id": null,
+            "case_group": "Lysosomal disorder",
+            "case_presence_or_absence_of_onset": "onset",
+            "case_life_status": "alive",
+            "case_birth": "1992/11",
+            "case_death": null,
+            "case_examination_day": "2025/09/03",
+            "case_age": "32Y",
+            "case_sex": "male",
+            "case_note": "Family 2 proband.",
+            "case_sympton": null,
+            "medical_chief_complaint": "Acroparesthesia, hypohidrosis, and proteinuria",
+            "medical_case_solved": "SOLVED",
+            "medical_age_onset": "14Y",
+            "medical_current_history": "Burning pain in the distal extremities appeared during adolescence, and angiokeratoma plus proteinuria developed in the late twenties.",
+            "medical_previous_history": null,
+            "medical_prenatal_perinatal_history": null,
+            "medical_early_developmental_and_schooling_history": null,
+            "medical_process": "Reduced enzyme activity and a pathogenic GLA variant established the diagnosis of Fabry disease.",
+            "medical_medications": null,
+            "medical_allergies": null,
+            "medical_social_history": null,
+            "medical_drinking": null,
+            "medical_travel_history": null,
+            "medical_vaccination_history": null,
+            "medical_physical_findings": "Scattered angiokeratomas on the lower abdomen and reduced sweating.",
+            "medical_examination_findings": "Laboratory tests: alpha-Gal A activity 0.8 nmol/hr/mg protein, creatinine 1.0 mg/dL, urine protein 1.2 g/gCr, NT-proBNP 420 pg/mL.",
+            "phenotype_hpo_id": [
+                "HP:0003401",
+                "HP:0000966",
+                "HP:0001071",
+                "HP:0000093",
+                "HP:0001712"
+            ],
+            "phenotype_hpo_label": [
+                {
+                    "name_en": "Paresthesia",
+                    "name_ja": "Paresthesia"
+                },
+                {
+                    "name_en": "Hypohidrosis",
+                    "name_ja": "Hypohidrosis"
+                },
+                {
+                    "name_en": "Diffuse angiokeratoma",
+                    "name_ja": "Diffuse angiokeratoma"
+                },
+                {
+                    "name_en": "Proteinuria",
+                    "name_ja": "Proteinuria"
+                },
+                {
+                    "name_en": "Left ventricular hypertrophy",
+                    "name_ja": "Left ventricular hypertrophy"
+                }
+            ],
+            "phenotype_medical_current_history": [
+                "yes",
+                "yes",
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_medical_previous_history": [
+                "no",
+                "no",
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_process": [
+                "yes",
+                "yes",
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_family_history": [
+                "yes",
+                "yes",
+                "yes",
+                "yes",
+                "yes"
+            ],
+            "phenotype_excluded": [
+                "no",
+                "no",
+                "no",
+                "no",
+                "no"
+            ],
+            "phenotype_clinical_relevance": [
+                "distinctive",
+                "distinctive",
+                "distinctive",
+                "distinctive",
+                "minor"
+            ],
+            "phenotype_severity": [
+                "moderate",
+                "moderate",
+                "mild",
+                "moderate",
+                "moderate"
+            ],
+            "phenotype_age_onset": [
+                "14Y",
+                "15Y",
+                "26Y",
+                "28Y",
+                "31Y"
+            ],
+            "phenotype_temporal_pattern": [
+                "chronic",
+                "chronic",
+                "chronic",
+                "chronic",
+                "chronic"
+            ],
+            "phenotype_pace_progression": [
+                "Progressive",
+                "Progressive",
+                "Slowly progressive",
+                "Slowly progressive",
+                "Slowly progressive"
+            ],
+            "phenotype_resolution": [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "phenotype_comments": [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "genotype_analysis": "GLA testing identified a pathogenic missense variant.",
+            "genotype_gene": [
+                "GLA"
+            ],
+            "genotype_status": [
+                "Pathogenic variant detected"
+            ],
+            "genotype_cdna_change": [
+                "c.644A>G"
+            ],
+            "genotype_pathogenicity": [
+                "Pathogenic"
+            ],
+            "genotype_allelic_state": [
+                "hemizygous"
+            ],
+            "genotype_reference": [],
+            "genotype_chr_position": [],
+            "genotype_transcript": [
+                "NM_000169.3"
+            ],
+            "genotype_protein_charge": [
+                "p.Asn215Ser"
+            ],
+            "genotype_annotation": [],
+            "genotype_inheritance": [
+                "x-linked recessive"
+            ],
+            "genotype_comments": [],
+            "family_history": "The mother and younger sister have milder related symptoms.",
+            "family_mode_inheritance": "X-linked inheritance",
+            "family_other_affected_relatives": "present",
+            "family_consanguinity": "absent",
+            "family_paternal_ethnicity": null,
+            "family_maternal_ethnicity": null,
+            "case_participation_of_relatives_in_this_study": "not_applicable",
+            "case_sex_details": "",
+            "case_age_on_examination": "32Y",
+            "case_cause_of_death": null,
+            "case_cause_of_death_details": null,
+            "case_icd_11_code_of_cause_of_death": null,
+            "case_last_date_of_confirmation_of_survival": "2025/09/03",
+            "case_ethnicity_group": null,
+            "case_free_comment_about_ethnicity_group": null,
+            "case_country_of_birth": null,
+            "case_state_of_birth": null,
+            "case_city_of_birth": null,
+            "case_free_comment_about_birth": null,
+            "case_presence_of_prenatal_abnormalities": "unknown",
+            "case_presence_of_abnormalities_at_birth": "unknown",
+            "case_presence_of_medical_assistance_at_birth": "unknown",
+            "case_gestational_age_at_birth": null,
+            "case_age_of_mother_at_birth": null,
+            "case_age_of_father_at_birth": null,
+            "case_presence_of_assisted_reproductive_technology": "unknown",
+            "case_type_of_assisted_reproductive_technology": [],
+            "case_date_of_survey": null,
+            "case_name_of_facility": null,
+            "case_code_of_facility": null,
+            "case_family_name_of_doctor_in_charge": null,
+            "case_first_name_of_doctor_in_charge": null,
+            "case_family_name_of_inputter": null,
+            "case_first_name_of_inputter": null,
+            "case_created_at": "2026/6/8 16:10:00",
+            "case_updated_at": "2026/6/8 16:34:31",
+            "medical_presence_of_previous_history": "absent",
+            "medical_disease_of_previous_history_id": [
+                null
+            ],
+            "medical_disease_of_previous_history_name": [
+                null
+            ],
+            "medical_note_of_previous_history": null,
+            "medical_presence_of_complications": "unknown",
+            "medical_complication_history_id": [
+                null
+            ],
+            "medical_complication_history_name": [
+                null
+            ],
+            "medical_note_of_complications": null,
+            "medical_complications_history": null,
+            "medical_presence_of_pregnancy": "unknown",
+            "medical_number_of_pregnancy": "",
+            "medical_presence_of_childbirth": "unknown",
+            "medical_number_of_childbirth": "",
+            "medical_presence_of_miscarriage_or_stillbirth": "unknown",
+            "medical_number_of_stillbirth": "",
+            "medical_number_of_miscarriage": "",
+            "medical_number_of_artificial_abortion": "",
+            "medical_presence_of_employment": "unknown",
+            "medical_occupational_classification": [],
+            "medical_occupational_classification_other_details": null,
+            "medical_body_height_at_birth": null,
+            "medical_body_weight_at_birth": null,
+            "medical_head_circumference_at_birth": null,
+            "medical_body_height_at_registration": null,
+            "medical_body_weight_at_registration": null,
+            "medical_head_circumference_at_registration": null,
+            "medical_age_at_measurement": null,
+            "medical_body_info_date_at_examination": [
+                "2025/09/03"
+            ],
+            "medical_body_height_at_examination": [
+                "168"
+            ],
+            "medical_body_weight_at_examination": [
+                "59"
+            ],
+            "medical_head_circumference_at_examination": [
+                "57"
+            ],
+            "medical_presence_of_drinking_habits": "unknown",
+            "medical_presence_of_smoking_habits": "unknown",
+            "medical_number_of_smoking": null,
+            "medical_years_of_smoking": null,
+            "medical_suspected_disease_id": [
+                {
+                    "OMIM": "OMIM:301500",
+                    "Orphanet": "Orphanet:324"
+                }
+            ],
+            "medical_suspected_disease_name": [
+                "Fabry disease"
+            ],
+            "medical_suspection_of_genetic_disease": "present",
+            "medical_presence_of_familiality": "present",
+            "medical_symptoms_related_within_family_lineage": null,
+            "presence_of_multisystem_disorder": "unknown",
+            "medical_disease_area": [],
+            "medical_disease_area_details": null,
+            "medical_confirmation_of_clinical_diagnosis": "unknown",
+            "medical_clinical_diagnosis_id": [
+                {
+                    "OMIM": "OMIM:301500",
+                    "Orphanet": "Orphanet:324"
+                }
+            ],
+            "medical_clinical_diagnosis_name": [
+                "Fabry disease"
+            ],
+            "medical_clinical_diagnosis_date": [
+                "2025/08"
+            ],
+            "medical_final_diagnosis_id": [
+                {
+                    "OMIM": "OMIM:301500",
+                    "Orphanet": "Orphanet:324"
+                }
+            ],
+            "medical_final_diagnosis_name": [
+                "Fabry disease"
+            ],
+            "medical_final_diagnosis_date": [
+                "2025/09"
+            ],
+            "medical_presence_of_designated_intractable_disease_certification": "other",
+            "medical_applied_intractable_disease_id": [
+                null
+            ],
+            "medical_applied_intractable_disease_name": [
+                null
+            ],
+            "medical_presence_of_pediatric_chronic_specific_disease_certification": "other",
+            "medical_applied_pediatric_disease_id": [
+                null
+            ],
+            "medical_applied_pediatric_disease_name": [
+                null
+            ],
+            "genotype_presence_of_genetic_testing": "present",
+            "genotype_presence_of_abnormalities_in_genetic_testing": "present",
+            "genotype_date_of_testing": [
+                "2025/09/03"
+            ],
+            "genotype_testing_company_name": [
+                ""
+            ],
+            "genotype_testing_company_name_other_details": [],
+            "genotype_type_of_testing": [],
+            "genotype_testing_other_details": [],
+            "genotype_result_of_testing": [
+                "unknown"
+            ],
+            "genotype_ncbi_gene_id": [
+                "2717"
+            ],
+            "genotype_ensembl_id": [
+                "ENSG00000102393"
+            ],
+            "family_presence_of_onset_in_family": "present",
+            "family_presence_of_miscarriage_or_stillbirth_of_mother": "absent",
+            "family_number_of_stillbirth_of_mother": null,
+            "family_number_of_miscarriage_of_mother": null,
+            "family_number_of_artificial_abortion_of_mother": null,
+            "family_relative_name": [
+                null
+            ],
+            "family_generation_number_of_relative": [
+                null
+            ],
+            "family_presence_of_genetic_cancer_testing": [
+                "unknown"
+            ],
+            "family_genetic_cancer_testing_result_file": [
+                null
+            ],
+            "family_presence_of_cancer_history": [
+                "unknown"
+            ],
+            "family_cancer_history_cancer_type": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_cancer_type_other_details": [
+                [
+                    null
+                ]
+            ],
+            "family_cancer_history_age_of_onset": [
+                [
+                    "unknown"
+                ]
+            ],
+            "family_presence_of_lifestyle_disease_history": [
+                "unknown"
+            ],
+            "family_lifestyle_disease_history": [
+                []
+            ],
+            "family_lifestyle_disease_history_other_details": [
+                null
+            ],
+            "family_consanguinity_of_parents": "unknown",
+            "family_family_tree_pdf": null,
+            "family_date_of_family_tree": null,
+            "family_generation_number_of_proband": null,
+            "sample_sampling_date": "2025/09/03",
+            "sample_id": "S-P2026681548398083qztn",
+            "sample_presense_of_treatment_drug_at_sampling": "unknown",
+            "sample_type": [
+                "blood"
+            ],
+            "sample_type_other_detail": null,
+            "sample_prescription": [
+                null
+            ],
+            "sample_route_of_administration": [
+                null
+            ],
+            "sample_yj_code": [
+                null
+            ],
+            "sample_test_date": "2025/09/03",
+            "sample_wbc": null,
+            "sample_rbc": null,
+            "sample_hemoglobin": null,
+            "sample_hematocrit": null,
+            "sample_plt": null,
+            "sample_tp": null,
+            "sample_alb": null,
+            "sample_t_bil": null,
+            "sample_alp": null,
+            "sample_ast_got": null,
+            "sample_alt_gpt": null,
+            "sample_ldh": null,
+            "sample_ck": null,
+            "sample_gamma_gtp": null,
+            "sample_cre": "1.0",
+            "sample_ua": null,
+            "sample_bun": null,
+            "sample_amy": null,
+            "sample_t_cho": null,
+            "sample_tg": null,
+            "sample_ldl_cho": null,
+            "sample_hdl_cho": null,
+            "sample_na": null,
+            "sample_k": null,
+            "sample_ip": null,
+            "sample_cl": null,
+            "sample_ca": null,
+            "sample_crp": null,
+            "sample_glu": null,
+            "sample_hba1c": null,
+            "sample_test_item": [
+                "NT-proBNP",
+                "alpha-Gal A activity",
+                "Urine protein"
+            ],
+            "sample_test_value": [
+                "420",
+                "0.8",
+                "1.2"
+            ],
+            "sample_test_unit": [
+                "pg/mL",
+                "nmol/hr/mg protein",
+                "g/gCr"
+            ],
+            "registration_disease_name": "Fabry disease",
+            "registration_diagnosis_status": "diagnosed",
+            "registration_age_group": "adult",
+            "registration_genetic_status": "genetic",
+            "registration_affection": "affected",
+            "registration_note": "Family 2 proband.",
+            "registration_consent_form_type": "not_applicable",
+            "registration_consent_acquirer": "not_applicable",
+            "registration_proxy_relation": null,
+            "registration_proxy_relation_other": null,
+            "registration_consent_form_version": null,
+            "registration_ascent": "unknown",
+            "registration_ascent_version": null,
+            "registration_consent_acquisition_date": null,
+            "registration_consent_withdrawal": "unknown",
+            "registration_consent_withdrawer": "not_applicable",
+            "registration_proxy_relation_withdrawer": null,
+            "registration_proxy_relation_withdrawer_other_details": null,
+            "registration_consent_withdrawal_version": null,
+            "registration_ascent_withdrawer": "unknown",
+            "registration_ascent_withdrawal_version": null,
+            "registration_consent_withdrawal_date": null
+        }
+    ],
+    "visibleColumns": [
+        "case_id",
+        "case_sex",
+        "case_presence_or_absence_of_onset",
+        "case_birth",
+        "medical_suspected_disease_name",
+        "medical_clinical_diagnosis_name",
+        "medical_final_diagnosis_name",
+        "phenotype_hpo_id",
+        "phenotype_hpo_label",
+        "genotype_gene",
+        "genotype_allelic_state",
+        "genotype_inheritance",
+        "registration_diagnosis_status"
+    ],
+    "keyName": {},
+    "lang": "en",
+    "caseCount": "00008"
+}

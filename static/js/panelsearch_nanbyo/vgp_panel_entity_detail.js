@@ -441,6 +441,7 @@ function _vgp_init_panel_entity_summary_tbl(
 	let text_moi = Object.keys(t_hash_moi).join(', ');
 	$('#vgp-td-inheritance').text(text_moi);
 
+	//$('#vgp-td-comments').html(text_comment.replaceAll('\n','<br>'));
 	$('#vgp-td-comments').text(text_comment ?? '').css('white-space', 'pre-wrap');
 
 	if((typeof _is_current_user_curator) !== "undefined" && 

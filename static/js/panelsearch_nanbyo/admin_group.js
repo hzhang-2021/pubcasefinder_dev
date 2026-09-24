@@ -314,6 +314,8 @@ function _table_filter(filter){
 			for(let element_class of element_class_list){
 				let text = $(row).find("."+element_class).text();
 				if(text.toLowerCase().includes(keyword)){
+					//let highlight_text = text.replace(regex, '<mark>$1</mark>');
+					//$(row).find("."+element_class).html(highlight_text);
 					let $target = $(row).find("."+element_class).empty();
 					text.split(regex).forEach((part, index) => {
 						$target.append(index % 2 ? $('<mark>').text(part) : document.createTextNode(part));

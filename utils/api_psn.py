@@ -1069,10 +1069,10 @@ def api_psn_delete_panel_entity_definition(user_id_change, entity_id):
                 cursor.execute(
                     """
                     UPDATE panelsearch_nando_entity
-                    SET is_latest = %s, is_deleted = %s, modified_at = NOW()
+                    SET is_latest = %s, modified_at = NOW()
                     WHERE entity_id = %s AND is_latest = %s AND is_deleted = %s
                     """,
-                    (ENUM_VAL_NO, ENUM_VAL_YES, entity_id, ENUM_VAL_YES, ENUM_VAL_NO)
+                    (ENUM_VAL_NO, entity_id, ENUM_VAL_YES, ENUM_VAL_NO)
                 )
                 if cursor.rowcount != 1:
                     conn.rollback()
@@ -1474,6 +1474,8 @@ def api_psn_regist_review(user_id_change, data):
                         return {'error': 'You do not have permission to edit this review', 'status_code': 403}
                     if str(panel_id) != str(former_data['panel_id']):
                         return {'error': 'The review panel cannot be changed', 'status_code': 400}
+                    if str(former_review_id) != str(former_data['review_id']):
+                        return {'error': 'Review has changed. Reload before editing.', 'status_code': 409}
                     base_fields["created_at"] = former_data["created_at"]
                     base_fields["original_review_id"] = former_data["original_review_id"]
                     original_review_id = former_data["original_review_id"]
