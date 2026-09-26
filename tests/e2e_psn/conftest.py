@@ -5,9 +5,10 @@ from urllib.parse import urlparse
 import os
 
 import pytest
-from playwright.sync_api import expect
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError, expect
 
-from psn_common import ROOT, load_config, assert_json_response, response_matches, screenshot_filename
+from psn_common import (ROOT, load_config, assert_json_response, response_matches,
+                        screenshot_filename, wait_for_loaders)
 
 expect.set_options(timeout=30000)
 
@@ -81,16 +82,25 @@ def root_page(browser, psn_config, request):
     context = browser.new_context(**options)
     page = context.new_page()
     try:
-        # Register listeners before navigation so fast initial AJAX responses are caught.
-        with ExitStack() as stack:
-            pending = [stack.enter_context(page.expect_response(
-                lambda response, path=path: response_matches(response, path), timeout=60000
-            )) for path in settings.get('load_apis', [])]
-            response = page.goto(psn_config.page_url(name, query), wait_until='domcontentloaded')
-            assert response and response.ok, f'{name}: page navigation failed'
-            assert urlparse(page.url).path == settings['path'], f'{name}: redirected; check login state'
-        for item in pending:
-            assert_json_response(item.value)
+        url = psn_config.page_url(name, query)
+        for attempt in range(2):
+            try:
+                # Register listeners before navigation so fast initial AJAX responses are caught.
+                with ExitStack() as stack:
+                    pending = [stack.enter_context(page.expect_response(
+                        lambda response, path=path: response_matches(response, path), timeout=60000
+                    )) for path in settings.get('load_apis', [])]
+                    response = page.goto(url, wait_until='domcontentloaded')
+                    assert response and response.ok, f'{name}: page navigation failed'
+                    assert urlparse(page.url).path == settings['path'], (
+                        f'{name}: redirected; check login state')
+                for item in pending:
+                    assert_json_response(item.value)
+                wait_for_loaders(page)
+                break
+            except PlaywrightTimeoutError:
+                if attempt == 1:
+                    raise
         yield page
     finally:
         try:
