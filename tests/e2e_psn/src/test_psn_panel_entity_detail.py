@@ -1,4 +1,5 @@
 """Browser tests for /panelsearch_nanbyo_panel_entity_detail."""
+from contextlib import contextmanager
 import os
 from urllib.parse import parse_qs, urlparse
 from uuid import uuid4
@@ -45,6 +46,108 @@ def current_review_comments(page, config):
     comments = assert_json_response(response)
     assert isinstance(comments, list)
     return comments
+
+
+@contextmanager
+def definitionless_entity(page, config):
+    """Use the configured entity, or create and clean up a temporary one."""
+    if not current_definitions(page, config):
+        yield page
+        return
+    if os.getenv('PSN_ADD_ENTITY_MUTATION') != '1':
+        pytest.skip(
+            'This entity already has a current definition; use '
+            '--psn-enable-mutations to create a temporary Entity'
+        )
+
+    original_query = parse_qs(urlparse(page.url).query)
+    panel_id = original_query['panel_id'][0]
+    nando_id = original_query.get('nando_id', [panel_id])[0]
+    origin = config.settings['origin'].rstrip('/')
+    marker = 'PSN-E2E-DEFINITION-CANCEL-ENTITY-' + uuid4().hex
+    params = None
+
+    page.goto(config.page_url('panel_detail', {'panel_id': panel_id}),
+              wait_until='domcontentloaded')
+    button = page.locator('#wrapper_panel_add_entity_btn').get_by_text(
+        'ADD ENTITY', exact=False)
+    expect(button).to_be_visible(timeout=60000)
+    button.click()
+    expect(page.locator('#panel_review_form')).to_be_visible(timeout=60000)
+
+    gene_input = page.locator('#tokenInput_gene_symbol input[type="text"]')
+    gene_input.fill('A')
+    suggestion = page.locator(
+        '#tokenInput_gene_symbol .typeahead-dropdown .dropdown-item').first
+    expect(suggestion).to_be_visible(timeout=60000)
+    suggestion.click()
+    gene_id, gene_symbol = page.locator(
+        '#input_review_gene_symbol').input_value().split(',', 1)
+    params = {'panel_id': panel_id, 'entity_type_id': '1',
+              'entity_name': gene_symbol}
+    page.locator('#input_review_comment').fill(marker)
+    page.locator('#btn_vgp_review_submit').click()
+    dialog = page.locator('#confirmationModal')
+    expect(dialog).to_be_visible()
+    expect(dialog).to_contain_text(gene_symbol)
+    expect(dialog).to_contain_text(marker)
+
+    def read_records(endpoint):
+        response = page.context.request.get(origin + endpoint, params=params)
+        records = assert_json_response(response)
+        assert isinstance(records, list), f'{endpoint}: expected a list'
+        return records
+
+    try:
+        with page.expect_navigation(wait_until='domcontentloaded'):
+            with page.expect_response(lambda response: response_matches(
+                    response, '/panelsearch_nanbyo_regist_review')) as result:
+                dialog.locator('#btnConfirmAction').click()
+            assert result.value.ok, (
+                f'Temporary Entity submission: HTTP {result.value.status}')
+
+        comments = [row for row in read_records(
+            '/panelsearch_nanbyo_get_panel_entity_review_comment')
+            if row.get('comment') == marker]
+        assert len(comments) == 1, 'Expected one temporary Entity comment'
+        reviews = [row for row in read_records(
+            '/panelsearch_nanbyo_get_panel_entity_review')
+            if row['review_id'] == comments[0]['review_id']]
+        assert len(reviews) == 1, 'Expected one temporary Entity review'
+
+        page.goto(config.page_url('panel_entity_detail', {
+            'panel_id': panel_id,
+            'nando_id': nando_id,
+            'entity_type_id': '1',
+            'entity_name': gene_symbol,
+            'gene_id': gene_id,
+            'gene_symbol': gene_symbol,
+        }), wait_until='domcontentloaded')
+        expect(page.locator('#btn-definition-edit')).to_be_visible(timeout=60000)
+        assert not current_definitions(page, config), (
+            'The temporary Entity unexpectedly has a current Definition')
+        yield page
+    finally:
+        if params is not None:
+            comments = [row for row in read_records(
+                '/panelsearch_nanbyo_get_panel_entity_review_comment')
+                if row.get('comment') == marker]
+            reviews = read_records('/panelsearch_nanbyo_get_panel_entity_review')
+            for comment in comments:
+                matches = [row for row in reviews
+                           if row['review_id'] == comment['review_id']
+                           and row['user_id'] == comment['user_id']]
+                assert len(matches) == 1, (
+                    f'Cannot identify temporary Entity for cleanup: {marker}')
+                response = page.context.request.post(
+                    origin + '/panelsearch_nanbyo_delete_panel_entity_review',
+                    data=matches[0])
+                body = assert_json_response(response)
+                assert body.get('suceed') == 'done', (
+                    f'Temporary Entity cleanup failed: {marker}')
+                assert all(row['review_id'] != matches[0]['review_id']
+                           for row in read_records(
+                               '/panelsearch_nanbyo_get_panel_entity_review'))
 
 
 def test_panel_entity_detail_is_visible(root_page, psn_config):
@@ -286,28 +389,27 @@ def test_panel_entity_definition_delete_cancel(root_page, psn_config):
 
 @pytest.mark.parametrize('root_page', ['admin', 'curator'], indirect=True)
 def test_panel_entity_definition_add_cancel(root_page, psn_config):
-    if current_definitions(root_page, psn_config):
-        pytest.skip('This entity already has a current definition')
-    summary = root_page.locator('#vgp-panel-entity-summary-wrapper')
-    edit = summary.locator('#btn-definition-edit')
-    expect(edit).to_be_visible(timeout=60000)
-    edit.click()
-    marker = 'PSN-E2E-CANCEL-' + uuid4().hex
-    summary.locator('#input_definition_comment').fill(marker)
-    summary.locator('#btn-definition-save').click()
-    dialog = root_page.locator('#confirmationModal')
-    expect(dialog).to_be_visible()
-    expect(dialog.locator('#confirmationModalLabel')).to_have_text(
-        'Confirm Addition of Entity Definition')
-    expect(dialog).to_contain_text(marker)
-    expect(dialog.locator('#btnConfirmAction')).to_have_text('Add Definition')
-    take_screenshot(root_page, psn_config, 'entity_definition_add_confirmation')
-    dialog.get_by_role('button', name='Cancel', exact=True).click()
-    expect(dialog).not_to_be_visible()
-    expect(summary.locator('#input_definition_comment')).to_have_value(marker)
-    assert not current_definitions(root_page, psn_config)
-    summary.locator('#btn-definition-cancel').click()
-    expect(summary.locator('#vgp-summary-table')).to_be_visible()
+    with definitionless_entity(root_page, psn_config) as page:
+        summary = page.locator('#vgp-panel-entity-summary-wrapper')
+        edit = summary.locator('#btn-definition-edit')
+        expect(edit).to_be_visible(timeout=60000)
+        edit.click()
+        marker = 'PSN-E2E-CANCEL-' + uuid4().hex
+        summary.locator('#input_definition_comment').fill(marker)
+        summary.locator('#btn-definition-save').click()
+        dialog = page.locator('#confirmationModal')
+        expect(dialog).to_be_visible()
+        expect(dialog.locator('#confirmationModalLabel')).to_have_text(
+            'Confirm Addition of Entity Definition')
+        expect(dialog).to_contain_text(marker)
+        expect(dialog.locator('#btnConfirmAction')).to_have_text('Add Definition')
+        take_screenshot(page, psn_config, 'entity_definition_add_confirmation')
+        dialog.get_by_role('button', name='Cancel', exact=True).click()
+        expect(dialog).not_to_be_visible()
+        expect(summary.locator('#input_definition_comment')).to_have_value(marker)
+        assert not current_definitions(page, psn_config)
+        summary.locator('#btn-definition-cancel').click()
+        expect(summary.locator('#vgp-summary-table')).to_be_visible()
 
 
 @pytest.mark.parametrize('root_page', ['admin'], indirect=True)

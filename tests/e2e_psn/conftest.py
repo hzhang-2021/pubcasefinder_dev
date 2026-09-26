@@ -11,12 +11,44 @@ from psn_common import ROOT, load_config, assert_json_response, response_matches
 
 expect.set_options(timeout=30000)
 
+MUTATION_ENV_VARS = (
+    'PSN_ADD_ENTITY_MUTATION',
+    'PSN_REVIEW_COMMENT_MUTATION',
+    'PSN_DEFINITION_MUTATION',
+)
+
 
 def pytest_addoption(parser):
     # Separate destinations prevent a collision when both E2E projects are collected.
     parser.addoption('--psn-lang', choices=['ja', 'en'], default='ja')
     parser.addoption('--psn-require-auth', action='store_true',
                      help='Fail rather than skip when a required storage state is missing')
+    parser.addoption(
+        '--psn-enable-mutations',
+        action='store_true',
+        help='Enable all PSN tests that write to the configured server',
+    )
+
+
+def pytest_configure(config):
+    if not config.getoption('--psn-enable-mutations'):
+        return
+    config._psn_mutation_original_env = {
+        name: os.environ.get(name) for name in MUTATION_ENV_VARS
+    }
+    for name in MUTATION_ENV_VARS:
+        os.environ[name] = '1'
+
+
+def pytest_unconfigure(config):
+    original = getattr(config, '_psn_mutation_original_env', None)
+    if original is None:
+        return
+    for name, value in original.items():
+        if value is None:
+            os.environ.pop(name, None)
+        else:
+            os.environ[name] = value
 
 
 @pytest.fixture(scope='session')

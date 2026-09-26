@@ -1069,10 +1069,10 @@ def api_psn_delete_panel_entity_definition(user_id_change, entity_id):
                 cursor.execute(
                     """
                     UPDATE panelsearch_nando_entity
-                    SET is_latest = %s, modified_at = NOW()
+                    SET is_latest = %s, is_deleted= %s, modified_at = NOW()
                     WHERE entity_id = %s AND is_latest = %s AND is_deleted = %s
                     """,
-                    (ENUM_VAL_NO, entity_id, ENUM_VAL_YES, ENUM_VAL_NO)
+                    (ENUM_VAL_NO, ENUM_VAL_YES, entity_id, ENUM_VAL_YES, ENUM_VAL_NO)
                 )
                 if cursor.rowcount != 1:
                     conn.rollback()

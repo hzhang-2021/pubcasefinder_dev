@@ -178,7 +178,7 @@ Google ログインを手動で完了した後、Inspector の Resume をクリ�
     admin・curator の認証状態を使用します。
 
     - 編集表示：Edit ボタン、編集表、Save ボタン、Cancel による概要表示への復帰を確認します。Save は実行せず、定義を変更しません。
-    - 追加確認：現在有効な定義がないエンティティを使用します。Comment を入力して Save を押し、確認画面を検証して Cancel で閉じます。入力値が保持され、定義が登録されないことを確認します。
+    - 追加確認：現在有効な定義がないエンティティを使用します。設定対象に有効な Definition がある場合、`--psn-enable-mutations` では対象 Panel に一時 Entity を追加してテストし、終了時に作成した Review を削除します。Comment を入力して Save を押し、確認画面を検証して Cancel で閉じます。入力値が保持され、定義が登録されないことを確認します。
     - 削除確認：有効な定義がある場合に Delete ボタンと確認画面を検証し、Cancel で閉じます。新しい画面と API がデプロイされるまで、実測結果は未実行として扱います。
 
 追加・削除の確定テストは、専用の admin 認証状態と、現在有効な定義がない使い捨てエンティティを用意してから `PSN_DEFINITION_MUTATION=1` を設定した場合だけ実行します。対象は `pages.panel_entity_detail.query` または `PSN_PANEL_ID`・`PSN_ENTITY_NAME`・`PSN_GENE_ID`・`PSN_GENE_SYMBOL` で指定します。テストは一意のコメントを付けて画面から登録し、読み取り API と画面で新しい定義を確認した後、画面から削除して消失を確認します。途中で失敗しても今回のコメントで識別した有効な定義の削除を試みます。登録・削除に伴うパネルのバージョンと活動履歴は残ります。
@@ -203,16 +203,20 @@ uv run pytest src/test_psn_panel_list.py --browser=chromium
 
 # 認証ファイルの不足を失敗として扱う
 uv run pytest --browser=chromium --psn-require-auth
+
+# 更新系テストをまとめて有効化（テスト環境専用）
+uv run pytest --browser=chromium --psn-enable-mutations --psn-require-auth
 ```
 
 ### 特別な環境変数が必要なテスト
 
 通常実行では、デプロイ先のデータを更新する次のテストをスキップします。
 実行する場合は、対象テストに対応する環境変数へ文字列 `1` を設定してください。
+3 種類すべてを一度に実行する場合は `--psn-enable-mutations` を指定できます。このオプションは pytest プロセス内だけで下記 3 環境変数を `1` に設定し、終了時に元の値へ戻します。共有環境や本番環境では使用せず、各テストの前提データと後処理条件を満たす専用テスト環境で使用してください。
 
 | 環境変数 | 対象テスト | 必要なロール | 前提条件 | テスト後の処理 |
 | --- | --- | --- | --- | --- |
-| `PSN_ADD_ENTITY_MUTATION=1` | `test_panel_detail_add_entity_submit` | reviewer | 対象パネルへ追加可能な未登録 Gene が候補一覧に存在する | 作成した Review を一意のコメントで特定して削除する |
+| `PSN_ADD_ENTITY_MUTATION=1` | `test_panel_detail_add_entity_submit`、既存 Definition がある場合の `test_panel_entity_definition_add_cancel` 自動準備 | reviewer / admin / curator | 対象パネルへ追加可能な未登録 Gene が候補一覧に存在する | 作成した Review を一意のコメントで特定して削除する |
 | `PSN_REVIEW_COMMENT_MUTATION=1` | `test_panel_entity_review_comment_add_modify_delete` | admin | 対象 Entity にコメント追加先となる Review が1件以上存在する | 追加したコメントを画面から削除し、失敗時も API による後処理を試みる |
 | `PSN_DEFINITION_MUTATION=1` | `test_panel_entity_definition_add_delete_submit` | admin | 現在有効な Definition がない使い捨て Entity を指定する | 追加した Definition を画面から削除し、失敗時も API による後処理を試みる |
 
